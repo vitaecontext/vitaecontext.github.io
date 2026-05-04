@@ -6,7 +6,7 @@ export const site = {
   description:
     "A human-readable knowledge hub and modular agent skill system for personal branding, LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, X/Twitter strategy, and agent context files.",
   disclaimer:
-    "Platform names are trademarks of their respective owners. AgentKit SEO is not affiliated with or endorsed by them.",
+    "Platform names, trademarks, and logos belong to their respective owners. AgentKit SEO is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
   authors: [
     {
       name: "Renato Mignone",
@@ -111,36 +111,42 @@ export const providers = [
 export const serviceMarks = [
   {
     name: "CV/ATS",
+    icon: "cv",
     mark: "CV",
     tone: "teal",
     text: "Resume optimization for ATS parsing, recruiter scanning, keywords, and proof bullets.",
   },
   {
     name: "LinkedIn",
+    icon: "linkedin",
     mark: "in",
     tone: "blue",
     text: "LinkedIn profile optimization for headlines, About copy, Featured proof, skills, and search clarity.",
   },
   {
     name: "GitHub",
+    icon: "github",
     mark: "GH",
     tone: "ink",
     text: "GitHub profile and repository SEO for READMEs, topics, pinned repos, and AI-readable proof.",
   },
   {
     name: "Web Portfolio",
+    icon: "portfolio",
     mark: "WWW",
     tone: "green",
     text: "Portfolio SEO for crawlable pages, metadata, structured data, sitemaps, and snippets.",
   },
   {
     name: "X/Twitter",
+    icon: "x",
     mark: "X",
     tone: "ink",
     text: "X and Twitter profile optimization for bio clarity, pinned posts, posting strategy, and engagement loops.",
   },
   {
     name: "Agent Context",
+    icon: "context",
     mark: "CTX",
     tone: "gold",
     text: "Agent context file architecture for one verified career source of truth across every surface.",
@@ -152,6 +158,7 @@ export const skills = [
     slug: "agent-context-optimization",
     name: "Agent Context Optimization",
     shortName: "Agent Context",
+    icon: "context",
     href: "/skills/agent-context-optimization/",
     summary:
       "Build a private Markdown source of truth for verified career facts, links, projects, and positioning.",
@@ -174,6 +181,7 @@ export const skills = [
     slug: "cv-ats",
     name: "CV and ATS Optimization",
     shortName: "CV/ATS",
+    icon: "cv",
     href: "/skills/cv-ats/",
     summary:
       "Turn CVs into parser-friendly, recruiter-readable documents with cleaner structure, keywords, and proof bullets.",
@@ -196,6 +204,7 @@ export const skills = [
     slug: "linkedin",
     name: "LinkedIn Optimization",
     shortName: "LinkedIn",
+    icon: "linkedin",
     href: "/skills/linkedin/",
     summary:
       "Improve LinkedIn headline, About, Experience, Featured, and Skills sections with evidence-backed positioning.",
@@ -218,6 +227,7 @@ export const skills = [
     slug: "github",
     name: "GitHub Optimization",
     shortName: "GitHub",
+    icon: "github",
     href: "/skills/github/",
     summary:
       "Make profiles and repositories easier to discover, inspect, and trust across GitHub search, Copilot, and humans.",
@@ -240,6 +250,7 @@ export const skills = [
     slug: "web-portfolio",
     name: "Web Portfolio SEO",
     shortName: "Web Portfolio",
+    icon: "portfolio",
     href: "/skills/web-portfolio/",
     summary:
       "Audit portfolio crawlability, metadata, structured data, JavaScript rendering, performance, and AI-readable signals.",
@@ -262,6 +273,7 @@ export const skills = [
     slug: "x-twitter",
     name: "X/Twitter Optimization",
     shortName: "X/Twitter",
+    icon: "x",
     href: "/skills/x-twitter/",
     summary:
       "Shape profiles, pinned posts, and content loops around clear positioning and documented platform behavior.",

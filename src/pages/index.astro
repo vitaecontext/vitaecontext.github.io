@@ -1,6 +1,7 @@
 ---
 import CtaBand from "@components/CtaBand.astro";
 import IndexingChecklist from "@components/IndexingChecklist.astro";
+import PlatformIcon from "@components/PlatformIcon.astro";
 import SectionHeader from "@components/SectionHeader.astro";
 import SystemMap from "@components/SystemMap.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -13,6 +14,28 @@ const meta = {
     "AgentKit SEO is a human-readable knowledge hub and modular agent skill system for LinkedIn profile optimization, GitHub SEO, CV/ATS resumes, portfolio SEO, X/Twitter strategy, and agent context files.",
   path: "/",
 };
+
+const benchmarkTakeaways = [
+  "Markdown-first",
+  "Agent-ready",
+  "Provider-aware",
+  "Crawler-safe",
+];
+
+const quickstart = [
+  {
+    title: "Choose the surface",
+    text: "LinkedIn, GitHub, CV/ATS, portfolio, X/Twitter, or the context file that grounds them all.",
+  },
+  {
+    title: "Use the matching mode",
+    text: "Open the playbook for manual work, or install the same method as a provider-aware agent skill.",
+  },
+  {
+    title: "Keep facts aligned",
+    text: "Route every rewrite through verified career context so public claims stay consistent.",
+  },
+];
 ---
 
 <BaseLayout meta={meta} jsonLd={[websiteJsonLd(), softwareJsonLd(), breadcrumbJsonLd([{ name: "Home", path: "/" }])]}>
@@ -25,6 +48,9 @@ const meta = {
         A methodology for LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio indexing,
         X/Twitter positioning, and agent context files. Read the playbooks yourself, or run them as focused agent skills.
       </p>
+      <ul class="hero-proof-list" aria-label="AgentKit SEO design principles">
+        {benchmarkTakeaways.map((takeaway) => <li>{takeaway}</li>)}
+      </ul>
       <div class="hero-paths" aria-label="Two ways to use AgentKit SEO">
         <div class="hero-path hero-path--read">
           <span class="hero-path-label">Read the playbooks</span>
@@ -43,30 +69,49 @@ const meta = {
         </div>
       </div>
     </div>
-    <aside class="signal-panel" aria-label="AgentKit SEO value summary">
-      <div class="panel-head">
-        <p class="panel-title">Grounded by design</p>
-        <p>Verified context in, platform-specific output out.</p>
+    <aside class="hero-console" aria-label="AgentKit SEO install and workflow preview">
+      <div class="console-topbar" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-      <div class="line-list">
-        <div class="line">
-          <strong>Source</strong>
-          <span>Private agent-context-file with verified career facts.</span>
+      <div class="console-body">
+        <p class="console-label">Install agent skills</p>
+        <pre><code>npx agentkit-seo install --provider codex</code></pre>
+        <div class="console-flow" aria-label="AgentKit SEO workflow">
+          <span>context.md</span>
+          <span>skill route</span>
+          <span>audits + rewrites</span>
         </div>
-        <div class="line">
-          <strong>Read</strong>
-          <span>Structured playbooks you can follow directly, no agent required.</span>
-        </div>
-        <div class="line">
-          <strong>Run</strong>
-          <span>Installable skills that load into Codex, Claude Code, Gemini CLI, or OpenCode.</span>
-        </div>
-        <div class="line">
-          <strong>Result</strong>
-          <span>Less repetitive profile work and more consistent public presence.</span>
+        <div class="console-grid">
+          {skills.slice(0, 6).map((skill) => (
+            <a href={skill.href}>
+              <strong>{skill.shortName}</strong>
+              <span>{skill.outputs[0]}</span>
+            </a>
+          ))}
         </div>
       </div>
     </aside>
+  </section>
+
+  <section class="section quickstart-section" aria-labelledby="quickstart-heading">
+    <div class="quickstart-copy">
+      <p class="eyebrow">Quick start</p>
+      <h2 id="quickstart-heading">Start with the surface you need.</h2>
+      <p>
+        AgentKit SEO is a compact library of profile optimization methods. Pick the surface, choose manual or agent mode,
+        and keep every rewrite grounded in the same verified context file.
+      </p>
+    </div>
+    <div class="quickstart-grid">
+      {quickstart.map((item) => (
+        <article class="quickstart-card">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+        </article>
+      ))}
+    </div>
   </section>
 
   <SystemMap />
@@ -126,7 +171,7 @@ const meta = {
     <div class="service-grid">
       {serviceMarks.map((service) => (
         <article class={`service-mark ${service.tone}`}>
-          <span aria-hidden="true">{service.mark}</span>
+          <span aria-hidden="true"><PlatformIcon kind={service.icon} /></span>
           <h3>{service.name}</h3>
           <p>{service.text}</p>
         </article>
@@ -144,7 +189,7 @@ const meta = {
     <div class="matrix">
       {skills.map((skill) => (
         <a href={skill.href}>
-          <span class="icon" aria-hidden="true">{skill.shortName.slice(0, 2)}</span>
+          <span class="icon" aria-hidden="true"><PlatformIcon kind={skill.icon} /></span>
           <h3>{skill.shortName}</h3>
           <p>{skill.summary}</p>
           <p class="search-intent">{skill.searchIntent}</p>
@@ -239,7 +284,7 @@ const meta = {
     title="Choose your path: read the playbooks or install the skills."
     text="Browse the methodology as structured guides, or install the agent skills and route your first surface through the matching skill."
     primaryHref="/skills/"
-    primaryLabel="Browse playbooks"
+    primaryLabel="Browse skills"
     secondaryHref="/docs/installation/"
     secondaryLabel="Install agent skills"
   />

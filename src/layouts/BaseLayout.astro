@@ -39,6 +39,13 @@ const image = assetUrl(meta.image ?? site.defaultImage);
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={image} />
     <meta name="theme-color" content="#111314" />
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem("agentkit-theme");
+        const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = stored || preferred;
+      })();
+    </script>
     {jsonLd.map((item) => <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />)}
   </head>
   <body>

@@ -1,8 +1,8 @@
 ---
+import PlatformIcon from "@components/PlatformIcon.astro";
 import SectionHeader from "@components/SectionHeader.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
-import { getCollection } from "astro:content";
 import { skills } from "@data/site";
 
 const meta = {
@@ -29,7 +29,7 @@ const meta = {
       {skills.map((skill) => (
         <a class="card skill-card" href={`/playbooks/${skill.slug}/`}>
           <div class="skill-card-top">
-            <span class="icon" aria-hidden="true">{skill.shortName.slice(0, 2)}</span>
+            <span class="icon" aria-hidden="true"><PlatformIcon kind={skill.icon} /></span>
             <div class="skill-card-modes" aria-label="Available as">
               <span class="skill-mode-tag skill-mode-tag--read">Playbook</span>
             </div>
