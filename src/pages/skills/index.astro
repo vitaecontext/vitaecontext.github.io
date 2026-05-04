@@ -5,34 +5,37 @@ import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
 import { skills } from "@data/site";
 
 const meta = {
-  title: "Skills",
+  title: "Agent Skills",
   description:
-    "Explore AgentKit SEO modules for LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, X/Twitter strategy, and agent context files.",
+    "Installable AgentKit SEO packages for Codex, Claude Code, Gemini CLI, and OpenCode.",
   path: "/skills/",
   type: "article" as const,
 };
 ---
 
-<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Skills", path: "/skills/" }])]}>
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Agent Skills", path: "/skills/" }])]}>
   <section class="page-hero">
     <div class="inner">
-      <p class="eyebrow">Skill library</p>
-      <h1>Skills</h1>
-      <p>Read the modules as human guides or install them as focused agent skills for professional profile optimization.</p>
+      <p class="eyebrow">Technical Packages</p>
+      <h1>Agent Skills</h1>
+      <p>Installable rule packages for your AI environments. To read the human methodology instead, visit the <a href="/playbooks/">Playbooks Hub</a>.</p>
     </div>
   </section>
+
   <section class="page-section">
-    <SectionHeader title="Choose the surface you want to improve." />
+    <SectionHeader title="Choose an agent skill to install." />
     <div class="grid">
       {skills.map((skill) => (
-        <a class="card" href={skill.href}>
-          <span class="icon" aria-hidden="true">{skill.shortName.slice(0, 2)}</span>
-          <h2>{skill.name}</h2>
+        <a class="card skill-card" href={`/skills/${skill.slug}/`}>
+          <div class="skill-card-top">
+            <span class="icon" aria-hidden="true">{skill.shortName.slice(0, 2)}</span>
+            <div class="skill-card-modes" aria-label="Available as">
+              <span class="skill-mode-tag skill-mode-tag--agent">Agent skill</span>
+            </div>
+          </div>
+          <h2>agentkit-seo-{skill.slug}</h2>
           <p>{skill.summary}</p>
-          <p class="search-intent">{skill.searchIntent}</p>
-          <ul class="tag-list">
-            {skill.outputs.map((output) => <li>{output}</li>)}
-          </ul>
+          <p class="search-intent" style="margin-top: 1rem;">Requires personal context file.</p>
         </a>
       ))}
     </div>

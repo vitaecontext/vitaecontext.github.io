@@ -1,0 +1,47 @@
+---
+import SectionHeader from "@components/SectionHeader.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import { getCollection } from "astro:content";
+import { skills } from "@data/site";
+
+const meta = {
+  title: "Playbooks",
+  description:
+    "Human-readable methodology playbooks for LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, X/Twitter strategy, and agent context files.",
+  path: "/playbooks/",
+  type: "article" as const,
+};
+---
+
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Playbooks", path: "/playbooks/" }])]}>
+  <section class="page-hero">
+    <div class="inner">
+      <p class="eyebrow">Methodology</p>
+      <h1>Playbooks</h1>
+      <p>Comprehensive, human-readable guides for professional identity SEO. Read the rules, formatting constraints, and content formulas behind the agents.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <SectionHeader title="Choose a playbook to read." />
+    <div class="grid">
+      {skills.map((skill) => (
+        <a class="card skill-card" href={`/playbooks/${skill.slug}/`}>
+          <div class="skill-card-top">
+            <span class="icon" aria-hidden="true">{skill.shortName.slice(0, 2)}</span>
+            <div class="skill-card-modes" aria-label="Available as">
+              <span class="skill-mode-tag skill-mode-tag--read">Playbook</span>
+            </div>
+          </div>
+          <h2>{skill.name}</h2>
+          <p>{skill.summary}</p>
+          <p class="search-intent">{skill.searchIntent}</p>
+          <ul class="tag-list">
+            {skill.outputs.map((output) => <li>{output}</li>)}
+          </ul>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

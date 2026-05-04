@@ -1,49 +1,169 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import { site } from "@data/site";
 
 const meta = {
   title: "Installation",
   description:
-    "Install AgentKit SEO from a local checkout for Codex, Claude Code, Gemini CLI, OpenCode, or shared portable skill bundles.",
+    "Install AgentKit SEO for Codex, Claude Code, Gemini CLI, OpenCode, or a shared portable skill bundle. Three methods: npx (once published), local checkout, or project-local via npm exec.",
   path: "/docs/installation/",
   type: "article" as const,
 };
+
+const providers = [
+  {
+    id: "codex",
+    name: "Codex",
+    globalTarget: "~/.codex/skills/",
+    invocation: "$agentkit-seo-github\n$agentkit-seo-linkedin",
+    notes: "Exact activation depends on the Codex environment and installed skill support.",
+  },
+  {
+    id: "claude-code",
+    name: "Claude Code",
+    globalTarget: "~/.claude/skills/",
+    invocation: "Use the agentkit-seo-linkedin skill to audit my LinkedIn profile.",
+    notes: "Claude may auto-select from skill metadata, but explicit naming is safer.",
+  },
+  {
+    id: "gemini-cli",
+    name: "Gemini CLI",
+    globalTarget: "~/.gemini/extensions/agentkit-seo/",
+    invocation: "/agentkit-seo:github\n/agentkit-seo:linkedin\n/agentkit-seo:cv-ats",
+    notes: "Installs a named extension with TOML command files and the skill folders.",
+  },
+  {
+    id: "opencode",
+    name: "OpenCode",
+    globalTarget: "~/.config/opencode/skills/",
+    invocation: "/agentkit-seo-github\n/agentkit-seo-linkedin\n/agentkit-seo-context",
+    notes: "Installs skill folders plus flat command wrappers for direct slash invocation.",
+  },
+  {
+    id: "shared",
+    name: "Shared bundle",
+    globalTarget: "(requires --target-dir)",
+    invocation: "Copy or reference the relevant SKILL.md folder.",
+    notes: "No default global path. Use --target-dir to specify where the skill folders go.",
+  },
+];
 ---
 
 <BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "Installation", path: "/docs/installation/" }])]}>
   <section class="page-hero">
     <div class="inner">
-      <p class="eyebrow">Install</p>
+      <p class="eyebrow">Agent skills — install guide</p>
       <h1>Installation</h1>
-      <p>Use the local checkout flow and choose the provider target that matches your agent environment.</p>
+      <p>Three ways to install AgentKit SEO skills into a supported agent environment. Choose the method that matches your setup.</p>
     </div>
   </section>
-  <section class="page-section prose">
-    <h2>What gets installed</h2>
+
+  <section class="page-section prose install-page">
+
+    <div class="install-note">
+      <p>
+        <strong>Reading the docs without installing?</strong> Every skill page is a human-readable guide you can follow
+        directly — no install required. Installation is only needed if you want an agent to load and invoke the skills.
+      </p>
+      <a class="button secondary" href="/skills/">Browse skill playbooks</a>
+    </div>
+
+    <!-- ── Method 1: npx (post-publish) ─────────────────────────────────── -->
+    <h2>Method 1 — <code>npx</code> <span class="install-status install-status--pending">Not yet published</span></h2>
     <p>
-      The installer exports the shared AgentKit SEO skill source into provider-specific layouts. The readable modules
-      remain useful as documentation, while the generated skill folders give agents focused instructions for LinkedIn,
-      GitHub, CV/ATS, portfolio SEO, X/Twitter, and context-file work.
+      Once the package is published to npm, the canonical one-line install will be:
     </p>
-    <h2>Install from a local checkout</h2>
-    <p>From the AgentKit SEO source repository, run the export installer with the provider you want:</p>
-    <pre class="code-block"><code>node .skills/export/scripts/agentkit-seo.mjs install --provider codex</code></pre>
-    <h2>Project-local preview install</h2>
-    <p>Use a project root when you want to preview generated provider files inside a repository:</p>
-    <pre class="code-block"><code>node .skills/export/scripts/agentkit-seo.mjs install --provider codex --project-root .</code></pre>
-    <h2>Supported provider values</h2>
-    <ul>
-      <li><code>codex</code></li>
-      <li><code>claude-code</code></li>
-      <li><code>gemini-cli</code></li>
-      <li><code>opencode</code></li>
-      <li><code>shared</code> for portable SKILL.md folders</li>
-    </ul>
+    <pre class="code-block"><code>npx agentkit-seo install --provider codex</code></pre>
+    <p>
+      Replace <code>codex</code> with any supported provider value. The package name is <code>agentkit-seo</code>
+      and the binary is the same name, so <code>npx agentkit-seo …</code> will work once it ships.
+    </p>
+    <p>
+      You can also run it directly from the GitHub repository once it is public (no npm publish required):
+    </p>
+    <pre class="code-block"><code>npx github:agentkit-seo/agentkit-seo install --provider codex</code></pre>
+
+    <!-- ── Method 2: local checkout ──────────────────────────────────────── -->
+    <h2>Method 2 — local checkout <span class="install-status install-status--ready">Works now</span></h2>
+    <p>
+      Clone the repository, then invoke the CLI directly using <code>npx .</code> from the repo root. This is the current recommended path
+      while the package is not yet published.
+    </p>
+    <pre class="code-block"><code># Clone the repo
+git clone https://github.com/agentkit-seo/agentkit-seo.git
+cd agentkit-seo
+
+# Install to the global default path for your provider
+npx . install --provider codex
+
+# Or install into a specific project directory
+npx . install --provider codex --project-root /path/to/project</code></pre>
+
+    <!-- ── Method 3: npm exec project-local ─────────────────────────────── -->
+    <h2>Method 3 — project-local via <code>npm exec</code> <span class="install-status install-status--ready">Works now</span></h2>
+    <p>
+      If you have the repository checked out and want to preview generated provider files
+      inside a specific project root without a global install:
+    </p>
+    <pre class="code-block"><code>npm exec --package ./. -- agentkit-seo install \
+  --provider codex \
+  --project-root .</code></pre>
+
+    <!-- ── Supported providers ───────────────────────────────────────────── -->
+    <h2>Supported providers</h2>
+    <p>Pass one of the following values to <code>--provider</code>:</p>
+
+    <div class="install-provider-table">
+      {providers.map((p) => (
+        <div class="install-provider-row">
+          <div class="install-provider-meta">
+            <strong>{p.name}</strong>
+            <code class="install-target-path">{p.globalTarget}</code>
+          </div>
+          <div class="install-provider-commands">
+            <p class="install-inv-label">Install command</p>
+            <pre class="code-block code-block--sm"><code>npx . install --provider {p.id}</code></pre>
+            <p class="install-inv-label">Invocation</p>
+            <pre class="code-block code-block--sm code-block--muted"><code>{p.invocation}</code></pre>
+            {p.notes && <p class="install-provider-note">{p.notes}</p>}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- ── Optional flags ────────────────────────────────────────────────── -->
+    <h2>Optional flags</h2>
+    <div class="install-flags-table">
+      <div class="install-flag-row">
+        <code>--project-root &lt;dir&gt;</code>
+        <p>Install into a project-relative path instead of the global default.</p>
+      </div>
+      <div class="install-flag-row">
+        <code>--target-dir &lt;dir&gt;</code>
+        <p>Install skill folders into an exact directory. Overrides <code>--project-root</code> for skill placement. Required for <code>shared</code>.</p>
+      </div>
+      <div class="install-flag-row">
+        <code>--commands-target-dir &lt;dir&gt;</code>
+        <p>Override the install path for command wrapper files (OpenCode and Gemini CLI only).</p>
+      </div>
+      <div class="install-flag-row">
+        <code>--force</code>
+        <p>Replace existing skill folders and provider files without prompting.</p>
+      </div>
+    </div>
+
+    <!-- ── After installation ────────────────────────────────────────────── -->
     <h2>After installation</h2>
     <p>
-      Invoke one focused skill by name, provide the private context file when available, and ask for a specific output:
-      profile audit, rewrite plan, repository checklist, ATS-safe CV pass, metadata review, or publishing checklist.
+      Invoke one focused skill by name, provide the private context file path when available, and ask for a specific
+      output: profile audit, rewrite plan, repository checklist, ATS-safe CV pass, metadata review, or maintenance
+      checklist. See the <a href="/docs/usage/">usage guide</a> and the <a href="/providers/">providers page</a> for
+      exact invocation syntax per environment.
+    </p>
+
+    <p class="service-note">
+      Source repository: <a href={site.repoUrl}>{site.repoUrl}</a>
     </p>
   </section>
 </BaseLayout>

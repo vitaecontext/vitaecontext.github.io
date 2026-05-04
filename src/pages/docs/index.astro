@@ -5,7 +5,7 @@ import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
 const meta = {
   title: "Docs",
   description:
-    "AgentKit SEO documentation for reading the knowledge hub, installing the agent skills, creating context files, and improving LinkedIn, GitHub, CV, portfolio, and X profiles.",
+    "AgentKit SEO documentation: read the methodology playbooks directly, or install the agent skills into Codex, Claude Code, Gemini CLI, or OpenCode.",
   path: "/docs/",
   type: "article" as const,
 };
@@ -16,39 +16,105 @@ const meta = {
     <div class="inner">
       <p class="eyebrow">Documentation</p>
       <h1>Docs</h1>
-      <p>Use AgentKit SEO as a readable professional profile optimization hub, an installable agent skill bundle, or both.</p>
+      <p>Two ways to use AgentKit SEO: read the methodology guides directly, or install the skills into a supported agent environment.</p>
     </div>
   </section>
+
   <section class="page-section">
-    <div class="grid">
-      <a class="doc-link" href="/docs/installation/">
-        <h2>Installation</h2>
-        <p>Install from a local checkout and choose a supported provider target.</p>
-      </a>
-      <a class="doc-link" href="/docs/usage/">
-        <h2>Usage</h2>
-        <p>Start with a context file, then route CV, GitHub, LinkedIn, portfolio, or X work to the matching skill.</p>
-      </a>
-      <a class="doc-link" href="/skills/linkedin/">
-        <h2>LinkedIn optimization</h2>
-        <p>Improve profile headline, About, Experience, Featured, Skills, recruiter search visibility, and AI-readable structure.</p>
-      </a>
-      <a class="doc-link" href="/skills/cv-ats/">
-        <h2>CV and ATS optimization</h2>
-        <p>Build parser-safe resume structure, align keywords, and rewrite bullets around verified achievements.</p>
-      </a>
-      <a class="doc-link" href="/skills/github/">
-        <h2>GitHub SEO</h2>
-        <p>Make profiles and repositories easier to search, inspect, understand, and trust.</p>
-      </a>
-      <a class="doc-link" href="/skills/web-portfolio/">
-        <h2>Portfolio SEO</h2>
-        <p>Check crawlability, metadata, structured data, sitemap coverage, JavaScript rendering, and AI retrieval signals.</p>
-      </a>
-      <a class="doc-link" href="/providers/">
-        <h2>Providers</h2>
-        <p>Compare Codex, Claude Code, Gemini CLI, OpenCode, and shared bundle invocation styles.</p>
-      </a>
+
+    <!-- ── MODE 1: Playbooks ─────────────────────────────────────────── -->
+    <div class="docs-mode-block docs-mode-block--read">
+      <div class="docs-mode-label-row">
+        <span class="mode-badge mode-badge--read">Playbooks</span>
+        <div class="docs-mode-heading-group">
+          <h2 class="docs-group-title">Read the methodology directly</h2>
+          <p class="docs-group-desc">
+            Every skill module is a structured, human-readable guide. Open one, follow the method, and apply the
+            checks yourself. No agent, no installation, no commands required.
+          </p>
+        </div>
+      </div>
+      <div class="grid docs-skills-grid">
+        <a class="doc-link" href="/playbooks/linkedin/">
+          <span class="doc-link-badge doc-link-badge--blue">in</span>
+          <h2>LinkedIn optimization</h2>
+          <p>Improve profile headline, About, Experience, Featured, Skills, recruiter search visibility, and AI-readable structure.</p>
+        </a>
+        <a class="doc-link" href="/playbooks/cv-ats/">
+          <span class="doc-link-badge doc-link-badge--teal">CV</span>
+          <h2>CV and ATS optimization</h2>
+          <p>Build parser-safe resume structure, align keywords, and rewrite bullets around verified achievements.</p>
+        </a>
+        <a class="doc-link" href="/playbooks/github/">
+          <span class="doc-link-badge doc-link-badge--dark">
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false" style="width:1em;height:1em;fill:currentColor;">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+          </span>
+          <h2>GitHub SEO</h2>
+          <p>Make profiles and repositories easier to search, inspect, understand, and trust.</p>
+        </a>
+        <a class="doc-link" href="/playbooks/web-portfolio/">
+          <span class="doc-link-badge doc-link-badge--green">WWW</span>
+          <h2>Portfolio SEO</h2>
+          <p>Check crawlability, metadata, structured data, sitemap coverage, JavaScript rendering, and AI retrieval signals.</p>
+        </a>
+        <a class="doc-link" href="/playbooks/x-twitter/">
+          <span class="doc-link-badge doc-link-badge--dark">𝕏</span>
+          <h2>X/Twitter optimization</h2>
+          <p>Shape profiles, pinned posts, and content loops around clear positioning and documented platform behavior.</p>
+        </a>
+        <a class="doc-link" href="/playbooks/agent-context-optimization/">
+          <span class="doc-link-badge doc-link-badge--gold">CTX</span>
+          <h2>Agent Context</h2>
+          <p>Build a private Markdown source of truth for verified career facts, links, projects, and positioning.</p>
+        </a>
+      </div>
     </div>
+
+    <!-- Divider -->
+    <div class="docs-divider">
+      <span>or install the agent skills</span>
+    </div>
+
+    <!-- ── MODE 2: Agent skills ───────────────────────────────────────── -->
+    <div class="docs-mode-block docs-mode-block--agent">
+      <div class="docs-mode-label-row">
+        <span class="mode-badge mode-badge--agent">Agent skills</span>
+        <div class="docs-mode-heading-group">
+          <h2 class="docs-group-title">Install and run with an agent</h2>
+          <p class="docs-group-desc">
+            Export the skill folders into a supported agent environment. Install once, then invoke any skill by name
+            with your private context file. Codex, Claude Code, Gemini CLI, and OpenCode are supported.
+          </p>
+        </div>
+      </div>
+      <div class="docs-guides-row">
+        <a class="doc-link doc-link--guide" href="/docs/installation/">
+          <span class="doc-link-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 2v11M6 9l4 4 4-4M3 16h14" />
+            </svg>
+          </span>
+          <div>
+            <h2>Installation</h2>
+            <p>Install from a local checkout and choose a supported provider target.</p>
+          </div>
+        </a>
+        <a class="doc-link doc-link--guide" href="/docs/usage/">
+          <span class="doc-link-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10" cy="10" r="8" />
+              <path d="M10 6v4l2.5 2.5" />
+            </svg>
+          </span>
+          <div>
+            <h2>Usage</h2>
+            <p>Start with a context file, then route CV, GitHub, LinkedIn, portfolio, or X work to the matching skill.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
   </section>
 </BaseLayout>

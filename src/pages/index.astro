@@ -22,16 +22,25 @@ const meta = {
       <h1 id="hero-title">AgentKit SEO</h1>
       <p class="hero-lede">One career source of truth. Every public surface sharper.</p>
       <p>
-        A human-readable knowledge hub and modular skill system for AI-assisted personal branding, SEO/AEO, LinkedIn
-        profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio indexing, X/Twitter positioning, and
-        agent context files.
+        A methodology for LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio indexing,
+        X/Twitter positioning, and agent context files. Read the playbooks yourself, or run them as focused agent skills.
       </p>
-      <div class="actions" aria-label="Primary actions">
-        <a class="button primary" href="/docs/installation/">Install</a>
-        <a class="button primary" href="/skills/">Explore skills</a>
-        <a class="button secondary" href="/docs/">Read docs</a>
-        <a class="button secondary" href="/providers/">View providers</a>
-        <a class="button secondary" href={site.repoUrl}>GitHub repo</a>
+      <div class="hero-paths" aria-label="Two ways to use AgentKit SEO">
+        <div class="hero-path hero-path--read">
+          <span class="hero-path-label">Read the playbooks</span>
+          <div class="actions">
+            <a class="button primary" href="/playbooks/">Browse playbooks</a>
+            <a class="button secondary" href="/docs/">Docs</a>
+          </div>
+        </div>
+        <div class="hero-path-divider" aria-hidden="true">or</div>
+        <div class="hero-path hero-path--agent">
+          <span class="hero-path-label">Run as agent skills</span>
+          <div class="actions">
+            <a class="button primary" href="/docs/installation/">Install</a>
+            <a class="button secondary" href="/providers/">Providers</a>
+          </div>
+        </div>
       </div>
     </div>
     <aside class="signal-panel" aria-label="AgentKit SEO value summary">
@@ -45,12 +54,12 @@ const meta = {
           <span>Private agent-context-file with verified career facts.</span>
         </div>
         <div class="line">
-          <strong>Hub</strong>
-          <span>Human-readable docs plus installable skills for agent workflows.</span>
+          <strong>Read</strong>
+          <span>Structured playbooks you can follow directly, no agent required.</span>
         </div>
         <div class="line">
-          <strong>Output</strong>
-          <span>Audits, rewrites, checklists, patch plans, and maintenance workflows.</span>
+          <strong>Run</strong>
+          <span>Installable skills that load into Codex, Claude Code, Gemini CLI, or OpenCode.</span>
         </div>
         <div class="line">
           <strong>Result</strong>
@@ -61,6 +70,52 @@ const meta = {
   </section>
 
   <SystemMap />
+
+  <!-- Two-mode explainer -->
+  <section class="section two-mode-section" aria-labelledby="two-mode-heading">
+    <SectionHeader
+      eyebrow="Two ways to use it"
+      title="A knowledge base first, a skill bundle second."
+      text="The repository is designed to be read directly by anyone doing profile work. It can also be exported as focused agent skills for automated workflows. Both modes use exactly the same methodology."
+    />
+    <div class="two-mode-split">
+      <article class="mode-card mode-card--read">
+        <div class="mode-card-header">
+          <span class="mode-badge mode-badge--read">Playbooks</span>
+          <h3>Read the methodology yourself</h3>
+        </div>
+        <p>
+          Each module is written as a structured, human-readable guide. You bring the context about your career, read
+          the relevant sections, and apply the checks and rewrites manually. No agent, no install, no commands.
+        </p>
+        <ul class="mode-list">
+          <li>Practical checklists for each platform surface</li>
+          <li>Opinionated structure you can follow step by step</li>
+          <li>Covers LinkedIn, GitHub, CV/ATS, portfolio, X/Twitter, and context files</li>
+          <li>Works independently from any AI tooling</li>
+        </ul>
+        <a class="button primary mode-card-cta" href="/playbooks/">Browse playbooks →</a>
+      </article>
+      <article class="mode-card mode-card--agent">
+        <div class="mode-card-header">
+          <span class="mode-badge mode-badge--agent">Agent skills</span>
+          <h3>Install as focused agent skills</h3>
+        </div>
+        <p>
+          The same methodology is packaged as named agent skills for Codex, Claude Code, Gemini CLI, and OpenCode.
+          An agent loads only the skill it needs, receives scoped rules for the target surface, and applies them
+          against your private context file.
+        </p>
+        <ul class="mode-list">
+          <li>One skill per surface, keeping context small and focused</li>
+          <li>Provider-aware install layouts via a single export script</li>
+          <li>Context file keeps facts consistent across every agent run</li>
+          <li>Outputs: audits, rewrites, checklists, and patch plans</li>
+        </ul>
+        <a class="button primary mode-card-cta" href="/docs/installation/">Read installation →</a>
+      </article>
+    </div>
+  </section>
 
   <section class="section service-strip">
     <SectionHeader
@@ -82,34 +137,9 @@ const meta = {
 
   <section class="section">
     <SectionHeader
-      eyebrow="Capability overview"
-      title="A knowledge base first, a skill bundle second."
-      text="The repository is useful to read directly, and it can also be exported into agent environments. Humans get methodology. Agents get scoped instructions."
-    />
-    <div class="grid">
-      <article class="card">
-        <span class="icon" aria-hidden="true">01</span>
-        <h3>Human-readable playbooks</h3>
-        <p>Read the modules as practical guides for LinkedIn, GitHub, CV/ATS, portfolio SEO, X/Twitter, and context files.</p>
-      </article>
-      <article class="card">
-        <span class="icon" aria-hidden="true">02</span>
-        <h3>Scoped platform rules</h3>
-        <p>Load only the skill needed for the task, from ATS-safe CV work to GitHub repository discoverability.</p>
-      </article>
-      <article class="card">
-        <span class="icon" aria-hidden="true">03</span>
-        <h3>One source of truth</h3>
-        <p>Keep verified roles, projects, skills, links, metrics, and tone preferences in a private Markdown file.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section">
-    <SectionHeader
       eyebrow="Surface matrix"
       title="Every profile gets the rules it deserves."
-      text="Each module maps a public surface to specific agent workflows, checks, and output types."
+      text="Each module maps a public surface to specific checks, rewrites, and output types. Read it as a guide or invoke it as an agent skill."
     />
     <div class="matrix">
       {skills.map((skill) => (
@@ -130,7 +160,7 @@ const meta = {
     <SectionHeader
       eyebrow="Workflow"
       title="From scattered material to consistent updates."
-      text="The system is designed for repeatable work, not one-off prompt improvisation."
+      text="The system is designed for repeatable work, not one-off prompt improvisation. It works the same whether you're reading the guide yourself or routing a task through an agent."
     />
     <div class="workflow">
       {workflow.map((step) => (
@@ -206,11 +236,11 @@ const meta = {
   </section>
 
   <CtaBand
-    title="Start with installation, then route your first surface."
-    text="Install from a local checkout, create a context file, and send one profile or repository through the matching skill."
-    primaryHref="/docs/installation/"
-    primaryLabel="Read installation"
-    secondaryHref="/docs/usage/"
-    secondaryLabel="See usage"
+    title="Choose your path: read the playbooks or install the skills."
+    text="Browse the methodology as structured guides, or install the agent skills and route your first surface through the matching skill."
+    primaryHref="/skills/"
+    primaryLabel="Browse playbooks"
+    secondaryHref="/docs/installation/"
+    secondaryLabel="Install agent skills"
   />
 </BaseLayout>

@@ -24,6 +24,7 @@ export const site = {
 };
 
 export const navItems = [
+  { label: "Playbooks", href: "/playbooks/" },
   { label: "Skills", href: "/skills/" },
   { label: "Providers", href: "/providers/" },
   { label: "Docs", href: "/docs/" },
@@ -34,7 +35,8 @@ export const navItems = [
 
 export const publicRoutes = [
   { path: "/", label: "Home" },
-  { path: "/skills/", label: "Skills" },
+  { path: "/playbooks/", label: "Playbooks" },
+  { path: "/skills/", label: "Agent Skills" },
   { path: "/providers/", label: "Providers" },
   { path: "/docs/", label: "Docs" },
   { path: "/docs/installation/", label: "Installation" },
@@ -45,39 +47,64 @@ export const publicRoutes = [
 
 export const providers = [
   {
+    id: "codex",
     name: "Codex",
     summary:
-      "Installable skill folders for Codex environments that support named skills.",
-    invocation: "Mention the installed AgentKit SEO skill by name.",
+      "Installs named skill folders into the Codex skills directory. Each skill becomes selectable by name within Codex environments that support skill loading.",
     status: "Direct install",
+    globalTarget: "~/.codex/skills/",
+    installCmd: "npx . install --provider codex",
+    npxCmd: "npx agentkit-seo install --provider codex",
+    invocation: "$agentkit-seo-github\n$agentkit-seo-linkedin",
+    invocationNote: "Exact activation depends on Codex environment and installed skill support.",
   },
   {
+    id: "claude-code",
     name: "Claude Code",
     summary:
-      "Portable skill folders copied into Claude Code's skill location.",
-    invocation: "Ask for the relevant AgentKit SEO skill explicitly.",
+      "Copies skill folders into Claude Code's skill location. Claude may auto-select from skill metadata, but explicit naming is the safest invocation path.",
     status: "Direct install",
+    globalTarget: "~/.claude/skills/",
+    installCmd: "npx . install --provider claude-code",
+    npxCmd: "npx agentkit-seo install --provider claude-code",
+    invocation: "Use the agentkit-seo-linkedin skill to audit my LinkedIn profile.",
+    invocationNote: "Ask for the installed skill explicitly by its full namespaced name.",
   },
   {
+    id: "gemini-cli",
     name: "Gemini CLI",
     summary:
-      "Generated extension layout with namespaced AgentKit SEO commands.",
-    invocation: "Use commands such as /agentkit-seo:linkedin.",
-    status: "Local extension install",
+      "Installs a named Gemini CLI extension with TOML command files and skill folders. Adds namespaced slash commands for each surface.",
+    status: "Extension install",
+    globalTarget: "~/.gemini/extensions/agentkit-seo/",
+    installCmd: "npx . install --provider gemini-cli",
+    npxCmd: "npx agentkit-seo install --provider gemini-cli",
+    invocation: "/agentkit-seo:github\n/agentkit-seo:linkedin\n/agentkit-seo:cv-ats",
+    invocationNote: "Commands are namespaced under /agentkit-seo: for each skill surface.",
   },
   {
+    id: "opencode",
     name: "OpenCode",
     summary:
-      "Shared skill folders plus thin command wrappers for flat invocation.",
-    invocation: "Use commands such as /agentkit-seo-linkedin.",
+      "Installs skill folders into the OpenCode skills directory plus Markdown command wrapper files for flat slash-command invocation.",
     status: "Direct install",
+    globalTarget: "~/.config/opencode/skills/",
+    installCmd: "npx . install --provider opencode",
+    npxCmd: "npx agentkit-seo install --provider opencode",
+    invocation: "/agentkit-seo-github\n/agentkit-seo-linkedin\n/agentkit-seo-context",
+    invocationNote: "Flat command wrappers use a hyphenated prefix for direct slash invocation.",
   },
   {
-    name: "Shared skill bundle",
+    id: "shared",
+    name: "Shared bundle",
     summary:
-      "Portable SKILL.md folders for manual reuse, packaging, or agents without a dedicated adapter.",
-    invocation: "Copy or reference the relevant skill folder.",
+      "Exports portable SKILL.md folders to any target directory. For agents without a dedicated adapter or for manual packaging and reuse.",
     status: "Export target",
+    globalTarget: "requires --target-dir",
+    installCmd: "npx . install --provider shared --target-dir ./skills",
+    npxCmd: "npx agentkit-seo install --provider shared --target-dir ./skills",
+    invocation: "Copy or reference the relevant SKILL.md folder for your agent.",
+    invocationNote: "No default global path — you control where the skill folders land.",
   },
 ];
 
