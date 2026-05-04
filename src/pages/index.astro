@@ -1,0 +1,216 @@
+---
+import CtaBand from "@components/CtaBand.astro";
+import IndexingChecklist from "@components/IndexingChecklist.astro";
+import SectionHeader from "@components/SectionHeader.astro";
+import SystemMap from "@components/SystemMap.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { breadcrumbJsonLd, softwareJsonLd, websiteJsonLd } from "@data/metadata";
+import { providers, serviceMarks, site, skills, workflow } from "@data/site";
+
+const meta = {
+  title: "AgentKit SEO",
+  description:
+    "AgentKit SEO is a human-readable knowledge hub and modular agent skill system for LinkedIn profile optimization, GitHub SEO, CV/ATS resumes, portfolio SEO, X/Twitter strategy, and agent context files.",
+  path: "/",
+};
+---
+
+<BaseLayout meta={meta} jsonLd={[websiteJsonLd(), softwareJsonLd(), breadcrumbJsonLd([{ name: "Home", path: "/" }])]}>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Personal branding SEO for humans and agents</p>
+      <h1 id="hero-title">AgentKit SEO</h1>
+      <p class="hero-lede">One career source of truth. Every public surface sharper.</p>
+      <p>
+        A human-readable knowledge hub and modular skill system for AI-assisted personal branding, SEO/AEO, LinkedIn
+        profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio indexing, X/Twitter positioning, and
+        agent context files.
+      </p>
+      <div class="actions" aria-label="Primary actions">
+        <a class="button primary" href="/docs/installation/">Install</a>
+        <a class="button primary" href="/skills/">Explore skills</a>
+        <a class="button secondary" href="/docs/">Read docs</a>
+        <a class="button secondary" href="/providers/">View providers</a>
+        <a class="button secondary" href={site.repoUrl}>GitHub repo</a>
+      </div>
+    </div>
+    <aside class="signal-panel" aria-label="AgentKit SEO value summary">
+      <div class="panel-head">
+        <p class="panel-title">Grounded by design</p>
+        <p>Verified context in, platform-specific output out.</p>
+      </div>
+      <div class="line-list">
+        <div class="line">
+          <strong>Source</strong>
+          <span>Private agent-context-file with verified career facts.</span>
+        </div>
+        <div class="line">
+          <strong>Hub</strong>
+          <span>Human-readable docs plus installable skills for agent workflows.</span>
+        </div>
+        <div class="line">
+          <strong>Output</strong>
+          <span>Audits, rewrites, checklists, patch plans, and maintenance workflows.</span>
+        </div>
+        <div class="line">
+          <strong>Result</strong>
+          <span>Less repetitive profile work and more consistent public presence.</span>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <SystemMap />
+
+  <section class="section service-strip">
+    <SectionHeader
+      eyebrow="What people search for"
+      title="Built around the profile problems that actually get queried."
+      text="Each surface gets its own visible target: LinkedIn profile optimization, GitHub repository SEO, ATS resume optimization, portfolio indexing, X/Twitter profile strategy, and agent context architecture."
+    />
+    <div class="service-grid">
+      {serviceMarks.map((service) => (
+        <article class={`service-mark ${service.tone}`}>
+          <span aria-hidden="true">{service.mark}</span>
+          <h3>{service.name}</h3>
+          <p>{service.text}</p>
+        </article>
+      ))}
+    </div>
+    <p class="service-note">{site.disclaimer}</p>
+  </section>
+
+  <section class="section">
+    <SectionHeader
+      eyebrow="Capability overview"
+      title="A knowledge base first, a skill bundle second."
+      text="The repository is useful to read directly, and it can also be exported into agent environments. Humans get methodology. Agents get scoped instructions."
+    />
+    <div class="grid">
+      <article class="card">
+        <span class="icon" aria-hidden="true">01</span>
+        <h3>Human-readable playbooks</h3>
+        <p>Read the modules as practical guides for LinkedIn, GitHub, CV/ATS, portfolio SEO, X/Twitter, and context files.</p>
+      </article>
+      <article class="card">
+        <span class="icon" aria-hidden="true">02</span>
+        <h3>Scoped platform rules</h3>
+        <p>Load only the skill needed for the task, from ATS-safe CV work to GitHub repository discoverability.</p>
+      </article>
+      <article class="card">
+        <span class="icon" aria-hidden="true">03</span>
+        <h3>One source of truth</h3>
+        <p>Keep verified roles, projects, skills, links, metrics, and tone preferences in a private Markdown file.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <SectionHeader
+      eyebrow="Surface matrix"
+      title="Every profile gets the rules it deserves."
+      text="Each module maps a public surface to specific agent workflows, checks, and output types."
+    />
+    <div class="matrix">
+      {skills.map((skill) => (
+        <a href={skill.href}>
+          <span class="icon" aria-hidden="true">{skill.shortName.slice(0, 2)}</span>
+          <h3>{skill.shortName}</h3>
+          <p>{skill.summary}</p>
+          <p class="search-intent">{skill.searchIntent}</p>
+          <ul class="tag-list" aria-label={`${skill.name} outputs`}>
+            {skill.outputs.slice(0, 2).map((output) => <li>{output}</li>)}
+          </ul>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <SectionHeader
+      eyebrow="Workflow"
+      title="From scattered material to consistent updates."
+      text="The system is designed for repeatable work, not one-off prompt improvisation."
+    />
+    <div class="workflow">
+      {workflow.map((step) => (
+        <article class="step">
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section split">
+    <div>
+      <SectionHeader
+        eyebrow="Provider support"
+        title="Portable skills, provider-aware installs."
+        text="The shared skill source exports to supported agent environments while keeping the methodology in one place."
+      />
+      <a class="button secondary" href="/providers/">Compare providers</a>
+    </div>
+    <div class="provider-list">
+      {providers.map((provider) => (
+        <article class="provider">
+          <h3>{provider.name}</h3>
+          <p><strong>{provider.status}</strong><br />{provider.summary}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <IndexingChecklist />
+
+  <section class="section authors-section">
+    <SectionHeader
+      eyebrow="Authors"
+      title="Maintained by builders who use the system."
+      text="The source repository lists Renato Mignone and Elia Innocenti as the maintainers of AgentKit SEO."
+    />
+    <div class="author-grid">
+      {site.authors.map((author) => (
+        <article class="author-card">
+          <h3>{author.name}</h3>
+          <div class="author-links" aria-label={`${author.name} contact links`}>
+            <a href={author.github}>GitHub</a>
+            <a href={author.linkedin}>LinkedIn</a>
+            <a href={author.portfolio}>Portfolio</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <SectionHeader
+      eyebrow="SEO/AEO positioning"
+      title="Built for search engines, recruiters, profile parsers, and AI agents."
+      text="AgentKit SEO treats crawler visibility and AI-readable structure as career infrastructure. Metadata, profile copy, repository descriptions, project pages, and context files point back to the same verified facts."
+    />
+    <div class="grid">
+      <article class="card">
+        <h3>Crawler-aware</h3>
+        <p>Portfolio guidance covers crawlable URLs, metadata, structured data, sitemaps, robots files, and JavaScript SEO.</p>
+      </article>
+      <article class="card">
+        <h3>Parser-aware</h3>
+        <p>CV guidance prioritizes extractable text, standard sections, role keywords, and recruiter scanning.</p>
+      </article>
+      <article class="card">
+        <h3>Agent-aware</h3>
+        <p>Skills are small enough for focused loading and strict enough to preserve facts across platforms.</p>
+      </article>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Start with installation, then route your first surface."
+    text="Install from a local checkout, create a context file, and send one profile or repository through the matching skill."
+    primaryHref="/docs/installation/"
+    primaryLabel="Read installation"
+    secondaryHref="/docs/usage/"
+    secondaryLabel="See usage"
+  />
+</BaseLayout>

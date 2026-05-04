@@ -1,0 +1,63 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import { skills } from "@data/site";
+
+export function getStaticPaths() {
+  return skills.map((skill) => ({ params: { slug: skill.slug }, props: { skill } }));
+}
+
+const { skill } = Astro.props;
+const meta = {
+  title: skill.name,
+  description: `${skill.summary} Covers ${skill.searchIntent}.`,
+  path: skill.href,
+  type: "article" as const,
+};
+---
+
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Skills", path: "/skills/" }, { name: skill.name, path: skill.href }])]}>
+  <section class="page-hero">
+    <div class="inner">
+      <p class="eyebrow">AgentKit SEO skill</p>
+      <h1>{skill.name}</h1>
+      <p>{skill.summary}</p>
+      <div class="actions">
+        <a class="button primary" href="/docs/usage/">Use this skill</a>
+        <a class="button secondary" href="/docs/installation/">Install AgentKit SEO</a>
+      </div>
+    </div>
+  </section>
+  <section class="page-section split">
+    <article class="prose">
+      <h2>Search intent covered</h2>
+      <p>{skill.searchIntent}</p>
+      <h2>When to use it</h2>
+      <p>{skill.audience}</p>
+      <ul>
+        {skill.useWhen.map((item) => <li>{item}</li>)}
+      </ul>
+      <h2>Typical outputs</h2>
+      <ul>
+        {skill.outputs.map((output) => <li>{output}</li>)}
+      </ul>
+      <h2>Method</h2>
+      <ol>
+        {skill.method.map((item) => <li>{item}</li>)}
+      </ol>
+      <h2>How it fits the system</h2>
+      <p>
+        Use the module as a human-readable guide or invoke the focused skill for the target surface. When facts matter,
+        start from the agent-context-file so public copy, metadata, and proof points stay aligned instead of being rewritten
+        from scattered chat context.
+      </p>
+    </article>
+    <aside class="card">
+      <h2>Skill contract</h2>
+      <p>Use the namespaced skill name after installation:</p>
+      <pre class="code-block"><code>agentkit-seo-{skill.slug}</code></pre>
+      <p>Provider invocation differs, so use the provider page for exact command style.</p>
+      <a class="button secondary" href="/providers/">View providers</a>
+    </aside>
+  </section>
+</BaseLayout>

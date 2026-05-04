@@ -1,0 +1,19 @@
+---
+import { navItems, site } from "@data/site";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label={`${site.name} home`}>
+    <img class="brand-mark" src="/brand/agentkit-seo-mark.svg" alt="" width="36" height="36" loading="eager" decoding="async" />
+    <span>{site.name}</span>
+  </a>
+  <nav class="nav" aria-label="Primary navigation">
+    {navItems.map((item) => {
+      const isExternal = item.href.startsWith("http");
+      const isCurrent = !isExternal && (currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href)));
+      return <a href={item.href} aria-current={isCurrent ? "page" : undefined} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined}>{item.label}</a>;
+    })}
+  </nav>
+</header>

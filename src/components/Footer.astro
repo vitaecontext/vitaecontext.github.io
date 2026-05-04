@@ -1,0 +1,30 @@
+---
+import { navItems, site } from "@data/site";
+---
+
+<footer class="site-footer">
+  <div>
+    <a class="footer-brand" href="/">{site.name}</a>
+    <p>{site.description}</p>
+    <div class="footer-authors" aria-label="Author contact links">
+      {site.authors.map((author) => (
+        <div>
+          <strong>{author.name}</strong>
+          <a href={author.github}>GitHub</a>
+          <a href={author.linkedin}>LinkedIn</a>
+          <a href={author.portfolio}>Portfolio</a>
+        </div>
+      ))}
+    </div>
+    <p class="legal">{site.disclaimer}</p>
+  </div>
+  <nav aria-label="Footer navigation">
+    {navItems.map((item) => {
+      const isExternal = item.href.startsWith("http");
+      return <a href={item.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined}>{item.label}</a>;
+    })}
+    <a href="/sitemap.xml">Sitemap</a>
+    <a href="/robots.txt">Robots</a>
+    <a href="/llms.txt">llms.txt</a>
+  </nav>
+</footer>

@@ -1,0 +1,28 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+
+const meta = {
+  title: "Changelog",
+  description:
+    "AgentKit SEO website changelog covering the first static website release and known public-source status notes.",
+  path: "/changelog/",
+  type: "article" as const,
+};
+---
+
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Changelog", path: "/changelog/" }])]}>
+  <section class="page-hero">
+    <div class="inner">
+      <p class="eyebrow">Release notes</p>
+      <h1>Changelog</h1>
+      <p>Public website updates and source notes for AgentKit SEO.</p>
+    </div>
+  </section>
+  <section class="page-section prose">
+    <h2>Version 0.1.0</h2>
+    <p>First static website version with homepage, skill pages, provider page, docs, robots.txt, llms.txt, sitemap generation, metadata, and structured data.</p>
+    <h2>Source status reflected</h2>
+    <p>Shared skill source, export CLI, Codex, Claude Code, OpenCode, Gemini CLI, and shared export targets are represented from the source repository. Published npm package distribution is not described as available on this site.</p>
+  </section>
+</BaseLayout>

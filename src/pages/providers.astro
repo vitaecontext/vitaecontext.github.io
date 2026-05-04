@@ -1,0 +1,39 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import { providers, site } from "@data/site";
+
+const meta = {
+  title: "Providers",
+  description:
+    "AgentKit SEO provider support for Codex, Claude Code, Gemini CLI, OpenCode, and shared portable skill bundles.",
+  path: "/providers/",
+  type: "article" as const,
+};
+---
+
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Providers", path: "/providers/" }])]}>
+  <section class="page-hero">
+    <div class="inner">
+      <p class="eyebrow">Provider support</p>
+      <h1>Providers</h1>
+      <p>AgentKit SEO keeps one portable knowledge base and exports provider-aware skill layouts where the source project supports them.</p>
+    </div>
+  </section>
+  <section class="page-section">
+    <div class="section-header">
+      <p class="eyebrow">Install targets</p>
+      <h2>One methodology, multiple agent environments.</h2>
+      <p>Use the source repository as the canonical implementation reference, then choose the provider target that matches your local agent workflow.</p>
+    </div>
+    <div class="provider-list">
+      {providers.map((provider) => (
+        <article class="provider">
+          <h2>{provider.name}</h2>
+          <p><strong>{provider.status}</strong><br />{provider.summary}<br />Invocation: {provider.invocation}</p>
+        </article>
+      ))}
+    </div>
+    <p class="service-note">Project repository: <a href={site.repoUrl}>{site.repoUrl}</a></p>
+  </section>
+</BaseLayout>

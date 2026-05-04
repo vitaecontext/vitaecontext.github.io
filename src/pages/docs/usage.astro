@@ -1,0 +1,46 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+
+const meta = {
+  title: "Usage",
+  description:
+    "Use AgentKit SEO as a human-readable SEO and personal branding hub or as agent skills for LinkedIn, GitHub, CV/ATS, portfolio, X/Twitter, and context optimization.",
+  path: "/docs/usage/",
+  type: "article" as const,
+};
+---
+
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "Usage", path: "/docs/usage/" }])]}>
+  <section class="page-hero">
+    <div class="inner">
+      <p class="eyebrow">Workflow</p>
+      <h1>Usage</h1>
+      <p>Read the relevant module, prepare verified context, then improve one professional surface at a time.</p>
+    </div>
+  </section>
+  <section class="page-section prose">
+    <h2>Use it as a knowledge hub</h2>
+    <p>
+      The source repository is not only a runtime skill bundle. Each module is a practical guide for humans working on
+      LinkedIn profile optimization, GitHub repository SEO, ATS resume formatting, portfolio indexing, X/Twitter profile
+      strategy, and agent-readable career context.
+    </p>
+    <h2>Start with the context file</h2>
+    <p>Ask the context optimization skill to build or update your private agent-context-file from CVs, profile exports, GitHub links, portfolio pages, and project notes.</p>
+    <pre class="code-block"><code>Use agentkit-seo-agent-context-optimization to create my agent-context-file.</code></pre>
+    <h2>Route one surface</h2>
+    <p>Once the context file exists, invoke the platform skill that matches the target task.</p>
+    <pre class="code-block"><code>Use agentkit-seo-github to audit my GitHub profile.
+Use my context file at the path I provide.</code></pre>
+    <h2>Verify before publishing</h2>
+    <p>Review unsupported claims, stale links, missing evidence, and platform-specific constraints before applying public changes.</p>
+    <h2>Common routes</h2>
+    <ul>
+      <li>Use <a href="/skills/linkedin/">LinkedIn Optimization</a> for headlines, About sections, Featured proof, profile skills, and recruiter search visibility.</li>
+      <li>Use <a href="/skills/github/">GitHub Optimization</a> for profile READMEs, pinned repositories, topics, descriptions, and AI-facing repository instructions.</li>
+      <li>Use <a href="/skills/cv-ats/">CV and ATS Optimization</a> for parser-safe resumes, keyword alignment, and achievement bullets.</li>
+      <li>Use <a href="/skills/web-portfolio/">Web Portfolio SEO</a> for indexable static pages, metadata, structured data, sitemap coverage, and crawler checks.</li>
+    </ul>
+  </section>
+</BaseLayout>

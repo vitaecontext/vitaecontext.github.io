@@ -1,0 +1,49 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+
+const meta = {
+  title: "Installation",
+  description:
+    "Install AgentKit SEO from a local checkout for Codex, Claude Code, Gemini CLI, OpenCode, or shared portable skill bundles.",
+  path: "/docs/installation/",
+  type: "article" as const,
+};
+---
+
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "Installation", path: "/docs/installation/" }])]}>
+  <section class="page-hero">
+    <div class="inner">
+      <p class="eyebrow">Install</p>
+      <h1>Installation</h1>
+      <p>Use the local checkout flow and choose the provider target that matches your agent environment.</p>
+    </div>
+  </section>
+  <section class="page-section prose">
+    <h2>What gets installed</h2>
+    <p>
+      The installer exports the shared AgentKit SEO skill source into provider-specific layouts. The readable modules
+      remain useful as documentation, while the generated skill folders give agents focused instructions for LinkedIn,
+      GitHub, CV/ATS, portfolio SEO, X/Twitter, and context-file work.
+    </p>
+    <h2>Install from a local checkout</h2>
+    <p>From the AgentKit SEO source repository, run the export installer with the provider you want:</p>
+    <pre class="code-block"><code>node .skills/export/scripts/agentkit-seo.mjs install --provider codex</code></pre>
+    <h2>Project-local preview install</h2>
+    <p>Use a project root when you want to preview generated provider files inside a repository:</p>
+    <pre class="code-block"><code>node .skills/export/scripts/agentkit-seo.mjs install --provider codex --project-root .</code></pre>
+    <h2>Supported provider values</h2>
+    <ul>
+      <li><code>codex</code></li>
+      <li><code>claude-code</code></li>
+      <li><code>gemini-cli</code></li>
+      <li><code>opencode</code></li>
+      <li><code>shared</code> for portable SKILL.md folders</li>
+    </ul>
+    <h2>After installation</h2>
+    <p>
+      Invoke one focused skill by name, provide the private context file when available, and ask for a specific output:
+      profile audit, rewrite plan, repository checklist, ATS-safe CV pass, metadata review, or publishing checklist.
+    </p>
+  </section>
+</BaseLayout>

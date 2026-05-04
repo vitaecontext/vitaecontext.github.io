@@ -1,0 +1,41 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import { site } from "@data/site";
+
+const meta = {
+  title: "Contact",
+  description:
+    "Contact and contribution paths for AgentKit SEO, including GitHub-based project discovery and maintainer attribution.",
+  path: "/contact/",
+  type: "article" as const,
+};
+---
+
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact/" }])]}>
+  <section class="page-hero">
+    <div class="inner">
+      <p class="eyebrow">Contact</p>
+      <h1>Contact</h1>
+      <p>AgentKit SEO is maintained by Renato Mignone and Elia Innocenti. Use the source repository and public author profiles to inspect the work, follow updates, or get in touch.</p>
+    </div>
+  </section>
+  <section class="page-section prose">
+    <h2>Maintainers</h2>
+    <div class="author-grid">
+      {site.authors.map((author) => (
+        <article class="author-card">
+          <h3>{author.name}</h3>
+          <div class="author-links">
+            <a href={author.github}>GitHub</a>
+            <a href={author.linkedin}>LinkedIn</a>
+            <a href={author.portfolio}>Portfolio</a>
+          </div>
+        </article>
+      ))}
+    </div>
+    <h2>Project contact</h2>
+    <p>Repository: <a href={site.repoUrl}>{site.repoUrl}</a></p>
+    <p>For project work, start with the author profiles above and keep public claims aligned with the source repository.</p>
+  </section>
+</BaseLayout>

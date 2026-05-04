@@ -1,0 +1,18 @@
+{
+  "name": "agentkit-seo.github.io",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --root . --host 127.0.0.1",
+    "build": "astro check --root . && astro build --root . --outDir ./dist",
+    "preview": "astro preview --root . --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.3.1",
+    "astro": "^5.16.3",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {}
+}

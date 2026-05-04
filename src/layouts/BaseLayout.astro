@@ -1,0 +1,52 @@
+---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import { assetUrl, canonical, fullTitle, type JsonLd, type PageMeta } from "@data/metadata";
+import { site } from "@data/site";
+import "@styles/global.css";
+
+type Props = {
+  meta: PageMeta;
+  jsonLd?: JsonLd[];
+};
+
+const { meta, jsonLd = [] } = Astro.props;
+const title = fullTitle(meta.title);
+const url = canonical(meta.path);
+const ogType = meta.type ?? "website";
+const image = assetUrl(meta.image ?? site.defaultImage);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={meta.description} />
+    <link rel="canonical" href={url} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="apple-touch-icon" href="/brand/agentkit-seo-mark.svg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={`${site.name} social preview`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={image} />
+    <meta name="theme-color" content="#111314" />
+    {jsonLd.map((item) => <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />)}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <Header />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

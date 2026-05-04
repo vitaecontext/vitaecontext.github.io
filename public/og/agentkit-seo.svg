@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">AgentKit SEO social preview</title>
+  <desc id="desc">A preview image for AgentKit SEO, a modular skill system for AI-assisted personal branding and SEO/AEO.</desc>
+  <rect width="1200" height="630" fill="#faf9f4"/>
+  <path d="M0 0h1200v630H0z" fill="#faf9f4"/>
+  <path d="M70 86h1060v458H70z" fill="#ffffff" stroke="#d8dbd4" stroke-width="2"/>
+  <path d="M70 86h1060v92H70z" fill="#111314"/>
+  <text x="112" y="145" fill="#faf9f4" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">AK</text>
+  <text x="182" y="145" fill="#faf9f4" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">AgentKit SEO</text>
+  <text x="112" y="287" fill="#111314" font-family="Inter, Arial, sans-serif" font-size="74" font-weight="900">One source of truth.</text>
+  <text x="112" y="370" fill="#111314" font-family="Inter, Arial, sans-serif" font-size="74" font-weight="900">Many optimized surfaces.</text>
+  <text x="112" y="444" fill="#394044" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="600">Modular skills for personal branding, SEO/AEO, and profile optimization.</text>
+  <g fill="#0f766e">
+    <rect x="112" y="494" width="124" height="36" rx="8"/>
+    <rect x="252" y="494" width="118" height="36" rx="8"/>
+    <rect x="386" y="494" width="112" height="36" rx="8"/>
+  </g>
+  <g fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">
+    <text x="137" y="518">CV/ATS</text>
+    <text x="276" y="518">GitHub</text>
+    <text x="407" y="518">LinkedIn</text>
+  </g>
+</svg>

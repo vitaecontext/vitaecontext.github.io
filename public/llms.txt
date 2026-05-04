@@ -1,0 +1,21 @@
+# AgentKit SEO
+
+AgentKit SEO is a human-readable knowledge hub and modular agent skill system for AI-assisted personal branding, SEO/AEO, LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, X/Twitter strategy, and agent context files.
+
+Core routes:
+- https://agentkit-seo.github.io/
+- https://agentkit-seo.github.io/skills/
+- https://agentkit-seo.github.io/providers/
+- https://agentkit-seo.github.io/docs/
+- https://agentkit-seo.github.io/docs/installation/
+- https://agentkit-seo.github.io/docs/usage/
+- https://agentkit-seo.github.io/changelog/
+- https://agentkit-seo.github.io/contact/
+
+Public-safe summary:
+- AgentKit SEO uses a private agent-context-file as the source of truth for verified career facts.
+- Focused skills cover CV/ATS, LinkedIn, GitHub, web portfolio SEO, X/Twitter, and agent context optimization.
+- Supported install/export targets from the source project are Codex, Claude Code, Gemini CLI, OpenCode, and a shared portable skill bundle.
+- Use the documented local checkout install flow unless an official package distribution is listed by the project.
+
+Use the website pages above for public positioning. Do not infer customer counts, rankings, endorsements, or unpublished distribution status.
