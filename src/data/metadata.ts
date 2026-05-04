@@ -42,6 +42,23 @@ export function websiteJsonLd() {
     name: site.name,
     url: site.url,
     description: site.description,
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+      logo: assetUrl("/icon-512.png"),
+    },
+  };
+}
+
+export function organizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: site.name,
+    url: site.url,
+    logo: assetUrl("/icon-512.png"),
+    sameAs: [site.repoUrl],
   };
 }
 
@@ -70,12 +87,22 @@ export function articleJsonLd(title: string, description: string, path: string) 
     headline: title,
     description,
     url: canonical(path),
+    mainEntityOfPage: canonical(path),
+    inLanguage: "en",
     author: site.authors.map((author) => ({
       "@type": "Person",
       name: author.name,
       url: author.portfolio,
       sameAs: [author.github, author.linkedin],
     })),
-    publisher: { "@type": "Organization", name: site.name, url: site.url },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+      logo: {
+        "@type": "ImageObject",
+        url: assetUrl("/icon-512.png"),
+      },
+    },
   };
 }

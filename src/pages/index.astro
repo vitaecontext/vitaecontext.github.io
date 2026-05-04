@@ -5,7 +5,7 @@ import PlatformIcon from "@components/PlatformIcon.astro";
 import SectionHeader from "@components/SectionHeader.astro";
 import SystemMap from "@components/SystemMap.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { breadcrumbJsonLd, softwareJsonLd, websiteJsonLd } from "@data/metadata";
+import { breadcrumbJsonLd, organizationJsonLd, softwareJsonLd, websiteJsonLd } from "@data/metadata";
 import { providers, serviceMarks, site, skills, workflow } from "@data/site";
 
 const meta = {
@@ -38,7 +38,7 @@ const quickstart = [
 ];
 ---
 
-<BaseLayout meta={meta} jsonLd={[websiteJsonLd(), softwareJsonLd(), breadcrumbJsonLd([{ name: "Home", path: "/" }])]}>
+<BaseLayout meta={meta} jsonLd={[websiteJsonLd(), organizationJsonLd(), softwareJsonLd(), breadcrumbJsonLd([{ name: "Home", path: "/" }])]}>
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="eyebrow">Personal branding SEO for humans and agents</p>
@@ -249,9 +249,18 @@ const quickstart = [
         <article class="author-card">
           <h3>{author.name}</h3>
           <div class="author-links" aria-label={`${author.name} contact links`}>
-            <a href={author.github}>GitHub</a>
-            <a href={author.linkedin}>LinkedIn</a>
-            <a href={author.portfolio}>Portfolio</a>
+            <a href={author.github} target="_blank" rel="noreferrer" aria-label={`${author.name} on GitHub`}>
+              <PlatformIcon kind="github" />
+              GitHub
+            </a>
+            <a href={author.linkedin} target="_blank" rel="noreferrer" aria-label={`${author.name} on LinkedIn`}>
+              <PlatformIcon kind="linkedin" />
+              LinkedIn
+            </a>
+            <a href={author.portfolio} target="_blank" rel="noreferrer" aria-label={`${author.name}'s portfolio`}>
+              <PlatformIcon kind="portfolio" />
+              Portfolio
+            </a>
           </div>
         </article>
       ))}

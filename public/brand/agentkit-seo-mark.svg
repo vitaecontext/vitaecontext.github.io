@@ -1,7 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
-  <title id="title">AgentKit SEO mark</title>
-  <desc id="desc">A legal-safe AK monogram for AgentKit SEO.</desc>
-  <rect width="96" height="96" rx="18" fill="#111314"/>
-  <path d="M22 67 36 29h10l14 38H49l-2.4-7.5H35.1L32.7 67H22Zm15.5-15.3h6.7L41 41.3l-3.5 10.4Z" fill="#faf9f4"/>
-  <path d="M57 67V29h10v15.2L78.5 29h12L76.8 46.3 91 67H78.6L69.9 53.9 67 57.3V67H57Z" fill="#8fd4cd"/>
+  <title id="title">AgentKit SEO compact mark</title>
+  <desc id="desc">A simplified AgentKit SEO icon combining a document shape and an agent circuit shape.</desc>
+  <defs>
+    <linearGradient id="frame" x1="18" y1="12" x2="79" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1f7bff"/>
+      <stop offset="1" stop-color="#63d3ff"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="48" y1="16" x2="48" y2="80" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67dcff"/>
+      <stop offset="1" stop-color="#2da8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="96" height="96" rx="20" fill="#06111f"/>
+  <path d="M20 23.5 43.5 9H46v16h-10v36.8L46 69v18L20 72.3Z" fill="none" stroke="url(#frame)" stroke-linejoin="round" stroke-width="6"/>
+  <path d="M47.5 17 77 34.8V61L47.5 79Z" fill="none" stroke="url(#glow)" stroke-linejoin="round" stroke-width="4.5"/>
+  <path d="M31.5 37.5H43M31.5 48H43M31.5 58.5H43" stroke="#1f7bff" stroke-linecap="round" stroke-width="5"/>
+  <path d="M50 41 58.5 32.5V24M50 48h11.5l7-7h8M50 55h10l8 8h8M50 62.5l8.5 8.5V78" fill="none" stroke="#63d3ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  <path d="m57.2 51.5 4.4-4.4M57.2 51.5l4.4 4.4M66.8 47.1l4.4 4.4M66.8 55.9l4.4-4.4" fill="none" stroke="#63d3ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.4"/>
+  <circle cx="58.5" cy="24" r="3.5" fill="#06111f" stroke="#63d3ff" stroke-width="3"/>
+  <circle cx="76.5" cy="41" r="3.5" fill="#06111f" stroke="#63d3ff" stroke-width="3"/>
+  <circle cx="76.5" cy="63" r="3.5" fill="#06111f" stroke="#63d3ff" stroke-width="3"/>
+  <circle cx="58.5" cy="78" r="3.5" fill="#06111f" stroke="#63d3ff" stroke-width="3"/>
 </svg>

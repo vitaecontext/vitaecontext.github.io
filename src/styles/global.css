@@ -1201,12 +1201,21 @@ li {
 }
 
 .author-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   color: var(--teal-deep);
   font-size: 0.9rem;
   font-weight: 800;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+}
+
+.author-links svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex: 0 0 auto;
 }
 
 .legal {

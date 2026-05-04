@@ -9,14 +9,14 @@ export function getStaticPaths() {
 
 const { skill } = Astro.props;
 const meta = {
-  title: `agentkit-seo-${skill.slug}`,
-  description: `Agent skill package for ${skill.name}.`,
+  title: `${skill.name} Agent Skill`,
+  description: `${skill.summary} Installable AgentKit SEO skill for ${skill.shortName.toLowerCase()} workflows, audits, and rewrites.`,
   path: `/skills/${skill.slug}/`,
   type: "article" as const,
 };
 ---
 
-<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Agent Skills", path: "/skills/" }, { name: meta.title, path: meta.path }])]}>
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Agent Skills", path: "/skills/" }, { name: skill.name, path: meta.path }])]}>
   <section class="page-hero">
     <div class="inner">
       <div class="docs-mode-label-row" style="margin-bottom: 1rem;">

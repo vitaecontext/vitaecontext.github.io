@@ -2,7 +2,7 @@ export const site = {
   name: "AgentKit SEO",
   url: "https://agentkit-seo.github.io",
   repoUrl: "https://github.com/agentkit-seo/agentkit-seo",
-  defaultImage: "/og/agentkit-seo.svg",
+  defaultImage: "/og/agentkit-seo.png",
   description:
     "A human-readable knowledge hub and modular agent skill system for personal branding, LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, X/Twitter strategy, and agent context files.",
   disclaimer:

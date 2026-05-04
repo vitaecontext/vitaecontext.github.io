@@ -1,23 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">AgentKit SEO social preview</title>
-  <desc id="desc">A preview image for AgentKit SEO, a modular skill system for AI-assisted personal branding and SEO/AEO.</desc>
-  <rect width="1200" height="630" fill="#faf9f4"/>
-  <path d="M0 0h1200v630H0z" fill="#faf9f4"/>
-  <path d="M70 86h1060v458H70z" fill="#ffffff" stroke="#d8dbd4" stroke-width="2"/>
-  <path d="M70 86h1060v92H70z" fill="#111314"/>
-  <text x="112" y="145" fill="#faf9f4" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">AK</text>
-  <text x="182" y="145" fill="#faf9f4" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800">AgentKit SEO</text>
-  <text x="112" y="287" fill="#111314" font-family="Inter, Arial, sans-serif" font-size="74" font-weight="900">One source of truth.</text>
-  <text x="112" y="370" fill="#111314" font-family="Inter, Arial, sans-serif" font-size="74" font-weight="900">Many optimized surfaces.</text>
-  <text x="112" y="444" fill="#394044" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="600">Modular skills for personal branding, SEO/AEO, and profile optimization.</text>
-  <g fill="#0f766e">
-    <rect x="112" y="494" width="124" height="36" rx="8"/>
-    <rect x="252" y="494" width="118" height="36" rx="8"/>
-    <rect x="386" y="494" width="112" height="36" rx="8"/>
+  <desc id="desc">A preview image for AgentKit SEO, a modular skill system for AI-assisted personal branding and SEO.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071120"/>
+      <stop offset="0.58" stop-color="#09172a"/>
+      <stop offset="1" stop-color="#0d213d"/>
+    </linearGradient>
+    <radialGradient id="haloA" cx="0" cy="0" r="1" gradientTransform="translate(320 182) rotate(90) scale(180 260)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1f7bff" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#1f7bff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="haloB" cx="0" cy="0" r="1" gradientTransform="translate(910 440) rotate(90) scale(220 280)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#59d0ff" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#59d0ff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="frame" x1="177" y1="138" x2="318" y2="307" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1f7bff"/>
+      <stop offset="1" stop-color="#63d3ff"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="245" y1="155" x2="245" y2="301" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67dcff"/>
+      <stop offset="1" stop-color="#2da8ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#haloA)"/>
+  <rect width="1200" height="630" fill="url(#haloB)"/>
+  <rect x="52" y="52" width="1096" height="526" rx="28" fill="rgba(5,11,20,.56)" stroke="rgba(115,166,255,.2)"/>
+
+  <g transform="translate(118 118)">
+    <rect width="258" height="258" rx="44" fill="#06111f" stroke="rgba(99,211,255,.16)"/>
+    <path d="M54 62 118 24h7v43H98v101l27 19v49L54 194.6Z" fill="none" stroke="url(#frame)" stroke-linejoin="round" stroke-width="14"/>
+    <path d="M131 44 212 93v72L131 214Z" fill="none" stroke="url(#glow)" stroke-linejoin="round" stroke-width="10"/>
+    <path d="M86 100H117M86 129H117M86 158H117" stroke="#1f7bff" stroke-linecap="round" stroke-width="13"/>
+    <path d="M138 109 162 85V63M138 128h30l19-19h22M138 147h27l21 21h23M138 167l24 24v22" fill="none" stroke="#63d3ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="9"/>
+    <path d="m158 138 12-12M158 138l12 12M184 126l12 12M184 150l12-12" fill="none" stroke="#63d3ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.6"/>
+    <circle cx="162" cy="63" r="8" fill="#06111f" stroke="#63d3ff" stroke-width="6"/>
+    <circle cx="210" cy="109" r="8" fill="#06111f" stroke="#63d3ff" stroke-width="6"/>
+    <circle cx="210" cy="168" r="8" fill="#06111f" stroke="#63d3ff" stroke-width="6"/>
+    <circle cx="162" cy="214" r="8" fill="#06111f" stroke="#63d3ff" stroke-width="6"/>
   </g>
-  <g fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800">
-    <text x="137" y="518">CV/ATS</text>
-    <text x="276" y="518">GitHub</text>
-    <text x="407" y="518">LinkedIn</text>
+
+  <g font-family="Inter, Arial, sans-serif" letter-spacing="0">
+    <text x="450" y="180" fill="#8fbfff" font-size="22" font-weight="800">PLAYBOOKS + AGENT SKILLS</text>
+    <text x="450" y="270" fill="#f2f8ff" font-size="76" font-weight="900">AgentKit SEO</text>
+    <text x="450" y="350" fill="#f2f8ff" font-size="60" font-weight="860">One source of truth.</text>
+    <text x="450" y="418" fill="#f2f8ff" font-size="60" font-weight="860">Many optimized surfaces.</text>
+    <text x="450" y="477" fill="#b8cbde" font-size="28" font-weight="600">Human-readable methods and installable skills for LinkedIn, GitHub, CV/ATS, portfolio SEO, X, and agent context.</text>
+  </g>
+
+  <g font-family="Inter, Arial, sans-serif" font-size="21" font-weight="820">
+    <rect x="450" y="518" width="145" height="42" rx="10" fill="#153353" stroke="rgba(99,211,255,.22)"/>
+    <rect x="608" y="518" width="141" height="42" rx="10" fill="#12304d" stroke="rgba(99,211,255,.22)"/>
+    <rect x="762" y="518" width="154" height="42" rx="10" fill="#12304d" stroke="rgba(99,211,255,.22)"/>
+    <text x="483" y="545" fill="#dff5ff">LinkedIn</text>
+    <text x="642" y="545" fill="#dff5ff">GitHub</text>
+    <text x="795" y="545" fill="#dff5ff">Portfolio SEO</text>
   </g>
 </svg>

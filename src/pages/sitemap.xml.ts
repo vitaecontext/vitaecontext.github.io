@@ -1,12 +1,25 @@
+import { getCollection } from "astro:content";
 import { skills, publicRoutes, site } from "@data/site";
 
-const routes = [...publicRoutes, ...skills.map((skill) => ({ path: skill.href, label: skill.name }))];
+const skillRoutes = skills.map((skill) => ({
+  path: skill.href,
+  label: skill.name,
+}));
 
-export function GET() {
+export async function GET() {
+  const playbooks = await getCollection("playbooks");
+  const playbookRoutes = playbooks.map((entry) => ({
+    path: `/playbooks/${entry.slug}/`,
+    label: entry.data.title,
+    lastmod: entry.data.last_updated,
+  }));
+
+  const routes = [...publicRoutes, ...skillRoutes, ...playbookRoutes];
   const urls = routes
     .map((route) => {
       const loc = new URL(route.path, site.url).toString();
-      return `<url><loc>${loc}</loc><changefreq>weekly</changefreq><priority>${route.path === "/" ? "1.0" : "0.7"}</priority></url>`;
+      const lastmod = "lastmod" in route && route.lastmod ? `<lastmod>${route.lastmod}</lastmod>` : "";
+      return `<url><loc>${loc}</loc>${lastmod}<changefreq>weekly</changefreq><priority>${route.path === "/" ? "1.0" : "0.7"}</priority></url>`;
     })
     .join("");
 
