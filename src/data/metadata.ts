@@ -92,6 +92,7 @@ export function articleJsonLd(title: string, description: string, path: string) 
     author: site.authors.map((author) => ({
       "@type": "Person",
       name: author.name,
+      email: author.email,
       url: author.portfolio,
       sameAs: [author.github, author.linkedin],
     })),

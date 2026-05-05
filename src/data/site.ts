@@ -10,12 +10,14 @@ export const site = {
   authors: [
     {
       name: "Renato Mignone",
+      email: "renato.mignone@gmail.com",
       github: "https://github.com/RenatoMignone",
       linkedin: "https://www.linkedin.com/in/renato-mignone/",
       portfolio: "https://renatomignone.github.io/",
     },
     {
       name: "Elia Innocenti",
+      email: "home.eliainnocenti@gmail.com",
       github: "https://github.com/eliainnocenti",
       linkedin: "https://www.linkedin.com/in/eliainnocenti/",
       portfolio: "https://eliainnocenti.github.io/",

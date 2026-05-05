@@ -1,12 +1,10 @@
 ---
 import CtaBand from "@components/CtaBand.astro";
-import IndexingChecklist from "@components/IndexingChecklist.astro";
 import PlatformIcon from "@components/PlatformIcon.astro";
 import SectionHeader from "@components/SectionHeader.astro";
-import SystemMap from "@components/SystemMap.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, organizationJsonLd, softwareJsonLd, websiteJsonLd } from "@data/metadata";
-import { providers, serviceMarks, site, skills, workflow } from "@data/site";
+import { serviceMarks, site, skills } from "@data/site";
 
 const meta = {
   title: "AgentKit SEO",
@@ -34,6 +32,25 @@ const quickstart = [
   {
     title: "Keep facts aligned",
     text: "Route every rewrite through verified career context so public claims stay consistent.",
+  },
+];
+
+const skillBundle = [
+  {
+    title: "Playbook-first structure",
+    text: "Readable guides for LinkedIn profile optimization, GitHub SEO, CV/ATS resumes, portfolio SEO, X/Twitter, and career context files.",
+  },
+  {
+    title: "Agent-ready exports",
+    text: "The same methodology can be installed as focused skills so an agent loads only the instructions needed for the current surface.",
+  },
+  {
+    title: "Fact alignment",
+    text: "Every rewrite is designed to start from a verified context file, keeping public claims consistent across profiles, resumes, and sites.",
+  },
+  {
+    title: "Provider details elsewhere",
+    text: "Compatibility, install commands, and provider-specific notes stay on the providers page so the homepage remains easy to scan.",
   },
 ];
 ---
@@ -86,8 +103,9 @@ const quickstart = [
         <div class="console-grid">
           {skills.slice(0, 6).map((skill) => (
             <a href={skill.href}>
+              <span class="console-skill-icon" aria-hidden="true"><PlatformIcon kind={skill.icon} /></span>
               <strong>{skill.shortName}</strong>
-              <span>{skill.outputs[0]}</span>
+              <span class="console-skill-output">{skill.outputs[0]}</span>
             </a>
           ))}
         </div>
@@ -95,10 +113,28 @@ const quickstart = [
     </aside>
   </section>
 
+  <section class="section service-strip">
+    <SectionHeader
+      eyebrow="What people search for"
+      title="Start with the profile surface you need."
+      text="Each guide targets a real search intent: LinkedIn profile optimization, GitHub SEO, ATS resume optimization, portfolio indexing, X/Twitter profile strategy, and AI career context files."
+    />
+    <div class="service-grid">
+      {serviceMarks.map((service) => (
+        <a class={`service-mark ${service.tone}`} href={service.href} aria-label={`${service.name} playbook`}>
+          <span aria-hidden="true"><PlatformIcon kind={service.icon} /></span>
+          <h3>{service.name}</h3>
+          <p>{service.text}</p>
+        </a>
+      ))}
+    </div>
+    <p class="service-note">{site.disclaimer}</p>
+  </section>
+
   <section class="section quickstart-section" aria-labelledby="quickstart-heading">
     <div class="quickstart-copy">
       <p class="eyebrow">Quick start</p>
-      <h2 id="quickstart-heading">Start with the surface you need.</h2>
+      <h2 id="quickstart-heading">Three steps, then publish.</h2>
       <p>
         AgentKit SEO is a compact library of profile optimization methods. Pick the surface, choose manual or agent mode,
         and keep every rewrite grounded in the same verified context file.
@@ -114,129 +150,27 @@ const quickstart = [
     </div>
   </section>
 
-  <SystemMap />
-
-  <!-- Two-mode explainer -->
-  <section class="section two-mode-section" aria-labelledby="two-mode-heading">
-    <SectionHeader
-      eyebrow="Two ways to use it"
-      title="A knowledge base first, a skill bundle second."
-      text="The repository is designed to be read directly by anyone doing profile work. It can also be exported as focused agent skills for automated workflows. Both modes use exactly the same methodology."
-    />
-    <div class="two-mode-split">
-      <article class="mode-card mode-card--read">
-        <div class="mode-card-header">
-          <span class="mode-badge mode-badge--read">Playbooks</span>
-          <h3>Read the methodology yourself</h3>
-        </div>
-        <p>
-          Each module is written as a structured, human-readable guide. You bring the context about your career, read
-          the relevant sections, and apply the checks and rewrites manually. No agent, no install, no commands.
-        </p>
-        <ul class="mode-list">
-          <li>Practical checklists for each platform surface</li>
-          <li>Opinionated structure you can follow step by step</li>
-          <li>Covers LinkedIn, GitHub, CV/ATS, portfolio, X/Twitter, and context files</li>
-          <li>Works independently from any AI tooling</li>
-        </ul>
-        <a class="button primary mode-card-cta" href="/playbooks/">Browse playbooks →</a>
-      </article>
-      <article class="mode-card mode-card--agent">
-        <div class="mode-card-header">
-          <span class="mode-badge mode-badge--agent">Agent skills</span>
-          <h3>Install as focused agent skills</h3>
-        </div>
-        <p>
-          The same methodology is packaged as named agent skills for Codex, Claude Code, Gemini CLI, and OpenCode.
-          An agent loads only the skill it needs, receives scoped rules for the target surface, and applies them
-          against your private context file.
-        </p>
-        <ul class="mode-list">
-          <li>One skill per surface, keeping context small and focused</li>
-          <li>Provider-aware install layouts via a single export script</li>
-          <li>Context file keeps facts consistent across every agent run</li>
-          <li>Outputs: audits, rewrites, checklists, and patch plans</li>
-        </ul>
-        <a class="button primary mode-card-cta" href="/docs/installation/">Read installation →</a>
-      </article>
-    </div>
-  </section>
-
-  <section class="section service-strip">
-    <SectionHeader
-      eyebrow="What people search for"
-      title="Built around the profile problems that actually get queried."
-      text="Each surface gets its own visible target: LinkedIn profile optimization, GitHub repository SEO, ATS resume optimization, portfolio indexing, X/Twitter profile strategy, and agent context architecture."
-    />
-    <div class="service-grid">
-      {serviceMarks.map((service) => (
-        <a class={`service-mark ${service.tone}`} href={service.href} aria-label={`${service.name} playbook`}>
-          <span aria-hidden="true"><PlatformIcon kind={service.icon} /></span>
-          <h3>{service.name}</h3>
-          <p>{service.text}</p>
-        </a>
-      ))}
-    </div>
-    <p class="service-note">{site.disclaimer}</p>
-  </section>
-
-  <section class="section">
-    <SectionHeader
-      eyebrow="Surface matrix"
-      title="Every profile gets the rules it deserves."
-      text="Each module maps a public surface to specific checks, rewrites, and output types. Read it as a guide or invoke it as an agent skill."
-    />
-    <div class="matrix">
-      {skills.map((skill) => (
-        <a href={skill.href}>
-          <span class="icon" aria-hidden="true"><PlatformIcon kind={skill.icon} /></span>
-          <h3>{skill.shortName}</h3>
-          <p>{skill.summary}</p>
-          <p class="search-intent">{skill.searchIntent}</p>
-          <ul class="tag-list" aria-label={`${skill.name} outputs`}>
-            {skill.outputs.slice(0, 2).map((output) => <li>{output}</li>)}
-          </ul>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <section class="section">
-    <SectionHeader
-      eyebrow="Workflow"
-      title="From scattered material to consistent updates."
-      text="The system is designed for repeatable work, not one-off prompt improvisation. It works the same whether you're reading the guide yourself or routing a task through an agent."
-    />
-    <div class="workflow">
-      {workflow.map((step) => (
-        <article class="step">
-          <h3>{step.title}</h3>
-          <p>{step.text}</p>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section class="section split">
+  <section class="section split skill-bundle-section">
     <div>
       <SectionHeader
-        eyebrow="Provider support"
-        title="Portable skills, provider-aware installs."
-        text="The shared skill source exports to supported agent environments while keeping the methodology in one place."
+        eyebrow="Agent skill bundle"
+        title="One method, readable by people and loadable by agents."
+        text="The homepage keeps the core promise clear. Provider-specific names, commands, and compatibility notes live on the dedicated providers page."
       />
-      <a class="button secondary" href="/providers/">Compare providers</a>
+      <div class="button-row">
+        <a class="button primary" href="/docs/installation/">Install skills</a>
+        <a class="button secondary" href="/providers/">Provider details</a>
+      </div>
     </div>
-    <div class="provider-list">
-      {providers.map((provider) => (
-        <article class="provider">
-          <h3>{provider.name}</h3>
-          <p><strong>{provider.status}</strong><br />{provider.summary}</p>
+    <div class="skill-bundle-grid">
+      {skillBundle.map((item) => (
+        <article class="skill-bundle-card">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
         </article>
       ))}
     </div>
   </section>
-
-  <IndexingChecklist />
 
   <section class="section authors-section">
     <SectionHeader
@@ -261,39 +195,21 @@ const quickstart = [
               <PlatformIcon kind="portfolio" />
               Portfolio
             </a>
+            <a href={`mailto:${author.email}`} aria-label={`Email ${author.name}`}>
+              <PlatformIcon kind="gmail" />
+              Gmail
+            </a>
           </div>
         </article>
       ))}
     </div>
   </section>
 
-  <section class="section">
-    <SectionHeader
-      eyebrow="SEO/AEO positioning"
-      title="Built for search engines, recruiters, profile parsers, and AI agents."
-      text="AgentKit SEO treats crawler visibility and AI-readable structure as career infrastructure. Metadata, profile copy, repository descriptions, project pages, and context files point back to the same verified facts."
-    />
-    <div class="grid">
-      <article class="card">
-        <h3>Crawler-aware</h3>
-        <p>Portfolio guidance covers crawlable URLs, metadata, structured data, sitemaps, robots files, and JavaScript SEO.</p>
-      </article>
-      <article class="card">
-        <h3>Parser-aware</h3>
-        <p>CV guidance prioritizes extractable text, standard sections, role keywords, and recruiter scanning.</p>
-      </article>
-      <article class="card">
-        <h3>Agent-aware</h3>
-        <p>Skills are small enough for focused loading and strict enough to preserve facts across platforms.</p>
-      </article>
-    </div>
-  </section>
-
   <CtaBand
-    title="Choose your path: read the playbooks or install the skills."
-    text="Browse the methodology as structured guides, or install the agent skills and route your first surface through the matching skill."
-    primaryHref="/skills/"
-    primaryLabel="Browse skills"
+    title="Choose the surface and start the optimization."
+    text="Browse the playbooks as structured guides, or install the matching agent skills when you want the same method inside your coding agent."
+    primaryHref="/playbooks/"
+    primaryLabel="Browse playbooks"
     secondaryHref="/docs/installation/"
     secondaryLabel="Install agent skills"
   />

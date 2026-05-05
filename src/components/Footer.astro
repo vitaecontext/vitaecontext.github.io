@@ -55,6 +55,10 @@ const footerNavItems = navItems.filter(
                 <PlatformIcon kind="portfolio" />
                 Portfolio
               </a>
+              <a href={`mailto:${author.email}`} aria-label={`Email ${author.name}`}>
+                <PlatformIcon kind="gmail" />
+                Gmail
+              </a>
             </div>
           </div>
         ))}

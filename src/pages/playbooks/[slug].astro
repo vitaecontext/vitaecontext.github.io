@@ -13,9 +13,17 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
 
 const skillData = skills.find(s => s.slug === entry.slug);
+const sectionHeadings = headings
+  .filter((heading) => heading.depth === 2 && heading.slug.startsWith("section-"))
+  .map((heading) => ({
+    ...heading,
+    text: heading.text.replace(/^Section:\s*/i, ""),
+  }));
+const overviewHeading = headings.find((heading) => heading.depth === 2 && !heading.slug.startsWith("section-"));
+const searchIntentItems = skillData?.searchIntent.split(",").map((item) => item.trim()).filter(Boolean) ?? [];
 
 const meta = {
   title: skillData?.metaTitle ?? entry.data.title ?? skillData?.name ?? entry.slug,
@@ -26,20 +34,43 @@ const meta = {
 ---
 
 <BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Playbooks", path: "/playbooks/" }, { name: meta.title, path: meta.path }])]}>
-  <section class="page-hero">
+  <section class="page-hero playbook-hero-v2">
     <div class="inner">
-      <div class="docs-mode-label-row" style="margin-bottom: 1rem;">
-        <span class="mode-badge mode-badge--read">Playbook</span>
-        <a href={`/skills/${entry.slug}/`} class="mode-badge mode-badge--agent" style="text-decoration: none; background: transparent; border: 1px solid var(--line); color: var(--muted); opacity: 0.7; transition: opacity 0.2s;">Switch to Agent Skill →</a>
+      <div class="playbook-hero-grid">
+        <div class="playbook-hero-title">
+          <p class="eyebrow">Methodology playbook</p>
+          <h1>{meta.title}</h1>
+        </div>
+        <aside class="playbook-hero-summary" aria-label={`${meta.title} summary`}>
+          <div class="playbook-hero-actions">
+            <span class="mode-badge mode-badge--read">Playbook</span>
+            <a href={`/skills/${entry.slug}/`} class="button secondary">Agent skill</a>
+          </div>
+          <p>{meta.description}</p>
+          {searchIntentItems.length > 0 && (
+            <ul class="intent-chip-list" aria-label={`${meta.title} search intents`}>
+              {searchIntentItems.map((item) => <li>{item}</li>)}
+            </ul>
+          )}
+        </aside>
       </div>
-      <p class="eyebrow">Methodology</p>
-      <h1>{meta.title}</h1>
-      <p>{meta.description}</p>
-      {skillData && <p class="search-intent">Covers: {skillData.searchIntent}</p>}
     </div>
   </section>
 
-  <section class="page-section">
+  <section class="playbook-navigation playbook-navigation-v2" aria-labelledby="playbook-navigation-heading">
+    <div class="playbook-navigation-inner">
+      <div class="playbook-navigation-copy">
+        <p class="eyebrow">Jump sections</p>
+        <h2 id="playbook-navigation-heading">{skillData?.shortName ?? meta.title} guide</h2>
+      </div>
+      <nav class="playbook-toc" aria-label={`${meta.title} sections`}>
+        {overviewHeading && <a href={`#${overviewHeading.slug}`}>Overview and fast path</a>}
+        {sectionHeadings.map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}
+      </nav>
+    </div>
+  </section>
+
+  <section class="page-section playbook-content">
     <article class="prose">
       <Content />
     </article>
