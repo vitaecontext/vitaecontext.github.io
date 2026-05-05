@@ -95,11 +95,11 @@ This file is for users who have already built a personal agent context file foll
 
 Every session that uses the context file follows the same three-step pattern.
 
-**Step 1 — Load the context file.** Provide the file to the agent as context before stating your task. In most coding agents, this means opening the file in the same working directory and referencing it explicitly in your prompt, or passing it using the agent's file attachment mechanism. In chat-based agents, paste the full file content directly into the session.
+**Step 1 - Load the context file.** Provide the file to the agent as context before stating your task. In most coding agents, this means opening the file in the same working directory and referencing it explicitly in your prompt, or passing it using the agent's file attachment mechanism. In chat-based agents, paste the full file content directly into the session.
 
-**Step 2 — State the task with constraints.** Name the output type, the target platform or role, and any hard constraints (word count, format, target audience). The more specific the constraints, the less the agent needs to guess.
+**Step 2 - State the task with constraints.** Name the output type, the target platform or role, and any hard constraints (word count, format, target audience). The more specific the constraints, the less the agent needs to guess.
 
-**Step 3 — Evaluate and iterate.** Use the quality criteria in section 5 of this file to assess the output. If a section is weak, ask the agent to revise it by naming the specific fact or section in the context file that should be drawn on more heavily.
+**Step 3 - Evaluate and iterate.** Use the quality criteria in section 5 of this file to assess the output. If a section is weak, ask the agent to revise it by naming the specific fact or section in the context file that should be drawn on more heavily.
 
 ### 2.2 File discovery convention
 
@@ -280,7 +280,7 @@ metadata:
 
 ## 1. Overview
 
-The agent context file is a single Markdown document containing a person's full professional record. It is the source of truth from which any career output can be generated: CVs, cover letters, LinkedIn sections, portfolio copy, and interview preparation material. Two readers use it simultaneously — a human who maintains it and an agent that extracts facts from it. Every rule in this spec serves both readers. Following this spec produces a file that any agent can load, navigate by section tag, and use immediately without additional instructions.
+The agent context file is a single Markdown document containing a person's full professional record. It is the source of truth from which any career output can be generated: CVs, cover letters, LinkedIn sections, portfolio copy, and interview preparation material. Two readers use it simultaneously - a human who maintains it and an agent that extracts facts from it. Every rule in this spec serves both readers. Following this spec produces a file that any agent can load, navigate by section tag, and use immediately without additional instructions.
 
 The file can live wherever the user wants. Prefer an explicit user-chosen path. A useful portable convention is `~/.agentkit-seo/<name-surname>-seo-context.md`; a local workspace draft is also valid while the file is being created. Agents must confirm the destination before creating or overwriting the file. Because valid context files can become large, agents should prefer file writes or targeted diffs over full in-chat drafts; if file writing is unavailable, return a compact outline first and split the full Markdown draft by section only when requested.
 
@@ -315,7 +315,7 @@ The descriptor reflects the person's positioning, not their current job title. I
 
 ### 2.2 QUICK REFERENCE block
 
-The **QUICK REFERENCE block** is the most critical section. Place it immediately after the title, before any prose. An agent completing most tasks — cover letters, CV summaries, bios — reads this block first and descends into the body only when it needs specific detail.
+The **QUICK REFERENCE block** is the most critical section. Place it immediately after the title, before any prose. An agent completing most tasks - cover letters, CV summaries, bios - reads this block first and descends into the body only when it needs specific detail.
 
 **Rule:** Write the block as a YAML fenced code block under an H2 heading labeled `QUICK REFERENCE`.
 
@@ -338,7 +338,7 @@ top_skills: [skill1, skill2, skill3]
 tools: [tool1, tool2, tool3]
 
 competitions:
-  - "Result — Competition Name (Year)"
+  - "Result - Competition Name (Year)"
 
 certifications:
   - "Cert Name | Issuer | Date | ID (if applicable)"
@@ -406,7 +406,7 @@ If a course has a project, nest it under the course as an H5 entry with the `[PR
 
 ```markdown
 ##### [PROJECT] Project name | Repo: https://github.com/...
-**TL;DR:** One sentence — what was built, core technologies, key result.
+**TL;DR:** One sentence - what was built, core technologies, key result.
 ```
 
 **Rule:** Every `[PROJECT]` entry must include a `**TL;DR:**` line immediately after its heading. Keep it under 30 words.
@@ -429,7 +429,7 @@ Write the thesis as an H3 entry under its parent degree, using the `[THESIS]` ta
 **Full title:** Official title, in the original language if different.
 **Supervisors:** Name, Name
 **Research area:** Area A, Area B
-**TL;DR:** One sentence — contribution and outcome.
+**TL;DR:** One sentence - contribution and outcome.
 ```
 
 ### 2.5 Professional experience
@@ -460,7 +460,7 @@ Write each paper as an H3 entry using the `[PAPER]` or `[PREPRINT]` tag.
 **Full title:** Full paper title.
 **Authors:** Author A, **Firstname Lastname**, Author B
 **DOI:** https://doi.org/...
-**TL;DR:** One sentence — contribution and main finding.
+**TL;DR:** One sentence - contribution and main finding.
 ```
 
 For work not yet published, use `[PREPRINT]` and add the status after the year: `| Under review` or `| In preparation`.
@@ -494,7 +494,7 @@ Write each entry as an H3 using the appropriate tag. The three entry types and t
 Score: overall score and per-component breakdown if applicable.
 
 ### [COMPETITION] Competition name | Year | Result: Nth place / Score: X
-**TL;DR:** One sentence — the challenge and what was built or demonstrated.
+**TL;DR:** One sentence - the challenge and what was built or demonstrated.
 
 ### [AWARD] Award name | Issuing body | Date
 One sentence describing what was recognized and in what context.
@@ -508,9 +508,9 @@ The table below shows the required columns and an example row for each case.
 
 | Language | Level | Certificate | Notes |
 |---|---|---|---|
-| Italian | Native | — | — |
-| English | B2 / C1 speaking | Cambridge FCE, Score 172, ID C7109952 | — |
-| French | Basic | — | — |
+| Italian | Native | - | - |
+| English | B2 / C1 speaking | Cambridge FCE, Score 172, ID C7109952 | - |
+| French | Basic | - | - |
 
 Use CEFR levels as the standard. Include standardized test scores and IDs in the Certificate column.
 
@@ -714,7 +714,7 @@ The trigger for every update is a completed, confirmable fact. These are the eve
 - A paper is accepted, published, or posted as a preprint.
 - A language certificate is received with an official score.
 
-Do not add a course before the grade is official. Do not add a project before it has a concrete deliverable. Do not add a role before the start date has passed. A context file that contains unverified facts is worse than one that is slightly out of date — the VERIFIED FACTS comment in the scope declaration exists precisely to enforce this rule.
+Do not add a course before the grade is official. Do not add a project before it has a concrete deliverable. Do not add a role before the start date has passed. A context file that contains unverified facts is worse than one that is slightly out of date - the VERIFIED FACTS comment in the scope declaration exists precisely to enforce this rule.
 
 ## 3. How to integrate new content using an agent
 
@@ -790,13 +790,13 @@ A private Git repository is the most robust option. Each update becomes a commit
 ```text
 Add grade for Network and Cloud Security (30L/30)
 Add eBPF verifier bypass research project
-Add Huawei internship — post-quantum cryptography thesis
+Add Huawei internship - post-quantum cryptography thesis
 Add IEEE-HKN 1st place result, update QUICK REFERENCE
 ```
 
 This practice produces three concrete benefits. First, you can recover any earlier version of the file if an update introduces an error. Second, the commit log gives you a dated record of every career development, which is useful for performance reviews, annual self-assessments, and visa or scholarship applications that require a chronological work history. Third, if you ever want to roll back the QUICK REFERENCE block to a previous positioning (for a specific application that targets an older skill set), you can retrieve it precisely.
 
-If a Git repository is not practical, a versioned cloud document with named versions (e.g., "Version after Huawei start — February 2026") serves the same purpose. The critical property is that past states of the file are recoverable.
+If a Git repository is not practical, a versioned cloud document with named versions (e.g., "Version after Huawei start - February 2026") serves the same purpose. The critical property is that past states of the file are recoverable.
 
 **Rule:** Never overwrite the file in place without a version checkpoint. A context file with no history is a fragile artifact.
 
@@ -821,7 +821,7 @@ metadata:
 
 
 
-> Every time you ask an agent to write a cover letter or update your LinkedIn profile, it starts from zero — with no knowledge of who you are, what you have done, or how you want to be positioned. A personal agent context file ends that problem permanently.
+> Every time you ask an agent to write a cover letter or update your LinkedIn profile, it starts from zero - with no knowledge of who you are, what you have done, or how you want to be positioned. A personal agent context file ends that problem permanently.
 
 ---
 
@@ -901,7 +901,7 @@ The context file solves each of these problems. It is structured, so the agent c
 
 The context file is not something you build once and archive. It is a document you feed whenever your career changes. A new grade is confirmed: add it to the relevant course entry and update the QUICK REFERENCE block. A project is completed: add the TL;DR, the technologies, the outcome. A new role starts: add the role entry with the TL;DR and the initial scope.
 
-Each update is small. The average update takes less time than explaining the new fact from scratch in an agent session. Over time, the file becomes a complete, accurate, and always-current record of your professional history — one that any agent can use immediately, without prompting, without clarification, without guessing.
+Each update is small. The average update takes less time than explaining the new fact from scratch in an agent session. Over time, the file becomes a complete, accurate, and always-current record of your professional history - one that any agent can use immediately, without prompting, without clarification, without guessing.
 
 That is the case for building it.
 

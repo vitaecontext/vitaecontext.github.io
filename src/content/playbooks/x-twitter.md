@@ -49,12 +49,12 @@ It was giving every serious project its own crawlable URL and proof-of-work page
 
 Agents must route to the specific file needed for the task at hand. Do not load the entire module unless requested.
 
-- [algorithm-phoenix.md](./algorithm-phoenix.md) — Historical engagement-weight baseline, documented architecture components, and clearly marked inferences.
-- [profile-optimization.md](./profile-optimization.md) — Treating the profile as a searchable landing page (bio, display name, handle).
-- [posting-strategy.md](./posting-strategy.md) — Content SEO, opening-hook heuristics, link placement experiments, and native media.
-- [engagement-and-growth.md](./engagement-and-growth.md) — Conversation depth, replies, and community building via SimClusters.
-- [premium-strategies.md](./premium-strategies.md) — Officially documented Premium capabilities and practical tactics.
-- [sources.md](./sources.md) — Primary and secondary sources with confidence notes.
+- [algorithm-phoenix.md](./algorithm-phoenix.md) - Historical engagement-weight baseline, documented architecture components, and clearly marked inferences.
+- [profile-optimization.md](./profile-optimization.md) - Treating the profile as a searchable landing page (bio, display name, handle).
+- [posting-strategy.md](./posting-strategy.md) - Content SEO, opening-hook heuristics, link placement experiments, and native media.
+- [engagement-and-growth.md](./engagement-and-growth.md) - Conversation depth, replies, and community building via SimClusters.
+- [premium-strategies.md](./premium-strategies.md) - Officially documented Premium capabilities and practical tactics.
+- [sources.md](./sources.md) - Primary and secondary sources with confidence notes.
 
 ## 5. Rules
 
@@ -479,28 +479,28 @@ The rules defined in the `x-twitter` module are grounded in two distinct types o
 
 ## 2. Primary sources (highest confidence)
 
-- [twitter/the-algorithm (GitHub)](https://github.com/twitter/the-algorithm) — Open-source recommendation stack and architecture components for For You.
-- [ScoredTweetsParam.scala (direct path)](https://github.com/twitter/the-algorithm/blob/main/home-mixer/server/src/main/scala/com/twitter/home_mixer/product/scored_tweets/param/ScoredTweetsParam.scala) — Historical and configurable scoring/diversity parameters. Pin specific commits when citing exact constants.
-- [twitter/the-algorithm-ml (GitHub)](https://github.com/twitter/the-algorithm-ml) — Open-source ML artifacts including Heavy Ranker and TwHIN material.
-- [Twitter's Recommendation Algorithm (X Engineering)](https://blog.x.com/engineering/en_us/topics/open-source/2023/twitter-recommendation-algorithm) — Official overview of candidate sourcing, ranking, and filtering stages.
-- [About X Premium (Help Center)](https://help.x.com/en/using-x/x-premium) — Official Premium feature set and reply-priority language.
-- [About longer videos for X Premium subscribers](https://help.x.com/en/using-x/premium-longer-videos) — Official upload limits by platform/tier.
-- [How to write great image descriptions](https://help.x.com/en/using-x/write-image-descriptions) — Official Alt Text guidance focused on accessibility and clarity.
-- [How to use X search](https://help.x.com/en/using-x/x-search) — Official search usage and filtering controls.
-- [Boost (business.x.com)](https://business.x.com/en/products/boost) — Official paid amplification product documentation.
-- [SimClusters KDD 2020 paper (DOI)](https://doi.org/10.1145/3394486.3403370) — Core research on community-based representations used by Twitter.
+- [twitter/the-algorithm (GitHub)](https://github.com/twitter/the-algorithm) - Open-source recommendation stack and architecture components for For You.
+- [ScoredTweetsParam.scala (direct path)](https://github.com/twitter/the-algorithm/blob/main/home-mixer/server/src/main/scala/com/twitter/home_mixer/product/scored_tweets/param/ScoredTweetsParam.scala) - Historical and configurable scoring/diversity parameters. Pin specific commits when citing exact constants.
+- [twitter/the-algorithm-ml (GitHub)](https://github.com/twitter/the-algorithm-ml) - Open-source ML artifacts including Heavy Ranker and TwHIN material.
+- [Twitter's Recommendation Algorithm (X Engineering)](https://blog.x.com/engineering/en_us/topics/open-source/2023/twitter-recommendation-algorithm) - Official overview of candidate sourcing, ranking, and filtering stages.
+- [About X Premium (Help Center)](https://help.x.com/en/using-x/x-premium) - Official Premium feature set and reply-priority language.
+- [About longer videos for X Premium subscribers](https://help.x.com/en/using-x/premium-longer-videos) - Official upload limits by platform/tier.
+- [How to write great image descriptions](https://help.x.com/en/using-x/write-image-descriptions) - Official Alt Text guidance focused on accessibility and clarity.
+- [How to use X search](https://help.x.com/en/using-x/x-search) - Official search usage and filtering controls.
+- [Boost (business.x.com)](https://business.x.com/en/products/boost) - Official paid amplification product documentation.
+- [SimClusters KDD 2020 paper (DOI)](https://doi.org/10.1145/3394486.3403370) - Core research on community-based representations used by Twitter.
 
 ## 3. Architecture snapshots and research
 
-- [xai-org/x-algorithm (GitHub)](https://github.com/xai-org/x-algorithm) — Public architecture snapshot of a Phoenix/Grok-based recommendation pipeline. Treat as a design signal, not as an official guarantee of live production behavior.
+- [xai-org/x-algorithm (GitHub)](https://github.com/xai-org/x-algorithm) - Public architecture snapshot of a Phoenix/Grok-based recommendation pipeline. Treat as a design signal, not as an official guarantee of live production behavior.
 
 ## 4. Secondary sources (empirical, use with caution)
 
-- `[Agency blog]` [X (Twitter) SEO: How to Optimize Your Content for Visibility Beyond Google (SEO Sherpa)](https://seosherpa.com/x-twitter-seo/) — Practical SEO heuristics for profile and post formatting.
-- `[Agency blog]` [Twitter (X) Header & Profile Optimization Guide (TryMyPost)](https://www.trymypost.com/blog/twitter-x-header-optimization) — Practical profile-optimization framework for creators.
-- `[Agency blog]` [Optimizing Your X Business Profile: Strategies for 2026 (Wadi Digital)](https://wadidigital.com/blog/x-twitter-profile-optimization-strategies-for-peak-performance/) — Business-profile optimization ideas (not official algorithm documentation).
-- `[Independent experiment]` [Twitter Carousels & Google Search (Brodie Clark)](https://brodieclark.com/twitter-carousels-google-search/) — Evidence that tweet carousels can affect Google Search Console impressions/clicks.
-- `[Traffic statistics]` [X User Stats (Exploding Topics)](https://explodingtopics.com/blog/x-user-stats) — Secondary mobile/desktop traffic breakdowns and demographic estimates.
+- `[Agency blog]` [X (Twitter) SEO: How to Optimize Your Content for Visibility Beyond Google (SEO Sherpa)](https://seosherpa.com/x-twitter-seo/) - Practical SEO heuristics for profile and post formatting.
+- `[Agency blog]` [Twitter (X) Header & Profile Optimization Guide (TryMyPost)](https://www.trymypost.com/blog/twitter-x-header-optimization) - Practical profile-optimization framework for creators.
+- `[Agency blog]` [Optimizing Your X Business Profile: Strategies for 2026 (Wadi Digital)](https://wadidigital.com/blog/x-twitter-profile-optimization-strategies-for-peak-performance/) - Business-profile optimization ideas (not official algorithm documentation).
+- `[Independent experiment]` [Twitter Carousels & Google Search (Brodie Clark)](https://brodieclark.com/twitter-carousels-google-search/) - Evidence that tweet carousels can affect Google Search Console impressions/clicks.
+- `[Traffic statistics]` [X User Stats (Exploding Topics)](https://explodingtopics.com/blog/x-user-stats) - Secondary mobile/desktop traffic breakdowns and demographic estimates.
 
 ## 5. Evidence handling rules for agents
 

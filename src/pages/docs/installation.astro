@@ -53,7 +53,7 @@ const providers = [
 <BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "Installation", path: "/docs/installation/" }])]}>
   <section class="page-hero">
     <div class="inner">
-      <p class="eyebrow">Agent skills — install guide</p>
+      <p class="eyebrow">Agent skills - install guide</p>
       <h1>Installation</h1>
       <p>Three ways to install AgentKit SEO skills into a supported agent environment. Choose the method that matches your setup.</p>
     </div>
@@ -64,13 +64,13 @@ const providers = [
     <div class="install-note">
       <p>
         <strong>Reading the docs without installing?</strong> Every skill page is a human-readable guide you can follow
-        directly — no install required. Installation is only needed if you want an agent to load and invoke the skills.
+        directly - no install required. Installation is only needed if you want an agent to load and invoke the skills.
       </p>
       <a class="button secondary" href="/skills/">Browse skill playbooks</a>
     </div>
 
     <!-- ── Method 1: npx (post-publish) ─────────────────────────────────── -->
-    <h2>Method 1 — <code>npx</code> <span class="install-status install-status--pending">Not yet published</span></h2>
+    <h2>Method 1 - <code>npx</code> <span class="install-status install-status--pending">Not yet published</span></h2>
     <p>
       Once the package is published to npm, the canonical one-line install will be:
     </p>
@@ -85,7 +85,7 @@ const providers = [
     <pre class="code-block"><code>npx github:agentkit-seo/agentkit-seo install --provider codex</code></pre>
 
     <!-- ── Method 2: local checkout ──────────────────────────────────────── -->
-    <h2>Method 2 — local checkout <span class="install-status install-status--ready">Works now</span></h2>
+    <h2>Method 2 - local checkout <span class="install-status install-status--ready">Works now</span></h2>
     <p>
       Clone the repository, then invoke the CLI directly using <code>npx .</code> from the repo root. This is the current recommended path
       while the package is not yet published.
@@ -101,7 +101,7 @@ npx . install --provider codex
 npx . install --provider codex --project-root /path/to/project</code></pre>
 
     <!-- ── Method 3: npm exec project-local ─────────────────────────────── -->
-    <h2>Method 3 — project-local via <code>npm exec</code> <span class="install-status install-status--ready">Works now</span></h2>
+    <h2>Method 3 - project-local via <code>npm exec</code> <span class="install-status install-status--ready">Works now</span></h2>
     <p>
       If you have the repository checked out and want to preview generated provider files
       inside a specific project root without a global install:

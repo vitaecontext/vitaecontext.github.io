@@ -106,7 +106,7 @@ export const providers = [
     installCmd: "npx . install --provider shared --target-dir ./skills",
     npxCmd: "npx agentkit-seo install --provider shared --target-dir ./skills",
     invocation: "Copy or reference the relevant SKILL.md folder for your agent.",
-    invocationNote: "No default global path — you control where the skill folders land.",
+    invocationNote: "No default global path - you control where the skill folders land.",
   },
 ];
 

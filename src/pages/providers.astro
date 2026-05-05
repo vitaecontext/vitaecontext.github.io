@@ -20,7 +20,7 @@ const providerMeta: Record<string, { icon: string; owner: string }> = {
   "Shared bundle": { icon: "package", owner: "Portable export" },
 };
 
-// Whether npm publish has shipped — flip to true when released
+// Whether npm publish has shipped - flip to true when released
 const npmPublished = false;
 ---
 
@@ -83,12 +83,12 @@ const npmPublished = false;
             <p class="provider-summary">{provider.summary}</p>
 
             <div class="provider-install-block">
-              <p class="provider-inv-label">Install — local checkout</p>
+              <p class="provider-inv-label">Install - local checkout</p>
               <pre class="code-block code-block--sm provider-copyable"><code>{provider.installCmd}</code></pre>
 
               {npmPublished && (
                 <>
-                  <p class="provider-inv-label">Install — npm</p>
+                  <p class="provider-inv-label">Install - npm</p>
                   <pre class="code-block code-block--sm provider-copyable"><code>{provider.npxCmd}</code></pre>
                 </>
               )}
