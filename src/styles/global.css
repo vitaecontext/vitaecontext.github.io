@@ -693,6 +693,10 @@ section {
   max-width: 48rem;
 }
 
+.page-hero .search-intent {
+  max-width: 52rem;
+}
+
 .section-header {
   display: grid;
   gap: 0.8rem;
@@ -710,6 +714,10 @@ section {
   font-size: 1.12rem;
   line-height: 1.15;
   max-width: none;
+}
+
+.page-hero h1 {
+  max-width: 18ch;
 }
 
 .grid {
@@ -769,6 +777,12 @@ section {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel-solid);
+}
+
+.service-mark:hover,
+.service-mark:focus-visible {
+  border-color: color-mix(in srgb, var(--teal) 55%, var(--line));
+  transform: translateY(-2px);
 }
 
 .service-mark > span {

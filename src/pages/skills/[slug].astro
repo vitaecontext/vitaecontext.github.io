@@ -9,8 +9,10 @@ export function getStaticPaths() {
 
 const { skill } = Astro.props;
 const meta = {
-  title: `${skill.name} Agent Skill`,
-  description: `${skill.summary} Installable AgentKit SEO skill for ${skill.shortName.toLowerCase()} workflows, audits, and rewrites.`,
+  title: `${skill.metaTitle ?? skill.name} Agent Skill`,
+  description:
+    skill.metaDescription ??
+    `${skill.summary} Installable AgentKit SEO skill for ${skill.shortName.toLowerCase()} workflows, audits, and rewrites.`,
   path: `/skills/${skill.slug}/`,
   type: "article" as const,
 };
@@ -26,6 +28,7 @@ const meta = {
       <p class="eyebrow">Technical Package</p>
       <h1>agentkit-seo-{skill.slug}</h1>
       <p>{skill.summary}</p>
+      <p class="search-intent">Search intent: {skill.searchIntent}</p>
       
       <div class="actions" style="margin-top: 1.5rem;">
         <a class="button primary" href="/docs/installation/">Installation Guide</a>
@@ -38,6 +41,10 @@ const meta = {
     <article class="prose">
       <h2>Package Intent</h2>
       <p>{skill.searchIntent}</p>
+      <p>
+        This installable skill targets {skill.metaTitle?.toLowerCase() ?? skill.name.toLowerCase()} tasks where agents
+        need focused rules, grounded context, and platform-specific constraints before producing audits or rewrites.
+      </p>
       
       <h2>Technical Requirements</h2>
       <p>This skill requires the user to have generated an <strong>agent-context-file</strong> (or be actively passing CV/resume text in the prompt). The agent uses the skill's system instructions to evaluate the user's input against SEO and platform-specific rules.</p>

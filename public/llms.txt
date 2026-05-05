@@ -31,4 +31,12 @@ Public-safe summary:
 - Supported install/export targets from the source project are Codex, Claude Code, Gemini CLI, OpenCode, and a shared portable skill bundle.
 - Use the documented local checkout install flow unless an official package distribution is listed by the project.
 
+Service intents:
+- LinkedIn profile optimization: headline, About section, Experience, Featured, Skills, and recruiter search clarity.
+- GitHub SEO: profile README, repository descriptions, topics, pinned repositories, README structure, and agent-readable project proof.
+- ATS resume optimization: parser-safe CV structure, keyword alignment, recruiter scanning, and evidence-backed bullet rewrites.
+- Portfolio SEO: crawlable pages, metadata, canonical URLs, structured data, sitemap.xml, robots.txt, and AI search visibility.
+- X/Twitter profile optimization: bio clarity, pinned post strategy, posting loops, and technical creator positioning.
+- Agent context optimization: private AI-readable source of truth for career facts across public surfaces.
+
 Use the website pages above for public positioning. Do not infer customer counts, rankings, endorsements, or unpublished distribution status.

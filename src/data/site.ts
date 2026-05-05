@@ -111,6 +111,7 @@ export const providers = [
 export const serviceMarks = [
   {
     name: "CV/ATS",
+    href: "/playbooks/cv-ats/",
     icon: "cv",
     mark: "CV",
     tone: "teal",
@@ -118,6 +119,7 @@ export const serviceMarks = [
   },
   {
     name: "LinkedIn",
+    href: "/playbooks/linkedin/",
     icon: "linkedin",
     mark: "in",
     tone: "blue",
@@ -125,6 +127,7 @@ export const serviceMarks = [
   },
   {
     name: "GitHub",
+    href: "/playbooks/github/",
     icon: "github",
     mark: "GH",
     tone: "ink",
@@ -132,6 +135,7 @@ export const serviceMarks = [
   },
   {
     name: "Web Portfolio",
+    href: "/playbooks/web-portfolio/",
     icon: "portfolio",
     mark: "WWW",
     tone: "green",
@@ -139,6 +143,7 @@ export const serviceMarks = [
   },
   {
     name: "X/Twitter",
+    href: "/playbooks/x-twitter/",
     icon: "x",
     mark: "X",
     tone: "ink",
@@ -146,6 +151,7 @@ export const serviceMarks = [
   },
   {
     name: "Agent Context",
+    href: "/playbooks/agent-context-optimization/",
     icon: "context",
     mark: "CTX",
     tone: "gold",
@@ -157,6 +163,9 @@ export const skills = [
   {
     slug: "agent-context-optimization",
     name: "Agent Context Optimization",
+    metaTitle: "AI Career Context File Optimization",
+    metaDescription:
+      "Build an AI-readable career context file that keeps LinkedIn, GitHub, CV, portfolio, and X profile optimization grounded in verified facts.",
     shortName: "Agent Context",
     icon: "context",
     href: "/skills/agent-context-optimization/",
@@ -180,6 +189,9 @@ export const skills = [
   {
     slug: "cv-ats",
     name: "CV and ATS Optimization",
+    metaTitle: "ATS Resume and CV Optimization",
+    metaDescription:
+      "Use AgentKit SEO for ATS resume optimization, CV keyword alignment, recruiter-readable structure, and evidence-backed bullet rewrites.",
     shortName: "CV/ATS",
     icon: "cv",
     href: "/skills/cv-ats/",
@@ -203,6 +215,9 @@ export const skills = [
   {
     slug: "linkedin",
     name: "LinkedIn Optimization",
+    metaTitle: "LinkedIn Profile Optimization",
+    metaDescription:
+      "Use AgentKit SEO for LinkedIn profile optimization, headline rewrites, About section positioning, Featured proof, skills, and recruiter search clarity.",
     shortName: "LinkedIn",
     icon: "linkedin",
     href: "/skills/linkedin/",
@@ -226,6 +241,9 @@ export const skills = [
   {
     slug: "github",
     name: "GitHub Optimization",
+    metaTitle: "GitHub Profile and Repository SEO",
+    metaDescription:
+      "Use AgentKit SEO for GitHub profile optimization, repository SEO, README structure, topics, pinned repos, and AI-readable project proof.",
     shortName: "GitHub",
     icon: "github",
     href: "/skills/github/",
@@ -249,6 +267,9 @@ export const skills = [
   {
     slug: "web-portfolio",
     name: "Web Portfolio SEO",
+    metaTitle: "Portfolio SEO and Personal Website Optimization",
+    metaDescription:
+      "Use AgentKit SEO for portfolio SEO, personal website optimization, crawlability, metadata, structured data, sitemap, robots.txt, and AI search visibility.",
     shortName: "Web Portfolio",
     icon: "portfolio",
     href: "/skills/web-portfolio/",
@@ -272,6 +293,9 @@ export const skills = [
   {
     slug: "x-twitter",
     name: "X/Twitter Optimization",
+    metaTitle: "X and Twitter Profile Optimization",
+    metaDescription:
+      "Use AgentKit SEO for X profile optimization, Twitter bio optimization, pinned post strategy, content positioning, and technical creator visibility.",
     shortName: "X/Twitter",
     icon: "x",
     href: "/skills/x-twitter/",

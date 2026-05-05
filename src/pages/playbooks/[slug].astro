@@ -18,8 +18,8 @@ const { Content } = await entry.render();
 const skillData = skills.find(s => s.slug === entry.slug);
 
 const meta = {
-  title: entry.data.title || skillData?.name || entry.slug,
-  description: skillData?.summary || "AgentKit SEO Methodology Playbook",
+  title: skillData?.metaTitle ?? entry.data.title ?? skillData?.name ?? entry.slug,
+  description: skillData?.metaDescription ?? skillData?.summary ?? "AgentKit SEO Methodology Playbook",
   path: `/playbooks/${entry.slug}/`,
   type: "article" as const,
 };
@@ -35,6 +35,7 @@ const meta = {
       <p class="eyebrow">Methodology</p>
       <h1>{meta.title}</h1>
       <p>{meta.description}</p>
+      {skillData && <p class="search-intent">Covers: {skillData.searchIntent}</p>}
     </div>
   </section>
 

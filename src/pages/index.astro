@@ -170,11 +170,11 @@ const quickstart = [
     />
     <div class="service-grid">
       {serviceMarks.map((service) => (
-        <article class={`service-mark ${service.tone}`}>
+        <a class={`service-mark ${service.tone}`} href={service.href} aria-label={`${service.name} playbook`}>
           <span aria-hidden="true"><PlatformIcon kind={service.icon} /></span>
           <h3>{service.name}</h3>
           <p>{service.text}</p>
-        </article>
+        </a>
       ))}
     </div>
     <p class="service-note">{site.disclaimer}</p>

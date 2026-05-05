@@ -6,9 +6,9 @@ import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
 import { skills } from "@data/site";
 
 const meta = {
-  title: "Agent Skills",
+  title: "Agent Skills for LinkedIn, GitHub, CV, Portfolio, and X SEO",
   description:
-    "Installable AgentKit SEO packages for Codex, Claude Code, Gemini CLI, and OpenCode.",
+    "Install AgentKit SEO skills for LinkedIn profile optimization, GitHub SEO, ATS resume optimization, portfolio SEO, X/Twitter strategy, and AI career context files.",
   path: "/skills/",
   type: "article" as const,
 };
@@ -19,7 +19,7 @@ const meta = {
     <div class="inner">
       <p class="eyebrow">Technical Packages</p>
       <h1>Agent Skills</h1>
-      <p>Installable rule packages for your AI environments. To read the human methodology instead, visit the <a href="/playbooks/">Playbooks Hub</a>.</p>
+      <p>Installable rule packages for LinkedIn profile optimization, GitHub SEO, ATS resume optimization, portfolio SEO, X/Twitter strategy, and agent context files. To read the human methodology instead, visit the <a href="/playbooks/">Playbooks Hub</a>.</p>
     </div>
   </section>
 
@@ -36,7 +36,7 @@ const meta = {
           </div>
           <h2>agentkit-seo-{skill.slug}</h2>
           <p>{skill.summary}</p>
-          <p class="search-intent" style="margin-top: 1rem;">Requires personal context file.</p>
+          <p class="search-intent" style="margin-top: 1rem;">{skill.searchIntent}</p>
         </a>
       ))}
     </div>
