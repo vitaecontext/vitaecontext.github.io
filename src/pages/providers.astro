@@ -20,8 +20,6 @@ const providerMeta: Record<string, { icon: string; owner: string }> = {
   "Shared bundle": { icon: "package", owner: "Portable export" },
 };
 
-// Whether npm publish has shipped - flip to true when released
-const npmPublished = false;
 ---
 
 <BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Providers", path: "/providers/" }])]}>
@@ -39,15 +37,13 @@ const npmPublished = false;
     <div class="providers-install-note">
       <div class="providers-install-methods">
         <div class="providers-install-method">
-          <span class={`install-status ${npmPublished ? 'install-status--ready' : 'install-status--pending'}`}>
-            {npmPublished ? "Available" : "Not yet published"}
-          </span>
-          <p class="providers-install-method-label">Via npm (once published)</p>
+          <span class="install-status install-status--ready">Available</span>
+          <p class="providers-install-method-label">Via npm</p>
           <pre class="code-block code-block--sm"><code>npx agentkit-seo install --provider &lt;provider&gt;</code></pre>
         </div>
         <div class="providers-install-method-sep" aria-hidden="true">or</div>
         <div class="providers-install-method">
-          <span class="install-status install-status--ready">Works now</span>
+          <span class="install-status install-status--ready">Maintainers</span>
           <p class="providers-install-method-label">From a local checkout</p>
           <pre class="code-block code-block--sm"><code>npx . install --provider &lt;provider&gt;</code></pre>
         </div>
@@ -83,21 +79,8 @@ const npmPublished = false;
             <p class="provider-summary">{provider.summary}</p>
 
             <div class="provider-install-block">
-              <p class="provider-inv-label">Install - local checkout</p>
+              <p class="provider-inv-label">Install from npm</p>
               <pre class="code-block code-block--sm provider-copyable"><code>{provider.installCmd}</code></pre>
-
-              {npmPublished && (
-                <>
-                  <p class="provider-inv-label">Install - npm</p>
-                  <pre class="code-block code-block--sm provider-copyable"><code>{provider.npxCmd}</code></pre>
-                </>
-              )}
-              {!npmPublished && (
-                <p class="provider-inv-label provider-npx-pending">
-                  <span class="install-status install-status--pending">Coming</span>
-                  {" "}<code>{provider.npxCmd}</code>
-                </p>
-              )}
             </div>
 
             <div class="provider-invocation">
