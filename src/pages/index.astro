@@ -9,7 +9,7 @@ import { serviceMarks, site, skills } from "@data/site";
 const meta = {
   title: "AgentKit SEO",
   description:
-    "AgentKit SEO is a human-readable knowledge hub and modular agent skill system for LinkedIn profile optimization, GitHub SEO, CV/ATS resumes, portfolio SEO, X/Twitter strategy, and agent context files.",
+    "AgentKit SEO is a human-readable knowledge hub and modular agent skill system for LinkedIn profile optimization, GitHub SEO, CV/ATS resumes, portfolio SEO, X/Twitter strategy, and agent context optimization.",
   path: "/",
 };
 
@@ -63,7 +63,7 @@ const skillBundle = [
       <p class="hero-lede">One career source of truth. Every public surface sharper.</p>
       <p>
         A methodology for LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio indexing,
-        X/Twitter positioning, and agent context files. Read the playbooks yourself, or run them as focused agent skills.
+        X/Twitter positioning, and agent context optimization. Read the playbooks yourself, or install them as focused agent skills from npm.
       </p>
       <ul class="hero-proof-list" aria-label="AgentKit SEO design principles">
         {benchmarkTakeaways.map((takeaway) => <li>{takeaway}</li>)}
@@ -80,7 +80,7 @@ const skillBundle = [
         <div class="hero-path hero-path--agent">
           <span class="hero-path-label">Run as agent skills</span>
           <div class="actions">
-            <a class="button primary" href="/docs/installation/">Install</a>
+            <a class="button primary" href="/docs/installation/">Install from npm</a>
             <a class="button secondary" href="/providers/">Providers</a>
           </div>
         </div>
@@ -207,10 +207,10 @@ const skillBundle = [
 
   <CtaBand
     title="Choose the surface and start the optimization."
-    text="Browse the playbooks as structured guides, or install the matching agent skills when you want the same method inside your coding agent."
-    primaryHref="/playbooks/"
-    primaryLabel="Browse playbooks"
-    secondaryHref="/docs/installation/"
-    secondaryLabel="Install agent skills"
+    text="Install the package from npm when you want the methods inside your agent workflow, or browse the same playbooks as human-readable guides."
+    primaryHref="/docs/installation/"
+    primaryLabel="Install agent skills"
+    secondaryHref="/playbooks/"
+    secondaryLabel="Browse playbooks"
   />
 </BaseLayout>
