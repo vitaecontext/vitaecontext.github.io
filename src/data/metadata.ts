@@ -46,7 +46,7 @@ export function websiteJsonLd() {
       "@type": "Organization",
       name: site.name,
       url: site.url,
-      logo: assetUrl("/icon-512.png"),
+      logo: assetUrl("/icons/icon-512.png"),
     },
   };
 }
@@ -57,7 +57,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: site.name,
     url: site.url,
-    logo: assetUrl("/icon-512.png"),
+    logo: assetUrl("/icons/icon-512.png"),
     sameAs: [site.repoUrl],
   };
 }
@@ -102,7 +102,7 @@ export function articleJsonLd(title: string, description: string, path: string) 
       url: site.url,
       logo: {
         "@type": "ImageObject",
-        url: assetUrl("/icon-512.png"),
+        url: assetUrl("/icons/icon-512.png"),
       },
     },
   };
