@@ -1,6 +1,6 @@
 # AgentKit SEO Website
 
-Static Astro website for AgentKit SEO, prepared for GitHub Pages publishing.
+Static Astro website for [AgentKit SEO](https://agentkit-seo.github.io), the AI-powered personal branding toolkit and modular agent skill system for developers. The site serves as a human-readable knowledge hub for LinkedIn optimization, GitHub SEO, CV/ATS resumes, portfolio SEO/AEO, and X/Twitter strategy, prepared for GitHub Pages publishing.
 
 ## Commands
 
