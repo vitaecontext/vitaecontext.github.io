@@ -15,10 +15,11 @@ const meta = {
     `${skill.summary} Installable AgentKit SEO skill for ${skill.shortName.toLowerCase()} workflows, audits, and rewrites.`,
   path: `/skills/${skill.slug}/`,
   type: "article" as const,
+  image: `/og/skills/${skill.slug}.png`,
 };
 ---
 
-<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Agent Skills", path: "/skills/" }, { name: skill.name, path: meta.path }])]}>
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path, { image: meta.image }), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Agent Skills", path: "/skills/" }, { name: skill.name, path: meta.path }])]}>
   <section class="page-hero">
     <div class="inner">
       <div class="docs-mode-label-row" style="margin-bottom: 1rem;">

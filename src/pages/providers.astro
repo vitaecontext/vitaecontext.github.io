@@ -1,7 +1,7 @@
 ---
 import PlatformIcon from "@components/PlatformIcon.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
 import { providers, site } from "@data/site";
 
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
   description:
     "AgentKit SEO provider support for Codex, Claude Code, Gemini CLI, OpenCode, and shared portable skill bundles. Copy-paste install commands for each environment.",
   path: "/providers/",
-  type: "article" as const,
+  type: "website" as const,
 };
 
 const providerMeta: Record<string, { icon: string; owner: string }> = {
@@ -22,7 +22,7 @@ const providerMeta: Record<string, { icon: string; owner: string }> = {
 
 ---
 
-<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Providers", path: "/providers/" }])]}>
+<BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "CollectionPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Providers", path: "/providers/" }])]}>
   <section class="page-hero">
     <div class="inner">
       <p class="eyebrow">Provider support</p>

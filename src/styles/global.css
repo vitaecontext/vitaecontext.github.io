@@ -795,6 +795,12 @@ section {
   font-size: 1.02rem;
 }
 
+.playbook-hero-summary .playbook-updated {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .playbook-hero-actions {
   display: flex;
   flex-wrap: wrap;

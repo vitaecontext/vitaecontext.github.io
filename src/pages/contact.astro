@@ -1,7 +1,7 @@
 ---
 import PlatformIcon from "@components/PlatformIcon.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
 import { site } from "@data/site";
 
 const meta = {
@@ -9,7 +9,7 @@ const meta = {
   description:
     "Contact and contribution paths for AgentKit SEO, including GitHub-based project discovery and maintainer attribution.",
   path: "/contact/",
-  type: "article" as const,
+  type: "website" as const,
 };
 
 const authorRoles: Record<string, string> = {
@@ -28,7 +28,7 @@ const authorColors: Record<string, string> = {
 };
 ---
 
-<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact/" }])]}>
+<BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "ContactPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact/" }])]}>
   <section class="page-hero">
     <div class="inner">
       <p class="eyebrow">Contact</p>
@@ -48,15 +48,15 @@ const authorColors: Record<string, string> = {
             <p class="contact-author-role eyebrow">{authorRoles[author.name] ?? "Maintainer"}</p>
             <h2 class="contact-author-name">{author.name}</h2>
             <div class="contact-author-actions">
-              <a class="contact-btn contact-btn--github" href={author.github} target="_blank" rel="noreferrer">
+              <a class="contact-btn contact-btn--github" href={author.github} target="_blank" rel="me noreferrer">
                 <PlatformIcon kind="github" />
                 GitHub
               </a>
-              <a class="contact-btn contact-btn--linkedin" href={author.linkedin} target="_blank" rel="noreferrer">
+              <a class="contact-btn contact-btn--linkedin" href={author.linkedin} target="_blank" rel="me noreferrer">
                 <PlatformIcon kind="linkedin" />
                 LinkedIn
               </a>
-              <a class="contact-btn contact-btn--portfolio" href={author.portfolio} target="_blank" rel="noreferrer">
+              <a class="contact-btn contact-btn--portfolio" href={author.portfolio} target="_blank" rel="me noreferrer">
                 <PlatformIcon kind="portfolio" />
                 Portfolio
               </a>

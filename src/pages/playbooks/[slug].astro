@@ -30,10 +30,25 @@ const meta = {
   description: skillData?.metaDescription ?? skillData?.summary ?? "AgentKit SEO Methodology Playbook",
   path: `/playbooks/${entry.slug}/`,
   type: "article" as const,
+  image: `/og/playbooks/${entry.slug}.png`,
+  datePublished: entry.data.published ?? entry.data.last_updated,
+  dateModified: entry.data.last_updated,
+  keywords: entry.data.tags,
 };
+const formattedUpdatedDate = meta.dateModified
+  ? new Intl.DateTimeFormat("en", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(meta.dateModified))
+  : undefined;
 ---
 
-<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Playbooks", path: "/playbooks/" }, { name: meta.title, path: meta.path }])]}>
+<BaseLayout meta={meta} jsonLd={[
+  articleJsonLd(meta.title, meta.description, meta.path, {
+    image: meta.image,
+    datePublished: meta.datePublished,
+    dateModified: meta.dateModified,
+    keywords: meta.keywords,
+  }),
+  breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Playbooks", path: "/playbooks/" }, { name: meta.title, path: meta.path }]),
+]}>
   <section class="page-hero playbook-hero-v2">
     <div class="inner">
       <div class="playbook-hero-grid">
@@ -47,6 +62,11 @@ const meta = {
             <a href={`/skills/${entry.slug}/`} class="button secondary">Agent skill</a>
           </div>
           <p>{meta.description}</p>
+          {meta.dateModified && formattedUpdatedDate && (
+            <p class="playbook-updated">
+              Updated <time datetime={meta.dateModified}>{formattedUpdatedDate}</time>
+            </p>
+          )}
           {searchIntentItems.length > 0 && (
             <ul class="intent-chip-list" aria-label={`${meta.title} search intents`}>
               {searchIntentItems.map((item) => <li>{item}</li>)}

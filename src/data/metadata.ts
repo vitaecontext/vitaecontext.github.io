@@ -8,6 +8,17 @@ export type PageMeta = {
   path: string;
   type?: "website" | "article";
   image?: string;
+  datePublished?: string;
+  dateModified?: string;
+  keywords?: string[];
+};
+
+type ArticleJsonLdOptions = {
+  schemaType?: "Article" | "BlogPosting" | "TechArticle";
+  image?: string;
+  datePublished?: string;
+  dateModified?: string;
+  keywords?: string[];
 };
 
 export function canonical(path: string) {
@@ -80,14 +91,48 @@ export function softwareJsonLd() {
   };
 }
 
-export function articleJsonLd(title: string, description: string, path: string) {
+export function webPageJsonLd(title: string, description: string, path: string, pageType = "WebPage") {
   return {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
+    "@type": pageType,
+    name: title,
+    description,
+    url: canonical(path),
+    inLanguage: "en",
+    isPartOf: {
+      "@type": "WebSite",
+      name: site.name,
+      url: site.url,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+      logo: {
+        "@type": "ImageObject",
+        url: assetUrl("/icons/icon-512.png"),
+      },
+    },
+  };
+}
+
+export function articleJsonLd(title: string, description: string, path: string, options: ArticleJsonLdOptions = {}) {
+  const image = assetUrl(options.image ?? site.defaultImage);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": options.schemaType ?? "TechArticle",
     headline: title,
     description,
     url: canonical(path),
-    mainEntityOfPage: canonical(path),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonical(path),
+    },
+    image: [image],
+    ...(options.datePublished && { datePublished: options.datePublished }),
+    ...(options.dateModified && { dateModified: options.dateModified }),
+    ...(options.keywords?.length && { keywords: options.keywords.join(", ") }),
     inLanguage: "en",
     author: site.authors.map((author) => ({
       "@type": "Person",

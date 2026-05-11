@@ -2,7 +2,7 @@
 import PlatformIcon from "@components/PlatformIcon.astro";
 import SectionHeader from "@components/SectionHeader.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
 import { skills } from "@data/site";
 
 const meta = {
@@ -10,11 +10,11 @@ const meta = {
   description:
     "Install AgentKit SEO skills for LinkedIn profile optimization, GitHub SEO, ATS resume optimization, portfolio SEO, X/Twitter strategy, and AI career context files.",
   path: "/skills/",
-  type: "article" as const,
+  type: "website" as const,
 };
 ---
 
-<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Agent Skills", path: "/skills/" }])]}>
+<BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "CollectionPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Agent Skills", path: "/skills/" }])]}>
   <section class="page-hero">
     <div class="inner">
       <p class="eyebrow">Technical Packages</p>

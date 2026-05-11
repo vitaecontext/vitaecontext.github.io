@@ -8,6 +8,7 @@ const playbooksCollection = defineCollection({
     id: z.string().optional(),
     objective: z.string().optional(),
     status: z.string().optional(),
+    published: z.string().optional(),
     last_updated: z.string().optional(),
     tags: z.array(z.string()).optional(),
   }),

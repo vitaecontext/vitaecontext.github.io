@@ -1,0 +1,11 @@
+---
+import type { JsonLd } from "@data/metadata";
+
+type Props = {
+  data: JsonLd | JsonLd[];
+};
+
+const items = Array.isArray(Astro.props.data) ? Astro.props.data : [Astro.props.data];
+---
+
+{items.map((item) => <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />)}
