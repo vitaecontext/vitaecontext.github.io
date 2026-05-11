@@ -3,7 +3,7 @@ title: "Web portfolio SEO and indexing"
 platform: "portfolio"
 objective: "Master index and routing logic for making a personal website crawlable, indexable, and trustworthy in search and AI discovery systems."
 status: "draft"
-last_updated: "2026-04-29"
+last_updated: "2026-05-11"
 tags: ["portfolio", "seo", "indexing", "aeo"]
 agent_priority: "high"
 id: "web-portfolio"
@@ -67,6 +67,7 @@ When an AI agent is tasked with optimizing a user's personal website:
 4. If the user wants to optimize for AI-assisted job search tools (e.g., Perplexity, ChatGPT queries like "find me a frontend engineer with React experience"), load both `llms-and-aeo.md` and `structured-data.md`.
 5. If the user wants AI-facing discoverability in addition to traditional SEO, load `llms-and-aeo.md`.
 6. Always keep metadata, structured data, and visible page content aligned. Never invent facts to satisfy markup or keyword targets.
+7. When the site has repeatable page templates, implement SEO as reusable data and components instead of hand-editing tags page by page.
 
 ---
 
@@ -464,7 +465,7 @@ metadata:
   platform: "portfolio"
   objective: "Define the metadata rules that shape how a personal website appears in search results and how canonical identity is established."
   status: "draft"
-  last_updated: "2026-04-28"
+  last_updated: "2026-05-11"
   tags: ["portfolio", "metadata", "titles", "canonical"]
   agent_priority: "high"
 -->
@@ -507,6 +508,10 @@ Open Graph (OG) tags do not directly impact Google rankings, but they control ho
 
 **Rule:** Set a high-quality `og:image` that represents the specific page. The `og:image` is often the first visual impression a recruiter or peer sees. It should be 1200 x 630 pixels. Do not use a generic site-wide logo for a specific project case study; use a screenshot of that specific project.
 
+**Rule:** Keep social-preview text inside a safe visual area. LinkedIn, Slack, X, and messaging apps may crop or resize preview images. Avoid placing critical words at the extreme edges, keep badges and labels wide enough for their longest expected text, and verify the generated image visually before deployment.
+
+**Recommendation:** Generate page-specific preview images from the same metadata used by the page. A repeatable generator can produce one image per project, article, or playbook using the canonical title, short description, URL, page type, and brand colors. This keeps Open Graph, Twitter Cards, structured data `image`, and the visible page topic aligned.
+
 **Recommendation:** Include X (Twitter) Card tags as a fallback. Set `twitter:card` to `summary_large_image` to ensure the link unfurls into a full-width image preview on X, rather than a small thumbnail.
 
 ## 5. Best practices for canonical identity
@@ -525,6 +530,9 @@ Good example:
 <!-- CORRECT: descriptive title and aligned page summary -->
 <title>AgentKit SEO Case Study | Renato Mignone</title>
 <meta name="description" content="Case study of an open-source documentation system for personal branding, ATS optimization, and agent-readable career assets." />
+<meta property="og:title" content="AgentKit SEO Case Study | Renato Mignone" />
+<meta property="og:image" content="https://example.com/og/projects/agentkit-seo.png" />
+<meta name="twitter:card" content="summary_large_image" />
 ```
 
 Bad example:
@@ -718,7 +726,7 @@ metadata:
   platform: "portfolio"
   objective: "Centralized citations and official documentation validating the mechanics of portfolio indexing, metadata, structured data, and AI discovery."
   status: "draft"
-  last_updated: "2026-04-24"
+  last_updated: "2026-05-11"
   tags: ["portfolio", "sources", "research", "indexing"]
   agent_priority: "low"
 -->
@@ -750,14 +758,25 @@ The rules in this module are based primarily on Google Search Central, Google Se
 - [Fix lazy-loaded content](https://developers.google.com/search/docs/crawling-indexing/javascript/lazy-loading) - Defines safe lazy-loading behavior for content that still needs to be discovered and indexed.
 - [Mobile-first indexing best practices](https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing) - Confirms that Google indexes with the mobile crawler and explains mobile parity requirements.
 - [Link best practices for Google](https://developers.google.com/search/docs/crawling-indexing/links-crawlable) - Validates the requirement for crawlable `<a href>` links and meaningful anchor text.
+- [Image SEO best practices](https://developers.google.com/search/docs/appearance/google-images) - Documents image discovery, supported image formats, filenames, alt text, and image presentation guidance.
 - [Provide a site name to Google Search](https://developers.google.com/search/docs/appearance/site-names) - Explains homepage site-name signals and the role of `WebSite` structured data.
+- [Introduction to structured data markup in Google Search](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data) - Explains how structured data gives Google explicit page-meaning clues and confirms JSON-LD as the recommended format when supported by the site stack.
 - [ProfilePage (Schema.org)](https://schema.org/ProfilePage) - The authoritative spec for `ProfilePage` markup.
 - [Profile page structured data (Google)](https://developers.google.com/search/docs/appearance/structured-data/profile-page) - Confirms `ProfilePage` support and explicitly includes About-style profile pages as valid use cases.
 - [Person (Schema.org)](https://schema.org/Person) - The authoritative spec for `Person` markup used inside the `ProfilePage` `mainEntity` or `Article` `author`.
+- [WebSite (Schema.org)](https://schema.org/WebSite) - The authoritative type for the canonical website entity.
+- [Organization (Schema.org)](https://schema.org/Organization) - The authoritative type for organization identity, publisher, and same-as profile relationships.
+- [WebPage (Schema.org)](https://schema.org/WebPage) - The base page type used for generic pages and `mainEntityOfPage` references.
+- [CollectionPage (Schema.org)](https://schema.org/CollectionPage) - The page type for hubs and listing pages that collect related resources.
+- [ContactPage (Schema.org)](https://schema.org/ContactPage) - The page type for pages whose main purpose is contacting the site owner or organization.
 - [SoftwareSourceCode (Schema.org)](https://schema.org/SoftwareSourceCode) - The authoritative spec for developer project markup covering languages, code repository links, and application architecture.
+- [SoftwareApplication (Schema.org)](https://schema.org/SoftwareApplication) - The authoritative type for deployed software products and applications.
+- [TechArticle (Schema.org)](https://schema.org/TechArticle) - The article subtype for technical documentation, tutorials, and methodology pages.
 - [Breadcrumb structured data (Google)](https://developers.google.com/search/docs/appearance/structured-data/breadcrumb) - Validates breadcrumb markup and the recommendation to support site hierarchy with structured data.
 - [Article structured data](https://developers.google.com/search/docs/appearance/structured-data/article) - Documents article markup and author markup best practices relevant to writing and case-study pages.
 - [General structured data guidelines](https://developers.google.com/search/docs/appearance/structured-data/sd-policies) - Confirms that structured data must match visible content and must not be blocked if rich-result eligibility is desired.
+- [The Open Graph protocol](https://ogp.me/) - Defines the core social graph metadata properties used by link preview systems.
+- [JSON-LD Structured Data for Blogs: A Real Implementation](https://didof.dev/en/blog/json-ld-structured-data/) - Practical Astro implementation reference for reusable JSON-LD components, article fields, and validation workflow.
 - [Understanding Core Web Vitals and Google search results](https://developers.google.com/search/docs/appearance/core-web-vitals) - Defines the current performance metrics Google recommends monitoring for page experience.
 - [Creating helpful, reliable, people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) - Provides the quality framework for people-first portfolio content and the "Who, How, and Why" self-assessment.
 - [IndexNow documentation](https://www.indexnow.org/documentation) - Defines the official protocol for notifying participating search engines about added, updated, or deleted URLs.
@@ -779,7 +798,7 @@ metadata:
   platform: "portfolio"
   objective: "Define the schema strategy that helps search engines and AI systems understand a personal website without introducing misleading markup."
   status: "draft"
-  last_updated: "2026-04-24"
+  last_updated: "2026-05-11"
   tags: ["portfolio", "schema", "structured-data", "person"]
   agent_priority: "high"
 -->
@@ -798,23 +817,44 @@ Structured data does not replace good content or good architecture, but it gives
 
 **Rule:** Put `WebSite` structured data on the homepage. Use the homepage to define the site's preferred name and canonical root URL. This supports site-name interpretation and creates a stable top-level identity signal.
 
+**Recommendation:** Use `Organization` or `Person` consistently for the site owner. A personal portfolio usually uses `Person`; a project, product, or documentation site can use `Organization`. The same entity should appear consistently in publisher, author, same-as, and homepage identity fields.
+
 **Rule:** Use `ProfilePage` with a `Person` `mainEntity` on the About page or author page. Google explicitly supports `ProfilePage` for pages whose primary focus is a single person or organization. A personal About page is a valid use case when the visible content is genuinely centered on the person behind the site.
+
+**Recommendation:** Use `CollectionPage` for index pages and `ContactPage` for contact pages. Hubs such as `/projects/`, `/writing/`, `/playbooks/`, or `/skills/` are collections, not articles. Contact pages should not be marked as blog posts or project pages.
 
 **Recommendation:** Use `BreadcrumbList` on nested project and writing pages. Breadcrumbs help reinforce hierarchy on pages that sit below a hub such as `/projects/` or `/writing/`.
 
 **Recommendation:** Use `SoftwareSourceCode` or `SoftwareApplication` on developer project pages. Generic `Article` schema is often incorrect for a deployed tool or a GitHub repository write-up. Use `SoftwareSourceCode` for open-source repositories and `SoftwareApplication` for deployed applications or SaaS projects to accurately describe the project's requirements, language, and operating system.
 
-**Recommendation:** Use `Article` or `BlogPosting` only for real editorial pages. Case studies, technical essays, and blog posts can use article markup when they have visible headings, body copy, dates, and author information. A generic project landing page should not pretend to be an article if it is not written as one.
+**Recommendation:** Use `Article`, `BlogPosting`, or `TechArticle` only for real editorial pages. Case studies, technical essays, tutorials, playbooks, and blog posts can use article markup when they have visible headings, body copy, dates, and author information. A generic project landing page should not pretend to be an article if it is not written as one.
 
 **Recommendation:** Link authors to a real author or About URL. When article markup includes an author, use `Person` and provide a valid `url` or `sameAs` value that points to a page or profile that identifies the author clearly.
 
 **Recommendation:** Use `rel="me"` for cross-platform identity verification. On outbound links to external profiles (e.g., GitHub, LinkedIn, Mastodon), include the `rel="me"` attribute. This serves as a decentralized identity-verification function, helping AI disambiguation systems and search engines confirm that the portfolio and the social profiles belong to the exact same entity.
 
+**Rule:** Include article freshness fields when the page exposes dates. For editorial pages, pass `datePublished`, `dateModified`, `author`, `publisher`, `headline`, `description`, canonical `url`, `mainEntityOfPage`, and representative `image` from the page metadata or content frontmatter. Do not add dates to JSON-LD if the page does not show or support them.
+
+**Rule:** Keep the structured-data image aligned with the social-preview image. If a page has a page-specific Open Graph image, use the same canonical absolute URL in article or project schema unless there is a stronger content image. This prevents search, social, and AI systems from receiving conflicting visual summaries.
+
+**Recommendation:** Build JSON-LD as a reusable component. In component-based stacks such as Astro, Next.js, Nuxt, or SvelteKit, define structured-data objects in a metadata helper and render them through a small JSON-LD component. This avoids copy-paste mistakes, keeps optional fields out when missing, and lets every page template inherit the same validation-safe pattern.
+
 **Rule:** Keep markup aligned with visible page content. Structured data must describe what users can actually see on the page. Hidden, misleading, or generic markup can invalidate rich-result eligibility and weaken trust signals.
 
 **Rule:** Do not expect blocked or `noindex` pages to yield rich-result benefits. If a page is blocked from Googlebot or marked `noindex`, search systems cannot reliably use the structured data on that page for search appearance.
 
-## 3. Validation workflow
+## 3. Recommended implementation pattern
+
+For a static or hybrid portfolio, use this pattern:
+
+1. Define canonical site data once: site URL, name, description, owner, logo, and same-as profile links.
+2. Define one metadata object per route or content entry: title, description, canonical path, image, dates, and tags.
+3. Render standard head tags from that object: `<title>`, meta description, canonical, Open Graph, and Twitter Card tags.
+4. Render JSON-LD from the same object: homepage identity, page-type schema, article or project schema, and breadcrumbs.
+5. Generate page-specific 1200 x 630 social images from the same metadata when the page is important enough to be shared.
+6. Validate the built HTML, not only the source component, because search tools inspect the deployed output.
+
+## 4. Validation workflow
 
 Use this validation sequence after every template change:
 
@@ -822,8 +862,9 @@ Use this validation sequence after every template change:
 2. Test eligible pages in Google's Rich Results Test.
 3. Inspect the live URL in Search Console to confirm that the rendered HTML includes the markup.
 4. Recheck the relevant rich result reports after deployment.
+5. Submit the sitemap and request indexing for only the highest-value changed URLs when quota is limited.
 
-## 4. Examples
+## 5. Examples
 
 Good example:
 
@@ -846,11 +887,46 @@ Good example:
 </script>
 ```
 
-## 5. Anti-Patterns
+Article-style page example:
+
+```html
+<!-- CORRECT: article markup generated from page metadata -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Web Portfolio SEO and Indexing",
+  "description": "A practical playbook for metadata, JSON-LD, crawlability, and search-result presentation.",
+  "url": "https://example.com/playbooks/web-portfolio/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://example.com/playbooks/web-portfolio/"
+  },
+  "image": ["https://example.com/og/playbooks/web-portfolio.png"],
+  "datePublished": "2026-04-29",
+  "dateModified": "2026-05-11",
+  "author": {
+    "@type": "Organization",
+    "name": "AgentKit SEO"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "AgentKit SEO"
+  },
+  "keywords": ["portfolio", "seo", "structured-data"]
+}
+</script>
+```
+
+## 6. Anti-Patterns
 
 ### The fake rich-result stack
 
 **What it looks like:** Marking the homepage as a product, review, article, event, and FAQ page because a plugin suggested every available schema type. **Why it fails:** The markup no longer matches the visible focus of the page. At best it is ignored; at worst it becomes a quality problem. **What to do instead:** Mark up the primary purpose of each page only. Home page gets site identity. About page gets profile identity. Writing pages get article identity. Hierarchical pages get breadcrumbs.
+
+### The disconnected SEO layer
+
+**What it looks like:** The visible page says one thing, the meta description says another, the Open Graph image has a generic title, and the JSON-LD uses a copied schema from a different page type. **Why it fails:** Search engines receive conflicting signals and may ignore the markup or rewrite the presentation. **What to do instead:** Treat page metadata as a single source of truth. Generate visible dates, head tags, social images, and JSON-LD from the same route or content data whenever possible.
 
 ---
 
