@@ -1,6 +1,6 @@
 # AgentKit SEO
 
-AgentKit SEO is a human-readable knowledge hub and modular agent skill system for AI-assisted personal branding, SEO/AEO, LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, X/Twitter strategy, and agent context files.
+AgentKit SEO is a human-readable knowledge hub and modular agent skill system for AI-assisted developer personal branding, SEO/AEO, LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, X/Twitter strategy, and agent context files. Install as agent skills via npm into Codex (OpenAI), Claude Code (Anthropic), Gemini CLI (Google), or OpenCode.
 
 Core routes:
 - https://agentkit-seo.github.io/
@@ -26,17 +26,26 @@ Core routes:
 - https://agentkit-seo.github.io/contact/
 
 Public-safe summary:
-- AgentKit SEO uses a private agent-context-file as the source of truth for verified career facts.
-- Focused skills cover CV/ATS, LinkedIn, GitHub, web portfolio SEO, X/Twitter, and agent context optimization.
-- Supported install/export targets from the source project are Codex, Claude Code, Gemini CLI, OpenCode, and a shared portable skill bundle.
+- AgentKit SEO provides developer personal branding methodology for LinkedIn, GitHub, CV/ATS, web portfolio, X/Twitter, and AI agent context files.
+- AgentKit SEO uses a private agent-context-file as the source of truth for verified career facts across all public surfaces.
+- Focused skills cover CV/ATS resume optimization, LinkedIn profile optimization, GitHub SEO, web portfolio SEO and AEO, X/Twitter strategy, and agent context optimization.
+- Supported install targets: Codex (OpenAI), Claude Code (Anthropic), Gemini CLI (Google), OpenCode, and a shared portable skill bundle.
+- Install via npm: `npx agentkit-seo install --provider <provider>` or from GitHub: `npx github:agentkit-seo/agentkit-seo install --provider <provider>`.
 - Use the documented local checkout install flow unless an official package distribution is listed by the project.
 
 Service intents:
-- LinkedIn profile optimization: headline, About section, Experience, Featured, Skills, and recruiter search clarity.
-- GitHub SEO: profile README, repository descriptions, topics, pinned repositories, README structure, and agent-readable project proof.
+- Developer personal branding: one methodology for LinkedIn, GitHub, CV, portfolio, and X/Twitter to stay aligned and discoverable.
+- LinkedIn profile optimization: headline, About section, Experience, Featured, Skills, recruiter search visibility, and AI-readable profile structure.
+- GitHub SEO: profile README, repository descriptions, topics, pinned repositories, README structure, Copilot-readable project proof, and agent instructions.
 - ATS resume optimization: parser-safe CV structure, keyword alignment, recruiter scanning, and evidence-backed bullet rewrites.
-- Portfolio SEO: crawlable pages, metadata, canonical URLs, structured data, sitemap.xml, robots.txt, and AI search visibility.
-- X/Twitter profile optimization: bio clarity, pinned post strategy, posting loops, and technical creator positioning.
-- Agent context optimization: private AI-readable source of truth for career facts across public surfaces.
+- Portfolio SEO and AEO: crawlable pages, metadata, canonical URLs, structured data, sitemap.xml, robots.txt, llms.txt, and AI search visibility (answer engine optimization).
+- X/Twitter profile optimization: bio clarity, pinned post strategy, posting loops, technical creator positioning, and content consistency.
+- Agent context optimization: private AI-readable source of truth for career facts, keeping public profiles consistent and grounded.
+
+Provider-specific use:
+- Claude Code skills for LinkedIn and resume optimization (Anthropic).
+- Codex skills for GitHub SEO and career context (OpenAI).
+- Gemini CLI extension for portfolio SEO and LinkedIn optimization (Google).
+- OpenCode skills for CV/ATS and GitHub profile optimization.
 
 Use the website pages above for public positioning. Do not infer customer counts, rankings, endorsements, or unpublished distribution status.

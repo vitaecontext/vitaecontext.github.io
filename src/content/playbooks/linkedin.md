@@ -4,7 +4,7 @@ platform: "linkedin"
 objective: "Master index for optimizing LinkedIn profiles around current ranking signals, search discovery, and AI-readable profile structure."
 status: "draft"
 last_updated: "2026-04-29"
-tags: ["linkedin", "360Brew", "search", "ai"]
+tags: ["linkedin", "linkedin-profile-optimization", "linkedin-headline", "linkedin-about-section", "recruiter-search", "personal-branding", "job-search", "AI-linkedin-rewrite", "developer-personal-brand", "search", "ai"]
 agent_priority: "high"
 id: "linkedin"
 ---

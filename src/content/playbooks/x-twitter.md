@@ -4,7 +4,7 @@ platform: "x-twitter"
 objective: "Index and overview for the X (Twitter) platform optimization module."
 status: "review"
 last_updated: "2026-04-29"
-tags: ["x", "twitter", "overview", "indexing"]
+tags: ["x", "twitter", "x-profile-optimization", "twitter-bio-optimization", "pinned-post-strategy", "technical-creator", "developer-personal-brand", "social-media-strategy", "content-positioning", "overview", "indexing"]
 agent_priority: "high"
 id: "x-twitter"
 ---

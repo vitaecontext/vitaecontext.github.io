@@ -4,7 +4,7 @@ export const site = {
   repoUrl: "https://github.com/agentkit-seo/agentkit-seo",
   defaultImage: "/og/agentkit-seo.png",
   description:
-    "A human-readable knowledge hub and modular agent skill system for personal branding, LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, X/Twitter strategy, and agent context files.",
+    "A human-readable knowledge hub and modular agent skill system for developer personal branding, LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, X/Twitter strategy, agent context files, and AI-assisted career optimization. Install as agent skills in Codex, Claude Code, Gemini CLI, or OpenCode.",
   disclaimer:
     "Platform names, trademarks, and logos belong to their respective owners. AgentKit SEO is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
   authors: [
@@ -176,7 +176,7 @@ export const skills = [
     audience: "Agents that need grounded context before editing public profiles.",
     outputs: ["Context file spec", "Maintenance workflow", "Agent routing"],
     searchIntent:
-      "personal branding source of truth, AI career context file, agent memory for profile optimization",
+      "personal branding source of truth, AI career context file, agent memory for profile optimization, AI career assistant, LLM context file for job search, career context file for developers, agent-readable resume context",
     useWhen: [
       "Career material is scattered across CVs, LinkedIn, GitHub, notes, and portfolio pages.",
       "An agent needs verified facts before rewriting public career copy.",
@@ -202,7 +202,7 @@ export const skills = [
     audience: "Job seekers tailoring CVs without breaking ATS readability.",
     outputs: ["ATS-safe structure", "Keyword alignment", "Bullet rewrites"],
     searchIntent:
-      "CV optimization, ATS resume optimization, resume keyword strategy, recruiter readable resume",
+      "CV optimization, ATS resume optimization, resume keyword strategy, recruiter readable resume, AI agent for resume optimization, resume keywords for software engineers, how to tailor a resume for job applications, ATS-safe resume format",
     useWhen: [
       "A resume or CV needs tailoring for a target job description.",
       "The layout may be too visual, dense, table-heavy, or difficult for parsers to extract.",
@@ -228,7 +228,7 @@ export const skills = [
     audience: "Professionals who need recruiter search and AI-readable profile clarity.",
     outputs: ["Profile audit", "Headline and About rewrites", "Featured strategy"],
     searchIntent:
-      "LinkedIn profile optimization, LinkedIn headline rewrite, LinkedIn About section, recruiter search visibility",
+      "LinkedIn profile optimization, LinkedIn headline rewrite, LinkedIn About section, recruiter search visibility, how to get recruiter attention on LinkedIn, AI agent for LinkedIn profile, improve LinkedIn for job search, LLM LinkedIn rewrite",
     useWhen: [
       "A LinkedIn profile sounds generic or does not rank for the right role terms.",
       "Headline, About, Experience, Featured, or Skills sections need clearer proof.",
@@ -254,7 +254,7 @@ export const skills = [
     audience: "Developers turning code into searchable proof of work.",
     outputs: ["Profile README fixes", "Repo metadata", "Agent instructions"],
     searchIntent:
-      "GitHub profile optimization, GitHub repository SEO, README optimization, Copilot agent instructions",
+      "GitHub profile optimization, GitHub repository SEO, README optimization, Copilot agent instructions, improve GitHub profile for job search, GitHub SEO for developers, AI agent for GitHub profile, developer portfolio GitHub",
     useWhen: [
       "A GitHub profile shows activity but not a clear developer position or proof of work.",
       "Pinned repositories, topics, descriptions, or READMEs do not surface the strongest projects.",
@@ -280,7 +280,7 @@ export const skills = [
     audience: "Builders who need their own site to be discoverable and useful.",
     outputs: ["SEO/AEO audit", "Structured data plan", "Indexability checks"],
     searchIntent:
-      "portfolio SEO, personal website SEO, structured data, sitemap, robots.txt, AI search visibility",
+      "portfolio SEO, personal website SEO, structured data, sitemap, robots.txt, AI search visibility, answer engine optimization, AEO for personal websites, optimize for ChatGPT and Perplexity, llms.txt setup, portfolio tips for getting hired",
     useWhen: [
       "A personal website looks polished but does not appear in search results.",
       "Pages have weak titles, descriptions, canonical URLs, structured data, or sitemap coverage.",
@@ -306,7 +306,7 @@ export const skills = [
     audience: "Technical operators who want a sharper public posting system.",
     outputs: ["Bio and profile audit", "Pinned post strategy", "Posting loop"],
     searchIntent:
-      "X profile optimization, Twitter bio optimization, pinned post strategy, technical creator posting",
+      "X profile optimization, Twitter bio optimization, pinned post strategy, technical creator posting, how to grow on X as a developer, Twitter bio for software engineers, AI agent for X profile optimization",
     useWhen: [
       "An X or Twitter profile needs clearer positioning, bio structure, or pinned-post strategy.",
       "Posts need stronger hooks, formatting, native value, and topic consistency.",

@@ -4,7 +4,7 @@ platform: "github"
 objective: "Master index and routing logic for optimizing a GitHub profile and repositories for internal search and Copilot."
 status: "draft"
 last_updated: "2026-04-29"
-tags: ["github", "index", "seo", "blackbird"]
+tags: ["github", "github-seo", "developer-portfolio", "github-profile-optimization", "README-optimization", "Copilot-visibility", "personal-branding", "job-search", "AI-agent-github", "index", "seo"]
 agent_priority: "high"
 id: "github"
 ---

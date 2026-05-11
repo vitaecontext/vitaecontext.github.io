@@ -4,7 +4,7 @@ platform: "general"
 objective: "Navigation index for the agent-context-optimization folder, including the specification, workflow, maintenance guide, template, and example file."
 status: "draft"
 last_updated: "2026-04-29"
-tags: ["context-file", "index", "navigation"]
+tags: ["context-file", "agent-context", "personal-branding", "AI-career-assistant", "LLM-context-file", "career-context-for-developers", "agent-memory", "index", "navigation"]
 agent_priority: "medium"
 id: "agent-context-optimization"
 ---

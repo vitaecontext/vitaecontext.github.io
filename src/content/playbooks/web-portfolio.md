@@ -4,7 +4,7 @@ platform: "portfolio"
 objective: "Master index and routing logic for making a personal website crawlable, indexable, and trustworthy in search and AI discovery systems."
 status: "draft"
 last_updated: "2026-05-11"
-tags: ["portfolio", "seo", "indexing", "aeo"]
+tags: ["portfolio", "portfolio-seo", "personal-website-seo", "structured-data", "answer-engine-optimization", "AEO", "llms-txt", "AI-search-visibility", "sitemap", "robots-txt", "crawlability", "seo", "indexing", "aeo"]
 agent_priority: "high"
 id: "web-portfolio"
 ---

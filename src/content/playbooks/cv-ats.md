@@ -4,7 +4,7 @@ platform: "cv-ats"
 objective: "Master index and routing logic for formatting and optimizing CVs for Applicant Tracking Systems."
 status: "draft"
 last_updated: "2026-04-29"
-tags: ["cv", "ats", "resume", "index"]
+tags: ["cv", "ats", "resume", "resume-optimization", "ATS-safe-format", "resume-keywords", "job-search", "recruiter-readable", "AI-resume-optimization", "index"]
 agent_priority: "high"
 id: "cv-ats"
 ---
