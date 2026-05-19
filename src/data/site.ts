@@ -165,9 +165,9 @@ export const skills = [
   {
     slug: "agent-context-optimization",
     name: "Agent Context Optimization",
-    metaTitle: "AI Career Context File Optimization",
+    metaTitle: "Build an AI-Ready Career Context File",
     metaDescription:
-      "Build an AI-readable career context file that keeps LinkedIn, GitHub, CV, portfolio, and X profile optimization grounded in verified facts.",
+      "Build one AI-readable career source of truth for your CV, LinkedIn, GitHub, portfolio, and X so every rewrite stays factual and consistent.",
     shortName: "Agent Context",
     icon: "context",
     href: "/skills/agent-context-optimization/",
@@ -191,9 +191,9 @@ export const skills = [
   {
     slug: "cv-ats",
     name: "CV and ATS Optimization",
-    metaTitle: "ATS Resume and CV Optimization",
+    metaTitle: "Optimize Your Resume for ATS",
     metaDescription:
-      "Use AgentKit SEO for ATS resume optimization, CV keyword alignment, recruiter-readable structure, and evidence-backed bullet rewrites.",
+      "Improve ATS resume formatting, keywords, and proof-based bullets so recruiters can parse your experience quickly and trust what they read.",
     shortName: "CV/ATS",
     icon: "cv",
     href: "/skills/cv-ats/",
@@ -217,9 +217,9 @@ export const skills = [
   {
     slug: "linkedin",
     name: "LinkedIn Optimization",
-    metaTitle: "LinkedIn Profile Optimization",
+    metaTitle: "Optimize Your LinkedIn Profile",
     metaDescription:
-      "Use AgentKit SEO for LinkedIn profile optimization, headline rewrites, About section positioning, Featured proof, skills, and recruiter search clarity.",
+      "Improve your LinkedIn headline, About section, skills, and Featured proof so recruiter search and profile clicks turn into better-fit leads.",
     shortName: "LinkedIn",
     icon: "linkedin",
     href: "/skills/linkedin/",
@@ -243,9 +243,9 @@ export const skills = [
   {
     slug: "github",
     name: "GitHub Optimization",
-    metaTitle: "GitHub Profile and Repository SEO",
+    metaTitle: "Optimize Your GitHub Profile for SEO",
     metaDescription:
-      "Use AgentKit SEO for GitHub profile optimization, repository SEO, README structure, topics, pinned repos, and AI-readable project proof.",
+      "Learn GitHub for SEO, whether GitHub profile backlinks have SEO value, and GitHub bio limits so recruiters and searchers understand your work faster.",
     shortName: "GitHub",
     icon: "github",
     href: "/skills/github/",
@@ -269,9 +269,9 @@ export const skills = [
   {
     slug: "web-portfolio",
     name: "Web Portfolio SEO",
-    metaTitle: "Portfolio SEO and Personal Website Optimization",
+    metaTitle: "Improve Your Portfolio SEO",
     metaDescription:
-      "Use AgentKit SEO for portfolio SEO, personal website optimization, crawlability, metadata, structured data, sitemap, robots.txt, and AI search visibility.",
+      "Improve portfolio SEO with better titles, structured data, crawlability, and AI-readable pages so your work earns more qualified search clicks.",
     shortName: "Web Portfolio",
     icon: "portfolio",
     href: "/skills/web-portfolio/",
@@ -295,9 +295,9 @@ export const skills = [
   {
     slug: "x-twitter",
     name: "X/Twitter Optimization",
-    metaTitle: "X and Twitter Profile Optimization",
+    metaTitle: "Optimize Your X Profile for Search",
     metaDescription:
-      "Use AgentKit SEO for X profile optimization, Twitter bio optimization, pinned post strategy, content positioning, and technical creator visibility.",
+      "Learn Twitter optimization for X.com: improve profile search, pinned posts, and technical creator positioning so the right audience follows.",
     shortName: "X/Twitter",
     icon: "x",
     href: "/skills/x-twitter/",

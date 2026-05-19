@@ -3,7 +3,7 @@ title: "GitHub optimization"
 platform: "github"
 objective: "Master index and routing logic for optimizing a GitHub profile and repositories for internal search and Copilot."
 status: "draft"
-last_updated: "2026-04-29"
+last_updated: "2026-05-19"
 tags: ["github", "github-seo", "developer-portfolio", "github-profile-optimization", "README-optimization", "Copilot-visibility", "personal-branding", "job-search", "AI-agent-github", "index", "seo"]
 agent_priority: "high"
 id: "github"
@@ -333,7 +333,7 @@ metadata:
   platform: "github"
   objective: "Rules for foundational profile settings, including the bio, pinned repositories, and the contribution graph."
   status: "draft"
-  last_updated: "2026-04-28"
+  last_updated: "2026-05-19"
   tags: ["github", "profile", "bio", "contributions"]
   agent_priority: "medium"
 -->
@@ -357,6 +357,32 @@ Before writing a custom profile README, configure the native architecture of the
 **Recommendation:** Treat the 160-character bio like a short profile summary. GitHub restricts the bio to 160 characters. Do not waste this space on quotes or vague statements. A safe formula is: `[Role] | [Core Tech Stack] | [Location/Remote]`.
 
 **Rule:** Link out to your portfolio or LinkedIn. Ensure the "Website" field in your profile settings is populated. Do not put the URL in your 160-character bio, as it consumes valuable keyword space and is not clickable. Use the dedicated URL field.
+
+### 2.1 What is the GitHub bio character limit?
+
+GitHub's official profile settings documentation states that the public bio field is limited to `160` characters. That constraint matters because it forces the profile to behave more like a short descriptor than a full summary.
+
+Use the bio for role, stack, and one differentiator. Move everything else into the profile README, pinned repositories, and the dedicated Website field. If a phrase does not help a recruiter or searcher classify the profile quickly, it is probably wasting scarce space.
+
+### 2.2 Does a GitHub profile generate backlinks for SEO?
+
+A public GitHub profile can create crawlable public links, but the practical value is narrower than many backlink discussions suggest.
+
+- The profile page itself is public.
+- A public `username/username` profile README can appear at the top of the profile.
+- Public repositories, pinned repositories, and the Website field can all point users toward external pages.
+
+That means GitHub can contribute legitimate public references to your site, portfolio, or project pages. What GitHub does **not** document is a special ranking boost just because a link appears on a GitHub profile. Treat GitHub links as credible discovery paths and proof-of-work citations, not as a shortcut for raw link equity.
+
+The strongest SEO value comes when the linked destination is worth indexing on its own: a portfolio case study, a product page, a package, or a well-structured repository. Weak destinations waste the visibility that GitHub can provide.
+
+### 2.3 How GitHub profile optimization affects search visibility
+
+GitHub profile optimization affects visibility through clearer public text and better repository selection, not through a hidden profile-ranking hack.
+
+On GitHub itself, a stronger bio, profile README, repository names, descriptions, and topics make it easier for people to understand what you build and which repositories to inspect first. GitHub also documents that the profile README is shown on the profile page when the matching repository is public and contains a `README.md`, which gives you a large block of searchable public text at the top of the profile.
+
+In external search engines, public profile pages and public repositories can be crawled, summarized, and linked. Better profile copy improves the words visible on those pages, while better pinned repositories improve the odds that a visitor clicks into the right proof-of-work asset. This does not guarantee higher rankings for every query. It does improve classification, snippet quality, and click-through potential when your profile is already eligible to appear.
 
 ## 3. Strategic repository pinning
 

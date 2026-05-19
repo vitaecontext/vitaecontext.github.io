@@ -3,7 +3,7 @@ title: "X (Twitter) optimization"
 platform: "x-twitter"
 objective: "Index and overview for the X (Twitter) platform optimization module."
 status: "review"
-last_updated: "2026-04-29"
+last_updated: "2026-05-19"
 tags: ["x", "twitter", "x-profile-optimization", "twitter-bio-optimization", "pinned-post-strategy", "technical-creator", "developer-personal-brand", "social-media-strategy", "content-positioning", "overview", "indexing"]
 agent_priority: "high"
 id: "x-twitter"
@@ -382,7 +382,7 @@ metadata:
   platform: "x-twitter"
   objective: "Rules for structuring an X profile for search discoverability, profile conversion, and clear niche positioning."
   status: "review"
-  last_updated: "2026-04-28"
+  last_updated: "2026-05-19"
   tags: ["profile", "bio", "seo", "footprint"]
   agent_priority: "high"
 -->
@@ -420,6 +420,52 @@ The 160-character bio functions like a compact profile summary for people, searc
 Historical ranking snapshots suggest profile-click and downstream engagement are valuable signals, so the profile should immediately offer useful next-step content.
 
 **Recommendation:** Use a Pinned Post when the account has a strong evergreen asset. This acts as the top of the funnel (e.g., a lead magnet, a high-performing thread, or a newsletter link). If there is no strong evergreen asset yet, leave the pinned slot empty rather than pinning weak content. **Recommendation:** If the account has access to Highlights, curate testimonials, high-signal threads, and case studies to build authority for new visitors.
+
+### 2.4 How to optimize your X profile for search
+
+Start with the fields X officially exposes on the public profile: name, bio, location, website, profile image, header image, and one pinned post. X's Help Center also states that the bio has a maximum of `160` characters and that you can pin a post so it is the first post people see on your profile.
+
+For search visibility inside X, keep the profile public, use a display name that reflects the niche or role, write a bio that says what you build or help with, and make the website field point to the strongest proof page you control. This is more effective than trying to squeeze every keyword into the bio.
+
+For technical creators, a practical profile formula is:
+
+`[Role or niche] + [specific stack or topic] + [proof or outcome] + [next step]`
+
+Example:
+
+```text
+Backend engineer writing about Go, APIs, and search visibility.
+Built developer tools and technical SEO systems. Latest work:
+```
+
+That structure works because it helps both people and search surfaces classify the account quickly without overpromising hidden algorithm benefits.
+
+### 2.5 Does X.com SEO work differently from web SEO?
+
+Yes. X.com SEO is mostly profile and post clarity inside a closed product surface, while web SEO is page-level optimization for crawlable documents across the open web.
+
+On X, you do not control title tags, canonical tags, schema markup, or full-page layout. The main levers are the words in the display name, bio, post text, media context, links, and the quality of the pinned post. Public posts are searchable on X, and public profiles can also appear in external search results, but the optimization surface is much narrower than a normal website.
+
+On the web, search engines can evaluate page titles, headings, internal links, structured data, and backlinks across many pages. On X, the goal is usually to make the account easy to classify, make posts easy to understand, and give profile visitors a strong next click. That is why a good X profile should route serious visitors to a repository, portfolio page, or newsletter where fuller web SEO can do its job.
+
+### 2.6 What is the best pinned post strategy for technical creators?
+
+The best pinned post for a technical creator is usually an evergreen proof asset, not a generic opinion post.
+
+X officially lets you pin one post so it is the first post visitors see on your profile. Use that slot to answer three questions fast:
+
+1. What do you build or write about?
+2. Why should a technical audience trust you?
+3. Where should an interested visitor go next?
+
+Strong pinned-post formats for technical creators include:
+
+- an introduction thread that explains your niche, stack, and current projects
+- a high-signal case study with a concrete result, architecture, or lesson learned
+- a launch post for a serious open-source project, tool, or guide
+- a resource post that links to your best repository, portfolio page, or long-form write-up
+
+Avoid pinning low-context memes, stale event announcements, or a bare external link with no native explanation. The pinned post is usually the highest-leverage place on the profile, so it should convert a new visitor into a reader, follower, or site click in one screen.
 
 ## 3. Examples
 
