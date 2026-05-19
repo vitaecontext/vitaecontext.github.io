@@ -4,7 +4,7 @@ export const site = {
   repoUrl: "https://github.com/agentkit-seo/agentkit-seo",
   defaultImage: "/og/agentkit-seo.png",
   description:
-    "A human-readable knowledge hub and modular agent skill system for developer personal branding, LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, X/Twitter strategy, agent context files, and AI-assisted career optimization. Install as agent skills in Codex, Claude Code, Gemini CLI, or OpenCode.",
+    "AI toolkit for LinkedIn profile optimization, GitHub SEO, CV/ATS resume work, and agent skills so developers sharpen every profile faster.",
   disclaimer:
     "Platform names, trademarks, and logos belong to their respective owners. AgentKit SEO is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
   authors: [
@@ -165,9 +165,9 @@ export const skills = [
   {
     slug: "agent-context-optimization",
     name: "Agent Context Optimization",
-    metaTitle: "Build an AI-Ready Career Context File",
+    metaTitle: "Build Your AI Career Context File",
     metaDescription:
-      "Build one AI-readable career source of truth for your CV, LinkedIn, GitHub, portfolio, and X so every rewrite stays factual and consistent.",
+      "Create an AI career context file and personal branding source of truth so agent skills keep every profile rewrite factual.",
     shortName: "Agent Context",
     icon: "context",
     href: "/skills/agent-context-optimization/",
@@ -191,9 +191,9 @@ export const skills = [
   {
     slug: "cv-ats",
     name: "CV and ATS Optimization",
-    metaTitle: "Optimize Your Resume for ATS",
+    metaTitle: "Build an ATS-Safe Resume",
     metaDescription:
-      "Improve ATS resume formatting, keywords, and proof-based bullets so recruiters can parse your experience quickly and trust what they read.",
+      "Learn ATS resume optimization, ATS-safe resume format, and resume keyword strategy so your experience is parsed cleanly.",
     shortName: "CV/ATS",
     icon: "cv",
     href: "/skills/cv-ats/",
@@ -217,9 +217,9 @@ export const skills = [
   {
     slug: "linkedin",
     name: "LinkedIn Optimization",
-    metaTitle: "Optimize Your LinkedIn Profile",
+    metaTitle: "Optimize Your LinkedIn for Search",
     metaDescription:
-      "Improve your LinkedIn headline, About section, skills, and Featured proof so recruiter search and profile clicks turn into better-fit leads.",
+      "Use LinkedIn profile optimization, headline rewrites, and LinkedIn SEO for developers so recruiters understand your fit faster.",
     shortName: "LinkedIn",
     icon: "linkedin",
     href: "/skills/linkedin/",
@@ -269,9 +269,9 @@ export const skills = [
   {
     slug: "web-portfolio",
     name: "Web Portfolio SEO",
-    metaTitle: "Improve Your Portfolio SEO",
+    metaTitle: "Optimize Your Portfolio for Search",
     metaDescription:
-      "Improve portfolio SEO with better titles, structured data, crawlability, and AI-readable pages so your work earns more qualified search clicks.",
+      "Improve portfolio SEO, personal website SEO, and developer portfolio indexing so your best work is easier to crawl and click.",
     shortName: "Web Portfolio",
     icon: "portfolio",
     href: "/skills/web-portfolio/",
