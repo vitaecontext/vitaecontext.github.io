@@ -8,6 +8,7 @@ export function getStaticPaths() {
 }
 
 const { skill } = Astro.props;
+const invocationName = skill.invocationName ?? `agentkit-seo-${skill.slug}`;
 const meta = {
   title: `${skill.metaTitle ?? skill.name} Agent Skill`,
   description:
@@ -15,7 +16,7 @@ const meta = {
     `${skill.summary} Installable AgentKit SEO skill for ${skill.shortName.toLowerCase()} workflows, audits, and rewrites.`,
   path: `/skills/${skill.slug}/`,
   type: "article" as const,
-  image: `/og/skills/${skill.slug}.png`,
+  image: skill.ogImage ?? `/og/skills/${skill.slug}.png`,
 };
 ---
 
@@ -27,7 +28,7 @@ const meta = {
         <a href={`/playbooks/${skill.slug}/`} class="mode-badge mode-badge--read" style="text-decoration: none; background: transparent; border: 1px solid var(--line); color: var(--muted); opacity: 0.7; transition: opacity 0.2s;">Read the human playbook →</a>
       </div>
       <p class="eyebrow">Technical Package</p>
-      <h1>agentkit-seo-{skill.slug}</h1>
+      <h1>{invocationName}</h1>
       <p>{skill.summary}</p>
       <p class="search-intent">Search intent: {skill.searchIntent}</p>
       
@@ -61,7 +62,7 @@ const meta = {
     <aside class="card skill-sidebar">
       <div class="skill-sidebar-section">
         <p class="skill-sidebar-label">Invocation Name</p>
-        <pre class="code-block"><code>agentkit-seo-{skill.slug}</code></pre>
+        <pre class="code-block"><code>{invocationName}</code></pre>
       </div>
       <div class="skill-sidebar-divider"></div>
       <div class="skill-sidebar-section">
@@ -72,11 +73,12 @@ const meta = {
       <div class="skill-sidebar-section">
         <p class="skill-sidebar-label">Providers Supported</p>
         <ul style="list-style: none; padding: 0; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.25rem;">
-          <li>✓ Codex</li>
-          <li>✓ Claude Code</li>
-          <li>✓ Gemini CLI</li>
-          <li>✓ OpenCode</li>
-          <li>✓ Shared Bundle</li>
+          <li>Codex</li>
+          <li>Claude Code</li>
+          <li>Gemini CLI</li>
+          <li>Antigravity</li>
+          <li>OpenCode</li>
+          <li>Shared Bundle</li>
         </ul>
       </div>
     </aside>

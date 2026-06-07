@@ -1,12 +1,12 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
-import { site } from "@data/site";
+import { marketplace, site } from "@data/site";
 
 const meta = {
   title: "Install AgentKit SEO – npm Package for AI Career Skills",
   description:
-    "Install AgentKit SEO from npm or GitHub for Codex, Claude Code, Gemini CLI, OpenCode, or a shared portable skill bundle. One CLI command installs focused AI career optimization skills into your agent environment.",
+    "Install AgentKit SEO from npm, GitHub, or the Claude Code plugin marketplace for Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, or a shared portable skill bundle. One CLI command installs focused AI career optimization skills into your agent environment.",
   path: "/docs/installation/",
   type: "article" as const,
 };
@@ -32,6 +32,13 @@ const providers = [
     globalTarget: "~/.gemini/extensions/agentkit-seo/",
     invocation: "/agentkit-seo:github\n/agentkit-seo:linkedin\n/agentkit-seo:cv-ats",
     notes: "Installs a named extension with TOML command files and the skill folders.",
+  },
+  {
+    id: "antigravity",
+    name: "Antigravity",
+    globalTarget: "~/.gemini/antigravity-cli/plugins/agentkit-seo/",
+    invocation: "Use the installed agentkit-seo-github plugin skill to audit my GitHub profile.",
+    notes: "Installs a plugin layout based on the Gemini-compatible bundle into the Antigravity CLI plugin path.",
   },
   {
     id: "opencode",
@@ -84,8 +91,17 @@ const providers = [
     </p>
     <pre class="code-block"><code>npx github:agentkit-seo/agentkit-seo install --provider codex</code></pre>
 
-    <!-- ── Method 2: local checkout ──────────────────────────────────────── -->
-    <h2>Method 2 - local checkout <span class="install-status install-status--ready">Maintainers</span></h2>
+    <!-- ── Method 2: Claude Code plugin marketplace ──────────────────────── -->
+    <h2>Method 2 - Claude Code plugin marketplace <span class="install-status install-status--ready">Available</span></h2>
+    <p>
+      In Claude Code, the skills are also distributed through the plugin marketplace, so you can add and install them
+      without the npm CLI:
+    </p>
+    <pre class="code-block"><code>{marketplace.addCommand}
+{marketplace.installCommand}</code></pre>
+
+    <!-- ── Method 3: local checkout ──────────────────────────────────────── -->
+    <h2>Method 3 - local checkout <span class="install-status install-status--ready">Maintainers</span></h2>
     <p>
       Clone the repository, then invoke the CLI directly using <code>npx .</code> from the repo root.
       This is useful for maintainers testing unpublished changes.
@@ -100,8 +116,8 @@ npx . install --provider codex
 # Or install into a specific project directory
 npx . install --provider codex --project-root /path/to/project</code></pre>
 
-    <!-- ── Method 3: npm exec project-local ─────────────────────────────── -->
-    <h2>Method 3 - project-local via <code>npm exec</code> <span class="install-status install-status--ready">Works now</span></h2>
+    <!-- ── Method 4: npm exec project-local ─────────────────────────────── -->
+    <h2>Method 4 - project-local via <code>npm exec</code> <span class="install-status install-status--ready">Works now</span></h2>
     <p>
       If you have the repository checked out and want to preview generated provider files
       inside a specific project root without a global install:
@@ -159,7 +175,9 @@ npx . install --provider codex --project-root /path/to/project</code></pre>
       Invoke one focused skill by name, provide the private context file path when available, and ask for a specific
       output: profile audit, rewrite plan, repository checklist, ATS-safe CV pass, metadata review, or maintenance
       checklist. See the <a href="/docs/usage/">usage guide</a> and the <a href="/providers/">providers page</a> for
-      exact invocation syntax per environment.
+      exact invocation syntax per environment, and the <a href="/docs/cli/">CLI reference</a> for every
+      <code>agentkit-seo</code> command including <code>update</code>, <code>doctor</code>, <code>uninstall</code>, and
+      <code>list</code>.
     </p>
 
     <p class="service-note">

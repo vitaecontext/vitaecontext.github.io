@@ -2,6 +2,8 @@ export const site = {
   name: "AgentKit SEO",
   url: "https://agentkit-seo.github.io",
   repoUrl: "https://github.com/agentkit-seo/agentkit-seo",
+  packageVersion: "1.8.0",
+  npmUrl: "https://www.npmjs.com/package/agentkit-seo",
   defaultImage: "/og/agentkit-seo.png",
   description:
     "AI toolkit for LinkedIn profile optimization, GitHub SEO, CV/ATS resume work, and agent skills so developers sharpen every profile faster.",
@@ -29,7 +31,9 @@ export const navItems = [
   { label: "Playbooks", href: "/playbooks/" },
   { label: "Skills", href: "/skills/" },
   { label: "Providers", href: "/providers/" },
+  { label: "Design", href: "/design/" },
   { label: "Docs", href: "/docs/" },
+  { label: "CLI", href: "/docs/cli/" },
   { label: "Changelog", href: "/changelog/" },
   { label: "Contact", href: "/contact/" },
   { label: "GitHub", href: "https://github.com/agentkit-seo/agentkit-seo" },
@@ -40,12 +44,20 @@ export const publicRoutes = [
   { path: "/playbooks/", label: "Playbooks" },
   { path: "/skills/", label: "Agent Skills" },
   { path: "/providers/", label: "Providers" },
+  { path: "/design/", label: "Design" },
   { path: "/docs/", label: "Docs" },
   { path: "/docs/installation/", label: "Installation" },
   { path: "/docs/usage/", label: "Usage" },
+  { path: "/docs/cli/", label: "CLI" },
   { path: "/changelog/", label: "Changelog" },
   { path: "/contact/", label: "Contact" },
 ];
+
+// Claude Code plugin marketplace distribution (new in 1.8.0).
+export const marketplace = {
+  addCommand: "/plugin marketplace add agentkit-seo/agentkit-seo",
+  installCommand: "/plugin install agentkit-seo@agentkit-seo",
+};
 
 export const providers = [
   {
@@ -83,6 +95,18 @@ export const providers = [
     npxCmd: "npx agentkit-seo install --provider gemini-cli",
     invocation: "/agentkit-seo:github\n/agentkit-seo:linkedin\n/agentkit-seo:cv-ats",
     invocationNote: "Commands are namespaced under /agentkit-seo: for each skill surface.",
+  },
+  {
+    id: "antigravity",
+    name: "Antigravity",
+    summary:
+      "Installs a plugin layout based on the Gemini-compatible bundle into the Antigravity CLI plugin staging path. The same skill folders ship with an Antigravity plugin manifest.",
+    status: "Plugin install",
+    globalTarget: "~/.gemini/antigravity-cli/plugins/agentkit-seo/",
+    installCmd: "npx agentkit-seo install --provider antigravity",
+    npxCmd: "npx agentkit-seo install --provider antigravity",
+    invocation: "Use the installed agentkit-seo-github plugin skill to audit my GitHub profile.",
+    invocationNote: "Reference the installed plugin skill by name. The layout is based on the Gemini-compatible bundle.",
   },
   {
     id: "opencode",
@@ -161,7 +185,25 @@ export const serviceMarks = [
   },
 ];
 
-export const skills = [
+export type Skill = {
+  slug: string;
+  name: string;
+  invocationName?: string;
+  ogImage?: string;
+  metaTitle: string;
+  metaDescription: string;
+  shortName: string;
+  icon: string;
+  href: string;
+  summary: string;
+  audience: string;
+  outputs: string[];
+  searchIntent: string;
+  useWhen: string[];
+  method: string[];
+};
+
+export const skills: Skill[] = [
   {
     slug: "agent-context-optimization",
     name: "Agent Context Optimization",
@@ -172,20 +214,20 @@ export const skills = [
     icon: "context",
     href: "/skills/agent-context-optimization/",
     summary:
-      "Build a private Markdown source of truth for verified career facts, links, projects, and positioning.",
+      "Build a private Markdown source of truth for verified career facts, links, projects, positioning, and stated goals and targeting.",
     audience: "Agents that need grounded context before editing public profiles.",
-    outputs: ["Context file spec", "Maintenance workflow", "Agent routing"],
+    outputs: ["Context file spec", "Goals and targeting", "Maintenance workflow"],
     searchIntent:
       "personal branding source of truth, AI career context file, agent memory for profile optimization, AI career assistant, LLM context file for job search, career context file for developers, agent-readable resume context",
     useWhen: [
       "Career material is scattered across CVs, LinkedIn, GitHub, notes, and portfolio pages.",
-      "An agent needs verified facts before rewriting public career copy.",
+      "An agent needs verified facts and stated goals before rewriting public career copy.",
       "A context file exists but has become stale, inconsistent, or too long.",
     ],
     method: [
       "Collect identity, roles, projects, links, achievements, constraints, and tone preferences.",
-      "Normalize the material into a private Markdown file that agents and humans can navigate.",
-      "Use that file as the factual base before CV, LinkedIn, GitHub, portfolio, or X work.",
+      "Capture goals and targeting (ideal role, current focus, target locations, interests) as stated intent kept separate from verified facts.",
+      "Normalize the material into a private Markdown file, then use it as the factual base before CV, LinkedIn, GitHub, portfolio, or X work.",
     ],
   },
   {
@@ -316,6 +358,34 @@ export const skills = [
       "Treat the profile as a searchable landing page with clear niche and proof.",
       "Shape posts around native value, strong openings, and repeatable engagement loops.",
       "Mark algorithm assumptions as recommendations to test, not universal rules.",
+    ],
+  },
+  {
+    slug: "agentkit-seo",
+    name: "Orchestration and Routing",
+    invocationName: "agentkit-seo",
+    ogImage: "/og/agentkit-seo.png",
+    metaTitle: "AgentKit SEO Orchestration and Routing Skill",
+    metaDescription:
+      "The root AgentKit SEO skill: a runtime wiki and project self-description that routes a request to a single platform module and loads only the context that task needs.",
+    shortName: "Orchestration",
+    icon: "package",
+    href: "/skills/agentkit-seo/",
+    summary:
+      "The root runtime wiki and entrypoint that routes a request to one platform module and loads only the references that task needs.",
+    audience: "Agents deciding which module to load before starting career work.",
+    outputs: ["Module routing", "Knowledge-graph map", "Scoped context loading"],
+    searchIntent:
+      "AgentKit SEO orchestration, agent skill routing, runtime wiki entrypoint, progressive disclosure for agent skills, Markdown knowledge graph for career optimization, which AgentKit SEO module to use",
+    useWhen: [
+      "A request is broad and the right platform module is not yet obvious.",
+      "An agent needs the project self-description and knowledge-graph entrypoint before loading a module.",
+      "A task should load one module and its references, not the whole library at once.",
+    ],
+    method: [
+      "Read the root self-description to understand the system and its module boundaries.",
+      "Route the request to a single platform module instead of loading every skill.",
+      "Pull deeper references and wiki entries only when the current task needs them.",
     ],
   },
 ];

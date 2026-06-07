@@ -34,7 +34,7 @@ const meta = {
               <span class="skill-mode-tag skill-mode-tag--agent">Agent skill</span>
             </div>
           </div>
-          <h2>agentkit-seo-{skill.slug}</h2>
+          <h2>{skill.invocationName ?? `agentkit-seo-${skill.slug}`}</h2>
           <p>{skill.summary}</p>
           <p class="search-intent" style="margin-top: 1rem;">{skill.searchIntent}</p>
         </a>

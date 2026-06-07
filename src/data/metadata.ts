@@ -80,6 +80,7 @@ export function softwareJsonLd() {
     name: site.name,
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Cross-platform",
+    softwareVersion: site.packageVersion,
     description: site.description,
     url: site.url,
     offers: {

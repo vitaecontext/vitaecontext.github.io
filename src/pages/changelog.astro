@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
+import { site } from "@data/site";
 
 const meta = {
   title: "Changelog",
   description:
-    "AgentKit SEO website changelog covering the first static website release and known public-source status notes.",
+    "AgentKit SEO changelog: the agentkit-seo 1.8.0 package release plus the static website release and public-source status notes.",
   path: "/changelog/",
   type: "website" as const,
 };
@@ -20,11 +21,30 @@ const meta = {
     </div>
   </section>
   <section class="page-section prose">
-    <h2>Version 0.1.1</h2>
+    <h2>Package 1.8.0 - 2026-06-07</h2>
+    <p>Highlights from the <code>agentkit-seo</code> 1.8.0 npm release, mirrored from the package <a href={`${site.repoUrl}/blob/main/CHANGELOG.md`}>CHANGELOG.md</a>.</p>
+    <h3>Added</h3>
+    <ul>
+      <li><strong>Design documentation:</strong> a <code>DESIGN.md</code> and a Design principles section in the README mapping each applied agentic-AI concept to where it lives, with a knowledge-graph diagram.</li>
+      <li><strong>Claude Code plugin marketplace distribution</strong> so the skills install through <code>/plugin marketplace add</code> and <code>/plugin install</code>.</li>
+      <li><strong>Audit scorecard</strong> references for the GitHub, LinkedIn, CV/ATS, and web-portfolio skills: a weighted 0-100 triage with bands and a fix-first order, explicitly an internal prioritization heuristic rather than a platform ranking.</li>
+      <li><strong>Goals and targeting</strong> section in the agent-context-file spec, template, and intake: ideal role, current focus, next work, target locations (or <code>No restriction</code>), interests, and constraints captured as stated intent kept separate from verified facts.</li>
+      <li><strong>Role-grounded persona and self-review</strong> on every skill: each reasons as the relevant professional and, before returning, checks the draft for fabricated facts, evidence-label accuracy, scope and goal alignment, and impact ordering.</li>
+      <li><strong>AI-answer-engine readiness (GEO/AEO)</strong> named as an applied concept and labeled as an evolving practice with no ranking guarantee.</li>
+      <li><code>license</code> and a <code>metadata</code> block in every runtime <code>SKILL.md</code> so provenance travels with the installed skill, plus a <code>node:test</code> unit suite wired into CI.</li>
+    </ul>
+    <h3>Changed</h3>
+    <ul>
+      <li>Corrected the <strong>LLM Wiki</strong> attribution: the wiki is compiled and kept current by a maintainer agent and read by runtime agents instead of re-derived per query, deliberately adapting Karpathy's personal-second-brain concept into a shipped, versioned knowledge pack.</li>
+      <li>Extended <code>agentkit-seo update --provider &lt;provider&gt;</code> to compare the installed skill version against npm latest, and <code>agentkit-seo doctor</code> to enforce the Agent Skills description convention and validate the marketplace and plugin manifests.</li>
+    </ul>
+
+    <h2>Website updates</h2>
+    <h3>Version 0.1.1</h3>
     <p>Published npm package distribution is live through <code>npx agentkit-seo</code>, with the source repository and npm package aligned around the same install flow.</p>
-    <h2>Version 0.1.0</h2>
+    <h3>Version 0.1.0</h3>
     <p>First static website version with homepage, skill pages, provider page, docs, robots.txt, llms.txt, sitemap generation, metadata, and structured data.</p>
-    <h2>Source status reflected</h2>
-    <p>Shared skill source, export CLI, Codex, Claude Code, OpenCode, Gemini CLI, shared export targets, npm distribution, and GitHub releases are represented from the source repository.</p>
+    <h3>Source status reflected</h3>
+    <p>Shared skill source, export CLI, Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, shared export targets, the Claude Code plugin marketplace, npm distribution, and GitHub releases are represented from the source repository.</p>
   </section>
 </BaseLayout>
