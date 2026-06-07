@@ -1666,8 +1666,19 @@ li {
 }
 
 @media (hover: none) {
+  /* On touch there is no hover, so the button stays visible. Reserve a header
+     band above the code so the button never covers the first line. */
   .code-copy-btn {
     opacity: 1;
+  }
+
+  .code-block-wrap > pre {
+    padding-top: 2.6rem;
+  }
+
+  /* Heading anchors are a hover affordance; drop them where there is no hover. */
+  .heading-anchor {
+    display: none;
   }
 }
 
