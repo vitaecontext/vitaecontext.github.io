@@ -1,6 +1,7 @@
 ---
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import SiteEnhancements from "@components/SiteEnhancements.astro";
 import JsonLdScripts from "@components/JsonLd.astro";
 import { assetUrl, canonical, fullTitle, type JsonLd, type PageMeta } from "@data/metadata";
 import { site } from "@data/site";
@@ -67,5 +68,6 @@ const image = assetUrl(meta.image ?? site.defaultImage);
       <slot />
     </main>
     <Footer />
+    <SiteEnhancements />
   </body>
 </html>

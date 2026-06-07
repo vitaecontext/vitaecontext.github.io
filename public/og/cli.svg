@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f8faf7"/>
+  <rect x="0" y="0" width="1200" height="630" fill="#f8faf7"/>
+  <rect x="0" y="0" width="38" height="630" fill="#374151"/>
+  <circle cx="1010" cy="98" r="210" fill="#374151" opacity="0.09"/>
+  <circle cx="1128" cy="516" r="175" fill="#0f172a" opacity="0.06"/>
+
+  <g transform="translate(82 72)">
+    <rect x="0" y="0" width="84" height="84" rx="18" fill="#111827"/>
+    <text x="42" y="54" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#ffffff">CLI</text>
+    <text x="112" y="28" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" fill="#111314">AgentKit SEO</text>
+    <text x="112" y="61" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="650" fill="#5b6463">Documentation</text>
+  </g>
+
+  <g transform="translate(82 198)">
+    <rect x="0" y="0" width="210" height="42" rx="21" fill="#ffffff" stroke="#374151" stroke-width="2"/>
+    <circle cx="28" cy="21" r="8" fill="#374151"/>
+    <text x="50" y="27" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#111827">CLI</text>
+  </g>
+
+  <text x="82" y="309" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="850" fill="#111314"><tspan x="82" dy="0">AgentKit SEO CLI Reference</tspan></text>
+  <text x="86" y="505" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="650" fill="#475352"><tspan x="86" dy="0">version, update, doctor, list, template, install,</tspan><tspan x="86" dy="35">uninstall, and export.</tspan></text>
+
+  <g transform="translate(790 398)">
+    <rect x="0" y="0" width="325" height="76" rx="14" fill="#ffffff" stroke="#d9dfdc" stroke-width="2"/>
+    <text x="30" y="31" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="800" fill="#68716f">PAGE TYPE</text>
+    <text x="30" y="58" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="850" fill="#111827">Command reference</text>
+  </g>
+
+  <g transform="translate(790 500)">
+    <rect x="0" y="0" width="325" height="52" rx="13" fill="#111827"/>
+    <text x="30" y="34" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="800" fill="#ffffff">agentkit-seo.github.io</text>
+  </g>
+</svg>

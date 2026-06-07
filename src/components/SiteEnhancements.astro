@@ -1,0 +1,80 @@
+---
+// Progressive-enhancement script: adds copy-to-clipboard buttons to code blocks
+// and hover anchor links to documentation headings. No-op if JS is disabled.
+---
+
+<script>
+  const ready = (fn: () => void) =>
+    document.readyState === "loading"
+      ? document.addEventListener("DOMContentLoaded", fn, { once: true })
+      : fn();
+
+  ready(() => {
+    const main = document.getElementById("main-content");
+    if (!main) return;
+
+    // 1. Copy-to-clipboard buttons on documentation code blocks.
+    const blocks = main.querySelectorAll<HTMLPreElement>("pre.code-block, .prose pre");
+    blocks.forEach((pre) => {
+      const code = pre.querySelector("code");
+      if (!code || pre.parentElement?.classList.contains("code-block-wrap")) return;
+
+      const wrap = document.createElement("div");
+      wrap.className = "code-block-wrap";
+      pre.parentNode?.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "code-copy-btn";
+      btn.setAttribute("aria-label", "Copy code to clipboard");
+      btn.innerHTML = '<span class="code-copy-label">Copy</span>';
+      wrap.appendChild(btn);
+
+      let timer: number | undefined;
+      const flash = (label: string, copied: boolean) => {
+        const span = btn.querySelector(".code-copy-label");
+        if (span) span.textContent = label;
+        btn.classList.toggle("is-copied", copied);
+        window.clearTimeout(timer);
+        timer = window.setTimeout(() => {
+          if (span) span.textContent = "Copy";
+          btn.classList.remove("is-copied");
+        }, 1600);
+      };
+
+      btn.addEventListener("click", async () => {
+        const text = (code.innerText ?? "").replace(/\n$/, "");
+        try {
+          await navigator.clipboard.writeText(text);
+          flash("Copied", true);
+        } catch {
+          const range = document.createRange();
+          range.selectNodeContents(code);
+          const sel = window.getSelection();
+          sel?.removeAllRanges();
+          sel?.addRange(range);
+          try {
+            // Deprecated but widely supported fallback when the async clipboard API is unavailable.
+            (document as unknown as { execCommand: (c: string) => boolean }).execCommand("copy");
+            flash("Copied", true);
+          } catch {
+            flash("Press Ctrl+C", false);
+          }
+          sel?.removeAllRanges();
+        }
+      });
+    });
+
+    // 2. Hover anchor links on documentation headings (deep-linking long pages).
+    main.querySelectorAll<HTMLHeadingElement>(".prose h2[id], .prose h3[id]").forEach((heading) => {
+      if (heading.querySelector(".heading-anchor")) return;
+      const anchor = document.createElement("a");
+      anchor.className = "heading-anchor";
+      anchor.href = `#${heading.id}`;
+      anchor.setAttribute("aria-label", "Direct link to this section");
+      anchor.textContent = "#";
+      heading.appendChild(anchor);
+    });
+  });
+</script>

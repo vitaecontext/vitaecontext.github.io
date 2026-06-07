@@ -1,9 +1,14 @@
-import { execFileSync } from "node:child_process";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
+import { Resvg } from "@resvg/resvg-js";
 
 const outputRoot = "public/og";
 const size = { width: 1200, height: 630 };
+
+function renderPng(svg) {
+  const resvg = new Resvg(svg, { fitTo: { mode: "width", value: size.width } });
+  return resvg.render().asPng();
+}
 
 const topics = [
   {
@@ -60,6 +65,49 @@ const topics = [
     accentDark: "#09090b",
     pattern: "X",
   },
+  {
+    slug: "agentkit-seo",
+    label: "Orchestration",
+    title: "Orchestration and Routing",
+    subtitle: "Route a request to one module and load only the context that task needs.",
+    accent: "#0f766e",
+    accentDark: "#0a4f4a",
+    pattern: "AKS",
+  },
+];
+
+// Standalone pages (single OG card each, written to public/og/<slug>.png).
+const pages = [
+  {
+    slug: "design",
+    label: "Design",
+    title: "Applied Agentic-AI Concepts",
+    subtitle: "Career context file, LLM Wiki, evidence labels, and an internal audit scorecard.",
+    accent: "#0f766e",
+    accentDark: "#0a4f4a",
+    pattern: "DSN",
+    chip: "Design overview",
+  },
+  {
+    slug: "cli",
+    label: "CLI",
+    title: "AgentKit SEO CLI Reference",
+    subtitle: "version, update, doctor, list, template, install, uninstall, and export.",
+    accent: "#374151",
+    accentDark: "#111827",
+    pattern: "CLI",
+    chip: "Command reference",
+  },
+  {
+    slug: "faq",
+    label: "FAQ",
+    title: "AgentKit SEO FAQ",
+    subtitle: "Honest answers on providers, install, scope, and what it does not promise.",
+    accent: "#b7791f",
+    accentDark: "#7c4a03",
+    pattern: "FAQ",
+    chip: "Questions and answers",
+  },
 ];
 
 function escapeXml(value) {
@@ -105,11 +153,17 @@ function textBlock(lines, x, y, fontSize, lineHeight, options = {}) {
 }
 
 function svgForTopic(topic, variant) {
-  const eyebrow = variant === "skill" ? "AgentKit SEO - agent skill" : "AgentKit SEO - methodology playbook";
+  const eyebrow =
+    variant === "skill"
+      ? "AgentKit SEO - agent skill"
+      : variant === "page"
+        ? "Documentation"
+        : "AgentKit SEO - methodology playbook";
   const title = variant === "skill" ? `${topic.title} Agent Skill` : topic.title;
   const titleLines = wrapText(title, 28).slice(0, 3);
   const subtitleLines = wrapText(topic.subtitle, 58).slice(0, 2);
-  const chipLabel = variant === "skill" ? "Installable skill" : "Human-readable guide";
+  const chipLabel =
+    variant === "skill" ? "Installable skill" : variant === "page" ? topic.chip ?? "Reference" : "Human-readable guide";
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="${size.width}" height="${size.height}" viewBox="0 0 ${size.width} ${size.height}">
@@ -149,13 +203,14 @@ function svgForTopic(topic, variant) {
 }
 
 function writeImage(topic, variant) {
-  const dir = join(outputRoot, variant === "skill" ? "skills" : "playbooks");
+  const dir = variant === "page" ? outputRoot : join(outputRoot, variant === "skill" ? "skills" : "playbooks");
   const svgPath = join(dir, `${topic.slug}.svg`);
   const pngPath = join(dir, `${topic.slug}.png`);
 
   mkdirSync(dirname(svgPath), { recursive: true });
-  writeFileSync(svgPath, svgForTopic(topic, variant));
-  execFileSync("rsvg-convert", ["--width", String(size.width), "--height", String(size.height), "--format", "png", "--output", pngPath, svgPath]);
+  const svg = svgForTopic(topic, variant);
+  writeFileSync(svgPath, svg);
+  writeFileSync(pngPath, renderPng(svg));
   return pngPath;
 }
 
@@ -163,6 +218,9 @@ const generated = [];
 for (const topic of topics) {
   generated.push(writeImage(topic, "playbook"));
   generated.push(writeImage(topic, "skill"));
+}
+for (const page of pages) {
+  generated.push(writeImage(page, "page"));
 }
 
 console.log(`Generated ${generated.length} OG images:`);
