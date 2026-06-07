@@ -1181,7 +1181,7 @@ li {
 }
 
 .prose {
-  width: min(100%, 76ch);
+  width: min(100%, 88ch);
   margin-inline: auto;
 }
 
@@ -1991,6 +1991,7 @@ li {
 .provider-install-block {
   display: grid;
   gap: 0.4rem;
+  min-width: 0;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--line);
 }
@@ -2699,6 +2700,7 @@ li {
 .provider-card {
   display: grid;
   gap: 0.85rem;
+  min-width: 0;
   padding: 1.25rem;
   border-radius: 10px;
   border: 1px solid var(--line);
@@ -2818,6 +2820,7 @@ li {
 .provider-invocation {
   display: grid;
   gap: 0.3rem;
+  min-width: 0;
   padding-top: 0.25rem;
   border-top: 1px solid var(--line);
 }
