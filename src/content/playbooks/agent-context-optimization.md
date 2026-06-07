@@ -3,8 +3,8 @@ title: "Agent context optimization"
 platform: "general"
 objective: "Navigation index for the agent-context-optimization folder, including the specification, workflow, maintenance guide, template, and example file."
 status: "draft"
-last_updated: "2026-04-29"
-tags: ["context-file", "agent-context", "personal-branding", "AI-career-assistant", "LLM-context-file", "career-context-for-developers", "agent-memory", "index", "navigation"]
+last_updated: "2026-06-07"
+tags: ["context-file", "agent-context", "personal-branding", "AI-career-assistant", "LLM-context-file", "career-context-for-developers", "agent-memory", "goals-and-targeting", "index", "navigation"]
 agent_priority: "medium"
 id: "agent-context-optimization"
 ---
@@ -20,6 +20,8 @@ The fastest way to get generic career output is to give an agent scattered conte
 This module fixes that by turning professional history into one structured Markdown file. The file describes a person's academic and professional record in a format that both humans and AI agents can navigate reliably.
 
 The intended use is simple: keep one canonical context file up to date, load it into an agent session, and combine it with the platform-specific modules in this repository when generating CVs, LinkedIn text, portfolio copy, or interview prep.
+
+The file holds two kinds of content that must never blur together: **verified facts** (what is true and provable) and **stated goals and targeting** (where the person wants to go). The goals and targeting block lets downstream skills aim output without inventing experience to support it. See the goals and targeting rules in the [context file spec](#section-context-file-spec) below.
 
 ```text
 Before:
@@ -358,6 +360,28 @@ portfolio: https://yoursite.com
 **Recommendation:** List 8–15 entries in `top_skills`, ordered from most to least central to the person's positioning.
 
 The `gpa_summary` field lists all graded courses on a single comma-separated line. This lets an agent retrieve the full academic record without leaving the block.
+
+### 2.2.1 Goals and targeting (stated intent)
+
+The **Goals and targeting** block records where the person wants to go, as distinct from what they have already done. Place it directly under the QUICK REFERENCE block.
+
+**Rule:** Everything in this block is **stated intent, not verified fact**. An agent may use it to choose emphasis, tone, and which experience to surface, but it must never present a goal as an accomplishment. A target role is not a held role; an interest is not a demonstrated skill.
+
+Capture the following fields. Omit any that do not apply.
+
+```yaml
+goals_and_targeting:
+  ideal_role: "The role the person is aiming for next"
+  current_focus: "What they are working on or learning right now"
+  next_work: "What they want to work on next"
+  target_locations: [City, Country]   # or: No restriction
+  interests: [topic, topic]
+  constraints: [e.g. remote only, visa sponsorship required]
+```
+
+**Rule:** Use `No restriction` for `target_locations` when the person is open to any location, rather than omitting the field, so downstream skills do not have to guess.
+
+**Rule:** Keep goals and targeting separate from the Education, Experience, and Skills sections. Those sections stay strictly factual. When a downstream skill writes public copy, it grounds every claim in the factual sections and uses goals and targeting only to decide what to emphasize.
 
 ### 2.3 Scope declaration
 
