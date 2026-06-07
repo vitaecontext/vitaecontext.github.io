@@ -1,5 +1,6 @@
 ---
 import SectionHeader from "@components/SectionHeader.astro";
+import SystemMap from "@components/SystemMap.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
 import { site } from "@data/site";
@@ -7,7 +8,7 @@ import { site } from "@data/site";
 const meta = {
   title: "Design – Applied Agentic-AI Concepts in AgentKit SEO",
   description:
-    "How AgentKit SEO applies current agentic-AI ideas: career context file with goals and targeting, an LLM Wiki a maintainer compiles and runtime agents read, role-grounded personas with self-review, an internal audit scorecard, progressive disclosure, a Markdown knowledge graph, evidence and confidence labels, one-source-many-adapters distribution, and GEO/AEO readiness.",
+    "How AgentKit SEO applies agentic-AI design: a career context file, an LLM Wiki, role-grounded personas with self-review, evidence labels, an internal audit scorecard, and GEO/AEO readiness.",
   path: "/design/",
   type: "website" as const,
 };
@@ -201,4 +202,6 @@ const evidenceLabels = [
 
     <p class="service-note">{site.disclaimer}</p>
   </section>
+
+  <SystemMap />
 </BaseLayout>

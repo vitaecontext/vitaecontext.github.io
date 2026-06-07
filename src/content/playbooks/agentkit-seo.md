@@ -67,7 +67,7 @@ In practice this means:
 - Ask for the smallest missing input set rather than demanding every asset upfront.
 - Pull deeper context only when the task actually requires it.
 
-This is token discipline: the agent spends its context budget on the surface being worked on, not on instructions for five surfaces it is not touching.
+This is token discipline: the agent spends its context budget on the surface being worked on, not on instructions for the other surfaces it is not touching.
 
 ---
 
