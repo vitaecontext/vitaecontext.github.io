@@ -1,60 +1,15 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
-import { marketplace, site } from "@data/site";
+import { marketplace, providers, site } from "@data/site";
 
 const meta = {
   title: "Install AgentKit SEO – npm Package for AI Career Skills",
   description:
-    "Install AgentKit SEO from npm, GitHub, or the Claude Code plugin marketplace for Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, or a shared portable skill bundle. One CLI command installs focused AI career optimization skills into your agent environment.",
+    "Install AgentKit SEO from npm, GitHub, or the Claude Code plugin marketplace for Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, or a shared portable skill bundle.",
   path: "/docs/installation/",
   type: "article" as const,
 };
-
-const providers = [
-  {
-    id: "codex",
-    name: "Codex",
-    globalTarget: "~/.codex/skills/",
-    invocation: "$agentkit-seo-github\n$agentkit-seo-linkedin",
-    notes: "Exact activation depends on the Codex environment and installed skill support.",
-  },
-  {
-    id: "claude-code",
-    name: "Claude Code",
-    globalTarget: "~/.claude/skills/",
-    invocation: "Use the agentkit-seo-linkedin skill to audit my LinkedIn profile.",
-    notes: "Claude may auto-select from skill metadata, but explicit naming is safer.",
-  },
-  {
-    id: "gemini-cli",
-    name: "Gemini CLI",
-    globalTarget: "~/.gemini/extensions/agentkit-seo/",
-    invocation: "/agentkit-seo:github\n/agentkit-seo:linkedin\n/agentkit-seo:cv-ats",
-    notes: "Installs a named extension with TOML command files and the skill folders.",
-  },
-  {
-    id: "antigravity",
-    name: "Antigravity",
-    globalTarget: "~/.gemini/antigravity-cli/plugins/agentkit-seo/",
-    invocation: "Use the installed agentkit-seo-github plugin skill to audit my GitHub profile.",
-    notes: "Installs a plugin layout based on the Gemini-compatible bundle into the Antigravity CLI plugin path.",
-  },
-  {
-    id: "opencode",
-    name: "OpenCode",
-    globalTarget: "~/.config/opencode/skills/",
-    invocation: "/agentkit-seo-github\n/agentkit-seo-linkedin\n/agentkit-seo-context",
-    notes: "Installs skill folders plus flat command wrappers for direct slash invocation.",
-  },
-  {
-    id: "shared",
-    name: "Shared bundle",
-    globalTarget: "(requires --target-dir)",
-    invocation: "Copy or reference the relevant SKILL.md folder.",
-    notes: "No default global path. Use --target-dir to specify where the skill folders go.",
-  },
-];
 ---
 
 <BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "Installation", path: "/docs/installation/" }])]}>
@@ -139,10 +94,10 @@ npx . install --provider codex --project-root /path/to/project</code></pre>
           </div>
           <div class="install-provider-commands">
             <p class="install-inv-label">Install command</p>
-            <pre class="code-block code-block--sm"><code>npx agentkit-seo install --provider {p.id}</code></pre>
+            <pre class="code-block code-block--sm"><code>{p.installCmd}</code></pre>
             <p class="install-inv-label">Invocation</p>
             <pre class="code-block code-block--sm code-block--muted"><code>{p.invocation}</code></pre>
-            {p.notes && <p class="install-provider-note">{p.notes}</p>}
+            {p.invocationNote && <p class="install-provider-note">{p.invocationNote}</p>}
           </div>
         </div>
       ))}

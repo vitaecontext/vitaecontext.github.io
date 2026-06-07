@@ -1,5 +1,8 @@
 ---
 import { skills } from "@data/site";
+
+// The hub itself is the orchestrator; the stack shows the platform surfaces it routes to.
+const surfaces = skills.filter((skill) => skill.slug !== "agentkit-seo");
 ---
 
 <section class="section system-map" aria-labelledby="system-map-heading">
@@ -23,7 +26,7 @@ import { skills } from "@data/site";
       <small>Route, audit, generate, verify</small>
     </div>
     <div class="surface-stack">
-      {skills.map((skill) => (
+      {surfaces.map((skill) => (
         <a href={skill.href}>
           <span>{skill.shortName}</span>
           <small>{skill.outputs[0]}</small>
