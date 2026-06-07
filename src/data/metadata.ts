@@ -117,6 +117,21 @@ export function webPageJsonLd(title: string, description: string, path: string, 
   };
 }
 
+export function faqJsonLd(items: Array<{ question: string; answer: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
 export function articleJsonLd(title: string, description: string, path: string, options: ArticleJsonLdOptions = {}) {
   const image = assetUrl(options.image ?? site.defaultImage);
 

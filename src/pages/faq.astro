@@ -1,0 +1,98 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { breadcrumbJsonLd, faqJsonLd, webPageJsonLd } from "@data/metadata";
+import { site } from "@data/site";
+
+const meta = {
+  title: "AgentKit SEO FAQ",
+  description:
+    "Answers about AgentKit SEO: what it is, supported providers, install, the agent-context-file, and what it deliberately does not promise.",
+  path: "/faq/",
+  type: "website" as const,
+  image: "/og/faq.png",
+};
+
+// Each entry drives both the visible accordion and the FAQPage structured data,
+// so the two never drift. Answers stay honest and avoid ranking promises.
+const faqs = [
+  {
+    question: "What is AgentKit SEO?",
+    answer:
+      "AgentKit SEO is a portable, Markdown-first bundle of agent skills for professional discoverability work. It gives an AI agent a private career context file, platform-specific optimization methods, evidence labels, and provider-aware install layouts for LinkedIn, GitHub, CV/ATS, web portfolio, and X/Twitter work.",
+  },
+  {
+    question: "Does it guarantee better rankings, recruiter attention, or ATS scores?",
+    answer:
+      "No. AgentKit SEO does not guarantee rankings, recruiter attention, ATS scores, rich results, snippets, indexing speed, AI citations, or platform distribution. It enforces consistent, verifiable facts across your surfaces and prioritizes the highest-impact fixes; outcomes still depend on the platforms and on your actual experience.",
+  },
+  {
+    question: "Which agents and providers does it support?",
+    answer:
+      "Six install targets: Claude Code, Codex, Gemini CLI, Antigravity, OpenCode, and a shared portable skill bundle. In Claude Code the skills are also available through the plugin marketplace. The same single source generates each provider layout, so the methodology does not drift between tools.",
+  },
+  {
+    question: "How do I install it?",
+    answer:
+      "Run npx agentkit-seo install --provider <provider> with one of the supported provider values. In Claude Code you can instead add the plugin marketplace with /plugin marketplace add agentkit-seo/agentkit-seo and then /plugin install agentkit-seo@agentkit-seo. See the installation guide and CLI reference for every command and flag.",
+  },
+  {
+    question: "What is the agent-context-file?",
+    answer:
+      "It is a private Markdown source of truth for one person: verified identity facts, roles, projects, links, and metrics, plus a separate goals and targeting block (ideal role, current focus, target locations) recorded as stated intent. Platform skills read it before writing so every public surface stays grounded in the same facts.",
+  },
+  {
+    question: "What is the LLM Wiki?",
+    answer:
+      "A knowledge layer that follows Andrej Karpathy's LLM Wiki idea: a maintainer agent compiles platform knowledge from sources and keeps it current, and runtime agents read it instead of re-deriving platform facts on every query. It ships as versioned Markdown entries with confidence labels, so advice is grounded rather than guessed.",
+  },
+  {
+    question: "What is the audit scorecard?",
+    answer:
+      "A weighted 0-100 triage with bands and a fix-first order, included in the GitHub, LinkedIn, CV/ATS, and web-portfolio skills. It is an internal prioritization heuristic to decide what to fix first, not a platform ranking and not a guaranteed score.",
+  },
+  {
+    question: "What is the difference between a playbook and a skill?",
+    answer:
+      "They are two modes of the same methodology. A playbook is the human-readable guide you can follow yourself with no install. A skill is the same method packaged so an agent can load and run it. Every module is available both ways.",
+  },
+  {
+    question: "Is AgentKit SEO affiliated with LinkedIn, GitHub, X, or the AI providers?",
+    answer:
+      "No. Platform names, trademarks, and logos belong to their respective owners. AgentKit SEO is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
+  },
+  {
+    question: "Does it collect my data?",
+    answer:
+      "AgentKit SEO is a set of Markdown skill files and a local CLI with no backend, so the project itself collects nothing. Your context file is a private local file you control. How any individual agent or provider handles the content you give it is governed by that provider, not by AgentKit SEO.",
+  },
+];
+---
+
+<BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path), faqJsonLd(faqs), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq/" }])]}>
+  <section class="page-hero">
+    <div class="inner">
+      <p class="eyebrow">Questions and answers</p>
+      <h1>Frequently asked questions</h1>
+      <p>What AgentKit SEO is, how to install it, and what it deliberately does not promise.</p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="faq-list">
+      {faqs.map((item, index) => (
+        <details class="faq-item" open={index === 0}>
+          <summary>
+            <span class="faq-question">{item.question}</span>
+            <span class="faq-marker" aria-hidden="true"></span>
+          </summary>
+          <p class="faq-answer">{item.answer}</p>
+        </details>
+      ))}
+    </div>
+
+    <p class="service-note">
+      Still have a question? Open an issue on the <a href={site.repoUrl}>source repository</a> or see the
+      <a href="/docs/">documentation</a>.
+    </p>
+  </section>
+</BaseLayout>

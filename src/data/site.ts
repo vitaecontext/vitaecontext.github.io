@@ -49,6 +49,7 @@ export const publicRoutes = [
   { path: "/docs/installation/", label: "Installation" },
   { path: "/docs/usage/", label: "Usage" },
   { path: "/docs/cli/", label: "CLI" },
+  { path: "/faq/", label: "FAQ" },
   { path: "/changelog/", label: "Changelog" },
   { path: "/contact/", label: "Contact" },
 ];
@@ -364,7 +365,6 @@ export const skills: Skill[] = [
     slug: "agentkit-seo",
     name: "Orchestration and Routing",
     invocationName: "agentkit-seo",
-    ogImage: "/og/agentkit-seo.png",
     metaTitle: "AgentKit SEO Orchestration and Routing Skill",
     metaDescription:
       "The root AgentKit SEO skill: a runtime wiki and project self-description that routes a request to a single platform module and loads only the context that task needs.",
