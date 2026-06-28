@@ -4998,9 +4998,19 @@ body {
 
 .context-usage-example {
   display: grid;
+  width: 100%;
+  min-width: 0;
   gap: 1.2rem;
   max-width: 68rem;
   margin-inline: auto;
+}
+
+.context-usage-example > *,
+.context-usage-example .code-block-wrap,
+.context-usage-example .code-block {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .context-usage-example > div:first-child {
@@ -5045,5 +5055,18 @@ body {
 
   .context-benefit-grid {
     grid-template-columns: 1fr;
+  }
+
+  .context-usage-example .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .context-usage-example .button {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: center;
   }
 }
