@@ -22,9 +22,6 @@ const sectionHeadings = headings
     ...heading,
     text: heading.text.replace(/^Section:\s*/i, ""),
   }));
-const overviewHeading = headings.find((heading) => heading.depth === 2 && !heading.slug.startsWith("section-"));
-const searchIntentItems = skillData?.searchIntent.split(",").map((item) => item.trim()).filter(Boolean) ?? [];
-
 const meta = {
   title: skillData?.metaTitle ?? entry.data.title ?? skillData?.name ?? entry.slug,
   description: skillData?.metaDescription ?? skillData?.summary ?? "AgentKit SEO Methodology Playbook",
@@ -67,32 +64,64 @@ const formattedUpdatedDate = meta.dateModified
               Updated <time datetime={meta.dateModified}>{formattedUpdatedDate}</time>
             </p>
           )}
-          {searchIntentItems.length > 0 && (
-            <ul class="intent-chip-list" aria-label={`${meta.title} search intents`}>
-              {searchIntentItems.map((item) => <li>{item}</li>)}
-            </ul>
-          )}
+          <p class="playbook-byline">Maintained by Renato Mignone and Elia Innocenti · Source-aware guidance</p>
         </aside>
       </div>
     </div>
   </section>
 
-  <section class="playbook-navigation playbook-navigation-v2" aria-labelledby="playbook-navigation-heading">
-    <div class="playbook-navigation-inner">
-      <div class="playbook-navigation-copy">
-        <p class="eyebrow">Jump sections</p>
-        <h2 id="playbook-navigation-heading">{skillData?.shortName ?? meta.title} guide</h2>
-      </div>
-      <nav class="playbook-toc" aria-label={`${meta.title} sections`}>
-        {overviewHeading && <a href={`#${overviewHeading.slug}`}>Overview and fast path</a>}
-        {sectionHeadings.map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}
-      </nav>
+  <section class="page-section playbook-quick" aria-labelledby="quick-guide-heading">
+    <div class="playbook-quick-head">
+      <p class="eyebrow">Five-minute guide</p>
+      <h2 id="quick-guide-heading">Start with the decisions that matter.</h2>
+      <p>This short guide gives you the useful path first. The complete reference continues below, already open for deeper work and source review.</p>
+    </div>
+    <div class="playbook-quick-grid">
+      <article>
+        <span class="quick-card-number">01</span>
+        <h3>Use this when</h3>
+        <ul>
+          {skillData?.useWhen.slice(0, 3).map((item) => <li>{item}</li>)}
+        </ul>
+      </article>
+      <article>
+        <span class="quick-card-number">02</span>
+        <h3>What the method does</h3>
+        <ol>
+          {skillData?.method.slice(0, 3).map((item) => <li>{item}</li>)}
+        </ol>
+      </article>
+      <article>
+        <span class="quick-card-number">03</span>
+        <h3>What you get</h3>
+        <ul class="quick-output-list">
+          {skillData?.outputs.map((item) => <li>{item}</li>)}
+        </ul>
+        <a href={`/skills/${entry.slug}/`} class="text-link">Run this as an agent skill →</a>
+      </article>
     </div>
   </section>
 
-  <section class="page-section playbook-content">
-    <article class="prose">
-      <Content />
-    </article>
+  <section class="page-section playbook-reference-section">
+    <details class="playbook-reference" open>
+      <summary>
+        <span>
+          <small>Complete reference</small>
+          <strong>{skillData?.shortName ?? "Methodology"} playbook</strong>
+        </span>
+        <span class="summary-action" aria-hidden="true">Show</span>
+      </summary>
+      <div class="playbook-reference-inner">
+        {sectionHeadings.length > 0 && (
+          <nav class="playbook-reference-toc" aria-label={`${meta.title} reference sections`}>
+            <p>In this reference</p>
+            {sectionHeadings.map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}
+          </nav>
+        )}
+        <article class="prose">
+          <Content />
+        </article>
+      </div>
+    </details>
   </section>
 </BaseLayout>

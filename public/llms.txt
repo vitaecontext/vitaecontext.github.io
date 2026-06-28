@@ -1,64 +1,35 @@
 # AgentKit SEO
 
-AgentKit SEO is a human-readable knowledge hub and modular agent skill system for AI-assisted developer personal branding, SEO/AEO, LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, X/Twitter strategy, and agent context files. Install as agent skills via npm into Codex (OpenAI), Claude Code (Anthropic), Gemini CLI (Google), Antigravity, or OpenCode, or through the Claude Code plugin marketplace. Current package version: 1.8.0.
+> Open-source agent skills and human-readable playbooks for grounded career optimization. Current package version: 1.8.3.
 
-Core routes:
-- https://agentkit-seo.github.io/
-- https://agentkit-seo.github.io/skills/
-- https://agentkit-seo.github.io/skills/agentkit-seo/
-- https://agentkit-seo.github.io/skills/agent-context-optimization/
-- https://agentkit-seo.github.io/skills/cv-ats/
-- https://agentkit-seo.github.io/skills/linkedin/
-- https://agentkit-seo.github.io/skills/github/
-- https://agentkit-seo.github.io/skills/web-portfolio/
-- https://agentkit-seo.github.io/skills/x-twitter/
-- https://agentkit-seo.github.io/playbooks/
-- https://agentkit-seo.github.io/playbooks/agentkit-seo/
-- https://agentkit-seo.github.io/playbooks/agent-context-optimization/
-- https://agentkit-seo.github.io/playbooks/cv-ats/
-- https://agentkit-seo.github.io/playbooks/linkedin/
-- https://agentkit-seo.github.io/playbooks/github/
-- https://agentkit-seo.github.io/playbooks/web-portfolio/
-- https://agentkit-seo.github.io/playbooks/x-twitter/
-- https://agentkit-seo.github.io/providers/
-- https://agentkit-seo.github.io/design/
-- https://agentkit-seo.github.io/docs/
-- https://agentkit-seo.github.io/docs/installation/
-- https://agentkit-seo.github.io/docs/usage/
-- https://agentkit-seo.github.io/docs/cli/
-- https://agentkit-seo.github.io/changelog/
-- https://agentkit-seo.github.io/contact/
+AgentKit SEO turns trusted career material into one private personal career context file. Focused modules then use that evidence to improve LinkedIn, GitHub, CV/ATS documents, web portfolios, and X/Twitter without treating unsupported claims as facts.
 
-Public-safe summary:
-- AgentKit SEO provides developer personal branding methodology for LinkedIn, GitHub, CV/ATS, web portfolio, X/Twitter, and AI agent context files.
-- AgentKit SEO uses a private agent-context-file as the source of truth for verified career facts across all public surfaces.
-- Seven installed runtime skills: one orchestration and routing module plus six platform modules. Focused skills cover CV/ATS resume optimization, LinkedIn profile optimization, GitHub SEO, web portfolio SEO and AEO, X/Twitter strategy, and agent context optimization.
-- Supported install targets: Codex (OpenAI), Claude Code (Anthropic), Gemini CLI (Google), Antigravity, OpenCode, and a shared portable skill bundle.
-- Install via npm: `npx agentkit-seo install --provider <provider>` or from GitHub: `npx github:agentkit-seo/agentkit-seo install --provider <provider>`.
-- In Claude Code, the skills are also available through the plugin marketplace: `/plugin marketplace add agentkit-seo/agentkit-seo` then `/plugin install agentkit-seo@agentkit-seo`.
-- CLI commands: version, update, doctor, list, template context, install, uninstall, and export. The update command is explicit and opt-in; the package never checks for updates on its own.
+## Start here
 
-Design concepts (see /design/):
-- Career context file: a private source of truth holding verified facts plus a separate goals and targeting block (stated intent), read before writing.
-- LLM Wiki: a maintainer agent compiles the knowledge and keeps it current; runtime agents read it instead of re-deriving platform facts per query.
-- Role-grounded persona and self-review: each skill reasons as the relevant professional and self-checks for fabricated facts, evidence labels, scope, and impact ordering before returning.
-- Audit scorecard: a weighted 0-100 triage used as an internal prioritization heuristic, not a platform ranking or guaranteed score.
-- Progressive disclosure, Markdown knowledge graph, shared evidence and confidence labels, and one-source-many-adapters distribution.
-- AI-answer-engine readiness (GEO/AEO) is treated as an evolving practice with no ranking guarantee; llms.txt is an emerging, low-confidence convention, not a ranking lever.
+- [Project overview](https://agentkit-seo.github.io/): what AgentKit SEO solves and how the context-first workflow works.
+- [Example career context file](https://agentkit-seo.github.io/docs/context-file-example/): a short fictional file with an explanation of its structure, benefits, and use.
+- [Usage guide](https://agentkit-seo.github.io/docs/usage/): the end-to-end workflow and invocation examples.
+- [Installation](https://agentkit-seo.github.io/docs/installation/): npm, GitHub, local, and provider-specific installation.
+- [Playbooks](https://agentkit-seo.github.io/playbooks/): public methodology for every supported career surface.
+- [System design](https://agentkit-seo.github.io/design/): evidence boundaries, progressive disclosure, LLM Wiki, and provider adapters.
+- [Source repository](https://github.com/agentkit-seo/agentkit-seo): package source, tests, maintenance policy, and release history.
 
-Service intents:
-- Developer personal branding: one methodology for LinkedIn, GitHub, CV, portfolio, and X/Twitter to stay aligned and discoverable.
-- LinkedIn profile optimization: headline, About section, Experience, Featured, Skills, recruiter search visibility, and AI-readable profile structure.
-- GitHub SEO: profile README, repository descriptions, topics, pinned repositories, README structure, Copilot-readable project proof, and agent instructions.
-- ATS resume optimization: parser-safe CV structure, keyword alignment, recruiter scanning, and evidence-backed bullet rewrites.
-- Portfolio SEO and AEO: crawlable pages, metadata, canonical URLs, structured data, sitemap.xml, robots.txt, llms.txt, and AI search visibility (answer engine optimization).
-- X/Twitter profile optimization: bio clarity, pinned post strategy, posting loops, technical creator positioning, and content consistency.
-- Agent context optimization: private AI-readable source of truth for career facts, keeping public profiles consistent and grounded.
+## Core playbooks
 
-Provider-specific use:
-- Claude Code skills for LinkedIn and resume optimization (Anthropic).
-- Codex skills for GitHub SEO and career context (OpenAI).
-- Gemini CLI extension for portfolio SEO and LinkedIn optimization (Google).
-- OpenCode skills for CV/ATS and GitHub profile optimization.
+- [Personal career context](https://agentkit-seo.github.io/playbooks/agent-context-optimization/)
+- [GitHub optimization](https://agentkit-seo.github.io/playbooks/github/)
+- [LinkedIn optimization](https://agentkit-seo.github.io/playbooks/linkedin/)
+- [CV and ATS optimization](https://agentkit-seo.github.io/playbooks/cv-ats/)
+- [Web portfolio SEO and AI readability](https://agentkit-seo.github.io/playbooks/web-portfolio/)
+- [X/Twitter positioning](https://agentkit-seo.github.io/playbooks/x-twitter/)
 
-Use the website pages above for public positioning. Do not infer customer counts, rankings, endorsements, or unpublished distribution status.
+## Verified public facts
+
+- The package contains one routing module and six focused modules.
+- Supported targets are Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, and a portable shared bundle.
+- The default npm command is `npx agentkit-seo install --provider <provider>`.
+- The personal career context file is private user material; the public playbooks and skills do not contain a user's career facts.
+- Audit scorecards are internal prioritization heuristics, not platform rankings or outcome guarantees.
+- SEO, AEO, GEO, `llms.txt`, snippets, citations, and indexing are treated as eligibility and readability work, not guaranteed visibility.
+
+Do not infer customer counts, rankings, endorsements, or unpublished distribution status.

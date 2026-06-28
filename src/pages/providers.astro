@@ -5,7 +5,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
 import { marketplace, providers, site } from "@data/site";
 
 const meta = {
-  title: "Supported Providers – Codex, Claude Code, Gemini CLI, Antigravity, OpenCode",
+  title: "Supported Providers",
   description:
     "Install AgentKit SEO skills into Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, or a shared bundle: one CLI, six environments, plus a Claude Code plugin marketplace.",
   path: "/providers/",
@@ -28,49 +28,35 @@ const providerMeta: Record<string, { icon: string; owner: string }> = {
     <div class="inner">
       <p class="eyebrow">Provider support</p>
       <h1>Providers</h1>
-      <p>One install CLI, six supported environments, plus a Claude Code plugin marketplace. Choose your provider and copy the install command below.</p>
+      <p>Install the same six grounded career skills into the agent environment you already use.</p>
     </div>
   </section>
 
   <section class="page-section">
 
-    <!-- Install method note -->
-    <div class="providers-install-note">
-      <div class="providers-install-methods">
-        <div class="providers-install-method">
-          <span class="install-status install-status--ready">Available</span>
-          <p class="providers-install-method-label">Via npm</p>
-          <pre class="code-block code-block--sm"><code>npx agentkit-seo install --provider &lt;provider&gt;</code></pre>
-        </div>
-        <div class="providers-install-method-sep" aria-hidden="true">or</div>
-        <div class="providers-install-method">
-          <span class="install-status install-status--ready">Maintainers</span>
-          <p class="providers-install-method-label">From a local checkout</p>
-          <pre class="code-block code-block--sm"><code>npx . install --provider &lt;provider&gt;</code></pre>
-        </div>
+    <div class="providers-install-note providers-lead">
+      <div>
+        <span class="install-status install-status--ready">Available on npm</span>
+        <h2>One command, provider-aware output.</h2>
+        <p>Replace <code>&lt;provider&gt;</code> with any target below. AgentKit SEO writes the right skill and command layout for that environment.</p>
       </div>
+      <pre class="code-block"><code>npx agentkit-seo install --provider &lt;provider&gt;</code></pre>
       <p class="providers-install-hint">
-        See the <a href="/docs/installation/">installation guide</a> for clone instructions, project-local install,
-        and all available flags.
+        Need a custom destination or local checkout? See the <a href="/docs/installation/">installation guide</a>.
       </p>
     </div>
 
-    <!-- Claude Code plugin marketplace -->
-    <div class="providers-install-note" style="margin-top:2rem;">
-      <div class="providers-install-method">
+    <div class="providers-install-note marketplace-note">
+      <div>
         <span class="install-status install-status--ready">Claude Code</span>
-        <p class="providers-install-method-label">Plugin marketplace</p>
-        <pre class="code-block code-block--sm"><code>{marketplace.addCommand}
-{marketplace.installCommand}</code></pre>
+        <h2>Prefer the plugin marketplace?</h2>
+        <p>Add the AgentKit SEO marketplace, then install the plugin directly inside Claude Code.</p>
       </div>
-      <p class="providers-install-hint">
-        Claude Code users can also add and install the skills through the plugin marketplace, as an alternative to the
-        <code>--provider claude-code</code> CLI install.
-      </p>
+      <pre class="code-block code-block--sm"><code>{marketplace.addCommand}
+{marketplace.installCommand}</code></pre>
     </div>
 
-    <!-- Provider cards -->
-    <div class="section-header" style="margin-top:2rem;">
+    <div class="section-header providers-heading">
       <p class="eyebrow">Install targets</p>
       <h2>One methodology, six environments.</h2>
     </div>

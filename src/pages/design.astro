@@ -6,7 +6,7 @@ import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
 import { site } from "@data/site";
 
 const meta = {
-  title: "Design – Applied Agentic-AI Concepts in AgentKit SEO",
+  title: "Design | Applied Agentic AI Concepts",
   description:
     "How AgentKit SEO applies agentic-AI design: a career context file, an LLM Wiki, role-grounded personas with self-review, evidence labels, an internal audit scorecard, and GEO/AEO readiness.",
   path: "/design/",
@@ -115,6 +115,10 @@ const evidenceLabels = [
       as <strong>stated intent</strong>, kept strictly separate from verified facts, so downstream skills can aim output
       toward a goal without inventing experience to support it.
     </p>
+    <figure class="doc-figure doc-figure--wide">
+      <img src="/brand/grounded-optimization.webp" alt="Ungrounded AI rewriting compared with AgentKit SEO adaptations bounded by evidence" width="1672" height="941" loading="lazy" />
+      <figcaption>The grounding boundary is a design constraint: stronger wording cannot outrun the available evidence.</figcaption>
+    </figure>
 
     <h2>LLM Wiki</h2>
     <p>
@@ -200,6 +204,15 @@ const evidenceLabels = [
       help a tool find a clean project map, but no search engine or assistant guarantees that publishing one changes
       visibility or citations.
     </p>
+    <aside class="research-note">
+      <h3>What current primary guidance supports</h3>
+      <ul>
+        <li><a href="https://developers.google.com/search/docs/appearance/ai-features">Google Search Central</a> says its existing SEO fundamentals also apply to AI Overviews and AI Mode; no special AI schema or machine-readable file is required.</li>
+        <li><a href="https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview">Bing Webmaster Tools</a> recommends clear structure, evidence, freshness, and alignment across formats for content used in AI answers.</li>
+        <li><a href="https://help.openai.com/en/articles/12627856-publishers-and-developers-faq">OpenAI’s publisher guidance</a> says public pages should allow OAI-SearchBot to be eligible for summaries, snippets, and citations in ChatGPT search.</li>
+        <li>The original <a href="https://arxiv.org/abs/2311.09735">GEO research paper</a> studies content visibility in generative responses, but its experimental findings are not universal ranking rules.</li>
+      </ul>
+    </aside>
 
     <p class="service-note">{site.disclaimer}</p>
   </section>

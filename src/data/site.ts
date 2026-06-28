@@ -2,7 +2,7 @@ export const site = {
   name: "AgentKit SEO",
   url: "https://agentkit-seo.github.io",
   repoUrl: "https://github.com/agentkit-seo/agentkit-seo",
-  packageVersion: "1.8.0",
+  packageVersion: "1.8.3",
   npmUrl: "https://www.npmjs.com/package/agentkit-seo",
   defaultImage: "/og/agentkit-seo.png",
   description:
@@ -28,14 +28,9 @@ export const site = {
 };
 
 export const navItems = [
-  { label: "Playbooks", href: "/playbooks/" },
-  { label: "Skills", href: "/skills/" },
-  { label: "Providers", href: "/providers/" },
-  { label: "Design", href: "/design/" },
   { label: "Docs", href: "/docs/" },
-  { label: "CLI", href: "/docs/cli/" },
-  { label: "Changelog", href: "/changelog/" },
-  { label: "Contact", href: "/contact/" },
+  { label: "Playbooks", href: "/playbooks/" },
+  { label: "Providers", href: "/providers/" },
   { label: "GitHub", href: "https://github.com/agentkit-seo/agentkit-seo" },
 ];
 
@@ -48,6 +43,7 @@ export const publicRoutes = [
   { path: "/docs/", label: "Docs" },
   { path: "/docs/installation/", label: "Installation" },
   { path: "/docs/usage/", label: "Usage" },
+  { path: "/docs/context-file-example/", label: "Context File Example" },
   { path: "/docs/cli/", label: "CLI" },
   { path: "/faq/", label: "FAQ" },
   { path: "/changelog/", label: "Changelog" },
@@ -389,4 +385,3 @@ export const skills: Skill[] = [
     ],
   },
 ];
-

@@ -18,28 +18,23 @@ const meta = {
   <section class="page-hero">
     <div class="inner">
       <p class="eyebrow">Methodology</p>
-      <h1>Personal Branding SEO Playbooks</h1>
-      <p>Comprehensive, human-readable guides for professional identity SEO. Read the rules, formatting constraints, and content formulas behind the agents.</p>
+      <h1>The methods behind the skills.</h1>
+      <p>Practical, source-aware guides for improving each public career surface without turning positioning into invention.</p>
     </div>
   </section>
 
   <section class="page-section">
-    <SectionHeader title="Choose a playbook to read." />
-    <div class="grid">
+    <SectionHeader eyebrow="Browse the library" title="Choose the surface you want to improve." />
+    <div class="playbook-library">
       {skills.map((skill) => (
-        <a class="card skill-card" href={`/playbooks/${skill.slug}/`}>
+        <a class="playbook-library-card" href={`/playbooks/${skill.slug}/`}>
           <div class="skill-card-top">
             <span class="icon" aria-hidden="true"><PlatformIcon kind={skill.icon} /></span>
-            <div class="skill-card-modes" aria-label="Available as">
-              <span class="skill-mode-tag skill-mode-tag--read">Playbook</span>
-            </div>
+            <span class="playbook-arrow" aria-hidden="true">↗</span>
           </div>
           <h2>{skill.name}</h2>
           <p>{skill.summary}</p>
-          <p class="search-intent">{skill.searchIntent}</p>
-          <ul class="tag-list">
-            {skill.outputs.map((output) => <li>{output}</li>)}
-          </ul>
+          <span class="playbook-output">{skill.outputs.join(" · ")}</span>
         </a>
       ))}
     </div>

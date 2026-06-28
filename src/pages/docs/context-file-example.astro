@@ -1,0 +1,111 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import { sampleContext } from "@data/sampleContext";
+
+const meta = {
+  title: "Example Personal Career Context File",
+  description:
+    "Read a short fictional personal career context file and learn how to use it with AI agents for CV, GitHub, LinkedIn, portfolio, and career tasks.",
+  path: "/docs/context-file-example/",
+  type: "article" as const,
+};
+---
+
+<BaseLayout
+  meta={meta}
+  jsonLd={[
+    articleJsonLd(meta.title, meta.description, meta.path),
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Docs", path: "/docs/" },
+      { name: "Context file example", path: meta.path },
+    ]),
+  ]}
+>
+  <section class="page-hero context-example-hero">
+    <div class="inner">
+      <p class="eyebrow">A concrete example</p>
+      <h1>What goes inside a career context file?</h1>
+      <p>A short, fictional example you can inspect before creating your own.</p>
+      <div class="actions">
+        <a class="button primary" href="/examples/sample-career-context.md">Open the Markdown file</a>
+        <a class="button secondary" href="/docs/usage/">See how to use it</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section context-example-intro">
+    <div>
+      <p class="eyebrow">The idea</p>
+      <h2>Give the agent facts it can reuse.</h2>
+    </div>
+    <p>
+      The file is a private, editable record of your professional context. It tells an agent what is verified, what you
+      want to do next, and which claims it should avoid. You update the file when something changes and reuse it across tasks.
+    </p>
+  </section>
+
+  <section class="page-section context-benefit-grid" aria-label="Benefits of a career context file">
+    <article>
+      <span>01</span>
+      <h2>Less repetition</h2>
+      <p>You do not need to explain your education, projects, links, and goals in every new conversation.</p>
+    </article>
+    <article>
+      <span>02</span>
+      <h2>Fewer invented details</h2>
+      <p>Evidence boundaries and claims to avoid give the agent clear limits before it starts writing.</p>
+    </article>
+    <article>
+      <span>03</span>
+      <h2>More consistent work</h2>
+      <p>Your CV, profiles, portfolio, and application drafts can all start from the same maintained facts.</p>
+    </article>
+  </section>
+
+  <section class="page-section context-example-layout">
+    <div class="context-example-copy">
+      <p class="eyebrow">Sample file</p>
+      <h2>A useful file can stay simple.</h2>
+      <p>
+        This fictional example is deliberately short. A real file can contain more roles, projects, education, links,
+        and proof, but the structure remains readable Markdown.
+      </p>
+      <ul>
+        <li><strong>Quick reference</strong> gives the agent the facts it needs most often.</li>
+        <li><strong>Goals</strong> describe direction without pretending it is completed experience.</li>
+        <li><strong>Roles and projects</strong> connect claims to concrete work.</li>
+        <li><strong>Output preferences</strong> define tone and safety rules.</li>
+      </ul>
+      <p class="context-privacy-note">
+        Keep your completed file private. The example below is fictional and contains no real personal data.
+      </p>
+    </div>
+    <div class="context-code-window">
+      <div class="context-code-bar">
+        <span></span><span></span><span></span>
+        <code>sample-career-context.md</code>
+      </div>
+      <pre><code>{sampleContext}</code></pre>
+    </div>
+  </section>
+
+  <section class="page-section context-usage-example">
+    <div>
+      <p class="eyebrow">Use it in a normal prompt</p>
+      <h2>The file supplies context. Your prompt supplies the task.</h2>
+    </div>
+    <pre class="code-block"><code>Use the attached personal career context file.
+Use the agentkit-seo-github skill to review my GitHub profile.
+Tell me what to change first and do not add claims that are not in the file.</code></pre>
+    <p>
+      The same pattern works for a CV, LinkedIn profile, portfolio, application answer, interview preparation, or any
+      other task that needs your professional background.
+    </p>
+    <div class="actions">
+      <a class="button primary" href="/docs/usage/">Continue to the usage guide</a>
+      <a class="button secondary" href="/playbooks/agent-context-optimization/">Build your own context file</a>
+    </div>
+  </section>
+</BaseLayout>

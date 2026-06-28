@@ -83,6 +83,15 @@ export function softwareJsonLd() {
     softwareVersion: site.packageVersion,
     description: site.description,
     url: site.url,
+    downloadUrl: site.npmUrl,
+    codeRepository: site.repoUrl,
+    isAccessibleForFree: true,
+    author: site.authors.map((author) => ({
+      "@type": "Person",
+      name: author.name,
+      url: author.portfolio,
+      sameAs: [author.github, author.linkedin],
+    })),
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",
