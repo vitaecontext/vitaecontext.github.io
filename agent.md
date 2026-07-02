@@ -43,6 +43,7 @@ Run `npm run og:generate` after changing skill/playbook names, subtitles, colors
 ## Repository Map
 
 - `src/pages/`: route files for homepage, docs, providers, contact, skills, playbooks, sitemap, and 404.
+- `src/pages/profile-optimization.astro`: answer-first intent hub that routes broad profile-improvement queries to the relevant playbook.
 - `src/pages/playbooks/[slug].astro`: dynamic playbook page template.
 - `src/pages/skills/[slug].astro`: dynamic skill page template.
 - `src/content/playbooks/`: Markdown playbooks. Each file becomes a `/playbooks/<slug>/` page.

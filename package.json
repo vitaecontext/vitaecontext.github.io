@@ -9,13 +9,11 @@
     "build": "astro check --root . && astro build --root . --outDir ./dist",
     "preview": "astro preview --root . --host 127.0.0.1"
   },
-  "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/sitemap": "^3.3.1",
-    "astro": "^5.16.3",
-    "typescript": "^5.9.3"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@resvg/resvg-js": "^2.6.2"
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.18.2",
+    "@resvg/resvg-js": "^2.6.2",
+    "typescript": "^5.9.3"
   }
 }

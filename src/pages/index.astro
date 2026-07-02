@@ -6,9 +6,9 @@ import { breadcrumbJsonLd, organizationJsonLd, softwareJsonLd, websiteJsonLd } f
 import { serviceMarks, site } from "@data/site";
 
 const meta = {
-  title: "Career Context and Skills for AI Workflows",
+  title: "AI Profile Optimization Skills and Playbooks",
   description:
-    "Keep your career facts in one private context file and use focused AI agent skills for LinkedIn, GitHub, CV/ATS, portfolios, and X/Twitter.",
+    "Optimize LinkedIn, GitHub, CV/ATS resumes, portfolios, and X profiles with open-source AI agent skills, practical playbooks, and verified career context.",
   path: "/",
 };
 
@@ -39,17 +39,17 @@ const quickstart = [
   <section class="hero hero-concept" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="eyebrow">Open-source skills for AI agents</p>
-      <h1 id="hero-title">One file for every career task you do with AI.</h1>
-      <p class="hero-lede">Keep your facts, goals, projects, and links in a private Markdown file.</p>
+      <h1 id="hero-title">Optimize every professional profile with grounded AI skills.</h1>
+      <p class="hero-lede">Improve LinkedIn, GitHub, CV/ATS resumes, web portfolios, and X profiles from one verified career context.</p>
       <p>
-        Give the file to your agent, choose a skill, and ask for the work. You can use it for a CV, LinkedIn, GitHub,
-        a portfolio, X, or another task that needs your professional context.
+        AgentKit SEO is an open-source personal branding and profile optimization toolkit. Give your private Markdown
+        context file to an agent, choose a focused skill, and get an evidence-based audit, rewrite, or code change.
       </p>
       <div class="hero-paths" aria-label="Get started with AgentKit SEO">
         <div class="hero-path hero-path--read">
           <div class="actions">
-            <a class="button primary" href="/docs/context-file-example/">See an example file</a>
-            <a class="button secondary" href="/docs/usage/">How to use it</a>
+            <a class="button primary" href="/profile-optimization/">Choose what to optimize</a>
+            <a class="button secondary" href="/docs/context-file-example/">See the context file</a>
           </div>
         </div>
       </div>
@@ -83,6 +83,28 @@ const quickstart = [
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section problem-section" aria-labelledby="profile-optimization-heading">
+    <div class="problem-copy">
+      <p class="eyebrow">Professional profile optimization</p>
+      <h2 id="profile-optimization-heading">What does AgentKit SEO optimize?</h2>
+      <p>
+        It helps people and AI agents improve the public surfaces used to explain professional fit: a LinkedIn profile,
+        GitHub profile and repositories, CV or resume, personal website, and X profile. Each playbook combines
+        platform-specific guidance with explicit evidence boundaries so clearer positioning does not become invented experience.
+      </p>
+      <a class="text-link" href="/profile-optimization/">Compare every optimization workflow →</a>
+    </div>
+    <div class="answer-card">
+      <p class="eyebrow">Use it when you ask</p>
+      <ul>
+        <li><a href="/playbooks/linkedin/">How can I optimize my LinkedIn profile?</a></li>
+        <li><a href="/playbooks/github/">How do I improve my GitHub profile and repository SEO?</a></li>
+        <li><a href="/playbooks/cv-ats/">How do I make my resume ATS-friendly?</a></li>
+        <li><a href="/playbooks/web-portfolio/">How do I improve my portfolio SEO, AEO, and AI readability?</a></li>
+      </ul>
     </div>
   </section>
 
@@ -211,15 +233,15 @@ const quickstart = [
         <article class="author-card">
           <h3>{author.name}</h3>
           <div class="author-links" aria-label={`${author.name} contact links`}>
-            <a href={author.github} target="_blank" rel="noreferrer" aria-label={`${author.name} on GitHub`}>
+            <a href={author.github} target="_blank" rel="me noreferrer" aria-label={`${author.name} on GitHub`}>
               <PlatformIcon kind="github" />
               GitHub
             </a>
-            <a href={author.linkedin} target="_blank" rel="noreferrer" aria-label={`${author.name} on LinkedIn`}>
+            <a href={author.linkedin} target="_blank" rel="me noreferrer" aria-label={`${author.name} on LinkedIn`}>
               <PlatformIcon kind="linkedin" />
               LinkedIn
             </a>
-            <a href={author.portfolio} target="_blank" rel="noreferrer" aria-label={`${author.name}'s portfolio`}>
+            <a href={author.portfolio} target="_blank" rel="me noreferrer" aria-label={`${author.name}'s portfolio`}>
               <PlatformIcon kind="portfolio" />
               Portfolio
             </a>

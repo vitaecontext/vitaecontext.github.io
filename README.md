@@ -15,6 +15,7 @@ The site is statically rendered and uses Astro pages for all important routes. M
 ## Routes
 
 - `/`
+- `/profile-optimization/`
 - `/playbooks/`
 - `/playbooks/cv-ats/`
 - `/playbooks/linkedin/`

@@ -70,6 +70,12 @@ export function organizationJsonLd() {
     url: site.url,
     logo: assetUrl("/icons/icon-512.png"),
     sameAs: [site.repoUrl],
+    founder: site.authors.map((author) => ({
+      "@type": "Person",
+      name: author.name,
+      url: author.portfolio,
+      sameAs: [author.github, author.linkedin],
+    })),
   };
 }
 
@@ -98,6 +104,33 @@ export function softwareJsonLd() {
       price: "0",
       priceCurrency: "USD",
     },
+  };
+}
+
+export function softwareSourceCodeJsonLd(title: string, description: string, path: string, invocationName: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    name: invocationName,
+    headline: title,
+    description,
+    url: canonical(path),
+    codeRepository: site.repoUrl,
+    programmingLanguage: "Markdown",
+    runtimePlatform: ["Codex", "Claude Code", "Gemini CLI", "Antigravity", "OpenCode"],
+    license: "https://opensource.org/license/mit",
+    isPartOf: {
+      "@type": "SoftwareApplication",
+      name: site.name,
+      url: site.url,
+      softwareVersion: site.packageVersion,
+    },
+    author: site.authors.map((author) => ({
+      "@type": "Person",
+      name: author.name,
+      url: author.portfolio,
+      sameAs: [author.github, author.linkedin],
+    })),
   };
 }
 

@@ -19,7 +19,7 @@ export async function GET() {
     .map((route) => {
       const loc = new URL(route.path, site.url).toString();
       const lastmod = "lastmod" in route && route.lastmod ? `<lastmod>${route.lastmod}</lastmod>` : "";
-      return `<url><loc>${loc}</loc>${lastmod}<changefreq>weekly</changefreq><priority>${route.path === "/" ? "1.0" : "0.7"}</priority></url>`;
+      return `<url><loc>${loc}</loc>${lastmod}</url>`;
     })
     .join("");
 

@@ -1,5 +1,4 @@
 import { defineConfig } from "astro/config";
-import sitemap from "@astrojs/sitemap";
 import { fileURLToPath } from "node:url";
 import { remarkPlaybookLinks } from "./src/utils/remarkPlaybookLinks.mjs";
 
@@ -11,5 +10,4 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkPlaybookLinks],
   },
-  integrations: [sitemap()],
 });

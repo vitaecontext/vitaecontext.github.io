@@ -6,7 +6,7 @@ export const site = {
   npmUrl: "https://www.npmjs.com/package/agentkit-seo",
   defaultImage: "/og/agentkit-seo.png",
   description:
-    "AI toolkit for LinkedIn profile optimization, GitHub SEO, CV/ATS resume work, and agent skills so developers sharpen every profile faster.",
+    "Open-source agent skills and playbooks for LinkedIn profile optimization, GitHub SEO, ATS resumes, portfolio SEO, and evidence-based personal branding.",
   disclaimer:
     "Platform names, trademarks, and logos belong to their respective owners. AgentKit SEO is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
   authors: [
@@ -28,6 +28,7 @@ export const site = {
 };
 
 export const navItems = [
+  { label: "Profile Optimization", href: "/profile-optimization/" },
   { label: "Docs", href: "/docs/" },
   { label: "Playbooks", href: "/playbooks/" },
   { label: "Providers", href: "/providers/" },
@@ -36,6 +37,7 @@ export const navItems = [
 
 export const publicRoutes = [
   { path: "/", label: "Home" },
+  { path: "/profile-optimization/", label: "Profile Optimization" },
   { path: "/playbooks/", label: "Playbooks" },
   { path: "/skills/", label: "Agent Skills" },
   { path: "/providers/", label: "Providers" },
@@ -196,6 +198,7 @@ export type Skill = {
   audience: string;
   outputs: string[];
   searchIntent: string;
+  questions: string[];
   useWhen: string[];
   method: string[];
 };
@@ -216,6 +219,13 @@ export const skills: Skill[] = [
     outputs: ["Context file spec", "Goals and targeting", "Maintenance workflow"],
     searchIntent:
       "personal branding source of truth, AI career context file, agent memory for profile optimization, AI career assistant, LLM context file for job search, career context file for developers, agent-readable resume context",
+    questions: [
+      "How do I build a personal career knowledge base for AI agents?",
+      "What should an AI career context file contain?",
+      "How can I keep my CV, LinkedIn, GitHub, and portfolio facts consistent?",
+      "How do I give ChatGPT, Claude, Codex, or Gemini reusable career context?",
+      "How can an AI career assistant avoid inventing professional claims?",
+    ],
     useWhen: [
       "Career material is scattered across CVs, LinkedIn, GitHub, notes, and portfolio pages.",
       "An agent needs verified facts and stated goals before rewriting public career copy.",
@@ -242,6 +252,14 @@ export const skills: Skill[] = [
     outputs: ["ATS-safe structure", "Keyword alignment", "Bullet rewrites"],
     searchIntent:
       "CV optimization, ATS resume optimization, resume keyword strategy, recruiter readable resume, AI agent for resume optimization, resume keywords for software engineers, how to tailor a resume for job applications, ATS-safe resume format",
+    questions: [
+      "How do I make my CV or resume ATS-friendly?",
+      "How can I tailor a resume to a job description without keyword stuffing?",
+      "How do I perform an ATS resume review or resume audit?",
+      "How should I rewrite resume bullets with measurable evidence?",
+      "What resume format is easiest for ATS parsers and recruiters to read?",
+      "How do I optimize a software engineer resume for relevant keywords?",
+    ],
     useWhen: [
       "A resume or CV needs tailoring for a target job description.",
       "The layout may be too visual, dense, table-heavy, or difficult for parsers to extract.",
@@ -268,6 +286,14 @@ export const skills: Skill[] = [
     outputs: ["Profile audit", "Headline and About rewrites", "Featured strategy"],
     searchIntent:
       "LinkedIn profile optimization, LinkedIn headline rewrite, LinkedIn About section, recruiter search visibility, how to get recruiter attention on LinkedIn, AI agent for LinkedIn profile, improve LinkedIn for job search, LLM LinkedIn rewrite",
+    questions: [
+      "How do I audit and optimize my LinkedIn profile for a job search?",
+      "How should I rewrite my LinkedIn headline for recruiter visibility?",
+      "What should I write in my LinkedIn About section?",
+      "How do I improve LinkedIn Experience, Skills, and Featured sections?",
+      "How does LinkedIn SEO help recruiters understand my professional profile?",
+      "How can an AI agent improve my LinkedIn profile without inventing claims?",
+    ],
     useWhen: [
       "A LinkedIn profile sounds generic or does not rank for the right role terms.",
       "Headline, About, Experience, Featured, or Skills sections need clearer proof.",
@@ -294,6 +320,14 @@ export const skills: Skill[] = [
     outputs: ["Profile README fixes", "Repo metadata", "Agent instructions"],
     searchIntent:
       "GitHub profile optimization, GitHub repository SEO, README optimization, Copilot agent instructions, improve GitHub profile for job search, GitHub SEO for developers, AI agent for GitHub profile, developer portfolio GitHub",
+    questions: [
+      "How do I optimize my GitHub profile for recruiters and job searches?",
+      "What should a developer put in a GitHub profile README?",
+      "How do I choose pinned repositories for a GitHub portfolio?",
+      "How do names, descriptions, topics, and READMEs improve repository discoverability?",
+      "How can I make a GitHub repository easier for search engines and AI agents to understand?",
+      "What Copilot or agent instruction files should a repository include?",
+    ],
     useWhen: [
       "A GitHub profile shows activity but not a clear developer position or proof of work.",
       "Pinned repositories, topics, descriptions, or READMEs do not surface the strongest projects.",
@@ -320,6 +354,15 @@ export const skills: Skill[] = [
     outputs: ["SEO/AEO audit", "Structured data plan", "Indexability checks"],
     searchIntent:
       "portfolio SEO, personal website SEO, structured data, sitemap, robots.txt, AI search visibility, answer engine optimization, AEO for personal websites, optimize for ChatGPT and Perplexity, llms.txt setup, portfolio tips for getting hired",
+    questions: [
+      "How do I optimize a developer portfolio or personal website for search?",
+      "Why is my portfolio not indexed by Google or Bing?",
+      "Which titles, descriptions, canonical tags, and structured data should a portfolio use?",
+      "How do I improve portfolio visibility in AI search, ChatGPT, and Perplexity?",
+      "What do SEO, AEO, and GEO mean for a personal website?",
+      "Do I need robots.txt, sitemap.xml, schema markup, or llms.txt?",
+      "How should I structure project case studies for recruiters and search engines?",
+    ],
     useWhen: [
       "A personal website looks polished but does not appear in search results.",
       "Pages have weak titles, descriptions, canonical URLs, structured data, or sitemap coverage.",
@@ -346,6 +389,13 @@ export const skills: Skill[] = [
     outputs: ["Bio and profile audit", "Pinned post strategy", "Posting loop"],
     searchIntent:
       "X profile optimization, Twitter bio optimization, pinned post strategy, technical creator posting, how to grow on X as a developer, Twitter bio for software engineers, AI agent for X profile optimization",
+    questions: [
+      "How do I optimize an X or Twitter profile for search?",
+      "What should a developer or technical creator write in an X bio?",
+      "What is an effective pinned post strategy for professional positioning?",
+      "How do I combine an X content strategy with a repeatable engagement strategy?",
+      "How can I improve X profile visibility without relying on algorithm myths?",
+    ],
     useWhen: [
       "An X or Twitter profile needs clearer positioning, bio structure, or pinned-post strategy.",
       "Posts need stronger hooks, formatting, native value, and topic consistency.",
@@ -373,6 +423,12 @@ export const skills: Skill[] = [
     outputs: ["Module routing", "Knowledge-graph map", "Scoped context loading"],
     searchIntent:
       "AgentKit SEO orchestration, agent skill routing, runtime wiki entrypoint, progressive disclosure for agent skills, Markdown knowledge graph for career optimization, which AgentKit SEO module to use",
+    questions: [
+      "Which AgentKit SEO skill should I use for my career optimization task?",
+      "How does an AI agent route a broad profile request to one focused module?",
+      "How can agent skills load only the knowledge needed for the current task?",
+      "How does a Markdown knowledge graph support professional profile optimization?",
+    ],
     useWhen: [
       "A request is broad and the right platform module is not yet obvious.",
       "An agent needs the project self-description and knowledge-graph entrypoint before loading a module.",

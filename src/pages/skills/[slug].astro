@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import { breadcrumbJsonLd, softwareSourceCodeJsonLd } from "@data/metadata";
 import { skills } from "@data/site";
 
 export function getStaticPaths() {
@@ -20,7 +20,7 @@ const meta = {
 };
 ---
 
-<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path, { image: meta.image }), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Agent Skills", path: "/skills/" }, { name: skill.name, path: meta.path }])]}>
+<BaseLayout meta={meta} jsonLd={[softwareSourceCodeJsonLd(meta.title, meta.description, meta.path, invocationName), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Agent Skills", path: "/skills/" }, { name: skill.name, path: meta.path }])]}>
   <section class="page-hero">
     <div class="inner">
       <div class="docs-mode-label-row" style="margin-bottom: 1rem;">
@@ -55,7 +55,7 @@ const meta = {
       <ul>
         {skill.outputs.map((output) => <li>{output}</li>)}
       </ul>
-      
+
       <h2>Methodology</h2>
       <p>This technical package is an automated, executable version of the <strong>{skill.name}</strong> playbook. To read the exact rules, constraints, and formulas that the agent is following, read the <a href={`/playbooks/${skill.slug}/`}>human-readable playbook</a>.</p>
     </article>
