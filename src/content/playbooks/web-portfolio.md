@@ -528,9 +528,9 @@ Good example:
 
 ```text
 <!-- CORRECT: descriptive title and aligned page summary -->
-<title>AgentKit SEO Case Study | Renato Mignone</title>
+<title>AgentKit SEO Case Study | Example Developer</title>
 <meta name="description" content="Case study of an open-source documentation system for personal branding, ATS optimization, and agent-readable career assets." />
-<meta property="og:title" content="AgentKit SEO Case Study | Renato Mignone" />
+<meta property="og:title" content="AgentKit SEO Case Study | Example Developer" />
 <meta property="og:image" content="https://example.com/og/projects/agentkit-seo.png" />
 <meta name="twitter:card" content="summary_large_image" />
 ```
@@ -876,7 +876,7 @@ Good example:
   "@type": "ProfilePage",
   "mainEntity": {
     "@type": "Person",
-    "name": "Renato Mignone",
+    "name": "Example Developer",
     "url": "https://example.com/about/",
     "sameAs": [
       "https://github.com/example",

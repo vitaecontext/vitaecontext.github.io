@@ -6,9 +6,9 @@ import { breadcrumbJsonLd, organizationJsonLd, softwareJsonLd, websiteJsonLd } f
 import { serviceMarks, site } from "@data/site";
 
 const meta = {
-  title: "AI Profile Optimization Skills and Playbooks",
+  title: "Career Context File and AI Profile Optimization",
   description:
-    "Optimize LinkedIn, GitHub, CV/ATS resumes, portfolios, and X profiles with open-source AI agent skills, practical playbooks, and verified career context.",
+    "Build one private career context file, then use grounded AI agent skills to optimize LinkedIn, GitHub, CV/ATS resumes, portfolios, and X profiles.",
   path: "/",
 };
 
@@ -39,17 +39,17 @@ const quickstart = [
   <section class="hero hero-concept" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="eyebrow">Open-source skills for AI agents</p>
-      <h1 id="hero-title">Optimize every professional profile with grounded AI skills.</h1>
-      <p class="hero-lede">Improve LinkedIn, GitHub, CV/ATS resumes, web portfolios, and X profiles from one verified career context.</p>
+      <h1 id="hero-title">One career context file. Grounded AI work for every profile.</h1>
+      <p class="hero-lede">Explain your education, experience, projects, skills, goals, and evidence once, then reuse that private context across every career task.</p>
       <p>
-        AgentKit SEO is an open-source personal branding and profile optimization toolkit. Give your private Markdown
-        context file to an agent, choose a focused skill, and get an evidence-based audit, rewrite, or code change.
+        AgentKit SEO combines a reusable Markdown source of truth with focused skills for LinkedIn, GitHub, CV/ATS
+        resumes, web portfolios, and X. The context keeps facts grounded; each skill adapts them to one platform.
       </p>
       <div class="hero-paths" aria-label="Get started with AgentKit SEO">
         <div class="hero-path hero-path--read">
           <div class="actions">
-            <a class="button primary" href="/profile-optimization/">Choose what to optimize</a>
-            <a class="button secondary" href="/docs/context-file-example/">See the context file</a>
+            <a class="button primary" href="/docs/context-file-example/">Explore the context file</a>
+            <a class="button secondary" href="/profile-optimization/">Choose what to optimize</a>
           </div>
         </div>
       </div>
@@ -86,25 +86,68 @@ const quickstart = [
     </div>
   </section>
 
-  <section class="section problem-section" aria-labelledby="profile-optimization-heading">
-    <div class="problem-copy">
-      <p class="eyebrow">Professional profile optimization</p>
-      <h2 id="profile-optimization-heading">What does AgentKit SEO optimize?</h2>
+  <section class="section foundation-section" aria-labelledby="foundation-heading">
+    <div class="foundation-head">
+      <div>
+        <p class="eyebrow">Ground first. Optimize second.</p>
+        <h2 id="foundation-heading">One source of truth for every professional profile.</h2>
+      </div>
       <p>
-        It helps people and AI agents improve the public surfaces used to explain professional fit: a LinkedIn profile,
-        GitHub profile and repositories, CV or resume, personal website, and X profile. Each playbook combines
-        platform-specific guidance with explicit evidence boundaries so clearer positioning does not become invented experience.
+        AgentKit SEO separates verified career context from platform-specific presentation. Your facts remain stable;
+        each focused skill reshapes them for the surface you are improving.
       </p>
-      <a class="text-link" href="/profile-optimization/">Compare every optimization workflow →</a>
     </div>
-    <div class="answer-card">
-      <p class="eyebrow">Use it when you ask</p>
-      <ul>
-        <li><a href="/playbooks/linkedin/">How can I optimize my LinkedIn profile?</a></li>
-        <li><a href="/playbooks/github/">How do I improve my GitHub profile and repository SEO?</a></li>
-        <li><a href="/playbooks/cv-ats/">How do I make my resume ATS-friendly?</a></li>
-        <li><a href="/playbooks/web-portfolio/">How do I improve my portfolio SEO, AEO, and AI readability?</a></li>
-      </ul>
+
+    <div class="foundation-flow">
+      <article class="foundation-card foundation-card--context">
+        <div class="foundation-card-head">
+          <span class="foundation-number">01</span>
+          <span class="foundation-icon" aria-hidden="true"><PlatformIcon kind="context" /></span>
+          <div>
+            <p class="eyebrow">Private grounding layer</p>
+            <h3>Build your career context file</h3>
+          </div>
+        </div>
+        <p>
+          A private Markdown knowledge base for verified education, experience, projects, research, skills,
+          certifications, goals, constraints, and proof links.
+        </p>
+        <ul class="foundation-signals" aria-label="Benefits of a career context file">
+          <li><strong>Grounded</strong><span>Facts before rewriting</span></li>
+          <li><strong>Consistent</strong><span>One maintained record</span></li>
+          <li><strong>Private</strong><span>Your full file stays local</span></li>
+        </ul>
+        <a class="foundation-link" href="/docs/context-file-example/">Explore the fictional template <span>→</span></a>
+      </article>
+
+      <div class="foundation-connector" aria-hidden="true">
+        <span>context + skill</span>
+        <i>→</i>
+      </div>
+
+      <article class="foundation-card foundation-card--profiles">
+        <div class="foundation-card-head">
+          <span class="foundation-number">02</span>
+          <span class="foundation-icon" aria-hidden="true"><PlatformIcon kind="portfolio" /></span>
+          <div>
+            <p class="eyebrow">Public optimization layer</p>
+            <h3>Adapt it to the current platform</h3>
+          </div>
+        </div>
+        <p>
+          Improve professional fit and discoverability without inventing experience. Use one focused playbook for
+          LinkedIn, GitHub, CV/ATS, web portfolio, or X.
+        </p>
+        <nav class="foundation-platforms" aria-label="Profile optimization playbooks">
+          {serviceMarks.slice(0, 5).map((service) => (
+            <a href={service.href}>
+              <span aria-hidden="true"><PlatformIcon kind={service.icon} /></span>
+              {service.name}
+            </a>
+          ))}
+        </nav>
+        <a class="foundation-link" href="/profile-optimization/">Compare every workflow <span>→</span></a>
+      </article>
     </div>
   </section>
 

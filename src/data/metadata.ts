@@ -70,12 +70,6 @@ export function organizationJsonLd() {
     url: site.url,
     logo: assetUrl("/icons/icon-512.png"),
     sameAs: [site.repoUrl],
-    founder: site.authors.map((author) => ({
-      "@type": "Person",
-      name: author.name,
-      url: author.portfolio,
-      sameAs: [author.github, author.linkedin],
-    })),
   };
 }
 
@@ -92,12 +86,11 @@ export function softwareJsonLd() {
     downloadUrl: site.npmUrl,
     codeRepository: site.repoUrl,
     isAccessibleForFree: true,
-    author: site.authors.map((author) => ({
-      "@type": "Person",
-      name: author.name,
-      url: author.portfolio,
-      sameAs: [author.github, author.linkedin],
-    })),
+    author: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+    },
     offers: {
       "@type": "Offer",
       availability: "https://schema.org/InStock",
@@ -125,12 +118,11 @@ export function softwareSourceCodeJsonLd(title: string, description: string, pat
       url: site.url,
       softwareVersion: site.packageVersion,
     },
-    author: site.authors.map((author) => ({
-      "@type": "Person",
-      name: author.name,
-      url: author.portfolio,
-      sameAs: [author.github, author.linkedin],
-    })),
+    author: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+    },
   };
 }
 
@@ -192,13 +184,11 @@ export function articleJsonLd(title: string, description: string, path: string, 
     ...(options.dateModified && { dateModified: options.dateModified }),
     ...(options.keywords?.length && { keywords: options.keywords.join(", ") }),
     inLanguage: "en",
-    author: site.authors.map((author) => ({
-      "@type": "Person",
-      name: author.name,
-      email: author.email,
-      url: author.portfolio,
-      sameAs: [author.github, author.linkedin],
-    })),
+    author: {
+      "@type": "Organization",
+      name: site.name,
+      url: site.url,
+    },
     publisher: {
       "@type": "Organization",
       name: site.name,

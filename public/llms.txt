@@ -8,7 +8,7 @@ AgentKit SEO turns trusted career material into one private personal career cont
 
 - [Project overview](https://agentkit-seo.github.io/): what AgentKit SEO solves and how the context-first workflow works.
 - [Professional profile optimization](https://agentkit-seo.github.io/profile-optimization/): choose the LinkedIn, GitHub, CV/ATS, portfolio, X, or career-context workflow for a specific optimization goal.
-- [Example career context file](https://agentkit-seo.github.io/docs/context-file-example/): a short fictional file with an explanation of its structure, benefits, and use.
+- [Example career context file](https://agentkit-seo.github.io/docs/context-file-example/): a complete fictional template covering its structure, evidence boundaries, benefits, and use with AI agents.
 - [Usage guide](https://agentkit-seo.github.io/docs/usage/): the end-to-end workflow and invocation examples.
 - [Installation](https://agentkit-seo.github.io/docs/installation/): npm, GitHub, local, and provider-specific installation.
 - [Playbooks](https://agentkit-seo.github.io/playbooks/): public methodology for every supported career surface.

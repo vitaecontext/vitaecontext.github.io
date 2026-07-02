@@ -1,29 +1,44 @@
-export const sampleContext = `# Alex Morgan — Backend developer focused on reliable web services
+export const sampleContext = `# Alex Morgan - Backend developer focused on reliable web services
 
 ## QUICK REFERENCE
 \`\`\`yaml
 name: Alex Morgan
-current_location: Bologna, Italy
+current_location: Valencia, Spain
 target_roles:
   - Backend Developer
   - Platform Engineer
-work_mode: remote or hybrid
+open_to_relocation: true
 positioning_summary: "Backend developer with experience building APIs,
   internal tools, and observable web services."
-current_focus: reliable services and developer tooling
-growth_direction: platform engineering
-claims_to_avoid:
-  - senior-level ownership
-  - people management
+education:
+  - "BSc Computer Science | Example University | 2025"
+professional:
+  - "Backend Developer Intern | Northstar Labs | Mar-Sep 2025"
 top_skills:
   - TypeScript
   - Node.js
   - PostgreSQL
   - Docker
   - REST APIs
+tools:
+  - GitHub Actions
+  - OpenTelemetry
+  - Linux
+certifications:
+  - "Cloud Fundamentals | Example Institute | 2025"
+languages:
+  - "English: C1"
+  - "Italian: Native"
 github: https://github.com/alexmorgan
+linkedin: https://linkedin.com/in/alexmorgan
 portfolio: https://alexmorgan.dev
 \`\`\`
+
+This file is Alex Morgan's private professional source of truth. It is not a
+public CV. Agents use it to create grounded career outputs while keeping goals
+separate from completed experience.
+
+<!-- VERIFIED FACTS: degree=2025, internship=2025-03/2025-09 -->
 
 ## GOALS AND TARGETING
 
@@ -32,29 +47,72 @@ portfolio: https://alexmorgan.dev
 **Evidence boundary:** Production API work is verified. Platform engineering
 is a direction supported by personal projects, not a past job title.
 
-## [ROLE] Backend Developer Intern | Northstar Labs | Mar–Sep 2025
+## EDUCATION
 
-Built and maintained Node.js API endpoints for an internal operations tool.
+### [DEGREE] BSc Computer Science | Example University | 2025
+
+Focus: databases, distributed systems, software engineering, and web services.
+
+#### [COURSE] Distributed Systems | 2025
+
+Topics: replication, consistency, message queues, and fault tolerance.
+
+##### [PROJECT] QueueWatch
+
+**TL;DR:** Dashboard for inspecting background-job failures in a local test environment.
+**Description:** Built a searchable failure timeline and retry workflow.
+**Technologies:** TypeScript, Fastify, PostgreSQL, OpenTelemetry, Docker.
+**Evidence:** Public repository with setup instructions and architecture notes.
+
+## PROFESSIONAL EXPERIENCE
+
+### [ROLE] Backend Developer Intern | Northstar Labs | Mar-Sep 2025
+
+**TL;DR:** Maintained Node.js API endpoints for an internal operations tool.
 
 - Added request validation and integration tests to three existing endpoints.
 - Reduced a recurring report from a manual spreadsheet process to one API call.
 - Worked with TypeScript, PostgreSQL, Docker, and GitHub Actions.
 
-## [PROJECT] QueueWatch
+## RESEARCH AND PUBLICATIONS
 
-Repository: https://github.com/alexmorgan/queuewatch
+### [PREPRINT] Reliable Retry Policies for Background Jobs | Draft
 
-A small dashboard for inspecting background-job failures.
+**TL;DR:** Small reproducibility study comparing retry policies under simulated failures.
+**Status:** Draft; do not describe as peer reviewed or published.
 
-- Built with TypeScript, Fastify, PostgreSQL, and OpenTelemetry.
-- Includes setup instructions, architecture notes, and a local Docker stack.
-- Do not describe it as production software; it is a maintained personal project.
+## SKILLS INDEX
 
-## EDUCATION
+**Languages:** TypeScript, SQL
+**Backend:** Node.js, Fastify, REST APIs
+**Data:** PostgreSQL
+**Infrastructure:** Docker, GitHub Actions, Linux
+**Observability:** OpenTelemetry
 
-**BSc Computer Science | University of Bologna | 2025**
+## CERTIFICATIONS AND ACHIEVEMENTS
 
-Relevant coursework: databases, distributed systems, software engineering.
+### [CERT] Cloud Fundamentals | Example Institute | 2025
+
+Credential ID: EXAMPLE-0001
+Evidence: fictional certificate record for template demonstration only.
+
+### [AWARD] University Software Project Showcase | Finalist | 2025
+
+Evidence: fictional event result for template demonstration only.
+
+## LANGUAGES
+
+| Language | Level | Evidence |
+| --- | --- | --- |
+| Italian | Native | Self-reported |
+| English | C1 | Fictional example certificate |
+
+## EXTRACURRICULAR AND LEADERSHIP
+
+### [ORG] University Developer Society | Workshop Volunteer | 2024-2025
+
+- Helped prepare two introductory Git and API workshops.
+- Do not describe this as people management or formal teaching employment.
 
 ## OUTPUT PREFERENCES
 
@@ -63,5 +121,11 @@ Relevant coursework: databases, distributed systems, software engineering.
 - Ask before adding a metric that is not written in this file.
 - Keep goals separate from completed experience.
 
-<!-- This is a fictional, shortened example. Replace every value with your own
-verified information and keep the completed file private. -->`;
+## PUBLIC PROFILE SNAPSHOT
+
+**GitHub:** https://github.com/alexmorgan
+**LinkedIn:** https://linkedin.com/in/alexmorgan
+**Portfolio:** https://alexmorgan.dev
+
+<!-- FICTIONAL EXAMPLE: Replace every value with verified personal information.
+Keep the completed context file private. -->`;

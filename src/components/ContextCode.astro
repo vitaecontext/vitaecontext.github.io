@@ -1,0 +1,108 @@
+---
+type Props = {
+  source: string;
+};
+
+type HighlightedLine = {
+  kind: "blank" | "comment" | "fence" | "heading" | "yaml-key" | "yaml-list" | "bold-field" | "list" | "plain";
+  raw: string;
+  marker?: string;
+  content?: string;
+  indent?: string;
+  key?: string;
+  value?: string;
+};
+
+const { source } = Astro.props;
+let inYaml = false;
+
+const lines: HighlightedLine[] = source.split("\n").map((raw) => {
+  if (raw === "```yaml") {
+    inYaml = true;
+    return { kind: "fence", raw };
+  }
+
+  if (raw === "```") {
+    inYaml = false;
+    return { kind: "fence", raw };
+  }
+
+  if (!raw.trim()) return { kind: "blank", raw };
+  if (raw.trimStart().startsWith("<!--")) return { kind: "comment", raw };
+
+  if (inYaml) {
+    const keyMatch = raw.match(/^(\s*)([A-Za-z_][A-Za-z0-9_]*):(.*)$/);
+    if (keyMatch) {
+      return {
+        kind: "yaml-key",
+        raw,
+        indent: keyMatch[1],
+        key: keyMatch[2],
+        value: keyMatch[3],
+      };
+    }
+
+    const listMatch = raw.match(/^(\s*)(-\s+)(.*)$/);
+    if (listMatch) {
+      return {
+        kind: "yaml-list",
+        raw,
+        indent: listMatch[1],
+        marker: listMatch[2],
+        content: listMatch[3],
+      };
+    }
+  }
+
+  const headingMatch = raw.match(/^(#{1,6}\s+)(.*)$/);
+  if (headingMatch) {
+    return { kind: "heading", raw, marker: headingMatch[1], content: headingMatch[2] };
+  }
+
+  const boldMatch = raw.match(/^(\*\*[^*]+\*\*)(.*)$/);
+  if (boldMatch) {
+    return { kind: "bold-field", raw, marker: boldMatch[1], content: boldMatch[2] };
+  }
+
+  const listMatch = raw.match(/^(\s*)(-\s+)(.*)$/);
+  if (listMatch) {
+    return {
+      kind: "list",
+      raw,
+      indent: listMatch[1],
+      marker: listMatch[2],
+      content: listMatch[3],
+    };
+  }
+
+  return { kind: "plain", raw };
+});
+
+const escapeHtml = (value = "") =>
+  value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
+
+const renderLine = (line: HighlightedLine) => {
+  if (line.kind === "heading") {
+    return `<span class="token-marker">${escapeHtml(line.marker)}</span><span class="token-heading">${escapeHtml(line.content)}</span>`;
+  }
+  if (line.kind === "yaml-key") {
+    return `${escapeHtml(line.indent)}<span class="token-yaml-key">${escapeHtml(line.key)}</span><span class="token-punctuation">:</span><span class="token-value">${escapeHtml(line.value)}</span>`;
+  }
+  if (line.kind === "yaml-list") {
+    return `${escapeHtml(line.indent)}<span class="token-marker">${escapeHtml(line.marker)}</span><span class="token-value">${escapeHtml(line.content)}</span>`;
+  }
+  if (line.kind === "bold-field") {
+    return `<span class="token-field">${escapeHtml(line.marker)}</span>${escapeHtml(line.content)}`;
+  }
+  if (line.kind === "list") {
+    return `${escapeHtml(line.indent)}<span class="token-marker">${escapeHtml(line.marker)}</span>${escapeHtml(line.content)}`;
+  }
+  return escapeHtml(line.raw);
+};
+
+const highlightedSource = lines
+  .map((line) => `<span class="context-code-line context-code-line--${line.kind}">${renderLine(line)}</span>`)
+  .join("\n");
+---
+
+<pre class="context-highlighted-code" aria-label="Fictional personal career context file"><code set:html={highlightedSource} /></pre>

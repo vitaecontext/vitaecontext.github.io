@@ -1,5 +1,4 @@
 ---
-import PlatformIcon from "@components/PlatformIcon.astro";
 import { navItems, site } from "@data/site";
 
 const footerNavItems = navItems.filter(
@@ -42,33 +41,5 @@ const footerNavItems = navItems.filter(
       </nav>
     </div>
 
-    <div class="footer-nav-group">
-      <p class="footer-nav-label">Authors</p>
-      <div class="footer-authors-list">
-        {site.authors.map((author) => (
-          <div class="footer-author">
-            <span class="footer-author-name">{author.name}</span>
-            <div class="footer-author-links">
-              <a href={author.github} target="_blank" rel="me noreferrer" aria-label={`${author.name} on GitHub`}>
-                <PlatformIcon kind="github" />
-                GitHub
-              </a>
-              <a href={author.linkedin} target="_blank" rel="me noreferrer" aria-label={`${author.name} on LinkedIn`}>
-                <PlatformIcon kind="linkedin" />
-                LinkedIn
-              </a>
-              <a href={author.portfolio} target="_blank" rel="me noreferrer" aria-label={`${author.name}'s portfolio`}>
-                <PlatformIcon kind="portfolio" />
-                Portfolio
-              </a>
-              <a href={`mailto:${author.email}`} aria-label={`Email ${author.name}`}>
-                <PlatformIcon kind="gmail" />
-                Gmail
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
   </div>
 </footer>

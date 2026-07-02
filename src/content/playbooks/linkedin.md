@@ -64,14 +64,7 @@ The optimization logic is divided into the following documents, ordered from fou
 - **[Engagement strategy](./engagement-strategy.md):** Evidence-based posting and commenting practices that align with documented relevance and quality signals.
 - **[Sources](./sources.md):** Official help pages, the 360Brew paper, and limited external sources used in this module.
 
-## 5. Reference profiles
-
-The following LinkedIn profiles are actively maintained using the strategies defined in this module and serve as real-world examples of dual-audience optimization:
-
-- **Renato Mignone**: [linkedin.com/in/renato-mignone](https://www.linkedin.com/in/renato-mignone/)
-- **Elia Innocenti**: [linkedin.com/in/eliainnocenti](https://www.linkedin.com/in/eliainnocenti/)
-
-## 6. Usage for agents
+## 5. Usage for agents
 
 When an AI agent is tasked with optimizing a user's LinkedIn profile:
 

@@ -1,15 +1,43 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import ContextCode from "@components/ContextCode.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
 import { sampleContext } from "@data/sampleContext";
 
 const meta = {
-  title: "Example Personal Career Context File",
+  title: "Personal Career Context File Example and Template",
   description:
-    "Read a short fictional personal career context file and learn how to use it with AI agents for CV, GitHub, LinkedIn, portfolio, and career tasks.",
+    "Explore a readable personal career context file template covering education, experience, projects, skills, certifications, goals, evidence, and AI agent instructions.",
   path: "/docs/context-file-example/",
   type: "article" as const,
 };
+
+const contextSections = [
+  {
+    label: "Quick reference",
+    text: "A selective YAML snapshot gives an agent current positioning, target roles, strongest skills, credentials, and public links without loading the full history.",
+  },
+  {
+    label: "Evidence boundary",
+    text: "The scope declaration and verified-facts anchors separate reusable facts from goals, drafts, self-reported details, and claims that still need evidence.",
+  },
+  {
+    label: "Education and research",
+    text: "Degrees, coursework, theses, publications, and academic projects preserve the detail that usually disappears from a short CV.",
+  },
+  {
+    label: "Experience and projects",
+    text: "Roles and projects connect responsibilities, technologies, constraints, results, and proof links to a specific source.",
+  },
+  {
+    label: "Skills and credentials",
+    text: "The skills index, certifications, achievements, and languages stay usable because every important claim is supported elsewhere in the file.",
+  },
+  {
+    label: "Goals and output rules",
+    text: "Target roles, interests, preferred tone, and claims to avoid tell the agent what direction to support without rewriting aspirations as experience.",
+  },
+];
 ---
 
 <BaseLayout
@@ -27,9 +55,10 @@ const meta = {
     <div class="inner">
       <p class="eyebrow">A concrete example</p>
       <h1>What goes inside a career context file?</h1>
-      <p>A short, fictional example you can inspect before creating your own.</p>
+      <p>Inspect a complete fictional template before creating your private source of truth for AI-assisted career work.</p>
       <div class="actions">
-        <a class="button primary" href="/examples/sample-career-context.md">Open the Markdown file</a>
+        <a class="button primary" href="#annotated-example">Explore the annotated example</a>
+        <a class="button secondary" href="/examples/sample-career-context.md">View raw Markdown</a>
         <a class="button secondary" href="/docs/usage/">See how to use it</a>
       </div>
     </div>
@@ -38,48 +67,66 @@ const meta = {
   <section class="page-section context-example-intro">
     <div>
       <p class="eyebrow">The idea</p>
-      <h2>Give the agent facts it can reuse.</h2>
+      <h2>Explain your career once. Reuse it safely.</h2>
     </div>
     <p>
-      The file is a private, editable record of your professional context. It tells an agent what is verified, what you
-      want to do next, and which claims it should avoid. You update the file when something changes and reuse it across tasks.
+      A personal career context file is a private, editable Markdown knowledge base for your education, experience,
+      projects, research, skills, certifications, achievements, goals, links, and evidence. Agents read it before
+      working on a CV, LinkedIn profile, GitHub profile, portfolio, application, or interview task.
     </p>
   </section>
 
   <section class="page-section context-benefit-grid" aria-label="Benefits of a career context file">
     <article>
       <span>01</span>
-      <h2>Less repetition</h2>
-      <p>You do not need to explain your education, projects, links, and goals in every new conversation.</p>
+      <h2>One source of truth</h2>
+      <p>Dates, roles, education, projects, credentials, links, and hard facts stay in one maintained private record.</p>
     </article>
     <article>
       <span>02</span>
-      <h2>Fewer invented details</h2>
-      <p>Evidence boundaries and claims to avoid give the agent clear limits before it starts writing.</p>
+      <h2>Safer AI outputs</h2>
+      <p>Evidence boundaries tell the agent what is verified, what is only a goal, and which claims it must not invent.</p>
     </article>
     <article>
       <span>03</span>
-      <h2>More consistent work</h2>
-      <p>Your CV, profiles, portfolio, and application drafts can all start from the same maintained facts.</p>
+      <h2>Many targeted outputs</h2>
+      <p>The same facts can support CVs, profiles, portfolios, applications, and interviews without making every output identical.</p>
     </article>
   </section>
 
-  <section class="page-section context-example-layout">
+  <section class="page-section context-anatomy" aria-labelledby="context-anatomy-heading">
+    <div class="context-anatomy-head">
+      <p class="eyebrow">File anatomy</p>
+      <h2 id="context-anatomy-heading">What the context file stores and why</h2>
+      <p>Each section has a distinct job. Stable headings help humans maintain the file and help agents retrieve only the facts needed for the current task.</p>
+    </div>
+    <div class="context-anatomy-grid">
+      {contextSections.map((section, index) => (
+        <article>
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <h3>{section.label}</h3>
+          <p>{section.text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="page-section context-example-layout" id="annotated-example">
     <div class="context-example-copy">
-      <p class="eyebrow">Sample file</p>
-      <h2>A useful file can stay simple.</h2>
+      <p class="eyebrow">Annotated sample file</p>
+      <h2>A complete structure can still be readable.</h2>
       <p>
-        This fictional example is deliberately short. A real file can contain more roles, projects, education, links,
-        and proof, but the structure remains readable Markdown.
+        This fictional example shows the stable structure without exposing a real person's context. Color separates
+        Markdown headings, the YAML quick reference, semantic fields, evidence comments, and ordinary supporting detail.
       </p>
       <ul>
-        <li><strong>Quick reference</strong> gives the agent the facts it needs most often.</li>
-        <li><strong>Goals</strong> describe direction without pretending it is completed experience.</li>
-        <li><strong>Roles and projects</strong> connect claims to concrete work.</li>
-        <li><strong>Output preferences</strong> define tone and safety rules.</li>
+        <li><strong>Blue headings</strong> create stable sections and semantic tags.</li>
+        <li><strong>Green YAML keys</strong> form the fast, selective summary.</li>
+        <li><strong>Gold fields</strong> highlight evidence, status, technologies, and constraints.</li>
+        <li><strong>Muted comments</strong> mark private validation anchors and template notes.</li>
       </ul>
       <p class="context-privacy-note">
-        Keep your completed file private. The example below is fictional and contains no real personal data.
+        Privacy boundary: the template is public and fictional. Your completed context file should remain private and should never be copied into this website.
       </p>
     </div>
     <div class="context-code-window">
@@ -87,7 +134,13 @@ const meta = {
         <span></span><span></span><span></span>
         <code>sample-career-context.md</code>
       </div>
-      <pre><code>{sampleContext}</code></pre>
+      <div class="context-code-legend" aria-label="Syntax color legend">
+        <span class="legend-heading">Markdown sections</span>
+        <span class="legend-yaml">YAML snapshot</span>
+        <span class="legend-field">Evidence fields</span>
+        <span class="legend-comment">Private comments</span>
+      </div>
+      <ContextCode source={sampleContext} />
     </div>
   </section>
 
@@ -100,8 +153,9 @@ const meta = {
 Use the agentkit-seo-github skill to review my GitHub profile.
 Tell me what to change first and do not add claims that are not in the file.</code></pre>
     <p>
-      The same pattern works for a CV, LinkedIn profile, portfolio, application answer, interview preparation, or any
-      other task that needs your professional background.
+      The context file does not publish or optimize anything by itself. It supplies the factual layer; the selected
+      platform skill supplies the rules for a CV, LinkedIn profile, GitHub profile, portfolio, application answer,
+      interview preparation, or another career task.
     </p>
     <div class="actions">
       <a class="button primary" href="/docs/usage/">Continue to the usage guide</a>
