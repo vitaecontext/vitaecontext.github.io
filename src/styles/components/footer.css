@@ -1,0 +1,85 @@
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3rem;
+  padding: 2.5rem clamp(1rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+  background: var(--white);
+}
+
+.footer-left {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 28rem;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 800;
+}
+
+.footer-tagline {
+  color: var(--muted);
+  font-size: 0.93rem;
+  margin: 0;
+}
+
+.footer-legal {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.footer-right {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.footer-nav-group {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.footer-nav-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0;
+}
+
+.site-footer nav {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(4, auto);
+  column-gap: 1.35rem;
+  row-gap: 0.18rem;
+}
+
+.site-footer nav a {
+  color: var(--muted);
+  min-height: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.08rem 0;
+  border-radius: 0;
+  transition: color 0.12s;
+}
+
+.site-footer nav a:hover {
+  background: transparent;
+  color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

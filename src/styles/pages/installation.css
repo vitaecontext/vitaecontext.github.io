@@ -1,0 +1,109 @@
+.install-page h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.install-note {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 118, 110, 0.25);
+  background: rgba(15, 118, 110, 0.05);
+  margin-bottom: 2rem;
+}
+
+.install-note p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.install-note p strong {
+  color: var(--ink);
+}
+
+.install-provider-table {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.install-provider-row {
+  display: grid;
+  grid-template-columns: 14rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+}
+
+.install-provider-meta,
+.install-provider-commands,
+.install-flags-table {
+  display: grid;
+}
+
+.install-provider-meta {
+  gap: 0.35rem;
+  align-content: start;
+}
+
+.install-target-path {
+  font-size: 0.78rem;
+  color: var(--muted);
+  word-break: break-all;
+}
+
+.install-provider-commands {
+  gap: 0.5rem;
+}
+
+.install-inv-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin: 0;
+}
+
+.install-flags-table {
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.install-flag-row {
+  display: grid;
+  grid-template-columns: 22rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.install-flag-row code {
+  font-size: 0.83rem;
+  color: var(--forest);
+  word-break: break-all;
+}
+
+.install-flag-row p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .install-provider-row,
+  .install-flag-row {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    padding: 1rem;
+  }
+}

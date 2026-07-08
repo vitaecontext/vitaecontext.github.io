@@ -1,0 +1,248 @@
+.providers-install-note {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  margin-bottom: 0.5rem;
+  max-width: 100%;
+}
+
+.providers-install-hint {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.providers-install-hint a {
+  color: var(--teal-deep);
+  font-weight: 750;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.providers-lead,
+.marketplace-note {
+  display: grid;
+  grid-template-columns: minmax(18rem, 0.85fr) minmax(24rem, 1.15fr);
+  gap: 1.2rem 2rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-radius: 16px;
+}
+
+.marketplace-note {
+  margin-top: 1rem;
+}
+
+.providers-lead h2,
+.marketplace-note h2 {
+  max-width: none;
+  margin-top: 0.45rem;
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+.providers-lead > div > p,
+.marketplace-note > div > p {
+  margin-top: 0.6rem;
+  color: var(--muted);
+}
+
+.providers-lead .providers-install-hint {
+  grid-column: 1 / -1;
+}
+
+.providers-heading {
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.provider-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.15rem;
+  margin-bottom: 1.25rem;
+  max-width: 100%;
+}
+
+.provider-card {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  min-width: 0;
+  padding: clamp(1.2rem, 2vw, 1.6rem);
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  overflow: hidden;
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+
+.provider-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.provider-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.provider-logo {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid color-mix(in srgb, var(--teal) 30%, var(--line));
+  background: color-mix(in srgb, var(--teal) 13%, var(--white));
+  color: var(--teal-deep);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.provider-logo .platform-icon {
+  width: 1.22rem;
+  height: 1.22rem;
+}
+
+.provider-logo .platform-icon--opencode {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.provider-logo--openai {
+  background: #111314;
+  color: #fff;
+  border-color: #111314;
+}
+
+.provider-logo--anthropic {
+  background: #f4ede3;
+  color: #171717;
+  border-color: #d6cbbe;
+}
+
+.provider-logo--gemini {
+  background: linear-gradient(135deg, #1a73e8, #7c67ff);
+  color: #fff;
+  border-color: transparent;
+}
+
+.provider-logo--opencode {
+  background: #191c22;
+  color: #f5f7fb;
+  border-color: #39404d;
+}
+
+.provider-owner,
+.provider-summary,
+.provider-inv-label {
+  color: var(--muted);
+}
+
+.provider-owner {
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.provider-header {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.provider-status {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--teal-deep);
+}
+
+.provider-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  max-width: none;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.provider-summary {
+  font-size: 0.93rem;
+  margin: 0;
+}
+
+.provider-install-block,
+.provider-invocation,
+.provider-target-row {
+  display: grid;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.provider-install-block {
+  gap: 0.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.provider-invocation {
+  gap: 0.3rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.provider-target-row {
+  gap: 0.25rem;
+}
+
+.provider-inv-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.provider-card .code-block {
+  width: 100%;
+  margin: 0;
+}
+
+.provider-card .code-block code {
+  width: auto;
+  min-width: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.provider-target-path {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  font-size: 0.78rem;
+  color: var(--forest);
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+@media (max-width: 720px) {
+  .providers-install-note {
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  .providers-lead,
+  .marketplace-note,
+  .provider-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .provider-card {
+    padding: 1rem;
+  }
+}
