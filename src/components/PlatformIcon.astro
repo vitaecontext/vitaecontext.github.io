@@ -88,6 +88,15 @@ if (normalized === "github") {
     </g>
   )}
 
+  {normalized === "graph" && (
+    <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="6.5" cy="7" r="2.4" />
+      <circle cx="17.5" cy="7" r="2.4" />
+      <circle cx="12" cy="17" r="2.7" />
+      <path d="M8.65 8.7 10.7 14.3M15.35 8.7 13.3 14.3M8.9 7h6.2" />
+    </g>
+  )}
+
   {normalized === "package" && (
     <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="M4 8.2 12 3.75l8 4.45v7.6l-8 4.45-8-4.45z" />

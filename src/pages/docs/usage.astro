@@ -5,7 +5,7 @@ import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
 const meta = {
   title: "Usage Guide",
   description:
-    "Use AgentKit SEO as a human-readable SEO and personal branding hub or as agent skills for LinkedIn, GitHub, CV/ATS, portfolio, X/Twitter, and context optimization.",
+    "Use AgentKit SEO as a human-readable hub or as agent skills for career context, VitaeGraph, LinkedIn, GitHub, CV/ATS, portfolio, and X/Twitter workflows.",
   path: "/docs/usage/",
   type: "article" as const,
 };
@@ -31,6 +31,7 @@ const meta = {
     </p>
     <ul>
       <li>A private <strong>agent-context-file</strong> for verified career facts.</li>
+      <li><strong>VitaeGraph</strong> for deeper private Markdown records when one compact file is not enough.</li>
       <li>Focused skills for <strong>CV/ATS</strong>, <strong>GitHub</strong>, <strong>LinkedIn</strong>, <strong>portfolio SEO</strong>, and <strong>X</strong>.</li>
       <li>One export/install CLI for Claude Code, Codex, Gemini CLI, Antigravity, OpenCode, and portable <code>SKILL.md</code> usage, plus a Claude Code plugin marketplace.</li>
     </ul>
@@ -51,6 +52,20 @@ const meta = {
 
     <p>
       This is not a prompt collection. It is an operating manual for agents working on professional identity: verify facts first, then optimize the surface.
+    </p>
+
+    <h2>Context file or VitaeGraph?</h2>
+    <p>
+      Use the compact personal career context file when an agent needs a fast overview of verified facts, goals,
+      constraints, links, and positioning. Use VitaeGraph when the task needs deeper selected records: education
+      folders, thesis work, courses, repository-backed projects, publications, awards, certifications, or long-running
+      experience.
+    </p>
+    <pre class="code-block"><code>~/.agentkit-seo/name-surname-career-context.md
+~/.agentkit-seo/vitaegraph/</code></pre>
+    <p>
+      They can link to each other, but they are separate artifacts. The context file is the handoff. VitaeGraph is the
+      deeper private record system.
     </p>
 
     <h2>Quick Start</h2>

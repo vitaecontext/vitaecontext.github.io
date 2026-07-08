@@ -1,0 +1,46 @@
+---
+const contextFilePoints = [
+  "Compact overview",
+  "Portable Markdown",
+  "Good for chat, CV work, and forms",
+  "Easy to attach anywhere",
+];
+
+const graphPoints = [
+  "Deep linked records",
+  "Relationships between projects, roles, skills, education, proof",
+  "Generated graph, search, and diagnostic indexes",
+  "Selective retrieval for deeper agent workflows",
+];
+---
+
+<section class="page-section vg-context-section" aria-labelledby="context-heading">
+  <div class="vg-section-head vg-section-head--wide">
+    <p class="eyebrow">Context File vs VitaeGraph</p>
+    <h2 id="context-heading">The context file gives the overview. VitaeGraph gives the depth.</h2>
+  </div>
+  <div class="vg-artifact-split" aria-label="Career Context File and VitaeGraph relationship">
+    <article class="vg-artifact vg-artifact--context">
+      <span class="vg-artifact-node" aria-hidden="true"></span>
+      <p class="vg-card-kicker">Career Context File</p>
+      <h3>Compact portable Markdown file</h3>
+      <ul>
+        {contextFilePoints.map((point) => <li>{point}</li>)}
+      </ul>
+      <code>~/.agentkit-seo/name-surname-career-context.md</code>
+    </article>
+    <div class="vg-artifact-link" aria-hidden="true">
+      <span>overview</span>
+      <span>depth</span>
+    </div>
+    <article class="vg-artifact vg-artifact--graph">
+      <span class="vg-artifact-node" aria-hidden="true"></span>
+      <p class="vg-card-kicker">VitaeGraph</p>
+      <h3>Linked Markdown records</h3>
+      <ul>
+        {graphPoints.map((point) => <li>{point}</li>)}
+      </ul>
+      <code>~/.agentkit-seo/vitaegraph/</code>
+    </article>
+  </div>
+</section>

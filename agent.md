@@ -6,7 +6,7 @@ Use this file to get oriented quickly before editing the site. Keep changes fact
 
 ## Project Purpose
 
-AgentKit SEO is a human-readable knowledge hub and installable agent skill system for professional profile optimization. The site explains playbooks and skills for:
+AgentKit SEO is a human-readable knowledge hub and installable agent skill system for professional profile optimization, private career context, and local VitaeGraph records. The site explains playbooks and skills for:
 
 - CV and ATS optimization
 - LinkedIn profile optimization
@@ -14,8 +14,9 @@ AgentKit SEO is a human-readable knowledge hub and installable agent skill syste
 - Web portfolio SEO
 - X/Twitter profile optimization
 - Agent context file architecture
+- VitaeGraph private Markdown career knowledge graphs
 
-The site is not just a marketing page. It is also the public documentation surface for the AgentKit SEO methodology, installation flow, provider support, and SEO playbooks.
+The site is not just a marketing page. It is also the public documentation surface for the AgentKit SEO methodology, VitaeGraph product module, installation flow, provider support, and SEO playbooks.
 
 ## Tech Stack
 
@@ -43,6 +44,7 @@ Run `npm run og:generate` after changing skill/playbook names, subtitles, colors
 ## Repository Map
 
 - `src/pages/`: route files for homepage, docs, providers, contact, skills, playbooks, sitemap, and 404.
+- `src/pages/vitaegraph.astro`: dedicated product page for VitaeGraph, powered by AgentKit SEO.
 - `src/pages/profile-optimization.astro`: answer-first intent hub that routes broad profile-improvement queries to the relevant playbook.
 - `src/pages/playbooks/[slug].astro`: dynamic playbook page template.
 - `src/pages/skills/[slug].astro`: dynamic skill page template.
@@ -204,14 +206,16 @@ Before finishing SEO or content changes:
 
 ## Known Notes
 
-The site currently has dedicated playbook and skill pages for six surfaces:
+The site currently has dedicated playbook and skill pages for eight runtime skills:
 
 - `agent-context-optimization`
+- `vitaegraph`
 - `cv-ats`
 - `github`
 - `linkedin`
 - `web-portfolio`
 - `x-twitter`
+- `agentkit-seo`
 
 The playbook route uses frontmatter dates to expose visible update dates and `TechArticle` JSON-LD freshness fields.
 

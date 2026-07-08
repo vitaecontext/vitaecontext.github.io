@@ -1,0 +1,12 @@
+---
+const { explorer = false } = Astro.props;
+---
+
+<div class:list={["vg3d-static-preview", { "vg3d-static-preview--explorer": explorer }]} aria-hidden="true">
+  <span class="vg3d-preview-node vg3d-preview-node--core">VitaeGraph</span>
+  <span class="vg3d-preview-node vg3d-preview-node--projects">Projects</span>
+  <span class="vg3d-preview-node vg3d-preview-node--education">Education</span>
+  <span class="vg3d-preview-node vg3d-preview-node--indexes">Indexes</span>
+  <span class="vg3d-preview-node vg3d-preview-node--agent">Agent retrieval</span>
+  <span class="vg3d-preview-node vg3d-preview-node--outputs">Outputs</span>
+</div>

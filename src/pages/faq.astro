@@ -2,11 +2,12 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, faqJsonLd, webPageJsonLd } from "@data/metadata";
 import { site } from "@data/site";
+import "@styles/pages/faq.css";
 
 const meta = {
   title: "AgentKit SEO FAQ",
   description:
-    "Answers about AgentKit SEO: what it is, supported providers, install, the agent-context-file, and what it deliberately does not promise.",
+    "Answers about AgentKit SEO: what it is, supported providers, install, VitaeGraph, the agent-context-file, and what it deliberately does not promise.",
   path: "/faq/",
   type: "website" as const,
   image: "/og/faq.png",
@@ -39,6 +40,11 @@ const faqs = [
     question: "What is the agent-context-file?",
     answer:
       "It is a private Markdown source of truth for one person: verified identity facts, roles, projects, links, and metrics, plus a separate goals and targeting block (ideal role, current focus, target locations) recorded as stated intent. Platform skills read it before writing so every public surface stays grounded in the same facts.",
+  },
+  {
+    question: "What is VitaeGraph?",
+    answer:
+      "VitaeGraph is a private Markdown career knowledge graph for deeper records such as education, thesis work, courses, projects, experience, certifications, awards, and publications. It complements the compact career context file instead of replacing it.",
   },
   {
     question: "What is the LLM Wiki?",

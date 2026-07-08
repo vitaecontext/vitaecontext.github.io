@@ -2,6 +2,8 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
 import { marketplace, providers, site } from "@data/site";
+import "@styles/components/install.css";
+import "@styles/pages/installation.css";
 
 const meta = {
   title: "Installation | npm Package for AI Career Skills",
@@ -128,8 +130,8 @@ npx . install --provider codex --project-root /path/to/project</code></pre>
     <h2>After installation</h2>
     <p>
       Invoke one focused skill by name, provide the private context file path when available, and ask for a specific
-      output: profile audit, rewrite plan, repository checklist, ATS-safe CV pass, metadata review, or maintenance
-      checklist. See the <a href="/docs/usage/">usage guide</a> and the <a href="/providers/">providers page</a> for
+      output: profile audit, rewrite plan, repository checklist, ATS-safe CV pass, metadata review, graph validation,
+      or maintenance checklist. See the <a href="/docs/usage/">usage guide</a> and the <a href="/providers/">providers page</a> for
       exact invocation syntax per environment, and the <a href="/docs/cli/">CLI reference</a> for every
       <code>agentkit-seo</code> command including <code>update</code>, <code>doctor</code>, <code>uninstall</code>, and
       <code>list</code>.

@@ -1,9 +1,11 @@
 ---
 import PlatformIcon from "@components/PlatformIcon.astro";
 import { navItems, site } from "@data/site";
+import "@styles/components/header.css";
 
 const currentPath = Astro.url.pathname;
-const regularNavItems = navItems.filter((item) => item.label !== "GitHub");
+const regularNavItems = navItems.filter((item) => !["VitaeGraph", "GitHub"].includes(item.label));
+const vitaeGraphItem = navItems.find((item) => item.label === "VitaeGraph");
 const githubItem = navItems.find((item) => item.label === "GitHub");
 ---
 
@@ -18,18 +20,28 @@ const githubItem = navItems.find((item) => item.label === "GitHub");
       const isCurrent = !isExternal && (currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href)));
       return <a href={item.href} aria-current={isCurrent ? "page" : undefined} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined}>{item.label}</a>;
     })}
-    {githubItem && (
-      <a href={githubItem.href} class="github-nav-btn" target="_blank" rel="noreferrer" aria-label="View on GitHub">
-        <PlatformIcon kind="github" class="github-mark-icon" />
-        <span>GitHub</span>
-      </a>
-    )}
   </nav>
   <div class="header-actions">
     <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme" data-theme-toggle>
       <span class="theme-toggle-sun" aria-hidden="true"></span>
       <span class="theme-toggle-moon" aria-hidden="true"></span>
     </button>
+    {vitaeGraphItem && (
+      <a
+        href={vitaeGraphItem.href}
+        class="vitaegraph-nav-btn"
+        aria-current={currentPath === vitaeGraphItem.href || currentPath.startsWith(vitaeGraphItem.href) ? "page" : undefined}
+      >
+        <PlatformIcon kind="graph" class="vitaegraph-mark-icon" />
+        <span>VitaeGraph</span>
+      </a>
+    )}
+    {githubItem && (
+      <a href={githubItem.href} class="github-nav-btn" target="_blank" rel="noreferrer" aria-label="View on GitHub">
+        <PlatformIcon kind="github" class="github-mark-icon" />
+        <span>GitHub</span>
+      </a>
+    )}
     <button
       class="menu-toggle"
       type="button"

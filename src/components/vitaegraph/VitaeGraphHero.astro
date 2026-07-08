@@ -1,0 +1,43 @@
+---
+import VitaeGraph3D from "@components/vitaegraph/VitaeGraph3D.jsx";
+import VitaeGraphStaticPreview from "./VitaeGraphStaticPreview.astro";
+import { site } from "@data/site";
+
+const proofChips = ["Flat CV → graph", "Compact overview + deep records", "Relevant subgraph retrieval", "Private by default"];
+---
+
+<section class="vitaegraph-product-hero" aria-labelledby="vitaegraph-title">
+  <div class="vg-hero-background" aria-hidden="true"></div>
+  <div class="vg-hero-copy">
+    <p class="vg-brand-lockup" aria-label="VitaeGraph, powered by AgentKit SEO">
+      <span class="vg-brand-word" aria-hidden="true">
+        <span><span class="vg-brand-cap">V</span>itae</span><span><span class="vg-brand-cap">G</span>raph</span>
+      </span>
+      <span class="vg-brand-tail">powered by AgentKit SEO</span>
+    </p>
+    <h1 id="vitaegraph-title">Not a flat CV. A career graph agents can route through.</h1>
+    <p class="vg-hero-subtitle">
+      A CV is flat. The career context file gives agents the compact overview. VitaeGraph is the deep local structure
+      behind it: connected Markdown records, rebuildable indexes, and task-specific subgraphs.
+    </p>
+    <div class="vg-proof-chips" aria-label="VitaeGraph properties">
+      {proofChips.map((chip) => <span>{chip}</span>)}
+    </div>
+    <div class="actions vg-hero-actions">
+      <a class="button primary vg-primary-button" href="#graph-explorer">Explore the graph</a>
+      <a class="button secondary vg-dark-button" href="#quick-start">Use the CLI</a>
+      <a class="button secondary vg-dark-button" href={`${site.repoUrl}/tree/main/vitaegraph`} target="_blank" rel="noreferrer">Read the spec</a>
+    </div>
+  </div>
+  <div class="vg-hero-graph" id="graph-explorer" aria-label="Interactive VitaeGraph 3D demo">
+    <VitaeGraph3D client:only="react" variant="hero">
+      <VitaeGraphStaticPreview slot="fallback" />
+    </VitaeGraph3D>
+    <noscript>
+      <p class="vg3d-noscript">
+        JavaScript is required for the interactive graph demo. VitaeGraph itself remains plain Markdown and rebuildable
+        local JSON.
+      </p>
+    </noscript>
+  </div>
+</section>

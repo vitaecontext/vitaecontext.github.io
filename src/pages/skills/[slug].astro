@@ -9,6 +9,7 @@ export function getStaticPaths() {
 
 const { skill } = Astro.props;
 const invocationName = skill.invocationName ?? `agentkit-seo-${skill.slug}`;
+const isVitaeGraph = skill.slug === "vitaegraph";
 const meta = {
   title: `${skill.metaTitle ?? skill.name} Agent Skill`,
   description:
@@ -49,7 +50,11 @@ const meta = {
       </p>
       
       <h2>Technical Requirements</h2>
-      <p>This skill requires the user to have generated an <strong>agent-context-file</strong> (or be actively passing CV/resume text in the prompt). The agent uses the skill's system instructions to evaluate the user's input against SEO and platform-specific rules.</p>
+      {isVitaeGraph ? (
+        <p>This skill works from supplied career material, an existing compact context file, or an existing VitaeGraph folder. The agent uses the skill's instructions to plan, deepen, validate, and index private Markdown graph records.</p>
+      ) : (
+        <p>This skill requires the user to have generated an <strong>agent-context-file</strong> (or be actively passing CV/resume text in the prompt). The agent uses the skill's system instructions to evaluate the user's input against SEO and platform-specific rules.</p>
+      )}
       
       <h2>Expected Agent Outputs</h2>
       <ul>

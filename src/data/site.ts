@@ -2,11 +2,11 @@ export const site = {
   name: "AgentKit SEO",
   url: "https://agentkit-seo.github.io",
   repoUrl: "https://github.com/agentkit-seo/agentkit-seo",
-  packageVersion: "1.8.3",
+  packageVersion: "1.9.1",
   npmUrl: "https://www.npmjs.com/package/agentkit-seo",
   defaultImage: "/og/agentkit-seo.png",
   description:
-    "Open-source agent skills and playbooks for LinkedIn profile optimization, GitHub SEO, ATS resumes, portfolio SEO, and evidence-based personal branding.",
+    "Portable AI agent skills for private career context, local VitaeGraph records, and evidence-based career work across GitHub, LinkedIn, CV/ATS, portfolios, and X.",
   disclaimer:
     "Platform names, trademarks, and logos belong to their respective owners. AgentKit SEO is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
   authors: [
@@ -28,7 +28,7 @@ export const site = {
 };
 
 export const navItems = [
-  { label: "Profile Optimization", href: "/profile-optimization/" },
+  { label: "VitaeGraph", href: "/vitaegraph/" },
   { label: "Docs", href: "/docs/" },
   { label: "Playbooks", href: "/playbooks/" },
   { label: "Providers", href: "/providers/" },
@@ -37,6 +37,7 @@ export const navItems = [
 
 export const publicRoutes = [
   { path: "/", label: "Home" },
+  { path: "/vitaegraph/", label: "VitaeGraph" },
   { path: "/profile-optimization/", label: "Profile Optimization" },
   { path: "/playbooks/", label: "Playbooks" },
   { path: "/skills/", label: "Agent Skills" },
@@ -68,7 +69,7 @@ export const providers = [
     globalTarget: "~/.codex/skills/",
     installCmd: "npx agentkit-seo install --provider codex",
     npxCmd: "npx agentkit-seo install --provider codex",
-    invocation: "$agentkit-seo-github\n$agentkit-seo-linkedin",
+    invocation: "$agentkit-seo-github\n$agentkit-seo-vitaegraph",
     invocationNote: "Exact activation depends on Codex environment and installed skill support.",
   },
   {
@@ -80,7 +81,7 @@ export const providers = [
     globalTarget: "~/.claude/skills/",
     installCmd: "npx agentkit-seo install --provider claude-code",
     npxCmd: "npx agentkit-seo install --provider claude-code",
-    invocation: "Use the agentkit-seo-linkedin skill to audit my LinkedIn profile.",
+    invocation: "Use the agentkit-seo-vitaegraph skill to plan my private career graph.",
     invocationNote: "Ask for the installed skill explicitly by its full namespaced name.",
   },
   {
@@ -92,7 +93,7 @@ export const providers = [
     globalTarget: "~/.gemini/extensions/agentkit-seo/",
     installCmd: "npx agentkit-seo install --provider gemini-cli",
     npxCmd: "npx agentkit-seo install --provider gemini-cli",
-    invocation: "/agentkit-seo:github\n/agentkit-seo:linkedin\n/agentkit-seo:cv-ats",
+    invocation: "/agentkit-seo:github\n/agentkit-seo:vitaegraph\n/agentkit-seo:cv-ats",
     invocationNote: "Commands are namespaced under /agentkit-seo: for each skill surface.",
   },
   {
@@ -104,7 +105,7 @@ export const providers = [
     globalTarget: "~/.gemini/antigravity-cli/plugins/agentkit-seo/",
     installCmd: "npx agentkit-seo install --provider antigravity",
     npxCmd: "npx agentkit-seo install --provider antigravity",
-    invocation: "Use the installed agentkit-seo-github plugin skill to audit my GitHub profile.",
+    invocation: "Use the installed agentkit-seo-vitaegraph plugin skill to validate my graph.",
     invocationNote: "Reference the installed plugin skill by name. The layout is based on the Gemini-compatible bundle.",
   },
   {
@@ -116,7 +117,7 @@ export const providers = [
     globalTarget: "~/.config/opencode/skills/",
     installCmd: "npx agentkit-seo install --provider opencode",
     npxCmd: "npx agentkit-seo install --provider opencode",
-    invocation: "/agentkit-seo-github\n/agentkit-seo-linkedin\n/agentkit-seo-context",
+    invocation: "/agentkit-seo-github\n/agentkit-seo-vitaegraph\n/agentkit-seo-context",
     invocationNote: "Flat command wrappers use a hyphenated prefix for direct slash invocation.",
   },
   {
@@ -181,6 +182,14 @@ export const serviceMarks = [
     mark: "CTX",
     tone: "gold",
     text: "Agent context file architecture for one verified career source of truth across every surface.",
+  },
+  {
+    name: "VitaeGraph",
+    href: "/vitaegraph/",
+    icon: "graph",
+    mark: "VG",
+    tone: "green",
+    text: "Private Markdown career knowledge graphs for deeper records, validation, and rebuildable agent indexes.",
   },
 ];
 
@@ -269,6 +278,40 @@ export const skills: Skill[] = [
       "Check section order, headings, file format, typography, and parser-safe structure.",
       "Extract hard skills, soft skills, and job-specific language from the target role.",
       "Rewrite bullets around action, task, result, and verified evidence.",
+    ],
+  },
+  {
+    slug: "vitaegraph",
+    name: "VitaeGraph",
+    invocationName: "agentkit-seo-vitaegraph",
+    metaTitle: "Build a Private Markdown Career Knowledge Graph",
+    metaDescription:
+      "Use VitaeGraph to structure deep career material into local Markdown records with validation and rebuildable indexes for agent workflows.",
+    shortName: "VitaeGraph",
+    icon: "graph",
+    href: "/skills/vitaegraph/",
+    summary:
+      "Build, deepen, validate, and index a private hierarchical career knowledge graph from supplied career material.",
+    audience: "Agents that need deeper selected records beyond a compact career context file.",
+    outputs: ["Markdown graph records", "Validation diagnostics", "Rebuildable graph indexes"],
+    searchIntent:
+      "private career knowledge graph, Markdown knowledge graph for AI agents, VitaeGraph, local-first career records, AI career context graph, agent-readable career knowledge base",
+    questions: [
+      "How do I turn scattered career material into a private knowledge graph?",
+      "What is the difference between a career context file and VitaeGraph?",
+      "How can an AI agent work with deep education, thesis, course, and project records?",
+      "How do I validate and index local Markdown career records?",
+      "How can I keep career graph data private and rebuild generated indexes?",
+    ],
+    useWhen: [
+      "A single compact context file is too flat for detailed education, thesis, course, project, or publication records.",
+      "An agent needs to create or maintain hierarchical Markdown records before using selected context in downstream tasks.",
+      "A local graph needs duplicate-ID, link, schema, or index validation.",
+    ],
+    method: [
+      "Plan the graph from available material before writing records.",
+      "Create focused Markdown nodes for education, projects, experience, certifications, awards, and publications.",
+      "Validate record IDs and internal links, then generate deterministic local indexes as rebuildable artifacts.",
     ],
   },
   {

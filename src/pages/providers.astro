@@ -3,6 +3,8 @@ import PlatformIcon from "@components/PlatformIcon.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
 import { marketplace, providers, site } from "@data/site";
+import "@styles/components/install.css";
+import "@styles/pages/providers.css";
 
 const meta = {
   title: "Supported Providers",
@@ -28,7 +30,7 @@ const providerMeta: Record<string, { icon: string; owner: string }> = {
     <div class="inner">
       <p class="eyebrow">Provider support</p>
       <h1>Providers</h1>
-      <p>Install the same six grounded career skills into the agent environment you already use.</p>
+      <p>Install the same eight grounded AgentKit SEO runtime skills, including VitaeGraph, into the agent environment you already use.</p>
     </div>
   </section>
 

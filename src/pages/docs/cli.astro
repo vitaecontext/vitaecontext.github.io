@@ -6,7 +6,7 @@ import { marketplace, site } from "@data/site";
 const meta = {
   title: "CLI Reference | Commands and Flags",
   description:
-    "Full command reference for the agentkit-seo CLI: version, update, doctor, list, template context, install, uninstall, and export, plus the Claude Code plugin marketplace.",
+    "Full command reference for the agentkit-seo CLI: version, update, doctor, list, template context, graph init, graph validate, graph index, install, uninstall, and export.",
   path: "/docs/cli/",
   type: "article" as const,
   image: "/og/cli.png",
@@ -47,6 +47,21 @@ const commands = [
     name: "template context",
     syntax: "npx agentkit-seo template context --output ~/.agentkit-seo/my-context.md",
     text: "Scaffold the guided private context-file template to a path you choose, so an agent can fill it from trusted material.",
+  },
+  {
+    name: "graph init",
+    syntax: "npx agentkit-seo graph init --root ~/.agentkit-seo/vitaegraph",
+    text: "Initialize a private VitaeGraph workspace with the required Markdown entry files. It does not overwrite existing graph files by default.",
+  },
+  {
+    name: "graph validate",
+    syntax: "npx agentkit-seo graph validate --root ~/.agentkit-seo/vitaegraph",
+    text: "Validate VitaeGraph Markdown records for duplicate IDs, supported metadata values, internal links, and graph consistency before using or indexing the records.",
+  },
+  {
+    name: "graph index",
+    syntax: "npx agentkit-seo graph index --root ~/.agentkit-seo/vitaegraph",
+    text: "Generate deterministic graph and lexical search-index JSON from the Markdown records. Generated indexes are rebuildable convenience artifacts.",
   },
   {
     name: "install",

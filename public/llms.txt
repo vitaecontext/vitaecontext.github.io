@@ -1,12 +1,13 @@
 # AgentKit SEO
 
-> Open-source agent skills and human-readable playbooks for grounded career optimization. Current package version: 1.8.3.
+> Portable AI agent skills and human-readable playbooks for grounded career work. Current package version: 1.9.1.
 
-AgentKit SEO turns trusted career material into one private personal career context file. Focused modules then use that evidence to improve LinkedIn, GitHub, CV/ATS documents, web portfolios, and X/Twitter without treating unsupported claims as facts.
+AgentKit SEO turns trusted career material into private reusable context. The compact career context file gives agents a fast source of truth, while VitaeGraph stores deeper local Markdown records for education, projects, thesis work, courses, experience, certifications, awards, and publications. Focused modules then use that context to improve LinkedIn, GitHub, CV/ATS documents, web portfolios, and X/Twitter without treating unsupported claims as facts.
 
 ## Start here
 
 - [Project overview](https://agentkit-seo.github.io/): what AgentKit SEO solves and how the context-first workflow works.
+- [VitaeGraph](https://agentkit-seo.github.io/vitaegraph/): private Markdown career knowledge graphs, powered by AgentKit SEO.
 - [Professional profile optimization](https://agentkit-seo.github.io/profile-optimization/): choose the LinkedIn, GitHub, CV/ATS, portfolio, X, or career-context workflow for a specific optimization goal.
 - [Example career context file](https://agentkit-seo.github.io/docs/context-file-example/): a complete fictional template covering its structure, evidence boundaries, benefits, and use with AI agents.
 - [Usage guide](https://agentkit-seo.github.io/docs/usage/): the end-to-end workflow and invocation examples.
@@ -18,6 +19,7 @@ AgentKit SEO turns trusted career material into one private personal career cont
 ## Core playbooks
 
 - [Personal career context](https://agentkit-seo.github.io/playbooks/agent-context-optimization/)
+- [VitaeGraph](https://agentkit-seo.github.io/playbooks/vitaegraph/)
 - [GitHub optimization](https://agentkit-seo.github.io/playbooks/github/)
 - [LinkedIn optimization](https://agentkit-seo.github.io/playbooks/linkedin/)
 - [CV and ATS optimization](https://agentkit-seo.github.io/playbooks/cv-ats/)
@@ -26,10 +28,12 @@ AgentKit SEO turns trusted career material into one private personal career cont
 
 ## Verified public facts
 
-- The package contains one routing module and six focused modules.
+- The package contains one routing module and seven focused modules, including VitaeGraph.
 - Supported targets are Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, and a portable shared bundle.
 - The default npm command is `npx agentkit-seo install --provider <provider>`.
+- VitaeGraph graph commands are `npx agentkit-seo graph init`, `npx agentkit-seo graph validate`, and `npx agentkit-seo graph index`.
 - The personal career context file is private user material; the public playbooks and skills do not contain a user's career facts.
+- VitaeGraph records are private local user material and should not be committed.
 - Audit scorecards are internal prioritization heuristics, not platform rankings or outcome guarantees.
 - SEO, AEO, GEO, `llms.txt`, snippets, citations, and indexing are treated as eligibility and readability work, not guaranteed visibility.
 

@@ -3,11 +3,12 @@ import PlatformIcon from "@components/PlatformIcon.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
 import { site } from "@data/site";
+import "@styles/pages/docs.css";
 
 const meta = {
   title: "Documentation | Playbooks and Agent Skills",
   description:
-    "AgentKit SEO docs: read the developer personal-branding playbooks directly, or install the agent skills into Codex, Claude Code, Gemini CLI, Antigravity, or OpenCode.",
+    "AgentKit SEO docs: read the playbooks, explore VitaeGraph, or install the agent skills into Codex, Claude Code, Gemini CLI, Antigravity, or OpenCode.",
   path: "/docs/",
   type: "website" as const,
 };
@@ -66,6 +67,11 @@ const meta = {
           <span class="doc-link-badge doc-link-badge--gold"><PlatformIcon kind="context" /></span>
           <h2>Agent Context</h2>
           <p>Build a private Markdown source of truth for verified career facts, links, projects, and positioning.</p>
+        </a>
+        <a class="doc-link" href="/vitaegraph/">
+          <span class="doc-link-badge doc-link-badge--green"><PlatformIcon kind="graph" /></span>
+          <h2>VitaeGraph</h2>
+          <p>Structure deeper career material into private Markdown graph records with validation and rebuildable indexes.</p>
         </a>
       </div>
       <p class="service-note">{site.disclaimer}</p>
@@ -128,7 +134,14 @@ const meta = {
           </span>
           <div>
             <h2>CLI reference</h2>
-            <p>Every <code>agentkit-seo</code> command: version, update, doctor, list, template, install, uninstall, export.</p>
+            <p>Every <code>agentkit-seo</code> command: version, update, doctor, list, template, graph, install, uninstall, export.</p>
+          </div>
+        </a>
+        <a class="doc-link doc-link--guide" href="/vitaegraph/">
+          <span class="doc-link-icon" aria-hidden="true"><PlatformIcon kind="graph" /></span>
+          <div>
+            <h2>VitaeGraph</h2>
+            <p>Learn when to use the private Markdown graph, how it differs from the compact context file, and which graph commands initialize, validate, and index it.</p>
           </div>
         </a>
         <a class="doc-link doc-link--guide" href="/design/">

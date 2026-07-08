@@ -1,0 +1,58 @@
+---
+const retrievedNodes = [
+  "RAG systems",
+  "Web3 infrastructure",
+  "GitHub repositories",
+  "Relevant project records",
+  "Proof links",
+];
+
+const ignoredNodes = [
+  "Unrelated details",
+  "Weak records",
+  "Non-relevant coursework",
+];
+
+const outputNodes = [
+  "Grounded fintech CV",
+  "Role-specific application answer",
+];
+---
+
+<section class="page-section vg-workflow-section" aria-labelledby="workflow-heading">
+  <div class="vg-section-head vg-section-head--wide">
+    <p class="eyebrow">Agent path example</p>
+    <h2 id="workflow-heading">A task becomes a highlighted route through the graph.</h2>
+    <p>
+      For a fintech CV, the graph should not dump the entire career. It should highlight the relevant path, dim the weak
+      path, and ground the output in selected records.
+    </p>
+  </div>
+  <div class="vg-agent-path" aria-label="Example agent route through VitaeGraph">
+    <div class="vg-agent-task">
+      <span class="vg-route-dot" aria-hidden="true"></span>
+      <p>Task</p>
+      <h3>Create a CV for a fintech role</h3>
+    </div>
+
+    <div class="vg-agent-lane vg-agent-lane--relevant">
+      <p>Relevant subgraph</p>
+      <ol>
+        {retrievedNodes.map((node) => <li>{node}</li>)}
+      </ol>
+    </div>
+
+    <div class="vg-agent-lane vg-agent-lane--ignored">
+      <p>Ignored path</p>
+      <ol>
+        {ignoredNodes.map((node) => <li>{node}</li>)}
+      </ol>
+    </div>
+
+    <div class="vg-agent-output">
+      <span class="vg-route-dot" aria-hidden="true"></span>
+      <p>Output</p>
+      <h3>{outputNodes.join(" + ")}</h3>
+    </div>
+  </div>
+</section>
