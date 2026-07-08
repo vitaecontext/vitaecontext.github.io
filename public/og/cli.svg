@@ -20,7 +20,7 @@
   </g>
 
   <text x="82" y="309" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="850" fill="#111314"><tspan x="82" dy="0">AgentKit SEO CLI Reference</tspan></text>
-  <text x="86" y="505" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="650" fill="#475352"><tspan x="86" dy="0">version, update, doctor, list, template, install,</tspan><tspan x="86" dy="35">uninstall, and export.</tspan></text>
+  <text x="86" y="505" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="650" fill="#475352"><tspan x="86" dy="0">version, update, doctor, list, template, graph, install,</tspan><tspan x="86" dy="35">uninstall, and export.</tspan></text>
 
   <g transform="translate(790 398)">
     <rect x="0" y="0" width="325" height="76" rx="14" fill="#ffffff" stroke="#d9dfdc" stroke-width="2"/>
