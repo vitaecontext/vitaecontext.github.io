@@ -9,7 +9,7 @@ const skillRoutes = skills.map((skill) => ({
 export async function GET() {
   const playbooks = await getCollection("playbooks");
   const playbookRoutes = playbooks.map((entry) => ({
-    path: `/playbooks/${entry.slug}/`,
+    path: `/playbooks/${entry.id}/`,
     label: entry.data.title,
     lastmod: entry.data.last_updated,
   }));

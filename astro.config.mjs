@@ -1,4 +1,6 @@
 import { defineConfig } from "astro/config";
+import react from "@astrojs/react";
+import { unified } from "@astrojs/markdown-remark";
 import { fileURLToPath } from "node:url";
 import { remarkPlaybookLinks } from "./src/utils/remarkPlaybookLinks.mjs";
 
@@ -7,7 +9,8 @@ export default defineConfig({
   root: fileURLToPath(new URL(".", import.meta.url)),
   outDir: fileURLToPath(new URL("./dist", import.meta.url)),
   output: "static",
+  integrations: [react()],
   markdown: {
-    remarkPlugins: [remarkPlaybookLinks],
+    processor: unified({ remarkPlugins: [remarkPlaybookLinks] }),
   },
 });

@@ -9,11 +9,18 @@
     "build": "astro check --root . && astro build --root . --outDir ./dist",
     "preview": "astro preview --root . --host 127.0.0.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@astrojs/react": "^6.0.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-force-graph-3d": "^1.29.1",
+    "three": "^0.185.1"
+  },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "astro": "^5.18.2",
+    "@astrojs/markdown-remark": "^7.2.1",
     "@resvg/resvg-js": "^2.6.2",
+    "astro": "^7.0.6",
     "typescript": "^5.9.3"
   }
 }
