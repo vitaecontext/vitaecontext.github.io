@@ -1,0 +1,42 @@
+---
+import { site } from "@data/site-config";
+---
+
+<section class="vg-section vg-start" id="get-started" aria-labelledby="vg-start-title">
+  <div class="vg-wrap">
+    <div class="vg-start__panel">
+      <div class="vg-start__copy">
+        <p class="vg-kicker"><span></span> Set up VitaeGraph</p>
+        <h2 id="vg-start-title">Initialize the files, add material, then validate.</h2>
+        <p>
+          CLI creates empty structure, checks records and links, then generates rebuildable local indexes. It does not
+          invent or automatically verify career claims.
+        </p>
+        <ul>
+          <li><strong>Markdown stays canonical</strong><span><code>graph.json</code>, search index, and diagnostics are caches.</span></li>
+          <li><strong>Private by default</strong><span>User graph lives outside package and installed skills.</span></li>
+          <li><strong>Optional by design</strong><span>Compact career context file remains independently useful.</span></li>
+        </ul>
+      </div>
+
+      <div class="vg-terminal" aria-label="VitaeGraph CLI quick start">
+        <div class="vg-terminal__bar"><i></i><i></i><i></i><span>VitaeGraph quick start</span></div>
+        <pre><code><b>$</b> npx agentkit-seo graph init
+
+<b>$</b> npx agentkit-seo graph validate
+
+<b>$</b> npx agentkit-seo graph index</code></pre>
+        <div class="vg-terminal__status"><span></span> Markdown canonical · indexes rebuildable</div>
+      </div>
+    </div>
+
+    <div class="vg-final-links">
+      <div><small>PART OF AGENTKIT SEO</small><strong>One career context. More depth when work demands it.</strong></div>
+      <div class="vg-actions">
+        <a class="vg-button vg-button--primary" href="/docs/installation/">Install AgentKit SEO</a>
+        <a class="vg-button" href="/docs/cli/">Read CLI guide</a>
+        <a class="vg-text-link" href={`${site.repoUrl}/tree/main/vitaegraph`} target="_blank" rel="noreferrer">Open specification ↗</a>
+      </div>
+    </div>
+  </div>
+</section>

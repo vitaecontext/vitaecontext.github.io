@@ -1,20 +1,22 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
+import VitaeGraphHero from "@components/vitaegraph/VitaeGraphHero.astro";
+import VitaeGraphRecords from "@components/vitaegraph/VitaeGraphRecords.astro";
+import VitaeGraphRelationships from "@components/vitaegraph/VitaeGraphRelationships.astro";
+import VitaeGraphRetrieval from "@components/vitaegraph/VitaeGraphRetrieval.astro";
+import VitaeGraphStart from "@components/vitaegraph/VitaeGraphStart.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
-import VitaeGraph3D from "@components/vitaegraph/VitaeGraph3D.jsx";
-import VitaeGraphStaticPreview from "@components/vitaegraph/VitaeGraphStaticPreview.astro";
-import { site } from "@data/site";
 import "@styles/pages/vitaegraph.css";
 
 const meta = {
-  title: "VitaeGraph | Private Markdown Career Knowledge Graph",
+  title: "VitaeGraph | Connected Markdown Career Records",
   description:
-    "VitaeGraph turns career material into a private Markdown knowledge graph that agents can route through for selective context retrieval.",
+    "Organize detailed projects, roles, education, thesis work, credentials, and their relationships as local Markdown records with rebuildable indexes.",
   path: "/vitaegraph/",
   type: "article" as const,
   image: "/og/vitaegraph.png",
   datePublished: "2026-07-07",
-  dateModified: "2026-07-08",
+  dateModified: "2026-07-10",
   keywords: [
     "VitaeGraph",
     "career knowledge graph",
@@ -23,7 +25,6 @@ const meta = {
     "local-first agent skills",
   ],
 };
-
 ---
 
 <BaseLayout meta={meta} jsonLd={[
@@ -35,106 +36,11 @@ const meta = {
   }),
   breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "VitaeGraph", path: meta.path }]),
 ]}>
-  <div class="vitaegraph-page">
-    <section class="vg-hero" aria-labelledby="vitaegraph-title">
-      <div class="vg-hero-copy">
-        <p class="vg-brand-lockup" aria-label="VitaeGraph, powered by AgentKit SEO">
-          <span class="vg-brand-word" aria-hidden="true">
-            <span><span class="vg-brand-cap">V</span>itae</span><span><span class="vg-brand-cap">G</span>raph</span>
-          </span>
-          <span class="vg-brand-tail">powered by AgentKit SEO</span>
-        </p>
-        <h1 id="vitaegraph-title">Not a flat CV. A career graph agents can route through.</h1>
-        <p class="vg-hero-subtitle">
-          A CV is flat. The context file gives agents the compact overview. VitaeGraph is the deep local structure behind
-          it: connected Markdown records, rebuildable indexes, and task-specific subgraphs.
-        </p>
-        <div class="vg-actions">
-          <a class="vg-button vg-button--primary" href="#graph-workspace">Explore graph</a>
-          <a class="vg-button" href="#quick-start">Use CLI</a>
-          <a class="vg-button" href={`${site.repoUrl}/tree/main/vitaegraph`} target="_blank" rel="noreferrer">Read spec</a>
-        </div>
-      </div>
-
-      <div class="vg-graph-workspace" id="graph-workspace" aria-label="Interactive VitaeGraph 3D demo">
-        <VitaeGraph3D client:only="react" variant="hero">
-          <VitaeGraphStaticPreview slot="fallback" />
-        </VitaeGraph3D>
-        <noscript>
-          <p class="vg3d-noscript">
-            JavaScript is required for the interactive graph demo. VitaeGraph itself remains plain Markdown and
-            rebuildable local JSON.
-          </p>
-        </noscript>
-      </div>
-    </section>
-
-    <section class="vg-artifacts-section" aria-labelledby="artifacts-title">
-      <div class="vg-section-copy">
-        <p class="vg-kicker">Overview and depth</p>
-        <h2 id="artifacts-title">The context file gives the overview. VitaeGraph gives the depth.</h2>
-      </div>
-
-      <div class="vg-artifact-split">
-        <article class="vg-context-artifact">
-          <div class="vg-document" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
-          </div>
-          <div>
-            <h3>Career Context File</h3>
-            <ul>
-              <li>one portable Markdown file</li>
-              <li>compact overview</li>
-              <li>chat, CV, forms</li>
-              <li>easy to attach anywhere</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="vg-graph-artifact">
-          <div class="vg-folder-graph" aria-hidden="true">
-            <span class="vg-folder-tab"></span>
-            <svg viewBox="0 0 260 190" focusable="false" aria-hidden="true">
-              <g class="vg-graph-lines">
-                <path d="M130 92 L70 48" />
-                <path d="M130 92 L64 140" />
-                <path d="M130 92 L198 50" />
-                <path d="M130 92 L202 140" />
-                <path d="M130 92 L132 160" />
-                <path d="M70 48 L198 50" />
-                <path d="M64 140 L202 140" />
-              </g>
-              <g class="vg-graph-nodes">
-                <circle class="is-core" cx="130" cy="92" r="18" />
-                <circle cx="70" cy="48" r="10" />
-                <circle cx="64" cy="140" r="10" />
-                <circle cx="198" cy="50" r="10" />
-                <circle cx="202" cy="140" r="10" />
-                <circle cx="132" cy="160" r="8" />
-              </g>
-            </svg>
-          </div>
-          <div>
-            <h3>VitaeGraph</h3>
-            <ul>
-              <li>linked Markdown records</li>
-              <li>projects, roles, skills, education, proof</li>
-              <li>generated graph/search indexes</li>
-              <li>selective retrieval for deeper workflows</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="vg-cli-strip" id="quick-start" aria-label="VitaeGraph CLI commands">
-      <div>
-        <p class="vg-kicker">CLI</p>
-        <h2>Build the local graph.</h2>
-      </div>
-      <pre><code>npx agentkit-seo graph init --root ~/.agentkit-seo/vitaegraph
-npx agentkit-seo graph validate --root ~/.agentkit-seo/vitaegraph
-npx agentkit-seo graph index --root ~/.agentkit-seo/vitaegraph</code></pre>
-    </section>
+  <div class="vg-page">
+    <VitaeGraphHero />
+    <VitaeGraphRecords />
+    <VitaeGraphRelationships />
+    <VitaeGraphRetrieval />
+    <VitaeGraphStart />
   </div>
 </BaseLayout>

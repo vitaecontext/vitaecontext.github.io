@@ -1,0 +1,41 @@
+<section class="vg-section vg-relationships" aria-labelledby="relationships-title">
+  <div class="vg-wrap vg-relationships__grid">
+    <div class="vg-relationships__copy">
+      <p class="vg-kicker"><span></span> Two relationships, clear meaning</p>
+      <h2 id="relationships-title">Connect records with two clear relationship types.</h2>
+      <p>
+        VitaeGraph uses hierarchy for real containment and cross-links for meaningful connections. Markdown paths stay
+        understandable to people; stable record IDs let generated indexes rebuild those edges deterministically.
+      </p>
+      <dl>
+        <div><dt><span class="is-solid"></span>Contains</dt><dd>A thesis or university course belongs to its degree.</dd></div>
+        <div><dt><span class="is-dashed"></span>Related to</dt><dd>A project can connect to a role, thesis, publication, or other relevant record.</dd></div>
+      </dl>
+    </div>
+
+    <div class="vg-relationship-map" aria-label="Example VitaeGraph hierarchy and cross-record relationships">
+      <div class="vg-map-column vg-map-column--root">
+        <small>ROOT</small>
+        <article><span>VG</span><div><strong>VITAEGRAPH.md</strong><p>identity + direction</p></div></article>
+      </div>
+      <div class="vg-map-column vg-map-column--domains">
+        <small>DOMAINS</small>
+        <article class="is-education"><span>ED</span><div><strong>Education</strong><p>degree record</p></div></article>
+        <article class="is-project"><span>PR</span><div><strong>Projects</strong><p>project records</p></div></article>
+        <article class="is-role"><span>EX</span><div><strong>Experience</strong><p>role records</p></div></article>
+      </div>
+      <div class="vg-map-column vg-map-column--details">
+        <small>DETAIL</small>
+        <article class="is-thesis"><span>TH</span><div><strong>Thesis</strong><p>nested in degree</p></div></article>
+        <article class="is-course"><span>CO</span><div><strong>Course</strong><p>nested in degree</p></div></article>
+        <article class="is-tool"><span>PR</span><div><strong>Search tool</strong><p>standalone project</p></div></article>
+      </div>
+      <svg viewBox="0 0 820 430" aria-hidden="true">
+        <path class="contains" d="M178 207 C248 207 234 115 306 115 M178 207 C248 207 234 218 306 218 M178 207 C248 207 234 320 306 320" />
+        <path class="contains" d="M470 115 C538 115 523 95 594 95 M470 115 C538 115 523 195 594 195" />
+        <path class="related" d="M470 218 C535 218 525 305 594 305 M470 320 C535 320 525 305 594 305 M665 95 C730 95 729 305 665 305" />
+      </svg>
+      <p class="vg-map-note">Small, explicit graph. No hidden database required.</p>
+    </div>
+  </div>
+</section>

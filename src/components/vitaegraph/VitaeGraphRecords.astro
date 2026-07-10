@@ -1,0 +1,51 @@
+---
+const recordTypes = ["project", "experience", "education", "course", "thesis", "certification", "award", "publication"];
+---
+
+<section class="vg-section vg-records" id="records" aria-labelledby="records-title">
+  <div class="vg-wrap">
+    <div class="vg-section-head vg-section-head--split">
+      <div>
+        <p class="vg-kicker"><span></span> Separate Markdown records</p>
+        <h2 id="records-title">Store detailed career material in focused files.</h2>
+      </div>
+      <p>
+        Each record is a focused Markdown file with stable identity and substantive prose. Add only domains supported by
+        available material; leave unsupported claims out and keep useful open questions visible.
+      </p>
+    </div>
+
+    <div class="vg-record-system">
+      <nav class="vg-record-types" aria-label="Supported VitaeGraph record types">
+        <p>SUPPORTED TYPES</p>
+        {recordTypes.map((type, index) => (
+          <span class:list={[{ "is-active": index === 0 }]}><i>{String(index + 1).padStart(2, "0")}</i>{type}</span>
+        ))}
+      </nav>
+
+      <article class="vg-markdown-record" aria-label="Example VitaeGraph project Markdown record">
+        <header><span>MD</span><strong>projects/local-search-tool/project.md</strong><small>canonical record</small></header>
+        <div class="vg-markdown-record__code">
+          <p><b>---</b></p>
+          <p><em>type:</em> project</p>
+          <p><em>id:</em> project:local-search-tool</p>
+          <p><em>title:</em> Local search tool</p>
+          <p><em>status:</em> active</p>
+          <p><em>visibility:</em> private</p>
+          <p><em>related_records:</em></p>
+          <p class="is-indented">- thesis:search-retrieval</p>
+          <p><b>---</b></p>
+          <p class="is-heading"># Local search tool</p>
+          <p class="is-heading">## Executive summary</p>
+          <p>What the project does, why it exists, and the person’s supported contribution.</p>
+        </div>
+      </article>
+
+      <aside class="vg-record-anatomy">
+        <div><span>01</span><strong>Stable identity</strong><p>Required <code>type</code>, <code>id</code>, and <code>title</code> fields make each record addressable.</p></div>
+        <div><span>02</span><strong>Useful depth</strong><p>Record prose can capture scope, work, decisions, outcomes, limits, and unanswered questions.</p></div>
+        <div><span>03</span><strong>Explicit links</strong><p><code>parent</code> models containment. <code>related_records</code> connects meaningful work across domains.</p></div>
+      </aside>
+    </div>
+  </div>
+</section>

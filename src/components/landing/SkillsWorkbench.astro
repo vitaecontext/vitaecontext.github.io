@@ -1,0 +1,56 @@
+---
+import PlatformIcon from "@components/PlatformIcon.astro";
+
+const skills = [
+  { name: "Career context", icon: "context", output: "Reusable source", href: "/skills/agent-context-optimization/" },
+  { name: "CV / ATS", icon: "cv", output: "Tailoring and audits", href: "/skills/cv-ats/" },
+  { name: "LinkedIn", icon: "linkedin", output: "Profile sections", href: "/skills/linkedin/" },
+  { name: "GitHub", icon: "github", output: "Profile and repo fixes", href: "/skills/github/" },
+  { name: "Portfolio", icon: "portfolio", output: "Content and code patches", href: "/skills/web-portfolio/" },
+  { name: "X / Twitter", icon: "x", output: "Positioning and posts", href: "/skills/x-twitter/" },
+];
+---
+
+<section class="lk-section lk-skills" aria-labelledby="skills-title">
+  <div class="lk-wrap">
+    <div class="lk-section-head lk-section-head--center">
+      <p class="lk-kicker"><span></span> Context supplies facts. Skills supply method.</p>
+      <h2 id="skills-title">Use the same context for different tasks.</h2>
+      <p>Load one focused skill for the work in front of you. It adds task-specific structure and guidance without becoming another career record.</p>
+    </div>
+
+    <div class="lk-skill-workbench">
+      <div class="lk-skill-workbench__context">
+        <span class="lk-skill-workbench__label">Reusable input</span>
+        <div class="lk-mini-file"><span>MD</span><strong>career-context.md</strong><small>facts + goals + evidence</small></div>
+      </div>
+
+      <div class="lk-skill-workbench__operator" aria-hidden="true">
+        <span>+</span>
+      </div>
+
+      <div class="lk-skill-workbench__skill">
+        <span class="lk-skill-workbench__label">Focused method</span>
+        <div class="lk-skill-chip"><span>$</span><strong>agentkit-seo-[skill]</strong><small>platform rules + workflow</small></div>
+      </div>
+
+      <div class="lk-skill-workbench__equals" aria-hidden="true"><span>=</span></div>
+
+      <div class="lk-skill-workbench__result">
+        <span class="lk-skill-workbench__label">Task output</span>
+        <div class="lk-result-card"><i>✓</i><strong>Grounded work</strong><small>adapted, not invented</small></div>
+      </div>
+    </div>
+
+    <nav class="lk-surface-rail" aria-label="AgentKit SEO skills">
+      {skills.map((skill) => (
+        <a href={skill.href}>
+          <span class="lk-surface-rail__icon"><PlatformIcon kind={skill.icon} /></span>
+          <span><strong>{skill.name}</strong><small>{skill.output}</small></span>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 10h9m-3-3 3 3-3 3" /></svg>
+        </a>
+      ))}
+    </nav>
+    <p class="lk-skills__note">Context can also ground professional messages, interview preparation, and other career-related drafts in any AI chat.</p>
+  </div>
+</section>

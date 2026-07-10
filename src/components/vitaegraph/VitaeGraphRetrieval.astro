@@ -1,0 +1,49 @@
+---
+const steps = [
+  { number: "01", label: "Orient", file: "VITAEGRAPH.md", text: "Read graph-level direction and restrictions." },
+  { number: "02", label: "Route", file: "index.md", text: "Find smallest relevant record set." },
+  { number: "03", label: "Retrieve", file: "selected records", text: "Open only detail needed for current task." },
+  { number: "04", label: "Apply", file: "focused skill", text: "Use deeper context without changing facts." },
+];
+---
+
+<section class="vg-section vg-retrieval" aria-labelledby="retrieval-title">
+  <div class="vg-wrap">
+    <div class="vg-section-head vg-section-head--center">
+      <p class="vg-kicker"><span></span> Load only relevant records</p>
+      <h2 id="retrieval-title">Use detailed context only when the task needs it.</h2>
+      <p>
+        Agent starts with graph summary, uses index to route, then opens smallest useful set of detailed records for
+        current task.
+      </p>
+    </div>
+
+    <ol class="vg-retrieval-path">
+      {steps.map((step) => (
+        <li>
+          <span class="vg-retrieval-path__number">{step.number}</span>
+          <small>{step.label}</small>
+          <strong>{step.file}</strong>
+          <p>{step.text}</p>
+        </li>
+      ))}
+    </ol>
+
+    <div class="vg-retrieval-example">
+      <div>
+        <small>TASK</small>
+        <strong>Tailor a CV for one role</strong>
+      </div>
+      <span aria-hidden="true">+</span>
+      <div>
+        <small>SELECTED DEPTH</small>
+        <strong>2 roles · 1 project · 1 degree</strong>
+      </div>
+      <span aria-hidden="true">=</span>
+      <div class="is-result">
+        <small>GROUNDED INPUT</small>
+        <strong>Relevant records, not whole graph</strong>
+      </div>
+    </div>
+  </div>
+</section>

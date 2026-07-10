@@ -1,0 +1,79 @@
+---
+import PlatformIcon from "@components/PlatformIcon.astro";
+---
+
+<section class="lk-hero" aria-labelledby="landing-title">
+  <div class="lk-hero__glow" aria-hidden="true"></div>
+  <div class="lk-wrap lk-hero__grid">
+    <div class="lk-hero__copy">
+      <p class="lk-kicker"><span></span> Open-source agent skills for career work</p>
+      <h1 id="landing-title">Keep your career context.<br /><em>Reuse it across AI.</em></h1>
+      <p class="lk-hero__lede">
+        AgentKit SEO helps you organize career facts, goals, evidence, and boundaries in Markdown. Focused skills then
+        use that context for CVs, profiles, portfolios, messages, interviews, and other professional work.
+      </p>
+      <div class="lk-actions" aria-label="Get started">
+        <a class="lk-button lk-button--primary" href="/docs/installation/">
+          Install AgentKit SEO
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" /></svg>
+        </a>
+        <a class="lk-button lk-button--quiet" href="/docs/context-file-example/">See context example</a>
+      </div>
+      <ul class="lk-hero__facts" aria-label="Project qualities">
+        <li><span aria-hidden="true">✓</span> Local Markdown files</li>
+        <li><span aria-hidden="true">✓</span> Reusable context</li>
+        <li><span aria-hidden="true">✓</span> Evidence boundaries</li>
+      </ul>
+    </div>
+
+    <div class="lk-workspace" aria-label="Career material flows into a reusable context file and grounded tasks">
+      <div class="lk-workspace__topbar" aria-hidden="true">
+        <i></i><i></i><i></i><span>career workspace</span>
+      </div>
+      <div class="lk-workspace__canvas">
+        <div class="lk-source-stack" aria-label="Existing career material">
+          <div class="lk-source-card lk-source-card--cv">
+            <PlatformIcon kind="cv" />
+            <span>CV</span>
+          </div>
+          <div class="lk-source-card lk-source-card--github">
+            <PlatformIcon kind="github" />
+            <span>GitHub</span>
+          </div>
+          <div class="lk-source-card lk-source-card--notes">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v16H6zM9 8h6M9 12h6M9 16h4" /></svg>
+            <span>notes</span>
+          </div>
+          <span class="lk-source-stack__label">your material</span>
+        </div>
+
+        <div class="lk-flow-line lk-flow-line--in" aria-hidden="true"><span></span></div>
+
+        <article class="lk-context-file">
+          <div class="lk-context-file__tab"><span>MD</span> career-context.md</div>
+          <div class="lk-context-file__body">
+            <p># Career context</p>
+            <div><strong>Facts</strong><span></span><span></span></div>
+            <div><strong>Goals</strong><span></span><span></span></div>
+            <div><strong>Evidence</strong><span></span><span></span></div>
+            <div><strong>Claims to avoid</strong><span></span></div>
+          </div>
+          <div class="lk-context-file__status"><i></i> reusable source of truth</div>
+        </article>
+
+        <div class="lk-flow-line lk-flow-line--out" aria-hidden="true"><span></span></div>
+
+        <div class="lk-task-stack" aria-label="Grounded career tasks">
+          <div class="lk-task-card"><PlatformIcon kind="linkedin" /><span>LinkedIn</span><i>grounded</i></div>
+          <div class="lk-task-card"><PlatformIcon kind="cv" /><span>CV</span><i>grounded</i></div>
+          <div class="lk-task-card"><PlatformIcon kind="portfolio" /><span>Portfolio</span><i>grounded</i></div>
+          <span class="lk-task-stack__label">professional tasks</span>
+        </div>
+      </div>
+      <div class="lk-workspace__caption">
+        <span class="lk-pulse" aria-hidden="true"></span>
+        Maintain the context once. Reuse it instead of rebuilding your history in every chat.
+      </div>
+    </div>
+  </div>
+</section>

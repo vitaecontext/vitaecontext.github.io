@@ -1,43 +1,51 @@
 ---
+import PlatformIcon from "@components/PlatformIcon.astro";
 import VitaeGraph3D from "@components/vitaegraph/VitaeGraph3D.jsx";
-import VitaeGraphStaticPreview from "./VitaeGraphStaticPreview.astro";
-import { site } from "@data/site";
-
-const proofChips = ["Flat CV → graph", "Compact overview + deep records", "Relevant subgraph retrieval", "Private by default"];
+import VitaeGraphStaticPreview from "@components/vitaegraph/VitaeGraphStaticPreview.astro";
+import { site } from "@data/site-config";
 ---
 
-<section class="vitaegraph-product-hero" aria-labelledby="vitaegraph-title">
-  <div class="vg-hero-background" aria-hidden="true"></div>
-  <div class="vg-hero-copy">
-    <p class="vg-brand-lockup" aria-label="VitaeGraph, powered by AgentKit SEO">
-      <span class="vg-brand-word" aria-hidden="true">
-        <span><span class="vg-brand-cap">V</span>itae</span><span><span class="vg-brand-cap">G</span>raph</span>
-      </span>
-      <span class="vg-brand-tail">powered by AgentKit SEO</span>
-    </p>
-    <h1 id="vitaegraph-title">Not a flat CV. A career graph agents can route through.</h1>
-    <p class="vg-hero-subtitle">
-      A CV is flat. The career context file gives agents the compact overview. VitaeGraph is the deep local structure
-      behind it: connected Markdown records, rebuildable indexes, and task-specific subgraphs.
-    </p>
-    <div class="vg-proof-chips" aria-label="VitaeGraph properties">
-      {proofChips.map((chip) => <span>{chip}</span>)}
-    </div>
-    <div class="actions vg-hero-actions">
-      <a class="button primary vg-primary-button" href="#graph-explorer">Explore the graph</a>
-      <a class="button secondary vg-dark-button" href="#quick-start">Use the CLI</a>
-      <a class="button secondary vg-dark-button" href={`${site.repoUrl}/tree/main/vitaegraph`} target="_blank" rel="noreferrer">Read the spec</a>
-    </div>
-  </div>
-  <div class="vg-hero-graph" id="graph-explorer" aria-label="Interactive VitaeGraph 3D demo">
-    <VitaeGraph3D client:only="react" variant="hero">
-      <VitaeGraphStaticPreview slot="fallback" />
-    </VitaeGraph3D>
-    <noscript>
-      <p class="vg3d-noscript">
-        JavaScript is required for the interactive graph demo. VitaeGraph itself remains plain Markdown and rebuildable
-        local JSON.
+<section class="vg-new-hero" aria-labelledby="vitaegraph-title">
+  <div class="vg-wrap vg-new-hero__grid">
+    <div class="vg-new-hero__copy">
+      <p class="vg-brand-lockup" aria-label="VitaeGraph, powered by AgentKit SEO">
+        <span class="vg-brand-word" aria-hidden="true">VitaeGraph</span>
+        <span class="vg-brand-tail">powered by AgentKit SEO</span>
       </p>
-    </noscript>
+      <p class="vg-kicker"><span></span> Deeper structured career context</p>
+      <h1 id="vitaegraph-title">Detailed career context, stored as connected Markdown records.</h1>
+      <p class="vg-new-hero__lede">
+        VitaeGraph organizes detailed projects, roles, education, courses, thesis work, credentials, awards, and
+        publications as local Markdown records—and preserves meaningful relationships between them.
+      </p>
+      <p class="vg-new-hero__relationship">
+        <strong>AgentKit SEO gives agents the compact overview.</strong> VitaeGraph is the optional deeper layer for
+        tasks that need specific records and connections.
+      </p>
+      <div class="vg-actions">
+        <a class="vg-button vg-button--primary" href="#get-started">Set up VitaeGraph</a>
+        <a class="vg-button" href="#records">See the record model</a>
+        <a class="vg-text-link" href={`${site.repoUrl}/tree/main/vitaegraph`} target="_blank" rel="noreferrer">
+          Read specification <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+      <ul class="vg-new-hero__facts" aria-label="VitaeGraph qualities">
+        <li><span>MD</span> Markdown canonical</li>
+        <li><span><PlatformIcon kind="graph" /></span> Hierarchy + cross-links</li>
+        <li><span>⌂</span> Local-first</li>
+      </ul>
+    </div>
+
+    <div class="vg-graph-workspace" aria-label="Interactive sample 3D representation of a VitaeGraph career knowledge base">
+      <p class="vg-graph-workspace__label"><span></span> Sample career knowledge graph · drag to explore</p>
+      <VitaeGraph3D client:only="react" variant="hero">
+        <VitaeGraphStaticPreview slot="fallback" />
+      </VitaeGraph3D>
+      <noscript>
+        <p class="vg3d-noscript">
+          JavaScript is required for interactive sample. VitaeGraph itself remains plain Markdown and rebuildable local JSON.
+        </p>
+      </noscript>
+    </div>
   </div>
 </section>

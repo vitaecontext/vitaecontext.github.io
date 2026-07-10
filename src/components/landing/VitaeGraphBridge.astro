@@ -1,0 +1,50 @@
+---
+import PlatformIcon from "@components/PlatformIcon.astro";
+---
+
+<section class="lk-vitae" aria-labelledby="vitae-bridge-title">
+  <div class="lk-wrap lk-vitae__grid">
+    <div class="lk-vitae__copy">
+      <div class="lk-vitae__brand"><PlatformIcon kind="graph" /><span>VitaeGraph</span><small>powered by AgentKit SEO</small></div>
+      <h2 id="vitae-bridge-title">Use separate records when one file is not enough.</h2>
+      <p>
+        VitaeGraph is the deeper structured-context module: local, human-readable Markdown records for projects,
+        roles, education, courses, thesis work, certifications, awards, and publications, plus relationships between them.
+      </p>
+      <div class="lk-vitae__compare">
+        <div><strong>Context file</strong><span>Fast facts and repeated positioning</span></div>
+        <div><strong>VitaeGraph</strong><span>Detailed records and relationships</span></div>
+      </div>
+      <div class="lk-actions">
+        <a class="lk-button lk-button--vitae" href="/vitaegraph/">Explore VitaeGraph <span aria-hidden="true">↗</span></a>
+        <a class="lk-button lk-button--dark-quiet" href="/docs/cli/">View graph commands</a>
+      </div>
+    </div>
+
+    <div class="lk-vitae-map" aria-label="VitaeGraph Markdown records and relationships">
+      <div class="lk-vitae-map__header"><span></span><span></span><span></span><code>~/.agentkit-seo/vitaegraph/</code></div>
+      <div class="lk-vitae-map__body">
+        <div class="lk-vitae-tree">
+          <strong>VITAEGRAPH.md</strong>
+          <div><span>education/</span><small>degree</small></div>
+          <div class="is-nested"><span>thesis.md</span><small>record</small></div>
+          <div><span>projects/</span><small>collection</small></div>
+          <div><span>experience/</span><small>collection</small></div>
+          <div><span>certifications/</span><small>collection</small></div>
+        </div>
+        <svg class="lk-vitae-map__lines" viewBox="0 0 330 230" aria-hidden="true">
+          <path d="M35 50 C120 50 115 42 180 42 M35 86 C120 86 115 110 180 110 M35 126 C120 126 115 176 180 176" />
+          <path class="related" d="M180 42 C240 42 230 176 290 176 M180 110 C240 110 230 42 290 42" />
+        </svg>
+        <div class="lk-vitae-nodes">
+          <span class="node node--education">Education</span>
+          <span class="node node--project">Project</span>
+          <span class="node node--role">Experience</span>
+          <span class="node node--course">Course</span>
+          <span class="node node--cert">Certification</span>
+        </div>
+      </div>
+      <div class="lk-vitae-map__footer"><span><i></i> contains</span><span><i></i> related</span><strong>Markdown stays canonical</strong></div>
+    </div>
+  </div>
+</section>
