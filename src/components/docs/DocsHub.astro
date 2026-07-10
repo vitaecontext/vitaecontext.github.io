@@ -1,0 +1,54 @@
+---
+import InfoCard from "@components/shared/InfoCard.astro";
+import SectionIntro from "@components/shared/SectionIntro.astro";
+
+const groups = [
+  {
+    title: "Start",
+    text: "Understand the context-first workflow before choosing a skill.",
+    items: [
+      { title: "How it works", text: "Create reusable career context, then use one focused skill for the current task.", href: "/docs/usage/" },
+      { title: "Context file example", text: "See the facts, goals, evidence, and boundaries stored in a personal career context file.", href: "/docs/context-file-example/" },
+      { title: "VitaeGraph", text: "Use separate Markdown records when one compact context file is not enough.", href: "/vitaegraph/" },
+    ],
+  },
+  {
+    title: "Install",
+    text: "Add the skill package to a supported agent environment.",
+    items: [
+      { title: "Installation", text: "Install from npm, the Claude Code marketplace, or a local checkout.", href: "/docs/installation/" },
+      { title: "Providers", text: "Find install paths and invocation examples for each supported provider.", href: "/providers/" },
+      { title: "Agent skills", text: "Review the eight installable runtime modules and when to use each one.", href: "/skills/" },
+    ],
+  },
+  {
+    title: "Reference",
+    text: "Inspect commands, methods, and project behavior.",
+    items: [
+      { title: "CLI reference", text: "Read every install, update, template, graph, validation, and export command.", href: "/docs/cli/" },
+      { title: "Guides", text: "Read the human-facing methods without installing the package.", href: "/playbooks/" },
+      { title: "Design", text: "Understand progressive loading, evidence labels, the LLM Wiki, and provider adapters.", href: "/design/" },
+    ],
+  },
+  {
+    title: "Project",
+    text: "Check project limits, releases, and support paths.",
+    items: [
+      { title: "FAQ", text: "Short answers about privacy, providers, grounding, and expected behavior.", href: "/faq/" },
+      { title: "Changelog", text: "See package and website changes by release.", href: "/changelog/" },
+      { title: "Contact", text: "Find maintainers, source code, issues, and contribution paths.", href: "/contact/" },
+    ],
+  },
+];
+---
+
+<div class="docs-hub page-wrap">
+  {groups.map((group) => (
+    <section class="docs-group" aria-labelledby={`docs-${group.title.toLowerCase()}`}>
+      <SectionIntro title={group.title} text={group.text} />
+      <div class="card-grid card-grid--three">
+        {group.items.map((item) => <InfoCard {...item} label="Open" />)}
+      </div>
+    </section>
+  ))}
+</div>

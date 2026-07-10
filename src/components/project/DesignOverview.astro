@@ -1,0 +1,47 @@
+---
+import SectionIntro from "@components/shared/SectionIntro.astro";
+
+const layers = [
+  { title: "Career context", text: "A maintained Markdown file stores reusable facts, goals, evidence, constraints, and claims to avoid." },
+  { title: "Focused skills", text: "One runtime module handles the current task instead of loading every method and reference." },
+  { title: "Versioned knowledge", text: "Each module can load maintained wiki entries and references when the task needs deeper platform detail." },
+  { title: "Provider adapters", text: "One canonical skill source is exported into each supported provider's required layout." },
+];
+
+const labels = [
+  ["Verified", "Observed in supplied or inspected material."],
+  ["From context", "Taken from the supplied career context file."],
+  ["From source", "Taken from another supplied source."],
+  ["Inference", "Reasoned from evidence but not directly observed."],
+  ["Inaccessible", "Could not be inspected."],
+  ["Needs evidence", "Should not become a public claim yet."],
+];
+---
+
+<div class="design-overview page-wrap">
+  <section>
+    <SectionIntro eyebrow="Product model" title="Facts and methods stay separate." text="Career context describes the person. Skills describe how an agent should approach one type of work." />
+    <div class="design-flow">
+      {layers.map((layer, index) => <article><span>{String(index + 1).padStart(2, "0")}</span><h2>{layer.title}</h2><p>{layer.text}</p></article>)}
+    </div>
+  </section>
+
+  <section class="design-split">
+    <div><p class="eyebrow">Progressive loading</p><h2>Load one module, then only needed detail.</h2><p>The root skill routes a request. The selected module decides which wiki entries or references are relevant. This keeps unrelated platform material out of the current agent context.</p></div>
+    <pre class="code-block"><code>request
+  └── root skill
+      └── one focused skill
+          ├── required workflow
+          └── relevant wiki or reference</code></pre>
+  </section>
+
+  <section>
+    <SectionIntro eyebrow="Evidence vocabulary" title="Make certainty visible." text="Shared labels stop inference, goals, and inaccessible material from being presented as verified experience." />
+    <dl class="label-grid">{labels.map(([label, text]) => <div><dt>{label}</dt><dd>{text}</dd></div>)}</dl>
+  </section>
+
+  <section class="design-note">
+    <h2>What the system does not guarantee</h2>
+    <p>AgentKit SEO does not guarantee rankings, recruiter attention, citations, visibility, or career outcomes. Audit scorecards order work internally; they are not platform scores. Generated advice still requires review.</p>
+  </section>
+</div>

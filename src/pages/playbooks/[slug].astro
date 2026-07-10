@@ -1,142 +1,37 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection, render } from "astro:content";
+import GuideOverview from "@components/guides/GuideOverview.astro";
+import PageHero from "@components/shared/PageHero.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
-import { skills } from "@data/site";
+import { skills } from "@data/skills";
+import "@styles/pages/catalog.css";
 
 export async function getStaticPaths() {
-  const playbookEntries = await getCollection('playbooks');
-  return playbookEntries.map(entry => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
+  const entries = await getCollection("playbooks");
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
 }
 
 const { entry } = Astro.props;
 const slug = entry.id;
 const { Content, headings } = await render(entry);
-
-const skillData = skills.find(s => s.slug === slug);
-const questions = skillData?.questions ?? [];
+const skill = skills.find((item) => item.slug === slug);
 const sectionHeadings = headings
-  .filter((heading: { depth: number; slug: string; text: string }) => heading.depth === 2 && heading.slug.startsWith("section-"))
-  .map((heading: { depth: number; slug: string; text: string }) => ({
-    ...heading,
-    text: heading.text.replace(/^Section:\s*/i, ""),
-  }));
+  .filter((heading) => heading.depth === 2 && heading.slug.startsWith("section-"))
+  .map((heading) => ({ ...heading, text: heading.text.replace(/^Section:\s*/i, "") }));
 const meta = {
-  title: skillData?.metaTitle ?? entry.data.title ?? skillData?.name ?? slug,
-  description: skillData?.metaDescription ?? skillData?.summary ?? "AgentKit SEO Methodology Playbook",
+  title: entry.data.title ?? skill?.name ?? slug,
+  description: skill?.summary ?? "AgentKit SEO guide",
   path: `/playbooks/${slug}/`,
   type: "article" as const,
-  image: skillData?.ogImage ?? `/og/playbooks/${slug}.png`,
+  image: skill?.ogImage ?? `/og/playbooks/${slug}.png`,
   datePublished: entry.data.published ?? entry.data.last_updated,
   dateModified: entry.data.last_updated,
   keywords: entry.data.tags,
 };
-const formattedUpdatedDate = meta.dateModified
-  ? new Intl.DateTimeFormat("en", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(meta.dateModified))
-  : undefined;
 ---
 
-<BaseLayout meta={meta} jsonLd={[
-  articleJsonLd(meta.title, meta.description, meta.path, {
-    image: meta.image,
-    datePublished: meta.datePublished,
-    dateModified: meta.dateModified,
-    keywords: meta.keywords,
-  }),
-  breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Playbooks", path: "/playbooks/" }, { name: meta.title, path: meta.path }]),
-]}>
-  <section class="page-hero playbook-hero-v2">
-    <div class="inner">
-      <div class="playbook-hero-grid">
-        <div class="playbook-hero-title">
-          <p class="eyebrow">Methodology playbook</p>
-          <h1>{meta.title}</h1>
-        </div>
-        <aside class="playbook-hero-summary" aria-label={`${meta.title} summary`}>
-          <div class="playbook-hero-actions">
-            <span class="mode-badge mode-badge--read">Playbook</span>
-            <a href={`/skills/${slug}/`} class="button secondary">Agent skill</a>
-          </div>
-          <p>{meta.description}</p>
-          {meta.dateModified && formattedUpdatedDate && (
-            <p class="playbook-updated">
-              Updated <time datetime={meta.dateModified}>{formattedUpdatedDate}</time>
-            </p>
-          )}
-          <p class="playbook-byline">Source-aware guidance maintained by AgentKit SEO</p>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section playbook-quick" aria-labelledby="quick-guide-heading">
-    <div class="playbook-quick-head">
-      <p class="eyebrow">Five-minute guide</p>
-      <h2 id="quick-guide-heading">Start with the decisions that matter.</h2>
-      <p>This short guide gives you the useful path first. The complete reference continues below, already open for deeper work and source review.</p>
-    </div>
-    <div class="playbook-quick-grid">
-      <article>
-        <span class="quick-card-number">01</span>
-        <h3>Use this when</h3>
-        <ul>
-          {skillData?.useWhen.slice(0, 3).map((item) => <li>{item}</li>)}
-        </ul>
-      </article>
-      <article>
-        <span class="quick-card-number">02</span>
-        <h3>What the method does</h3>
-        <ol>
-          {skillData?.method.slice(0, 3).map((item) => <li>{item}</li>)}
-        </ol>
-      </article>
-      <article>
-        <span class="quick-card-number">03</span>
-        <h3>What you get</h3>
-        <ul class="quick-output-list">
-          {skillData?.outputs.map((item) => <li>{item}</li>)}
-        </ul>
-        <a href={`/skills/${slug}/`} class="text-link">Run this as an agent skill →</a>
-      </article>
-    </div>
-  </section>
-
-  {questions.length > 0 && (
-    <section class="page-section" aria-labelledby="questions-heading">
-      <div class="playbook-quick-head">
-        <p class="eyebrow">Search and answer coverage</p>
-        <h2 id="questions-heading">Questions this {(skillData?.shortName ?? "methodology").toLowerCase()} guide answers</h2>
-        <p>Use the complete reference below for the constraints, examples, evidence rules, and implementation details behind each answer.</p>
-      </div>
-      <ul class="playbook-question-list">
-        {questions.map((question) => <li>{question}</li>)}
-      </ul>
-    </section>
-  )}
-
-  <section class="page-section playbook-reference-section">
-    <details class="playbook-reference" open>
-      <summary>
-        <span>
-          <small>Complete reference</small>
-          <strong>{skillData?.shortName ?? "Methodology"} playbook</strong>
-        </span>
-        <span class="summary-action" aria-hidden="true">Show</span>
-      </summary>
-      <div class="playbook-reference-inner">
-        {sectionHeadings.length > 0 && (
-          <nav class="playbook-reference-toc" aria-label={`${meta.title} reference sections`}>
-            <p>In this reference</p>
-            {sectionHeadings.map((heading: { slug: string; text: string }) => <a href={`#${heading.slug}`}>{heading.text}</a>)}
-          </nav>
-        )}
-        <article class="prose">
-          <Content />
-        </article>
-      </div>
-    </details>
-  </section>
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path, { image: meta.image, datePublished: meta.datePublished, dateModified: meta.dateModified, keywords: meta.keywords }), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Guides", path: "/playbooks/" }, { name: meta.title, path: meta.path }])]}>
+  <PageHero eyebrow="Guide" title={meta.title} text={meta.description} actions={skill ? [{ label: "Use as agent skill", href: `/skills/${slug}/`, tone: "primary" }, { label: "All guides", href: "/playbooks/" }] : [{ label: "All guides", href: "/playbooks/" }]} compact />
+  <GuideOverview skill={skill} headings={sectionHeadings} updated={meta.dateModified}><Content /></GuideOverview>
 </BaseLayout>

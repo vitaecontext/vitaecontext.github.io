@@ -1,12 +1,13 @@
 ---
 import PlatformIcon from "@components/PlatformIcon.astro";
-import { navItems, site } from "@data/site";
+import { navItems } from "@data/navigation";
+import { site } from "@data/site-config";
 import "@styles/components/header.css";
 
 const currentPath = Astro.url.pathname;
-const regularNavItems = navItems.filter((item) => !["VitaeGraph", "GitHub"].includes(item.label));
-const vitaeGraphItem = navItems.find((item) => item.label === "VitaeGraph");
-const githubItem = navItems.find((item) => item.label === "GitHub");
+const regularNavItems = navItems.filter((item) => item.placement === "primary");
+const vitaeGraphItem = navItems.find((item) => item.placement === "product");
+const githubItem = navItems.find((item) => item.placement === "external");
 ---
 
 <header class="site-header">
@@ -17,7 +18,7 @@ const githubItem = navItems.find((item) => item.label === "GitHub");
   <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-primary-nav>
     {regularNavItems.map((item) => {
       const isExternal = item.href.startsWith("http");
-      const isCurrent = !isExternal && (currentPath === item.href || (item.href !== "/" && currentPath.startsWith(item.href)));
+      const isCurrent = !isExternal && (currentPath === item.href || currentPath.startsWith(item.href));
       return <a href={item.href} aria-current={isCurrent ? "page" : undefined} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined}>{item.label}</a>;
     })}
   </nav>

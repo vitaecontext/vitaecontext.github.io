@@ -1,18 +1,18 @@
 # AgentKit SEO
 
-> Portable AI agent skills and human-readable playbooks for grounded career work. Current package version: 1.9.1.
+> Open-source agent skills and human-readable guides for reusable career context and evidence-aware professional work. Current package version: 1.9.1.
 
-AgentKit SEO turns trusted career material into private reusable context. The compact career context file gives agents a fast source of truth, while VitaeGraph stores deeper local Markdown records for education, projects, thesis work, courses, experience, certifications, awards, and publications. Focused modules then use that context to improve LinkedIn, GitHub, CV/ATS documents, web portfolios, and X/Twitter without treating unsupported claims as facts.
+AgentKit SEO helps a person maintain career facts, stated goals, evidence, and boundaries in reusable Markdown. Focused skills use that context for CVs, profiles, repositories, portfolios, messages, interviews, applications, and other professional tasks. VitaeGraph is the optional deeper layer for connected local Markdown records.
 
 ## Start here
 
 - [Project overview](https://agentkit-seo.github.io/): what AgentKit SEO solves and how the context-first workflow works.
 - [VitaeGraph](https://agentkit-seo.github.io/vitaegraph/): private Markdown career knowledge graphs, powered by AgentKit SEO.
-- [Professional profile optimization](https://agentkit-seo.github.io/profile-optimization/): choose the LinkedIn, GitHub, CV/ATS, portfolio, X, or career-context workflow for a specific optimization goal.
+- [Career workflows](https://agentkit-seo.github.io/profile-optimization/): choose an installable skill, a human-readable guide, or the core context-first workflow.
 - [Example career context file](https://agentkit-seo.github.io/docs/context-file-example/): a complete fictional template covering its structure, evidence boundaries, benefits, and use with AI agents.
-- [Usage guide](https://agentkit-seo.github.io/docs/usage/): the end-to-end workflow and invocation examples.
+- [How it works](https://agentkit-seo.github.io/docs/usage/): the context-first workflow and invocation example.
 - [Installation](https://agentkit-seo.github.io/docs/installation/): npm, GitHub, local, and provider-specific installation.
-- [Playbooks](https://agentkit-seo.github.io/playbooks/): public methodology for every supported career surface.
+- [Guides](https://agentkit-seo.github.io/playbooks/): human-readable methods for every supported module.
 - [System design](https://agentkit-seo.github.io/design/): evidence boundaries, progressive disclosure, LLM Wiki, and provider adapters.
 - [Source repository](https://github.com/agentkit-seo/agentkit-seo): package source, tests, maintenance policy, and release history.
 

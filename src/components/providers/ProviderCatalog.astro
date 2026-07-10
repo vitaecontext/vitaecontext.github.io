@@ -1,0 +1,44 @@
+---
+import PlatformIcon from "@components/PlatformIcon.astro";
+import SectionIntro from "@components/shared/SectionIntro.astro";
+import { marketplace } from "@data/navigation";
+import { providers } from "@data/providers";
+
+const icons: Record<string, string> = {
+  codex: "openai",
+  "claude-code": "anthropic",
+  "gemini-cli": "gemini",
+  antigravity: "gemini",
+  opencode: "opencode",
+  shared: "package",
+};
+---
+
+<div class="provider-catalog page-wrap">
+  <section class="provider-lead">
+    <div><p class="eyebrow">npm install</p><h2>Choose the environment where your agent runs.</h2><p>The CLI writes each provider's expected folder and command layout from the same runtime skill source.</p></div>
+    <pre class="code-block"><code>npx agentkit-seo install --provider &lt;provider&gt;</code></pre>
+  </section>
+
+  <section class="feature-section" aria-labelledby="provider-list-title">
+    <SectionIntro eyebrow="Install targets" title="Supported providers" text="Use the exact provider value shown on each card." />
+    <div class="provider-grid">
+      {providers.map((provider) => (
+        <article class="provider-card">
+          <header><span aria-hidden="true"><PlatformIcon kind={icons[provider.id] ?? "package"} /></span><div><small>{provider.status}</small><h2>{provider.name}</h2></div></header>
+          <p>{provider.summary}</p>
+          <div><small>Install</small><pre class="code-block"><code>{provider.installCmd}</code></pre></div>
+          <div><small>Example</small><pre class="code-block code-block--muted"><code>{provider.invocation}</code></pre></div>
+          <p class="provider-note">{provider.invocationNote}</p>
+          <footer><small>Default path</small><code>{provider.globalTarget}</code></footer>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="provider-marketplace">
+    <div><p class="eyebrow">Claude Code</p><h2>Plugin marketplace option</h2><p>Claude Code users can install through its plugin marketplace instead of the npm install command.</p></div>
+    <pre class="code-block"><code>{marketplace.addCommand}
+{marketplace.installCommand}</code></pre>
+  </section>
+</div>

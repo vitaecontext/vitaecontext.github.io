@@ -1,0 +1,28 @@
+---
+type Action = { label: string; href: string; tone?: "primary" | "secondary" };
+
+type Props = {
+  eyebrow?: string;
+  title: string;
+  text: string;
+  actions?: Action[];
+  compact?: boolean;
+};
+
+const { eyebrow, title, text, actions = [], compact = false } = Astro.props;
+---
+
+<header class:list={["page-hero", { "page-hero--compact": compact }]}>
+  <div class="page-wrap page-hero__inner">
+    {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+    <h1>{title}</h1>
+    <p>{text}</p>
+    {actions.length > 0 && (
+      <div class="actions">
+        {actions.map((action) => (
+          <a class={`button ${action.tone ?? "secondary"}`} href={action.href}>{action.label}</a>
+        ))}
+      </div>
+    )}
+  </div>
+</header>

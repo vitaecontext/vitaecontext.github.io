@@ -1,5 +1,7 @@
 import { getCollection } from "astro:content";
-import { skills, publicRoutes, site } from "@data/site";
+import { publicRoutes } from "@data/navigation";
+import { skills } from "@data/skills";
+import { site } from "@data/site-config";
 
 const skillRoutes = skills.map((skill) => ({
   path: skill.href,

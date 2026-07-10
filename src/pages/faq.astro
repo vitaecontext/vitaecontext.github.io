@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, faqJsonLd, webPageJsonLd } from "@data/metadata";
-import { site } from "@data/site";
+import { site } from "@data/site-config";
 import "@styles/pages/faq.css";
 
 const meta = {
@@ -19,12 +19,12 @@ const faqs = [
   {
     question: "What is AgentKit SEO?",
     answer:
-      "AgentKit SEO is a portable, Markdown-first bundle of agent skills for professional discoverability work. It gives an AI agent a private career context file, platform-specific optimization methods, evidence labels, and provider-aware install layouts for LinkedIn, GitHub, CV/ATS, web portfolio, and X/Twitter work.",
+      "AgentKit SEO is an open-source package of agent skills for career work. It helps a person maintain reusable career context in Markdown, then use focused methods for CVs, profiles, repositories, portfolios, messages, interviews, applications, and other professional tasks.",
   },
   {
     question: "Does it guarantee better rankings, recruiter attention, or ATS scores?",
     answer:
-      "No. AgentKit SEO does not guarantee rankings, recruiter attention, ATS scores, rich results, snippets, indexing speed, AI citations, or platform distribution. It enforces consistent, verifiable facts across your surfaces and prioritizes the highest-impact fixes; outcomes still depend on the platforms and on your actual experience.",
+      "No. AgentKit SEO does not guarantee rankings, recruiter attention, ATS scores, rich results, snippets, indexing speed, AI citations, or platform distribution. Its skills tell agents to preserve supported claims, show uncertainty, and order useful fixes. Results still require review and depend on the supplied material and external platforms.",
   },
   {
     question: "Which agents and providers does it support?",
@@ -59,7 +59,7 @@ const faqs = [
   {
     question: "What is the difference between a playbook and a skill?",
     answer:
-      "They are two modes of the same methodology. A playbook is the human-readable guide you can follow yourself with no install. A skill is the same method packaged so an agent can load and run it. Every module is available both ways.",
+      "A guide explains the method for a human reader and needs no installation. A skill packages runtime instructions, references, and maintained knowledge so a supported agent can apply that method. The two surfaces cover the same module but serve different readers.",
   },
   {
     question: "Is AgentKit SEO affiliated with LinkedIn, GitHub, X, or the AI providers?",

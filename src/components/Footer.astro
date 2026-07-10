@@ -1,10 +1,8 @@
 ---
-import { navItems, site } from "@data/site";
+import { footerGroups } from "@data/navigation";
+import { site } from "@data/site-config";
 import "@styles/components/footer.css";
 
-const footerNavItems = navItems.filter(
-  (item) => !["GitHub"].includes(item.label)
-);
 ---
 
 <footer class="site-footer">
@@ -13,34 +11,21 @@ const footerNavItems = navItems.filter(
       <img class="brand-mark" src="/brand/agentkit-seo-mark.svg" alt="" width="36" height="36" loading="lazy" decoding="async" />
       <span>{site.name}</span>
     </a>
-    <p class="footer-tagline">Portable career workflows for humans and agents.</p>
+    <p class="footer-tagline">Reusable career context and focused methods for AI-assisted work.</p>
     <p class="footer-legal">{site.disclaimer}</p>
   </div>
 
   <div class="footer-right">
-    <div class="footer-nav-group">
-      <p class="footer-nav-label">Pages</p>
-      <nav aria-label="Footer navigation">
-        {footerNavItems.map((item) => {
-          const isExternal = item.href.startsWith("http");
-          return (
-            <a
-              href={item.href}
-              target={isExternal ? "_blank" : undefined}
-              rel={isExternal ? "noreferrer" : undefined}
-            >
-              {item.label}
-            </a>
-          );
-        })}
-        <a href="/skills/">Skills</a>
-        <a href="/docs/context-file-example/">Context example</a>
-        <a href="/design/">Design</a>
-        <a href="/changelog/">Changelog</a>
-        <a href="/contact/">Contact</a>
-        <a href="/faq/">FAQ</a>
-      </nav>
-    </div>
-
+    {footerGroups.map((group) => (
+      <div class="footer-nav-group">
+        <p class="footer-nav-label">{group.label}</p>
+        <nav aria-label={`${group.label} links`}>
+          {group.links.map((item) => {
+            const isExternal = item.href.startsWith("http");
+            return <a href={item.href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined}>{item.label}</a>;
+          })}
+        </nav>
+      </div>
+    ))}
   </div>
 </footer>

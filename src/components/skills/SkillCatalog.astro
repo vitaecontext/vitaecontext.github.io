@@ -1,0 +1,22 @@
+---
+import PlatformIcon from "@components/PlatformIcon.astro";
+import SectionIntro from "@components/shared/SectionIntro.astro";
+import { skills } from "@data/skills";
+---
+
+<section class="feature-section page-wrap" aria-labelledby="skill-catalog-title">
+  <SectionIntro eyebrow="Eight runtime modules" title="Choose one skill for the current task." text="The root skill routes work. Other modules handle context, VitaeGraph, CVs, LinkedIn, GitHub, portfolios, and X." />
+  <div class="catalog-grid">
+    {skills.map((skill) => (
+      <a class:list={["catalog-card", { "catalog-card--vitae": skill.slug === "vitaegraph" }]} href={skill.href}>
+        <span class="catalog-card__icon" aria-hidden="true"><PlatformIcon kind={skill.icon} /></span>
+        <div>
+          <p class="catalog-card__name">{skill.invocationName ?? `agentkit-seo-${skill.slug}`}</p>
+          <h2>{skill.shortName}</h2>
+          <p>{skill.summary}</p>
+        </div>
+        <span class="text-link">View skill <span aria-hidden="true">↗</span></span>
+      </a>
+    ))}
+  </div>
+</section>

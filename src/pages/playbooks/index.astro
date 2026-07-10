@@ -1,42 +1,19 @@
 ---
-import PlatformIcon from "@components/PlatformIcon.astro";
-import SectionHeader from "@components/SectionHeader.astro";
+import GuideCatalog from "@components/guides/GuideCatalog.astro";
+import PageHero from "@components/shared/PageHero.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
-import { skills } from "@data/site";
+import "@styles/pages/catalog.css";
 
 const meta = {
-  title: "Personal Branding SEO Playbooks",
-  description:
-    "Human-readable methodology playbooks for private career context, VitaeGraph, LinkedIn profile optimization, GitHub SEO, CV/ATS resume optimization, portfolio SEO, and X/Twitter strategy.",
+  title: "Guides",
+  description: "Human-readable AgentKit SEO guides for reusable career context, VitaeGraph, CV and ATS, LinkedIn, GitHub, portfolios, and X.",
   path: "/playbooks/",
   type: "website" as const,
 };
 ---
 
-<BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "CollectionPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Playbooks", path: "/playbooks/" }])]}>
-  <section class="page-hero">
-    <div class="inner">
-      <p class="eyebrow">Methodology</p>
-      <h1>The methods behind the skills.</h1>
-      <p>Practical, source-aware guides for building private context, maintaining VitaeGraph records, and improving public career surfaces without turning positioning into invention.</p>
-    </div>
-  </section>
-
-  <section class="page-section">
-    <SectionHeader eyebrow="Browse the library" title="Choose the surface you want to improve." />
-    <div class="playbook-library">
-      {skills.map((skill) => (
-        <a class="playbook-library-card" href={`/playbooks/${skill.slug}/`}>
-          <div class="skill-card-top">
-            <span class="icon" aria-hidden="true"><PlatformIcon kind={skill.icon} /></span>
-            <span class="playbook-arrow" aria-hidden="true">↗</span>
-          </div>
-          <h2>{skill.name}</h2>
-          <p>{skill.summary}</p>
-          <span class="playbook-output">{skill.outputs.join(" · ")}</span>
-        </a>
-      ))}
-    </div>
-  </section>
+<BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "CollectionPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Guides", path: "/playbooks/" }])]}>
+  <PageHero eyebrow="Guides" title="The methods behind the skills." text="Read practical guidance for organizing career context and working on one professional surface at a time." actions={[{ label: "Browse agent skills", href: "/skills/", tone: "primary" }]} />
+  <GuideCatalog />
 </BaseLayout>

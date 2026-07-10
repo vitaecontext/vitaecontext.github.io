@@ -10,6 +10,9 @@
   background: color-mix(in srgb, var(--paper) 90%, transparent);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
+  left: 0;
+  width: 100vw;
+  max-width: 100vw;
 }
 
 .site-header {
@@ -251,6 +254,7 @@
 
   .header-actions {
     margin-left: auto;
+    gap: 0.35rem;
   }
 
   .header-actions .vitaegraph-nav-btn span,
@@ -262,6 +266,7 @@
   .header-actions .github-nav-btn {
     width: 2.25rem;
     min-width: 2.25rem;
+    margin-left: 0;
     padding-inline: 0;
     justify-content: center;
   }

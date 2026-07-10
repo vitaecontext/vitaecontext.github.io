@@ -1,0 +1,48 @@
+---
+import { marketplace } from "@data/navigation";
+import { providers } from "@data/providers";
+---
+
+<div class="doc-body page-wrap prose">
+  <section>
+    <h2>Install from npm</h2>
+    <p>Use the provider matching your agent environment:</p>
+    <pre class="code-block"><code>npx agentkit-seo install --provider codex</code></pre>
+    <p>Replace <code>codex</code> with another supported value listed below.</p>
+  </section>
+
+  <section>
+    <h2>Supported provider values</h2>
+    <div class="simple-table" role="table" aria-label="Supported provider values">
+      {providers.map((provider) => <div role="row"><strong role="cell">{provider.id}</strong><span role="cell">{provider.name}</span><code role="cell">{provider.globalTarget}</code></div>)}
+    </div>
+    <p><a href="/providers/">See provider-specific commands and invocation examples.</a></p>
+  </section>
+
+  <section>
+    <h2>Claude Code marketplace</h2>
+    <p>Claude Code also supports a plugin marketplace installation:</p>
+    <pre class="code-block"><code>{marketplace.addCommand}
+{marketplace.installCommand}</code></pre>
+  </section>
+
+  <section>
+    <h2>Local checkout</h2>
+    <p>Maintainers can test an unpublished checkout from the product repository:</p>
+    <pre class="code-block"><code>git clone https://github.com/agentkit-seo/agentkit-seo.git
+cd agentkit-seo
+npx . install --provider codex</code></pre>
+  </section>
+
+  <section>
+    <h2>Useful install flags</h2>
+    <dl class="definition-list">
+      <div><dt><code>--project-root &lt;dir&gt;</code></dt><dd>Install relative to a project instead of the global default.</dd></div>
+      <div><dt><code>--target-dir &lt;dir&gt;</code></dt><dd>Use an exact skill destination. Required for the shared provider.</dd></div>
+      <div><dt><code>--commands-target-dir &lt;dir&gt;</code></dt><dd>Override command-wrapper placement where supported.</dd></div>
+      <div><dt><code>--force</code></dt><dd>Replace existing AgentKit SEO files without prompting.</dd></div>
+    </dl>
+  </section>
+
+  <aside class="note"><strong>Career files are separate.</strong><p>Installing skills does not collect or upload career material. Provider data rules apply when a user later supplies files to that provider.</p></aside>
+</div>

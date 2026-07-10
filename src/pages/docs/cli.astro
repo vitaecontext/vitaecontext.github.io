@@ -1,119 +1,14 @@
 ---
+import CliReference from "@components/docs/CliReference.astro";
+import PageHero from "@components/shared/PageHero.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
-import { marketplace, site } from "@data/site";
+import { site } from "@data/site-config";
+import "@styles/pages/docs.css";
 
-const meta = {
-  title: "CLI Reference | Commands and Flags",
-  description:
-    "Full command reference for the agentkit-seo CLI: version, update, doctor, list, template context, graph init, graph validate, graph index, install, uninstall, and export.",
-  path: "/docs/cli/",
-  type: "article" as const,
-  image: "/og/cli.png",
-};
-
-const commands = [
-  {
-    name: "version",
-    syntax: "npx agentkit-seo version",
-    text: "Print the installed package version for a quick identity check.",
-  },
-  {
-    name: "update",
-    syntax: "npx agentkit-seo update [--provider <provider>] [--json] [--timeout <ms>]",
-    text: "Check the npm registry for the latest published version. Explicit and opt-in: it runs only when you invoke it and never checks for updates on its own. By default it compares the package you are running; with --provider it reads the installed provider manifest and compares the installed skill version against npm latest. When an update is available, reinstall the skills from the latest package.",
-  },
-  {
-    name: "doctor",
-    syntax: "npx agentkit-seo doctor",
-    text: "Validate the package layout. In 1.8.0 it enforces the Agent Skills description convention (a non-empty description within 1024 characters, warning over 500, stating when to use the skill) and a license field, and validates the Claude Code marketplace and plugin manifests against package.json, alongside wiki metadata, stale review dates, local wiki links, and packaged-file coverage for LLM-facing files.",
-  },
-  {
-    name: "list providers",
-    syntax: "npx agentkit-seo list providers",
-    text: "List the available provider targets you can install to.",
-  },
-  {
-    name: "list skills",
-    syntax: "npx agentkit-seo list skills",
-    text: "List the installed runtime skills in the bundle.",
-  },
-  {
-    name: "list commands",
-    syntax: "npx agentkit-seo list commands --provider <provider>",
-    text: "Show the commands available for a specific provider.",
-  },
-  {
-    name: "template context",
-    syntax: "npx agentkit-seo template context --output ~/.agentkit-seo/my-context.md",
-    text: "Scaffold the guided private context-file template to a path you choose, so an agent can fill it from trusted material.",
-  },
-  {
-    name: "graph init",
-    syntax: "npx agentkit-seo graph init --root ~/.agentkit-seo/vitaegraph",
-    text: "Initialize a private VitaeGraph workspace with the required Markdown entry files. It does not overwrite existing graph files by default.",
-  },
-  {
-    name: "graph validate",
-    syntax: "npx agentkit-seo graph validate --root ~/.agentkit-seo/vitaegraph",
-    text: "Validate VitaeGraph Markdown records for duplicate IDs, supported metadata values, internal links, and graph consistency before using or indexing the records.",
-  },
-  {
-    name: "graph index",
-    syntax: "npx agentkit-seo graph index --root ~/.agentkit-seo/vitaegraph",
-    text: "Generate deterministic graph and lexical search-index JSON from the Markdown records. Generated indexes are rebuildable convenience artifacts.",
-  },
-  {
-    name: "install",
-    syntax: "npx agentkit-seo install --provider <provider> [--target-dir <path>]",
-    text: "Install the skills for a provider. Each install writes an agentkit-seo-install.json manifest in the install root with the package version, provider, skills, commands, and target paths.",
-  },
-  {
-    name: "uninstall",
-    syntax: "npx agentkit-seo uninstall --provider <provider> [--dry-run] [--force]",
-    text: "Remove an install using the same provider and destination. It reads the agentkit-seo-install.json manifest and removes only the skill folders, command wrappers, and manifest it created, leaving unrelated skills in shared directories untouched. Use --dry-run to preview the removal first.",
-  },
-  {
-    name: "export",
-    syntax: "npx agentkit-seo export --provider <provider|all>",
-    text: "Generate provider-specific layouts from the single canonical source. Useful for maintainers regenerating one or all provider adapters.",
-  },
-];
+const meta = { title: "CLI Reference", description: "Reference for AgentKit SEO version, update, doctor, list, template, graph, install, uninstall, and export commands.", path: "/docs/cli/", type: "article" as const, image: "/og/cli.png" };
 ---
-
-<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "CLI", path: "/docs/cli/" }])]}>
-  <section class="page-hero">
-    <div class="inner">
-      <p class="eyebrow">Agent skills - CLI reference</p>
-      <h1>CLI reference</h1>
-      <p>Every <code>agentkit-seo</code> command, with its syntax and what it does. The binary name matches the package name, currently version {site.packageVersion}.</p>
-    </div>
-  </section>
-
-  <section class="page-section prose">
-    <p>
-      Run any command with <code>npx agentkit-seo &lt;command&gt;</code>. To install skills, see the
-      <a href="/docs/installation/">installation guide</a>; for invocation per environment, see the
-      <a href="/docs/usage/">usage guide</a> and the <a href="/providers/">providers page</a>.
-    </p>
-
-    {commands.map((command) => (
-      <>
-        <h2><code>agentkit-seo {command.name}</code></h2>
-        <pre class="code-block"><code>{command.syntax}</code></pre>
-        <p>{command.text}</p>
-      </>
-    ))}
-
-    <h2>Claude Code plugin marketplace</h2>
-    <p>
-      In Claude Code, the skills are also available through the plugin marketplace instead of the CLI install:
-    </p>
-    <pre class="code-block"><code>{marketplace.addCommand}
-{marketplace.installCommand}</code></pre>
-
-    <p class="service-note">
-      Source repository: <a href={site.repoUrl}>{site.repoUrl}</a>
-    </p>
-  </section>
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "CLI", path: meta.path }])]}>
+  <PageHero eyebrow={`Documentation · CLI · ${site.packageVersion}`} title="CLI reference" text="Commands for installing, inspecting, updating, exporting, and removing the package, plus local VitaeGraph commands." compact />
+  <CliReference />
 </BaseLayout>

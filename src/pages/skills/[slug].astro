@@ -1,7 +1,10 @@
 ---
+import PageHero from "@components/shared/PageHero.astro";
+import SkillDetail from "@components/skills/SkillDetail.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, softwareSourceCodeJsonLd } from "@data/metadata";
-import { skills } from "@data/site";
+import { skills } from "@data/skills";
+import "@styles/pages/catalog.css";
 
 export function getStaticPaths() {
   return skills.map((skill) => ({ params: { slug: skill.slug }, props: { skill } }));
@@ -9,83 +12,16 @@ export function getStaticPaths() {
 
 const { skill } = Astro.props;
 const invocationName = skill.invocationName ?? `agentkit-seo-${skill.slug}`;
-const isVitaeGraph = skill.slug === "vitaegraph";
 const meta = {
   title: `${skill.metaTitle ?? skill.name} Agent Skill`,
-  description:
-    skill.metaDescription ??
-    `${skill.summary} Installable AgentKit SEO skill for ${skill.shortName.toLowerCase()} workflows, audits, and rewrites.`,
+  description: skill.metaDescription ?? skill.summary,
   path: `/skills/${skill.slug}/`,
   type: "article" as const,
   image: skill.ogImage ?? `/og/skills/${skill.slug}.png`,
 };
 ---
 
-<BaseLayout meta={meta} jsonLd={[softwareSourceCodeJsonLd(meta.title, meta.description, meta.path, invocationName), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Agent Skills", path: "/skills/" }, { name: skill.name, path: meta.path }])]}>
-  <section class="page-hero">
-    <div class="inner">
-      <div class="docs-mode-label-row" style="margin-bottom: 1rem;">
-        <span class="mode-badge mode-badge--agent">Agent skill</span>
-        <a href={`/playbooks/${skill.slug}/`} class="mode-badge mode-badge--read" style="text-decoration: none; background: transparent; border: 1px solid var(--line); color: var(--muted); opacity: 0.7; transition: opacity 0.2s;">Read the human playbook →</a>
-      </div>
-      <p class="eyebrow">Technical Package</p>
-      <h1>{invocationName}</h1>
-      <p>{skill.summary}</p>
-      <p class="search-intent">Search intent: {skill.searchIntent}</p>
-      
-      <div class="actions" style="margin-top: 1.5rem;">
-        <a class="button primary" href="/docs/installation/">Installation Guide</a>
-        <a class="button secondary" href="/providers/">View Provider Commands</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section split">
-    <article class="prose">
-      <h2>Package Intent</h2>
-      <p>{skill.searchIntent}</p>
-      <p>
-        This installable skill targets {skill.metaTitle?.toLowerCase() ?? skill.name.toLowerCase()} tasks where agents
-        need focused rules, grounded context, and platform-specific constraints before producing audits or rewrites.
-      </p>
-      
-      <h2>Technical Requirements</h2>
-      {isVitaeGraph ? (
-        <p>This skill works from supplied career material, an existing compact context file, or an existing VitaeGraph folder. The agent uses the skill's instructions to plan, deepen, validate, and index private Markdown graph records.</p>
-      ) : (
-        <p>This skill requires the user to have generated an <strong>agent-context-file</strong> (or be actively passing CV/resume text in the prompt). The agent uses the skill's system instructions to evaluate the user's input against SEO and platform-specific rules.</p>
-      )}
-      
-      <h2>Expected Agent Outputs</h2>
-      <ul>
-        {skill.outputs.map((output) => <li>{output}</li>)}
-      </ul>
-
-      <h2>Methodology</h2>
-      <p>This technical package is an automated, executable version of the <strong>{skill.name}</strong> playbook. To read the exact rules, constraints, and formulas that the agent is following, read the <a href={`/playbooks/${skill.slug}/`}>human-readable playbook</a>.</p>
-    </article>
-    <aside class="card skill-sidebar">
-      <div class="skill-sidebar-section">
-        <p class="skill-sidebar-label">Invocation Name</p>
-        <pre class="code-block"><code>{invocationName}</code></pre>
-      </div>
-      <div class="skill-sidebar-divider"></div>
-      <div class="skill-sidebar-section">
-        <p class="skill-sidebar-label">Dependencies</p>
-        <p class="skill-sidebar-desc">None. Portable Markdown.</p>
-      </div>
-      <div class="skill-sidebar-divider"></div>
-      <div class="skill-sidebar-section">
-        <p class="skill-sidebar-label">Providers Supported</p>
-        <ul style="list-style: none; padding: 0; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.25rem;">
-          <li>Codex</li>
-          <li>Claude Code</li>
-          <li>Gemini CLI</li>
-          <li>Antigravity</li>
-          <li>OpenCode</li>
-          <li>Shared Bundle</li>
-        </ul>
-      </div>
-    </aside>
-  </section>
+<BaseLayout meta={meta} jsonLd={[softwareSourceCodeJsonLd(meta.title, meta.description, meta.path, invocationName), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Skills", path: "/skills/" }, { name: skill.name, path: meta.path }])]}>
+  <PageHero eyebrow="Agent skill" title={invocationName} text={skill.summary} actions={[{ label: "Install", href: "/docs/installation/", tone: "primary" }, { label: "Read the guide", href: `/playbooks/${skill.slug}/` }]} compact />
+  <SkillDetail skill={skill} invocationName={invocationName} />
 </BaseLayout>

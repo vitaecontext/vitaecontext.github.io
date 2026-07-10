@@ -1,0 +1,28 @@
+---
+import { marketplace } from "@data/navigation";
+
+const commands = [
+  ["version", "npx agentkit-seo version", "Print the running package version."],
+  ["update", "npx agentkit-seo update [--provider <provider>] [--json] [--timeout <ms>]", "Check npm for a newer version. This runs only when requested."],
+  ["doctor", "npx agentkit-seo doctor", "Validate package structure, skill metadata, wiki files, provider manifests, and packaged paths."],
+  ["list providers", "npx agentkit-seo list providers", "List supported install targets."],
+  ["list skills", "npx agentkit-seo list skills", "List runtime skills in the package."],
+  ["list commands", "npx agentkit-seo list commands --provider <provider>", "List command wrappers for one provider."],
+  ["template context", "npx agentkit-seo template context --output ~/.agentkit-seo/name-surname-career-context.md", "Create the guided career context template at a chosen path."],
+  ["graph init", "npx agentkit-seo graph init --root ~/.agentkit-seo/vitaegraph", "Create the initial VitaeGraph Markdown workspace."],
+  ["graph validate", "npx agentkit-seo graph validate --root ~/.agentkit-seo/vitaegraph", "Check IDs, record types, links, parents, relationships, and duplicates."],
+  ["graph index", "npx agentkit-seo graph index --root ~/.agentkit-seo/vitaegraph", "Build deterministic graph and lexical JSON indexes from Markdown."],
+  ["install", "npx agentkit-seo install --provider <provider> [--target-dir <path>]", "Install provider files and write an install manifest."],
+  ["uninstall", "npx agentkit-seo uninstall --provider <provider> [--dry-run] [--force]", "Remove files recorded in the install manifest."],
+  ["export", "npx agentkit-seo export --provider <provider|all>", "Generate provider layouts from the canonical runtime source."],
+];
+---
+
+<div class="doc-body page-wrap prose">
+  <p>Run commands with <code>npx agentkit-seo &lt;command&gt;</code>. Commands below describe package behavior, not operations performed by this website.</p>
+  <div class="command-list">
+    {commands.map(([name, syntax, text]) => <section><h2><code>agentkit-seo {name}</code></h2><pre class="code-block"><code>{syntax}</code></pre><p>{text}</p></section>)}
+  </div>
+  <section><h2>Claude Code marketplace</h2><pre class="code-block"><code>{marketplace.addCommand}
+{marketplace.installCommand}</code></pre></section>
+</div>

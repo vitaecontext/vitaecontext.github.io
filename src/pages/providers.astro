@@ -1,108 +1,19 @@
 ---
-import PlatformIcon from "@components/PlatformIcon.astro";
+import ProviderCatalog from "@components/providers/ProviderCatalog.astro";
+import PageHero from "@components/shared/PageHero.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
-import { marketplace, providers, site } from "@data/site";
-import "@styles/components/install.css";
 import "@styles/pages/providers.css";
 
 const meta = {
   title: "Supported Providers",
-  description:
-    "Install AgentKit SEO skills into Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, or a shared bundle: one CLI, six environments, plus a Claude Code plugin marketplace.",
+  description: "Install AgentKit SEO into Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, or a portable shared skill directory.",
   path: "/providers/",
   type: "website" as const,
 };
-
-const providerMeta: Record<string, { icon: string; owner: string }> = {
-  "Codex": { icon: "openai", owner: "OpenAI" },
-  "Claude Code": { icon: "anthropic", owner: "Anthropic" },
-  "Gemini CLI": { icon: "gemini", owner: "Google Gemini" },
-  "Antigravity": { icon: "gemini", owner: "Antigravity CLI" },
-  "OpenCode": { icon: "opencode", owner: "OpenCode" },
-  "Shared bundle": { icon: "package", owner: "Portable export" },
-};
-
 ---
 
-<BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "CollectionPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Providers", path: "/providers/" }])]}>
-  <section class="page-hero">
-    <div class="inner">
-      <p class="eyebrow">Provider support</p>
-      <h1>Providers</h1>
-      <p>Install the same eight grounded AgentKit SEO runtime skills, including VitaeGraph, into the agent environment you already use.</p>
-    </div>
-  </section>
-
-  <section class="page-section">
-
-    <div class="providers-install-note providers-lead">
-      <div>
-        <span class="install-status install-status--ready">Available on npm</span>
-        <h2>One command, provider-aware output.</h2>
-        <p>Replace <code>&lt;provider&gt;</code> with any target below. AgentKit SEO writes the right skill and command layout for that environment.</p>
-      </div>
-      <pre class="code-block"><code>npx agentkit-seo install --provider &lt;provider&gt;</code></pre>
-      <p class="providers-install-hint">
-        Need a custom destination or local checkout? See the <a href="/docs/installation/">installation guide</a>.
-      </p>
-    </div>
-
-    <div class="providers-install-note marketplace-note">
-      <div>
-        <span class="install-status install-status--ready">Claude Code</span>
-        <h2>Prefer the plugin marketplace?</h2>
-        <p>Add the AgentKit SEO marketplace, then install the plugin directly inside Claude Code.</p>
-      </div>
-      <pre class="code-block code-block--sm"><code>{marketplace.addCommand}
-{marketplace.installCommand}</code></pre>
-    </div>
-
-    <div class="section-header providers-heading">
-      <p class="eyebrow">Install targets</p>
-      <h2>One methodology, six environments.</h2>
-    </div>
-
-    <div class="provider-card-grid">
-      {providers.map((provider) => {
-        const pm = providerMeta[provider.name];
-        return (
-          <article class="provider-card">
-            <div class="provider-card-top">
-              <div class={`provider-logo provider-logo--${pm?.icon ?? "package"}`} aria-hidden="true">
-                <PlatformIcon kind={pm?.icon ?? "package"} />
-              </div>
-              <div class="provider-header">
-                <span class="provider-status">{provider.status}</span>
-                <h2 class="provider-name">{provider.name}</h2>
-                {pm?.owner && <span class="provider-owner">{pm.owner}</span>}
-              </div>
-            </div>
-
-            <p class="provider-summary">{provider.summary}</p>
-
-            <div class="provider-install-block">
-              <p class="provider-inv-label">Install from npm</p>
-              <pre class="code-block code-block--sm provider-copyable"><code>{provider.installCmd}</code></pre>
-            </div>
-
-            <div class="provider-invocation">
-              <span class="provider-inv-label">Invocation example</span>
-              <pre class="code-block code-block--sm code-block--muted"><code>{provider.invocation}</code></pre>
-              {provider.invocationNote && <p class="install-provider-note">{provider.invocationNote}</p>}
-            </div>
-
-            <div class="provider-target-row">
-              <span class="provider-inv-label">Default install path</span>
-              <code class="provider-target-path">{provider.globalTarget}</code>
-            </div>
-          </article>
-        );
-      })}
-    </div>
-
-    <p class="service-note">
-      {site.disclaimer} Repository: <a href={site.repoUrl}>{site.repoUrl}</a>
-    </p>
-  </section>
+<BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "CollectionPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "Providers", path: "/providers/" }])]}>
+  <PageHero eyebrow="Documentation · providers" title="Install once in the agent you use." text="AgentKit SEO generates the folder and command layout expected by each supported environment." actions={[{ label: "Installation guide", href: "/docs/installation/", tone: "primary" }, { label: "Usage guide", href: "/docs/usage/" }]} compact />
+  <ProviderCatalog />
 </BaseLayout>

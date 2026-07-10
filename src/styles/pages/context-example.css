@@ -1,0 +1,345 @@
+
+.context-example-hero .inner {
+  gap: 1rem;
+}
+
+.context-example-hero .actions {
+  margin-top: 0.5rem;
+}
+
+.context-example-intro {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.75fr) minmax(22rem, 1.25fr);
+  gap: clamp(2rem, 7vw, 7rem);
+  align-items: start;
+}
+
+.context-example-intro > div {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.context-example-intro > p {
+  max-width: 50rem;
+  color: var(--hero-text);
+  font-size: clamp(1.08rem, 1.6vw, 1.3rem);
+}
+
+.context-benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 0;
+}
+
+.context-benefit-grid article {
+  display: grid;
+  gap: 0.65rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--white);
+}
+
+.context-benefit-grid article > span {
+  color: var(--teal-deep);
+  font-family: ui-monospace, monospace;
+  font-size: 0.74rem;
+}
+
+.context-benefit-grid h2 {
+  font-size: 1.15rem;
+}
+
+.context-benefit-grid p {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.context-anatomy {
+  display: grid;
+  gap: 2rem;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--teal) 7%, transparent), transparent 48%),
+    var(--paper);
+}
+
+.context-anatomy-head {
+  display: grid;
+  gap: 0.7rem;
+  max-width: 52rem;
+}
+
+.context-anatomy-head h2 {
+  max-width: 24ch;
+}
+
+.context-anatomy-head > p:last-child {
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.context-anatomy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.context-anatomy-grid article {
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+  min-width: 0;
+  padding: 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+}
+
+.context-anatomy-grid article > span {
+  color: var(--teal-deep);
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.context-anatomy-grid h3 {
+  font-size: 1.05rem;
+}
+
+.context-anatomy-grid p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.context-example-layout {
+  display: grid;
+  grid-template-columns: minmax(17rem, 0.72fr) minmax(28rem, 1.28fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+  background: var(--soft);
+}
+
+.context-example-copy {
+  display: grid;
+  gap: 1rem;
+  position: sticky;
+  top: 6rem;
+}
+
+.context-example-copy > p:not(.eyebrow),
+.context-example-copy li {
+  color: var(--muted);
+}
+
+.context-example-copy ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.context-privacy-note {
+  padding: 0.9rem;
+  border-left: 3px solid var(--gold);
+  background: color-mix(in srgb, var(--gold) 8%, var(--white));
+  color: var(--ink) !important;
+  font-size: 0.88rem;
+}
+
+.context-code-window {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--code-bg);
+  color: var(--code-text);
+  box-shadow: var(--shadow);
+}
+
+.context-code-bar {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.context-code-bar > span {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: #e7644a;
+}
+
+.context-code-bar > span:nth-child(2) { background: #e0a629; }
+.context-code-bar > span:nth-child(3) { background: #2b9a7f; }
+
+.context-code-bar code {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.72rem;
+}
+
+.context-code-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.context-code-legend span {
+  padding: 0.24rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-family: ui-monospace, monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.legend-heading { color: #79c0ff; }
+.legend-yaml { color: #7ee787; }
+.legend-field { color: #e3b341; }
+.legend-comment { color: #8b949e; }
+
+.context-code-window .context-highlighted-code {
+  max-height: 50rem;
+  margin: 0;
+  padding: clamp(1rem, 3vw, 1.6rem);
+  overflow: auto;
+  white-space: pre;
+  tab-size: 2;
+}
+
+.context-code-window .context-highlighted-code code {
+  font-size: 0.79rem;
+  line-height: 1.65;
+}
+
+.context-code-line--heading .token-marker,
+.context-code-line--heading .token-heading {
+  color: #79c0ff;
+}
+
+.context-code-line--heading .token-heading {
+  font-weight: 800;
+}
+
+.context-code-line--fence,
+.token-yaml-key {
+  color: #7ee787;
+}
+
+.token-yaml-key,
+.token-field {
+  font-weight: 750;
+}
+
+.token-punctuation,
+.token-marker {
+  color: #e3b341;
+}
+
+.token-value {
+  color: #a5d6ff;
+}
+
+.token-field {
+  color: #e3b341;
+}
+
+.context-code-line--comment {
+  color: #8b949e;
+  font-style: italic;
+}
+
+.context-code-line--plain {
+  color: #d2d8e0;
+}
+
+.context-usage-example {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+  gap: 1.2rem;
+  max-width: 68rem;
+  margin-inline: auto;
+}
+
+.context-usage-example > *,
+.context-usage-example .code-block-wrap,
+.context-usage-example .code-block {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.context-usage-example > div:first-child {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.context-usage-example > p {
+  max-width: 50rem;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .concept-flow {
+    grid-template-columns: 1fr;
+    max-width: 34rem;
+  }
+
+  .concept-arrow {
+    transform: rotate(90deg);
+    justify-self: center;
+  }
+
+  .context-example-intro,
+  .context-example-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .context-anatomy-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .context-example-copy {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-concept {
+    padding-block: 3.5rem;
+  }
+
+  .hero-concept h1 {
+    font-size: clamp(2.55rem, 11vw, 3.3rem);
+  }
+
+  .context-benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .context-anatomy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .context-usage-example .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .context-usage-example .button {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    text-align: center;
+  }
+}
+
+/* Homepage: career context and profile optimization are one connected system. */

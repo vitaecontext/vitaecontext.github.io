@@ -3,6 +3,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import ContextCode from "@components/ContextCode.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
 import { sampleContext } from "@data/sampleContext";
+import "@styles/pages/context-example.css";
 
 const meta = {
   title: "Personal Career Context File Example and Template",
@@ -55,7 +56,7 @@ const contextSections = [
     <div class="inner">
       <p class="eyebrow">A concrete example</p>
       <h1>What goes inside a career context file?</h1>
-      <p>Inspect a complete fictional template before creating your private source of truth for AI-assisted career work.</p>
+      <p>Inspect a fictional template before creating a career context file for AI-assisted work.</p>
       <div class="actions">
         <a class="button primary" href="#annotated-example">Explore the annotated example</a>
         <a class="button secondary" href="/examples/sample-career-context.md">View raw Markdown</a>
@@ -67,10 +68,10 @@ const contextSections = [
   <section class="page-section context-example-intro">
     <div>
       <p class="eyebrow">The idea</p>
-      <h2>Explain your career once. Reuse it safely.</h2>
+      <h2>Keep career context in one maintained file.</h2>
     </div>
     <p>
-      A personal career context file is a private, editable Markdown knowledge base for your education, experience,
+      A personal career context file is an editable local Markdown record for your education, experience,
       projects, research, skills, certifications, achievements, goals, links, and evidence. Agents read it before
       working on a CV, LinkedIn profile, GitHub profile, portfolio, application, or interview task.
     </p>
@@ -79,17 +80,17 @@ const contextSections = [
   <section class="page-section context-benefit-grid" aria-label="Benefits of a career context file">
     <article>
       <span>01</span>
-      <h2>One source of truth</h2>
-      <p>Dates, roles, education, projects, credentials, links, and hard facts stay in one maintained private record.</p>
+      <h2>One maintained record</h2>
+      <p>Dates, roles, education, projects, credentials, links, and hard facts stay in one maintained local file.</p>
     </article>
     <article>
       <span>02</span>
-      <h2>Safer AI outputs</h2>
-      <p>Evidence boundaries tell the agent what is verified, what is only a goal, and which claims it must not invent.</p>
+      <h2>Visible evidence boundaries</h2>
+      <p>The file tells the agent what is verified, what is only a goal, and which claims it must not invent.</p>
     </article>
     <article>
       <span>03</span>
-      <h2>Many targeted outputs</h2>
+      <h2>Reuse across tasks</h2>
       <p>The same facts can support CVs, profiles, portfolios, applications, and interviews without making every output identical.</p>
     </article>
   </section>

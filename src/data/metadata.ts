@@ -1,4 +1,4 @@
-import { site } from "./site";
+import { site } from "./site-config";
 
 export type JsonLd = Record<string, unknown>;
 

@@ -1,0 +1,40 @@
+---
+import InfoCard from "@components/shared/InfoCard.astro";
+import SectionIntro from "@components/shared/SectionIntro.astro";
+
+const steps = [
+  { title: "Gather trusted material", text: "Start with CVs, profile text, project notes, links, exports, and other material you can inspect." },
+  { title: "Create career context", text: "Use the context skill to organize facts, stated goals, evidence, constraints, and claims to avoid in Markdown." },
+  { title: "Choose one method", text: "Load the skill for the current CV, profile, repository, portfolio, message, interview, or other task." },
+  { title: "Review the result", text: "Check that claims stay supported, goals remain separate from experience, and missing evidence is visible." },
+];
+---
+
+<div class="doc-body page-wrap">
+  <section class="doc-lead">
+    <SectionIntro eyebrow="Core workflow" title="Context first. Task second." text="AgentKit SEO gives an agent a stable starting point instead of rebuilding career history inside every conversation." />
+    <ol class="numbered-list">{steps.map((step, index) => <li><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol>
+  </section>
+
+  <section class="doc-split">
+    <article><h2>What context supplies</h2><ul class="plain-check-list"><li>Verified roles, projects, education, and credentials.</li><li>Stated goals, interests, and preferred direction.</li><li>Proof links, constraints, and claims to avoid.</li><li>A reusable file that can be inspected and corrected.</li></ul></article>
+    <article><h2>What a skill supplies</h2><ul class="plain-check-list"><li>A task-specific workflow.</li><li>Platform constraints and source-aware guidance.</li><li>Expected inputs and useful output formats.</li><li>A self-review for evidence, scope, and fabrication.</li></ul></article>
+  </section>
+
+  <section class="doc-example">
+    <div><p class="eyebrow">Normal prompt</p><h2>Give the context and name the task.</h2><p>Exact invocation differs by provider. Explicitly name the installed skill when possible.</p></div>
+    <pre class="code-block"><code>Use agentkit-seo-github.
+Read my career context file at ~/.agentkit-seo/name-surname-career-context.md.
+Audit my GitHub profile and list the changes I should make first.
+Do not add claims that are not supported by the file.</code></pre>
+  </section>
+
+  <section class="feature-section">
+    <SectionIntro title="Continue from here" />
+    <div class="card-grid card-grid--three">
+      <InfoCard title="See the context structure" text="Inspect a complete fictional context file." href="/docs/context-file-example/" label="Open example" />
+      <InfoCard title="Install the skills" text="Choose a supported provider and destination." href="/docs/installation/" label="Install" />
+      <InfoCard title="Read a method" text="Use the human-readable guides without installing." href="/playbooks/" label="Browse guides" />
+    </div>
+  </section>
+</div>

@@ -1,0 +1,19 @@
+---
+import PlatformIcon from "@components/PlatformIcon.astro";
+import SectionIntro from "@components/shared/SectionIntro.astro";
+import { skills } from "@data/skills";
+---
+
+<section class="feature-section page-wrap" aria-labelledby="guide-catalog-title">
+  <SectionIntro eyebrow="Human-readable library" title="Read the method without installing anything." text="Each guide explains when a method applies, what material it needs, what it produces, and where its limits are." />
+  <div class="catalog-grid">
+    {skills.map((skill) => (
+      <a class:list={["catalog-card", { "catalog-card--vitae": skill.slug === "vitaegraph" }]} href={`/playbooks/${skill.slug}/`}>
+        <span class="catalog-card__icon" aria-hidden="true"><PlatformIcon kind={skill.icon} /></span>
+        <div><h2>{skill.name}</h2><p>{skill.summary}</p></div>
+        <span class="catalog-card__output">{skill.outputs.join(" · ")}</span>
+        <span class="text-link">Read guide <span aria-hidden="true">↗</span></span>
+      </a>
+    ))}
+  </div>
+</section>

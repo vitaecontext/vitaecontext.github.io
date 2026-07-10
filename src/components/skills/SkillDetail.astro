@@ -1,0 +1,32 @@
+---
+import PlatformIcon from "@components/PlatformIcon.astro";
+import SectionIntro from "@components/shared/SectionIntro.astro";
+import type { Skill } from "@data/skills";
+
+type Props = { skill: Skill; invocationName: string };
+const { skill, invocationName } = Astro.props;
+---
+
+<div class="skill-detail page-wrap">
+  <section class="skill-summary">
+    <SectionIntro eyebrow="When to use it" title="Use this skill when:" />
+    <ul class="plain-check-list">
+      {skill.useWhen.map((item) => <li>{item}</li>)}
+    </ul>
+  </section>
+
+  <section class="skill-method">
+    <SectionIntro eyebrow="Method" title="What the agent does" />
+    <ol class="numbered-list">
+      {skill.method.map((item, index) => <li><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}
+    </ol>
+  </section>
+
+  <aside class:list={["skill-command", { "skill-command--vitae": skill.slug === "vitaegraph" }]}>
+    <span class="skill-command__icon" aria-hidden="true"><PlatformIcon kind={skill.icon} /></span>
+    <div><small>Skill name</small><code>{invocationName}</code></div>
+    <div><small>Typical outputs</small><p>{skill.outputs.join(" · ")}</p></div>
+    <a class="button primary" href="/docs/installation/">Install skills</a>
+    <a class="button secondary" href={`/playbooks/${skill.slug}/`}>Read guide</a>
+  </aside>
+</div>

@@ -1,0 +1,19 @@
+---
+type Props = {
+  title: string;
+  text: string;
+  href?: string;
+  label?: string;
+  badge?: string;
+};
+
+const { title, text, href, label = "Read more", badge } = Astro.props;
+const Tag = href ? "a" : "article";
+---
+
+<Tag class="info-card" href={href}>
+  {badge && <span class="info-card__badge">{badge}</span>}
+  <h3>{title}</h3>
+  <p>{text}</p>
+  {href && <span class="text-link">{label}<span aria-hidden="true"> ↗</span></span>}
+</Tag>

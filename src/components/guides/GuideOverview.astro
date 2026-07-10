@@ -1,0 +1,28 @@
+---
+import SectionIntro from "@components/shared/SectionIntro.astro";
+import type { Skill } from "@data/skills";
+type Heading = { slug: string; text: string };
+type Props = { skill?: Skill; headings: Heading[]; updated?: string };
+const { skill, headings, updated } = Astro.props;
+---
+
+<div class="guide-layout page-wrap">
+  {skill && (
+    <aside class="guide-summary">
+      <SectionIntro eyebrow="At a glance" title="What this guide covers" />
+      <div><h3>Use it when</h3><ul>{skill.useWhen.map((item) => <li>{item}</li>)}</ul></div>
+      <div><h3>Typical outputs</h3><ul>{skill.outputs.map((item) => <li>{item}</li>)}</ul></div>
+      <a class="button primary" href={`/skills/${skill.slug}/`}>Use as agent skill</a>
+      {updated && <p class="guide-updated">Source snapshot: <time datetime={updated}>{updated}</time></p>}
+    </aside>
+  )}
+  <div class="guide-reference">
+    {headings.length > 0 && (
+      <nav class="guide-toc" aria-label="Guide sections">
+        <strong>On this page</strong>
+        {headings.map((heading) => <a href={`#${heading.slug}`}>{heading.text}</a>)}
+      </nav>
+    )}
+    <article class="prose"><slot /></article>
+  </div>
+</div>

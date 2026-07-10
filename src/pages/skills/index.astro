@@ -1,44 +1,19 @@
 ---
-import PlatformIcon from "@components/PlatformIcon.astro";
-import SectionHeader from "@components/SectionHeader.astro";
+import PageHero from "@components/shared/PageHero.astro";
+import SkillCatalog from "@components/skills/SkillCatalog.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
-import { skills } from "@data/site";
+import "@styles/pages/catalog.css";
 
 const meta = {
-  title: "Agent Skills for Career Context, VitaeGraph, and Profile Work",
-  description:
-    "Install AgentKit SEO skills for private career context, VitaeGraph, LinkedIn profile optimization, GitHub SEO, ATS resume optimization, portfolio SEO, and X/Twitter strategy.",
+  title: "Agent Skills",
+  description: "Eight installable AgentKit SEO skills for routing, career context, VitaeGraph, CV and ATS, LinkedIn, GitHub, portfolios, and X.",
   path: "/skills/",
   type: "website" as const,
 };
 ---
 
-<BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "CollectionPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Agent Skills", path: "/skills/" }])]}>
-  <section class="page-hero">
-    <div class="inner">
-      <p class="eyebrow">Technical Packages</p>
-      <h1>Agent Skills</h1>
-      <p>Installable rule packages for private career context, VitaeGraph, LinkedIn profile optimization, GitHub SEO, ATS resume optimization, portfolio SEO, and X/Twitter strategy. To read the human methodology instead, visit the <a href="/playbooks/">Playbooks Hub</a>.</p>
-    </div>
-  </section>
-
-  <section class="page-section">
-    <SectionHeader title="Choose an agent skill to install." />
-    <div class="grid">
-      {skills.map((skill) => (
-        <a class="card skill-card" href={`/skills/${skill.slug}/`}>
-          <div class="skill-card-top">
-            <span class="icon" aria-hidden="true"><PlatformIcon kind={skill.icon} /></span>
-            <div class="skill-card-modes" aria-label="Available as">
-              <span class="skill-mode-tag skill-mode-tag--agent">Agent skill</span>
-            </div>
-          </div>
-          <h2>{skill.invocationName ?? `agentkit-seo-${skill.slug}`}</h2>
-          <p>{skill.summary}</p>
-          <p class="search-intent" style="margin-top: 1rem;">{skill.searchIntent}</p>
-        </a>
-      ))}
-    </div>
-  </section>
+<BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "CollectionPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Skills", path: "/skills/" }])]}>
+  <PageHero eyebrow="Installable skills" title="Focused instructions for focused work." text="Career context supplies the facts. Each skill supplies the method, constraints, and checks for one kind of task." actions={[{ label: "Install AgentKit SEO", href: "/docs/installation/", tone: "primary" }, { label: "Read without installing", href: "/playbooks/" }]} />
+  <SkillCatalog />
 </BaseLayout>
