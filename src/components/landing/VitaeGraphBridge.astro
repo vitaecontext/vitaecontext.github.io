@@ -24,27 +24,20 @@ import PlatformIcon from "@components/PlatformIcon.astro";
     <div class="lk-vitae-map" aria-label="VitaeGraph Markdown records and relationships">
       <div class="lk-vitae-map__header"><span></span><span></span><span></span><code>~/.agentkit-seo/vitaegraph/</code></div>
       <div class="lk-vitae-map__body">
-        <div class="lk-vitae-tree">
+        <div class="lk-vitae-overview">
+          <span class="lk-vitae-overview__label">Graph summary</span>
           <strong>VITAEGRAPH.md</strong>
-          <div><span>education/</span><small>degree</small></div>
-          <div class="is-nested"><span>thesis.md</span><small>record</small></div>
-          <div><span>projects/</span><small>collection</small></div>
-          <div><span>experience/</span><small>collection</small></div>
-          <div><span>certifications/</span><small>collection</small></div>
+          <p>Identity, direction, and links to detailed records.</p>
+          <span class="lk-vitae-overview__status"><i></i> Markdown canonical</span>
         </div>
-        <svg class="lk-vitae-map__lines" viewBox="0 0 330 230" aria-hidden="true">
-          <path d="M35 50 C120 50 115 42 180 42 M35 86 C120 86 115 110 180 110 M35 126 C120 126 115 176 180 176" />
-          <path class="related" d="M180 42 C240 42 230 176 290 176 M180 110 C240 110 230 42 290 42" />
-        </svg>
-        <div class="lk-vitae-nodes">
-          <span class="node node--education">Education</span>
-          <span class="node node--project">Project</span>
-          <span class="node node--role">Experience</span>
-          <span class="node node--course">Course</span>
-          <span class="node node--cert">Certification</span>
+        <div class="lk-vitae-records" aria-label="Example linked VitaeGraph records">
+          <p>Detailed records</p>
+          <article><span>ED</span><div><strong>education/degree.md</strong><small>contains thesis.md and course.md</small></div></article>
+          <article><span>PR</span><div><strong>projects/search-tool.md</strong><small>related to evidence and skills</small></div></article>
+          <article><span>EX</span><div><strong>experience/role.md</strong><small>related to project and publication</small></div></article>
         </div>
       </div>
-      <div class="lk-vitae-map__footer"><span><i></i> contains</span><span><i></i> related</span><strong>Markdown stays canonical</strong></div>
+      <div class="lk-vitae-map__footer"><span><i></i> contains</span><span><i></i> related</span><strong>Small records. Explicit links.</strong></div>
     </div>
   </div>
 </section>

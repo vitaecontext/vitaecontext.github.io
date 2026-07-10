@@ -905,12 +905,12 @@
 .vg-map-column article strong { font-size: 0.69rem; }
 .vg-map-column article p { color: var(--vg-copy); font-size: 0.55rem; }
 .vg-map-column--root { top: 45%; left: 3%; transform: translateY(-50%); }
-.vg-map-column--domains { top: 6%; left: 38%; }
-.vg-map-column--details { top: 2%; right: 3%; }
-.vg-map-column--domains article,
-.vg-map-column--details article { margin-bottom: 0.55rem; }
+.vg-map-column--domains { top: 6%; bottom: 12%; left: 38%; align-content: space-between; }
+.vg-map-column--details { top: 2%; right: 3%; bottom: 12%; align-content: space-between; }
 .vg-map-column .is-project > span,
-.vg-map-column .is-role > span { background: var(--vg-blue-pale); color: var(--vg-blue); }
+.vg-map-column .is-role > span,
+.vg-map-column .is-publication > span { background: var(--vg-blue-pale); color: var(--vg-blue); }
+.vg-map-column .is-evidence > span { background: color-mix(in srgb, var(--vg-green-pale) 72%, var(--vg-card)); color: var(--vg-green-dark); }
 
 .vg-map-note {
   position: absolute;
