@@ -59,52 +59,61 @@ const githubItem = navItems.find((item) => item.placement === "external");
 </header>
 
 <script>
-  const header = document.querySelector<HTMLElement>(".site-header");
-  const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
-  const nav = document.querySelector<HTMLElement>("[data-primary-nav]");
-  const toggle = document.querySelector<HTMLButtonElement>("[data-theme-toggle]");
-
   const setMenu = (open: boolean) => {
+    const header = document.querySelector<HTMLElement>(".site-header");
+    const menuToggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
     if (!header || !menuToggle) return;
     header.dataset.menuOpen = open ? "true" : "false";
     menuToggle.setAttribute("aria-expanded", String(open));
     menuToggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
   };
 
-  setMenu(false);
-
-  menuToggle?.addEventListener("click", () => {
-    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-    setMenu(!isOpen);
-  });
-
-  nav?.addEventListener("click", (event) => {
-    if (event.target instanceof HTMLAnchorElement) setMenu(false);
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setMenu(false);
-  });
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 720) setMenu(false);
-  });
-
-  if (toggle) {
+  const setThemeLabel = (toggle: HTMLButtonElement) => {
     const root = document.documentElement;
-    const setLabel = () => {
-      const theme = root.dataset.theme === "dark" ? "dark" : "light";
-      toggle.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} theme`);
-      toggle.dataset.activeTheme = theme;
-    };
+    const theme = root.dataset.theme === "dark" ? "dark" : "light";
+    toggle.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} theme`);
+    toggle.dataset.activeTheme = theme;
+  };
 
-    setLabel();
+  const syncHeader = () => {
+    document.querySelectorAll<HTMLButtonElement>("[data-theme-toggle]").forEach(setThemeLabel);
+    setMenu(false);
+  };
 
-    toggle.addEventListener("click", () => {
-      const next = root.dataset.theme === "dark" ? "light" : "dark";
-      root.dataset.theme = next;
-      localStorage.setItem("agentkit-theme", next);
-      setLabel();
+  const appWindow = window as typeof window & { __agentkitHeaderBound?: boolean };
+
+  if (!appWindow.__agentkitHeaderBound) {
+    appWindow.__agentkitHeaderBound = true;
+
+    document.addEventListener("click", (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const themeToggle = target?.closest<HTMLButtonElement>("[data-theme-toggle]");
+      if (themeToggle) {
+        const root = document.documentElement;
+        const next = root.dataset.theme === "dark" ? "light" : "dark";
+        root.dataset.theme = next;
+        localStorage.setItem("agentkit-theme", next);
+        setThemeLabel(themeToggle);
+        return;
+      }
+
+      const menuToggle = target?.closest<HTMLButtonElement>("[data-menu-toggle]");
+      if (menuToggle) {
+        setMenu(menuToggle.getAttribute("aria-expanded") !== "true");
+        return;
+      }
+
+      if (target?.closest("[data-primary-nav] a")) setMenu(false);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setMenu(false);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 720) setMenu(false);
     });
   }
+
+  syncHeader();
 </script>
