@@ -79,6 +79,7 @@ Feature folders keep agent context narrow:
 - `src/components/project/`: design/project architecture sections.
 - `src/components/shared/`: reusable `PageHero`, `SectionIntro`, and `InfoCard` primitives.
 - `src/components/Header.astro`, `Footer.astro`, `JsonLd.astro`, `PlatformIcon.astro`, `SiteEnhancements.astro`, `ContextCode.astro`: site-wide primitives.
+- `src/components/ScrollProgress.astro`: non-essential page-scroll indicator.
 
 Page files should compose components. Put feature markup in its feature folder instead of growing route files or global CSS.
 
@@ -145,7 +146,7 @@ Do not add private career records, fake graph metrics, blockchain/cybersecurity 
 
 Metadata stays centralized:
 
-- `src/layouts/BaseLayout.astro` renders canonical, title, description, OG, Twitter, favicon, theme, and JSON-LD output.
+- `src/layouts/BaseLayout.astro` renders canonical, title, description, OG, Twitter, favicon, theme, JSON-LD output, and scroll progress.
 - `src/data/metadata.ts` creates canonical URLs and schema objects.
 - `src/components/JsonLd.astro` renders schema scripts.
 

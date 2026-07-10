@@ -1,11 +1,12 @@
-.provider-catalog { display: grid; gap: clamp(4rem,8vw,7rem); }
-.provider-lead, .provider-marketplace { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: clamp(2rem,5vw,5rem); align-items: center; border: 1px solid var(--line); border-radius: 1.2rem; background: var(--soft); padding: clamp(1.5rem,4vw,3.2rem); }
+.provider-catalog { display: grid; gap: clamp(4.5rem,9vw,8rem); }
+.provider-lead, .provider-marketplace { display: grid; grid-template-columns: minmax(0,.8fr) minmax(0,1.2fr); gap: clamp(2rem,5vw,5rem); align-items: center; border: 1px solid color-mix(in srgb, var(--blue) 16%, var(--line)); border-radius: var(--radius-lg); background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 9%, var(--white)), var(--soft)); padding: clamp(1.7rem,4vw,3.5rem); box-shadow: var(--shadow-soft); }
 .provider-lead h2, .provider-marketplace h2 { margin: .6rem 0 1rem; }
 .provider-lead p, .provider-marketplace p { color: var(--muted); }
-.provider-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
-.provider-card { display: grid; gap: 1.1rem; border: 1px solid var(--line); border-radius: 1.1rem; background: var(--white); padding: 1.3rem; }
+.provider-grid { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1.15rem; }
+.provider-card { display: grid; gap: 1.1rem; border: 1px solid var(--line); border-radius: var(--radius-lg); background: linear-gradient(145deg, color-mix(in srgb, var(--white) 94%, var(--soft)), var(--white)); padding: 1.45rem; box-shadow: var(--shadow-soft); transition: transform .22s cubic-bezier(.2,.8,.2,1), border-color .22s ease, box-shadow .22s ease; }
+.provider-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--blue) 38%, var(--line)); box-shadow: var(--shadow); }
 .provider-card header { display: flex; gap: .8rem; align-items: center; }
-.provider-card header > span { display: grid; width: 2.7rem; height: 2.7rem; flex: 0 0 auto; place-items: center; border-radius: .75rem; background: var(--soft); color: var(--blue); }
+.provider-card header > span { display: grid; width: 3rem; height: 3rem; flex: 0 0 auto; place-items: center; border: 1px solid color-mix(in srgb, var(--blue) 14%, var(--line)); border-radius: .92rem; background: linear-gradient(135deg, color-mix(in srgb, var(--blue) 11%, var(--white)), var(--soft)); color: var(--blue); }
 .provider-card header .platform-icon { width: 1.3rem; height: 1.3rem; }
 .provider-card header small, .provider-card > div > small, .provider-card footer small { display: block; color: var(--muted); font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .provider-card h2 { font-size: 1.25rem; }
