@@ -4,9 +4,9 @@ import PageHero from "@components/shared/PageHero.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
 
-const meta = { title: "Career Workflows", description: "Find AgentKit SEO skills and readable guides for career context, profiles, CVs, repositories, portfolios, messages, interviews, and related work.", path: "/profile-optimization/", type: "website" as const };
+const meta = { title: "Career Workflows", description: "Find VitaeContext skills and readable guides for career context, profiles, CVs, repositories, portfolios, messages, interviews, and related work.", path: "/profile-optimization/", type: "website" as const };
 ---
 <BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Career workflows", path: meta.path }])]}>
-  <PageHero eyebrow="Career workflows" title="Start from the task you need to do." text="AgentKit SEO covers more than profile optimization. Use reusable context for documents, profiles, portfolios, messages, interviews, applications, and other professional work." compact />
+  <PageHero eyebrow="Career workflows" title="Start from the task you need to do." text="VitaeContext covers more than profile optimization. Use reusable context for documents, profiles, portfolios, messages, interviews, applications, and other professional work." compact />
   <section class="page-section"><div class="card-grid card-grid--three"><InfoCard title="Use an agent skill" text="Choose an installable module for one focused task." href="/skills/" label="Browse skills" /><InfoCard title="Read the method" text="Open a human-readable guide without installing anything." href="/playbooks/" label="Browse guides" /><InfoCard title="Understand the workflow" text="See how context and task-specific methods work together." href="/docs/usage/" label="How it works" /></div></section>
 </BaseLayout>

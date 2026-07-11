@@ -1,12 +1,12 @@
 ---
-title: "Agent context optimization"
+title: "Context Builder"
 platform: "general"
-objective: "Navigation index for the agent-context-optimization folder, including the specification, workflow, maintenance guide, template, and example file."
+objective: "Navigation index for the context-builder folder, including the specification, workflow, maintenance guide, template, and example file."
 status: "draft"
 last_updated: "2026-06-07"
 tags: ["context-file", "agent-context", "personal-branding", "AI-career-assistant", "LLM-context-file", "career-context-for-developers", "agent-memory", "goals-and-targeting", "index", "navigation"]
 agent_priority: "medium"
-id: "agent-context-optimization"
+id: "context-builder"
 ---
 
 > This folder defines the standard for building and maintaining a personal agent context file: the private source of truth that keeps career-focused AI work grounded in verified facts.
@@ -109,7 +109,7 @@ The safest way to use a context file is to pass the path explicitly in the promp
 
 **Rule:** Prefer an explicit path when invoking the skill, for example `Use the context file at ~/career/name-surname-seo-context.md`.
 
-**Recommendation:** If the user wants a portable default location, suggest `~/.agentkit-seo/<name-surname>-seo-context.md`. The generic fallback `~/.agentkit-seo/context.md` is acceptable only when the user prefers a neutral filename. Agents may check a default path only after the user asks to use it or confirms that the path is correct.
+**Recommendation:** If the user wants a portable default location, suggest `~/.vitaecontext/<name-surname>-seo-context.md`. The generic fallback `~/.vitaecontext/context.md` is acceptable only when the user prefers a neutral filename. Agents may check a default path only after the user asks to use it or confirms that the path is correct.
 
 **Rule:** Do not search the user's entire filesystem for a context file. If no explicit path or confirmed default exists, ask the user for the file path.
 
@@ -284,7 +284,7 @@ metadata:
 
 The agent context file is a single Markdown document containing a person's full professional record. It is the source of truth from which any career output can be generated: CVs, cover letters, LinkedIn sections, portfolio copy, and interview preparation material. Two readers use it simultaneously - a human who maintains it and an agent that extracts facts from it. Every rule in this spec serves both readers. Following this spec produces a file that any agent can load, navigate by section tag, and use immediately without additional instructions.
 
-The file can live wherever the user wants. Prefer an explicit user-chosen path. A useful portable convention is `~/.agentkit-seo/<name-surname>-seo-context.md`; a local workspace draft is also valid while the file is being created. Agents must confirm the destination before creating or overwriting the file. Because valid context files can become large, agents should prefer file writes or targeted diffs over full in-chat drafts; if file writing is unavailable, return a compact outline first and split the full Markdown draft by section only when requested.
+The file can live wherever the user wants. Prefer an explicit user-chosen path. A useful portable convention is `~/.vitaecontext/<name-surname>-seo-context.md`; a local workspace draft is also valid while the file is being created. Agents must confirm the destination before creating or overwriting the file. Because valid context files can become large, agents should prefer file writes or targeted diffs over full in-chat drafts; if file writing is unavailable, return a compact outline first and split the full Markdown draft by section only when requested.
 
 ## 2. File structure
 

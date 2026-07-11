@@ -5,9 +5,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
 import "@styles/pages/docs.css";
 
-const meta = { title: "How AgentKit SEO Works", description: "Create reusable career context, choose one focused skill, and review evidence boundaries before using the result.", path: "/docs/usage/", type: "article" as const };
+const meta = { title: "How VitaeContext Works", description: "Create reusable career context, choose one focused skill, and review evidence boundaries before using the result.", path: "/docs/usage/", type: "article" as const };
 ---
 <BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "How it works", path: meta.path }])]}>
-  <PageHero eyebrow="Documentation · workflow" title="How AgentKit SEO works" text="Keep career context in files you can inspect. Use one focused method for the task in front of you." actions={[{ label: "See context example", href: "/docs/context-file-example/", tone: "primary" }, { label: "Install", href: "/docs/installation/" }]} compact />
+  <PageHero eyebrow="Documentation · workflow" title="How VitaeContext works" text="Keep career context in files you can inspect. Use one focused method for the task in front of you." actions={[{ label: "See context example", href: "/docs/context-file-example/", tone: "primary" }, { label: "Install", href: "/docs/installation/" }]} compact />
   <UsageGuide />
 </BaseLayout>

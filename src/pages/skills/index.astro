@@ -7,13 +7,13 @@ import "@styles/pages/catalog.css";
 
 const meta = {
   title: "Agent Skills",
-  description: "Eight installable AgentKit SEO skills for routing, career context, VitaeGraph, CV and ATS, LinkedIn, GitHub, portfolios, and X.",
+  description: "Eight installable VitaeContext skills for routing, career context, VitaeGraph, CV and ATS, LinkedIn, GitHub, portfolios, and X.",
   path: "/skills/",
   type: "website" as const,
 };
 ---
 
 <BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "CollectionPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Skills", path: "/skills/" }])]}>
-  <PageHero eyebrow="Installable skills" title="Focused instructions for focused work." text="Career context supplies the facts. Each skill supplies the method, constraints, and checks for one kind of task." actions={[{ label: "Install AgentKit SEO", href: "/docs/installation/", tone: "primary" }, { label: "Read without installing", href: "/playbooks/" }]} />
+  <PageHero eyebrow="Installable skills" title="Focused instructions for focused work." text="Career context supplies the facts. Each skill supplies the method, constraints, and checks for one kind of task." actions={[{ label: "Install VitaeContext", href: "/docs/installation/", tone: "primary" }, { label: "Read without installing", href: "/playbooks/" }]} />
   <SkillCatalog />
 </BaseLayout>

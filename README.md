@@ -1,6 +1,8 @@
-# AgentKit SEO Website
+# VitaeContext Website
 
-Static Astro website for [AgentKit SEO](https://agentkit-seo.github.io), the portable AI agent skill system for grounded career work. The site serves as a human-readable knowledge hub for private career context, VitaeGraph records, LinkedIn optimization, GitHub SEO, CV/ATS resumes, portfolio SEO/AEO, and X/Twitter strategy, prepared for GitHub Pages publishing.
+Static Astro website for [VitaeContext](https://vitaecontext.github.io). VitaeContext gives AI agents a private, reusable source of truth about a person's career, then provides focused skills for turning that context into grounded professional work.
+
+VitaeContext was formerly AgentKit SEO. The old npm name remains available only as a compatibility entry point.
 
 ## Commands
 
@@ -23,7 +25,7 @@ The site is statically rendered and uses Astro pages for all important routes. M
 - `/playbooks/github/`
 - `/playbooks/web-portfolio/`
 - `/playbooks/x-twitter/`
-- `/playbooks/agent-context-optimization/`
+- `/playbooks/context-builder/`
 - `/playbooks/vitaegraph/`
 - `/skills/`
 - `/skills/vitaegraph/`
@@ -32,7 +34,7 @@ The site is statically rendered and uses Astro pages for all important routes. M
 - `/skills/github/`
 - `/skills/web-portfolio/`
 - `/skills/x-twitter/`
-- `/skills/agent-context-optimization/`
+- `/skills/context-builder/`
 - `/providers/`
 - `/docs/`
 - `/docs/installation/`

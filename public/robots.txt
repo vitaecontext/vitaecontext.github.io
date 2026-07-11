@@ -4,4 +4,4 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
-Sitemap: https://agentkit-seo.github.io/sitemap.xml
+Sitemap: https://vitaecontext.github.io/sitemap.xml

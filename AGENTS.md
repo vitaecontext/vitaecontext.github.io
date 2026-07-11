@@ -1,19 +1,23 @@
-# Agent Context: AgentKit SEO Website
+# Agent Context: VitaeContext Website
 
-This repository contains the public Astro website for AgentKit SEO, deployed at `https://agentkit-seo.github.io`.
+This repository contains the public Astro website for VitaeContext, deployed at `https://vitaecontext.github.io`.
 
-Use this file before editing. Keep the site plain, factual, modular, crawlable, and aligned with the product repository at `../agentkit-seo/`.
+Use this file before editing. Keep the site plain, factual, modular, crawlable, and aligned with the product repository at `../vitaecontext/`.
 
 ## Product idea
 
-AgentKit SEO is an open-source package of agent skills for career work. It helps a person keep career facts, stated goals, evidence, constraints, and claims to avoid in reusable Markdown. Focused skills then use that context for CVs, profiles, repositories, portfolios, messages, interviews, applications, and other professional tasks.
+VitaeContext gives AI agents a private, reusable source of truth about a person's career, then provides focused skills for turning that context into grounded professional work.
 
 VitaeGraph is the optional deeper layer. It stores detailed career material as local Markdown records and relationships, with deterministic rebuildable indexes.
+
+Canonical tagline: **Keep your career context. Reuse it across AI.** Use **Career Context** for the user-owned artifact and **VitaeContext** for the product. AgentKit SEO may appear only in concise migration history or compatibility-package documentation.
+
+Use the approved palette: `#123C2D`, `#1F684B`, `#91B9A3`, `#E7F0EB`, `#F7F5EF`, `#0D2019`, `#18201C`, `#5C6861`, and `#CED8D2`. Reserve `#287A55`, `#4C7180`, `#B7792D`, `#A14E46`, and `#716B86` for semantic evidence states and diagrams. Keep platform-owned badge colors when they communicate an external service rather than VitaeContext branding.
 
 The site must not imply:
 
 - guaranteed rankings, visibility, citations, recruiter attention, ATS scores, or career outcomes;
-- that AgentKit SEO independently verifies every user claim;
+- that VitaeContext independently verifies every user claim;
 - that every installed skill works in every AI provider;
 - that a local context file is private after a user gives it to an external provider.
 
@@ -23,11 +27,11 @@ Use plain language. Explain what files, skills, providers, and commands do. Avoi
 
 Read the product repository before changing product claims:
 
-- `../agentkit-seo/AGENTS.md`
-- `../agentkit-seo/README.md`
-- `../agentkit-seo/DESIGN.md`
-- `../agentkit-seo/.assets/docs/architecture-map.md`
-- relevant files under `../agentkit-seo/.skills/`, `../agentkit-seo/vitaegraph/`, and `../agentkit-seo/hub/`
+- `../vitaecontext/AGENTS.md`
+- `../vitaecontext/README.md`
+- `../vitaecontext/DESIGN.md`
+- `../vitaecontext/.assets/docs/architecture-map.md`
+- relevant files under `../vitaecontext/.skills/`, `../vitaecontext/vitaegraph/`, and `../vitaecontext/hub/`
 
 The product repository is authoritative for runtime behavior, commands, supported providers, skill names, VitaeGraph semantics, and install paths. Do not edit it from this repository. Website content is a human-readable mirror and must not invent behavior.
 
@@ -37,7 +41,7 @@ The product repository is authoritative for runtime behavior, commands, supporte
 - Output: static files for GitHub Pages.
 - React/Three: only for the interactive VitaeGraph 3D sample.
 - Content: Astro collection under `src/content/playbooks/`.
-- Site URL: `https://agentkit-seo.github.io`.
+- Site URL: `https://vitaecontext.github.io`.
 - Build output: `dist/`; never edit it directly.
 
 ```bash
@@ -130,7 +134,7 @@ Do not expose keyword/search-intent lists as visible page copy.
 
 ## VitaeGraph rules
 
-`/vitaegraph/` is a first-class product page powered by AgentKit SEO. Preserve the interactive 3D sample:
+`/vitaegraph/` is a first-class sub-brand page within VitaeContext. Preserve the interactive 3D sample:
 
 - `src/components/vitaegraph/VitaeGraph3D.jsx`
 - `src/components/vitaegraph/graphConfig.js`
@@ -138,7 +142,7 @@ Do not expose keyword/search-intent lists as visible page copy.
 - `src/components/vitaegraph/VitaeGraphStaticPreview.astro`
 - `public/vitaegraph/demo-graph.json`
 
-The graph is a generic explanatory sample, not a user's real graph or a product screenshot. Keep the `VitaeGraph` / `powered by AgentKit SEO` lockup, green visual distinction, readable record model, explicit `contains` and `related to` relationships, and mobile graph fallback.
+The graph is a generic explanatory sample, not a user's real graph or a product screenshot. Keep the `VitaeGraph` / `powered by VitaeContext` lockup, green visual distinction, readable record model, explicit `contains` and `related to` relationships, and mobile graph fallback.
 
 Do not add private career records, fake graph metrics, blockchain/cybersecurity visual language, or claims that generated indexes authenticate real-world facts.
 

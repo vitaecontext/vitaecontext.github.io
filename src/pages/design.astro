@@ -5,9 +5,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
 import "@styles/pages/project.css";
 
-const meta = { title: "Design", description: "How AgentKit SEO separates career context, task methods, versioned knowledge, evidence labels, and provider adapters.", path: "/design/", type: "website" as const, image: "/og/design.png" };
+const meta = { title: "Design", description: "How VitaeContext separates career context, task methods, versioned knowledge, evidence labels, and provider adapters.", path: "/design/", type: "website" as const, image: "/og/design.png" };
 ---
 <BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Design", path: meta.path }])]}>
-  <PageHero eyebrow="Project design" title="How the pieces fit together" text="AgentKit SEO keeps career facts, task methods, maintained knowledge, and provider packaging in separate layers." actions={[{ label: "Read the source design", href: "https://github.com/agentkit-seo/agentkit-seo/blob/main/DESIGN.md", tone: "primary" }, { label: "Browse skills", href: "/skills/" }]} compact />
+  <PageHero eyebrow="Project design" title="How the pieces fit together" text="VitaeContext keeps career facts, task methods, maintained knowledge, and provider packaging in separate layers." actions={[{ label: "Read the source design", href: "https://github.com/vitaecontext/vitaecontext/blob/main/DESIGN.md", tone: "primary" }, { label: "Browse skills", href: "/skills/" }]} compact />
   <DesignOverview />
 </BaseLayout>

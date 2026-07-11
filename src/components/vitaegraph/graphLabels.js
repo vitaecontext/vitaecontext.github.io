@@ -11,7 +11,7 @@ function roundedRect(context, x, y, width, height, radius) {
   context.closePath();
 }
 
-export function createNodeLabelSprite(text, color = "#7ee787", emphasized = false) {
+export function createNodeLabelSprite(text, color = "#91b9a3", emphasized = false) {
   const dpr = Math.min(4, window.devicePixelRatio || 2);
   const fontSize = emphasized ? 30 : 23;
   const paddingX = emphasized ? 24 : 18;
@@ -42,7 +42,7 @@ export function createNodeLabelSprite(text, color = "#7ee787", emphasized = fals
 
   context.shadowColor = color;
   context.shadowBlur = emphasized ? 13 : 7;
-  context.fillStyle = emphasized ? "#04130a" : "#f8fafc";
+  context.fillStyle = emphasized ? "#0d2019" : "#f7f5ef";
   context.fillText(text, logicalWidth / 2, logicalHeight / 2 + 1);
 
   const texture = new THREE.CanvasTexture(canvas);

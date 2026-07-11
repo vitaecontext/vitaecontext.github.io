@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { remarkPlaybookLinks } from "./src/utils/remarkPlaybookLinks.mjs";
 
 export default defineConfig({
-  site: "https://agentkit-seo.github.io",
+  site: "https://vitaecontext.github.io",
   root: fileURLToPath(new URL(".", import.meta.url)),
   outDir: fileURLToPath(new URL("./dist", import.meta.url)),
   output: "static",

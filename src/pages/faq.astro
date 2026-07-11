@@ -5,9 +5,9 @@ import { site } from "@data/site-config";
 import "@styles/pages/faq.css";
 
 const meta = {
-  title: "AgentKit SEO FAQ",
+  title: "VitaeContext FAQ",
   description:
-    "Answers about AgentKit SEO: what it is, supported providers, install, VitaeGraph, the agent-context-file, and what it deliberately does not promise.",
+    "Answers about VitaeContext: what it is, supported providers, install, VitaeGraph, the agent-context-file, and what it deliberately does not promise.",
   path: "/faq/",
   type: "website" as const,
   image: "/og/faq.png",
@@ -17,14 +17,14 @@ const meta = {
 // so the two never drift. Answers stay honest and avoid ranking promises.
 const faqs = [
   {
-    question: "What is AgentKit SEO?",
+    question: "What is VitaeContext?",
     answer:
-      "AgentKit SEO is an open-source package of agent skills for career work. It helps a person maintain reusable career context in Markdown, then use focused methods for CVs, profiles, repositories, portfolios, messages, interviews, applications, and other professional tasks.",
+      "VitaeContext is an open-source package of agent skills for career work. It helps a person maintain reusable career context in Markdown, then use focused methods for CVs, profiles, repositories, portfolios, messages, interviews, applications, and other professional tasks.",
   },
   {
     question: "Does it guarantee better rankings, recruiter attention, or ATS scores?",
     answer:
-      "No. AgentKit SEO does not guarantee rankings, recruiter attention, ATS scores, rich results, snippets, indexing speed, AI citations, or platform distribution. Its skills tell agents to preserve supported claims, show uncertainty, and order useful fixes. Results still require review and depend on the supplied material and external platforms.",
+      "No. VitaeContext does not guarantee rankings, recruiter attention, ATS scores, rich results, snippets, indexing speed, AI citations, or platform distribution. Its skills tell agents to preserve supported claims, show uncertainty, and order useful fixes. Results still require review and depend on the supplied material and external platforms.",
   },
   {
     question: "Which agents and providers does it support?",
@@ -34,7 +34,7 @@ const faqs = [
   {
     question: "How do I install it?",
     answer:
-      "Run npx agentkit-seo install --provider <provider> with one of the supported provider values. In Claude Code you can instead add the plugin marketplace with /plugin marketplace add agentkit-seo/agentkit-seo and then /plugin install agentkit-seo@agentkit-seo. See the installation guide and CLI reference for every command and flag.",
+      "Run npx vitaecontext install --provider <provider> with one of the supported provider values. In Claude Code you can instead add the plugin marketplace with /plugin marketplace add vitaecontext/vitaecontext and then /plugin install vitaecontext@vitaecontext. See the installation guide and CLI reference for every command and flag.",
   },
   {
     question: "What is the agent-context-file?",
@@ -62,14 +62,14 @@ const faqs = [
       "A guide explains the method for a human reader and needs no installation. A skill packages runtime instructions, references, and maintained knowledge so a supported agent can apply that method. The two surfaces cover the same module but serve different readers.",
   },
   {
-    question: "Is AgentKit SEO affiliated with LinkedIn, GitHub, X, or the AI providers?",
+    question: "Is VitaeContext affiliated with LinkedIn, GitHub, X, or the AI providers?",
     answer:
-      "No. Platform names, trademarks, and logos belong to their respective owners. AgentKit SEO is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
+      "No. Platform names, trademarks, and logos belong to their respective owners. VitaeContext is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
   },
   {
     question: "Does it collect my data?",
     answer:
-      "AgentKit SEO is a set of Markdown skill files and a local CLI with no backend, so the project itself collects nothing. Your context file is a private local file you control. How any individual agent or provider handles the content you give it is governed by that provider, not by AgentKit SEO.",
+      "VitaeContext is a set of Markdown skill files and a local CLI with no backend, so the project itself collects nothing. Your context file is a private local file you control. How any individual agent or provider handles the content you give it is governed by that provider, not by VitaeContext.",
   },
 ];
 ---
@@ -79,7 +79,7 @@ const faqs = [
     <div class="inner">
       <p class="eyebrow">Questions and answers</p>
       <h1>Frequently asked questions</h1>
-      <p>What AgentKit SEO is, how to install it, and what it deliberately does not promise.</p>
+      <p>What VitaeContext is, how to install it, and what it deliberately does not promise.</p>
     </div>
   </section>
 

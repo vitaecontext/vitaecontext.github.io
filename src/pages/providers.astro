@@ -7,13 +7,13 @@ import "@styles/pages/providers.css";
 
 const meta = {
   title: "Supported Providers",
-  description: "Install AgentKit SEO into Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, or a portable shared skill directory.",
+  description: "Install VitaeContext into Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, or a portable shared skill directory.",
   path: "/providers/",
   type: "website" as const,
 };
 ---
 
 <BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "CollectionPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "Providers", path: "/providers/" }])]}>
-  <PageHero eyebrow="Documentation · providers" title="Install once in the agent you use." text="AgentKit SEO generates the folder and command layout expected by each supported environment." actions={[{ label: "Installation guide", href: "/docs/installation/", tone: "primary" }, { label: "Usage guide", href: "/docs/usage/" }]} compact />
+  <PageHero eyebrow="Documentation · providers" title="Install once in the agent you use." text="VitaeContext generates the folder and command layout expected by each supported environment." actions={[{ label: "Installation guide", href: "/docs/installation/", tone: "primary" }, { label: "Usage guide", href: "/docs/usage/" }]} compact />
   <ProviderCatalog />
 </BaseLayout>

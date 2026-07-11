@@ -6,12 +6,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Define source and destination paths
-const SOURCE_DIR = path.resolve(__dirname, '../../personal-branding-seo');
+const SOURCE_DIR = path.resolve(__dirname, '../../vitaecontext/hub');
 const DEST_DIR = path.resolve(__dirname, '../src/content/playbooks');
 
 // The specific playbooks to copy
 const PLAYBOOKS = [
-  'agent-context-optimization',
+  'context-builder',
   'cv-ats',
   'github',
   'linkedin',

@@ -2,7 +2,7 @@
 import PlatformIcon from "@components/PlatformIcon.astro";
 
 const skills = [
-  { name: "Career context", icon: "context", output: "Reusable source", href: "/skills/agent-context-optimization/" },
+  { name: "Career context", icon: "context", output: "Reusable source", href: "/skills/context-builder/" },
   { name: "CV / ATS", icon: "cv", output: "Tailoring and audits", href: "/skills/cv-ats/" },
   { name: "LinkedIn", icon: "linkedin", output: "Profile sections", href: "/skills/linkedin/" },
   { name: "GitHub", icon: "github", output: "Profile and repo fixes", href: "/skills/github/" },
@@ -31,7 +31,7 @@ const skills = [
 
       <div class="lk-skill-workbench__skill">
         <span class="lk-skill-workbench__label">Focused method</span>
-        <div class="lk-skill-chip"><span>$</span><strong>agentkit-seo-[skill]</strong><small>platform rules + workflow</small></div>
+        <div class="lk-skill-chip"><span>$</span><strong>vitaecontext-[skill]</strong><small>platform rules + workflow</small></div>
       </div>
 
       <div class="lk-skill-workbench__equals" aria-hidden="true"><span>=</span></div>
@@ -42,7 +42,7 @@ const skills = [
       </div>
     </div>
 
-    <nav class="lk-surface-rail" aria-label="AgentKit SEO skills">
+    <nav class="lk-surface-rail" aria-label="VitaeContext skills">
       {skills.map((skill) => (
         <a href={skill.href}>
           <span class="lk-surface-rail__icon"><PlatformIcon kind={skill.icon} /></span>

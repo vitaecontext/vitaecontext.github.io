@@ -5,9 +5,9 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
 import "@styles/pages/docs.css";
 
-const meta = { title: "Installation", description: "Install AgentKit SEO from npm, the Claude Code marketplace, or a local checkout into a supported agent environment.", path: "/docs/installation/", type: "article" as const };
+const meta = { title: "Installation", description: "Install VitaeContext from npm, the Claude Code marketplace, or a local checkout into a supported agent environment.", path: "/docs/installation/", type: "article" as const };
 ---
 <BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "Installation", path: meta.path }])]}>
-  <PageHero eyebrow="Documentation · installation" title="Install AgentKit SEO" text="Choose the provider where your agent runs. The package installs readable skill folders and provider-specific wrappers." actions={[{ label: "Supported providers", href: "/providers/", tone: "primary" }, { label: "CLI reference", href: "/docs/cli/" }]} compact />
+  <PageHero eyebrow="Documentation · installation" title="Install VitaeContext" text="Choose the provider where your agent runs. The package installs readable skill folders and provider-specific wrappers." actions={[{ label: "Supported providers", href: "/providers/", tone: "primary" }, { label: "CLI reference", href: "/docs/cli/" }]} compact />
   <InstallationGuide />
 </BaseLayout>

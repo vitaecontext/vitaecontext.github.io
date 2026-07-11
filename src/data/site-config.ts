@@ -1,14 +1,14 @@
 export const site = {
-  name: "AgentKit SEO",
-  url: "https://agentkit-seo.github.io",
-  repoUrl: "https://github.com/agentkit-seo/agentkit-seo",
-  packageVersion: "1.9.1",
-  npmUrl: "https://www.npmjs.com/package/agentkit-seo",
-  defaultImage: "/og/agentkit-seo.png",
+  name: "VitaeContext",
+  url: "https://vitaecontext.github.io",
+  repoUrl: "https://github.com/vitaecontext/vitaecontext",
+  packageVersion: "2.0.0",
+  npmUrl: "https://www.npmjs.com/package/vitaecontext",
+  defaultImage: "/og/vitaecontext.png",
   description:
-    "Open-source agent skills for reusable career context, local VitaeGraph records, and evidence-aware professional work.",
+    "VitaeContext gives AI agents a private, reusable source of truth about a person's career, then provides focused skills for turning that context into grounded professional work.",
   disclaimer:
-    "Platform names, trademarks, and logos belong to their respective owners. AgentKit SEO is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
+    "Platform names, trademarks, and logos belong to their respective owners. VitaeContext is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
   authors: [
     {
       name: "Renato Mignone",

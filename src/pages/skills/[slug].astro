@@ -11,7 +11,7 @@ export function getStaticPaths() {
 }
 
 const { skill } = Astro.props;
-const invocationName = skill.invocationName ?? `agentkit-seo-${skill.slug}`;
+const invocationName = skill.invocationName ?? `vitaecontext-${skill.slug}`;
 const meta = {
   title: `${skill.metaTitle ?? skill.name} Agent Skill`,
   description: skill.metaDescription ?? skill.summary,

@@ -12,7 +12,7 @@ const steps = [
 
 <div class="doc-body page-wrap">
   <section class="doc-lead">
-    <SectionIntro eyebrow="Core workflow" title="Context first. Task second." text="AgentKit SEO gives an agent a stable starting point instead of rebuilding career history inside every conversation." />
+    <SectionIntro eyebrow="Core workflow" title="Context first. Task second." text="VitaeContext gives an agent a stable starting point instead of rebuilding career history inside every conversation." />
     <ol class="numbered-list">{steps.map((step, index) => <li><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol>
   </section>
 
@@ -23,8 +23,8 @@ const steps = [
 
   <section class="doc-example">
     <div><p class="eyebrow">Normal prompt</p><h2>Give the context and name the task.</h2><p>Exact invocation differs by provider. Explicitly name the installed skill when possible.</p></div>
-    <pre class="code-block"><code>Use agentkit-seo-github.
-Read my career context file at ~/.agentkit-seo/name-surname-career-context.md.
+    <pre class="code-block"><code>Use vitaecontext-github.
+Read my career context file at ~/.vitaecontext/name-surname-career-context.md.
 Audit my GitHub profile and list the changes I should make first.
 Do not add claims that are not supported by the file.</code></pre>
   </section>

@@ -3,11 +3,11 @@ export const navItems = [
   { label: "Guides", href: "/playbooks/", placement: "primary" },
   { label: "Docs", href: "/docs/", placement: "primary" },
   { label: "VitaeGraph", href: "/vitaegraph/", placement: "product" },
-  { label: "GitHub", href: "https://github.com/agentkit-seo/agentkit-seo", placement: "external" },
+  { label: "GitHub", href: "https://github.com/vitaecontext/vitaecontext", placement: "external" },
 ] as const;
 
 export const footerGroups = [
-  { label: "Use AgentKit SEO", links: [
+  { label: "Use VitaeContext", links: [
     { label: "Skills", href: "/skills/" },
     { label: "Guides", href: "/playbooks/" },
     { label: "Documentation", href: "/docs/" },
@@ -20,7 +20,7 @@ export const footerGroups = [
     { label: "FAQ", href: "/faq/" },
   ] },
   { label: "Project", links: [
-    { label: "GitHub", href: "https://github.com/agentkit-seo/agentkit-seo" },
+    { label: "GitHub", href: "https://github.com/vitaecontext/vitaecontext" },
     { label: "Changelog", href: "/changelog/" },
     { label: "Contact", href: "/contact/" },
   ] },
@@ -46,6 +46,6 @@ export const publicRoutes = [
 
 // Claude Code plugin marketplace distribution (new in 1.8.0).
 export const marketplace = {
-  addCommand: "/plugin marketplace add agentkit-seo/agentkit-seo",
-  installCommand: "/plugin install agentkit-seo@agentkit-seo",
+  addCommand: "/plugin marketplace add vitaecontext/vitaecontext",
+  installCommand: "/plugin install vitaecontext@vitaecontext",
 };

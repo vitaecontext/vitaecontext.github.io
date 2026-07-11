@@ -24,7 +24,7 @@ Weak project page:
 "Project One - React app"
 
 Stronger project page:
-"AgentKit SEO - installable AI skill package for career profile optimization"
+"VitaeContext - installable AI skill package for career profile optimization"
 ```
 
 ## 2. Use this module when
@@ -136,7 +136,7 @@ Good example:
 
 ```text
 <!-- CORRECT: clear role, scope, and outcome -->
-AgentKit SEO is an open-source documentation system for personal branding and
+VitaeContext is an open-source documentation system for personal branding and
 ATS optimization. I designed the repository structure, writing rules, and
 module routing so that both humans and coding agents can use the same source of
 truth. The result is a markdown-first knowledge base that supports targeted CV,
@@ -299,14 +299,14 @@ Good example:
 
 ```html
 <!-- CORRECT: crawlable URL with visible anchor text -->
-<a href="/projects/agentkit-seo/">AgentKit SEO case study</a>
+<a href="/projects/vitaecontext/">VitaeContext case study</a>
 ```
 
 Bad example:
 
 ```html
 <!-- WRONG: route depends on JavaScript event handling -->
-<div onclick="goToProject('agentkit-seo')">AgentKit SEO case study</div>
+<div onclick="goToProject('vitaecontext')">VitaeContext case study</div>
 ```
 
 ## 5. Anti-Patterns
@@ -438,7 +438,7 @@ Good example:
 
 - [About](https://example.com/about/): Professional profile, current focus, and links to external identities.
 - [Projects](https://example.com/projects/): Hub for major engineering and documentation projects.
-- [AgentKit SEO case study](https://example.com/projects/agentkit-seo/): Detailed write-up of repository architecture and authoring system.
+- [VitaeContext case study](https://example.com/projects/vitaecontext/): Detailed write-up of repository architecture and authoring system.
 
 ## Optional
 
@@ -528,10 +528,10 @@ Good example:
 
 ```text
 <!-- CORRECT: descriptive title and aligned page summary -->
-<title>AgentKit SEO Case Study | Example Developer</title>
+<title>VitaeContext Case Study | Example Developer</title>
 <meta name="description" content="Case study of an open-source documentation system for personal branding, ATS optimization, and agent-readable career assets." />
-<meta property="og:title" content="AgentKit SEO Case Study | Example Developer" />
-<meta property="og:image" content="https://example.com/og/projects/agentkit-seo.png" />
+<meta property="og:title" content="VitaeContext Case Study | Example Developer" />
+<meta property="og:image" content="https://example.com/og/projects/vitaecontext.png" />
 <meta name="twitter:card" content="summary_large_image" />
 ```
 
@@ -599,8 +599,8 @@ Good example:
 ```html
 <!-- CORRECT: stable image dimensions and meaningful alt text -->
 <img
-  src="/images/agentkit-seo-homepage.webp"
-  alt="Screenshot of the AgentKit SEO documentation homepage"
+  src="/images/vitaecontext-homepage.webp"
+  alt="Screenshot of the VitaeContext documentation homepage"
   width="1280"
   height="720"
   loading="lazy"
@@ -655,7 +655,7 @@ Search engines infer a large part of a portfolio's meaning from structure. Clear
 
 **Rule:** Keep important pages within a shallow, obvious hierarchy. The homepage should link directly to the major hubs. Hub pages should link directly to their detail pages. Do not hide critical pages behind multiple overlays, filters, or client-side interactions.
 
-**Rule:** Use readable, stable, lowercase, hyphenated URLs. Portfolio URLs should communicate content at a glance. Prefer `/projects/agentkit-seo/` over `/work?id=17` or `/ProjectPhoenixFinalV2/`. Stable URLs also make future redirects and external linking easier.
+**Rule:** Use readable, stable, lowercase, hyphenated URLs. Portfolio URLs should communicate content at a glance. Prefer `/projects/vitaecontext/` over `/work?id=17` or `/ProjectPhoenixFinalV2/`. Stable URLs also make future redirects and external linking easier.
 
 **Rule:** Use real internal links. For navigation and content discovery, use `<a href="...">` links that resolve to real URLs. Do not rely on buttons, `onclick` handlers, or fragment-driven routes for primary navigation.
 
@@ -673,7 +673,7 @@ The exact portfolio can vary by profession, but the baseline structure should lo
 /
 /about/
 /projects/
-/projects/agentkit-seo/
+/projects/vitaecontext/
 /projects/personal-site-rebuild/
 /writing/
 /writing/how-i-designed-a-context-file/
@@ -907,11 +907,11 @@ Article-style page example:
   "dateModified": "2026-05-11",
   "author": {
     "@type": "Organization",
-    "name": "AgentKit SEO"
+    "name": "VitaeContext"
   },
   "publisher": {
     "@type": "Organization",
-    "name": "AgentKit SEO"
+    "name": "VitaeContext"
   },
   "keywords": ["portfolio", "seo", "structured-data"]
 }

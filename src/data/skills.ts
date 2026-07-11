@@ -17,14 +17,15 @@ export type Skill = {
 
 export const skills: Skill[] = [
   {
-    slug: "agent-context-optimization",
-    name: "Agent Context Optimization",
+    slug: "context-builder",
+    name: "Context Builder",
+    invocationName: "vitaecontext-build",
     metaTitle: "Build Your AI Career Context File",
     metaDescription:
       "Create a reusable Markdown file for career facts, stated goals, evidence, constraints, and claims to avoid.",
     shortName: "Agent Context",
     icon: "context",
-    href: "/skills/agent-context-optimization/",
+    href: "/skills/context-builder/",
     summary:
       "Build a private Markdown source of truth for verified career facts, links, projects, positioning, and stated goals and targeting.",
     audience: "Agents that need grounded context before editing public profiles.",
@@ -43,6 +44,7 @@ export const skills: Skill[] = [
   {
     slug: "cv-ats",
     name: "CV and ATS Optimization",
+    invocationName: "vitaecontext-cv",
     metaTitle: "Build an ATS-Safe Resume",
     metaDescription:
       "Review CV structure, ATS parsing constraints, job-specific terminology, and evidence-backed bullet writing.",
@@ -67,7 +69,7 @@ export const skills: Skill[] = [
   {
     slug: "vitaegraph",
     name: "VitaeGraph",
-    invocationName: "agentkit-seo-vitaegraph",
+    invocationName: "vitaecontext-vitaegraph",
     metaTitle: "Build a Private Markdown Career Knowledge Graph",
     metaDescription:
       "Use VitaeGraph to structure deep career material into local Markdown records with validation and rebuildable indexes for agent workflows.",
@@ -92,6 +94,7 @@ export const skills: Skill[] = [
   {
     slug: "linkedin",
     name: "LinkedIn Optimization",
+    invocationName: "vitaecontext-linkedin",
     metaTitle: "Optimize Your LinkedIn for Search",
     metaDescription:
       "Review LinkedIn headline, About, Experience, Featured, and Skills sections using supplied career context.",
@@ -116,6 +119,7 @@ export const skills: Skill[] = [
   {
     slug: "github",
     name: "GitHub Optimization",
+    invocationName: "vitaecontext-github",
     metaTitle: "Optimize Your GitHub Profile for SEO",
     metaDescription:
       "Review GitHub profiles, repositories, metadata, READMEs, proof, search structure, and agent instructions.",
@@ -140,6 +144,7 @@ export const skills: Skill[] = [
   {
     slug: "web-portfolio",
     name: "Web Portfolio SEO",
+    invocationName: "vitaecontext-portfolio",
     metaTitle: "Optimize Your Portfolio for Search",
     metaDescription:
       "Audit portfolio crawlability, metadata, structured data, rendering, sitemaps, performance, and AI-readable structure.",
@@ -164,6 +169,7 @@ export const skills: Skill[] = [
   {
     slug: "x-twitter",
     name: "X/Twitter Optimization",
+    invocationName: "vitaecontext-x",
     metaTitle: "Optimize Your X Profile for Search",
     metaDescription:
       "Review X profile structure, pinned posts, content formatting, topic consistency, and documented platform behavior.",
@@ -186,15 +192,15 @@ export const skills: Skill[] = [
     ],
   },
   {
-    slug: "agentkit-seo",
+    slug: "vitaecontext",
     name: "Orchestration and Routing",
-    invocationName: "agentkit-seo",
-    metaTitle: "AgentKit SEO Orchestration and Routing Skill",
+    invocationName: "vitaecontext",
+    metaTitle: "VitaeContext Orchestration and Routing Skill",
     metaDescription:
-      "The root AgentKit SEO skill: a runtime wiki and project self-description that routes a request to a single platform module and loads only the context that task needs.",
+      "The root VitaeContext skill: a runtime wiki and project self-description that routes a request to a single platform module and loads only the context that task needs.",
     shortName: "Orchestration",
     icon: "package",
-    href: "/skills/agentkit-seo/",
+    href: "/skills/vitaecontext/",
     summary:
       "The root runtime wiki and entrypoint that routes a request to one platform module and loads only the references that task needs.",
     audience: "Agents deciding which module to load before starting career work.",

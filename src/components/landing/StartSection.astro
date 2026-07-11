@@ -1,8 +1,8 @@
 ---
 const steps = [
-  { number: "01", title: "Install for your agent", code: "npx agentkit-seo install --provider codex", text: "Choose Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, or a shared bundle.", href: "/docs/installation/", label: "All providers" },
-  { number: "02", title: "Create the context template", code: "npx agentkit-seo template context --output ~/.agentkit-seo/name-surname-career-context.md", text: "Choose a private location, then ask the context skill to organize trusted career material.", href: "/docs/context-file-example/", label: "View example" },
-  { number: "03", title: "Name one skill and task", code: "$agentkit-seo-github\nAudit my profile using my career context file.", text: "Reference the context, invoke the focused skill, and ask for the work directly.", href: "/docs/usage/", label: "Usage guide" },
+  { number: "01", title: "Install for your agent", code: "npx vitaecontext install --provider codex", text: "Choose Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, or a shared bundle.", href: "/docs/installation/", label: "All providers" },
+  { number: "02", title: "Create the context template", code: "npx vitaecontext template context --output ~/.vitaecontext/name-surname-career-context.md", text: "Choose a private location, then ask the context skill to organize trusted career material.", href: "/docs/context-file-example/", label: "View example" },
+  { number: "03", title: "Name one skill and task", code: "$vitaecontext-github\nAudit my profile using my career context file.", text: "Reference the context, invoke the focused skill, and ask for the work directly.", href: "/docs/usage/", label: "Usage guide" },
 ];
 ---
 
@@ -10,7 +10,7 @@ const steps = [
   <div class="lk-wrap">
     <div class="lk-section-head lk-section-head--split lk-start__head">
       <div><p class="lk-kicker"><span></span> Get started</p><h2 id="start-title">Install, create context, choose a task.</h2></div>
-      <p>AgentKit SEO installs as readable skills. Career context remains in files you choose and control until you supply it to an AI provider.</p>
+      <p>VitaeContext installs as readable skills. Career context remains in files you choose and control until you supply it to an AI provider.</p>
     </div>
     <ol class="lk-start__steps">
       {steps.map((step) => (
@@ -26,8 +26,8 @@ const steps = [
     <div class="lk-final-cta">
       <div><small>OPEN SOURCE · MIT LICENSE</small><strong>Give each task a clear starting point.</strong></div>
       <div class="lk-actions">
-        <a class="lk-button lk-button--primary" href="/docs/installation/">Install AgentKit SEO</a>
-        <a class="lk-button lk-button--quiet" href="https://github.com/agentkit-seo/agentkit-seo" target="_blank" rel="noreferrer">View source on GitHub</a>
+        <a class="lk-button lk-button--primary" href="/docs/installation/">Install VitaeContext</a>
+        <a class="lk-button lk-button--quiet" href="https://github.com/vitaecontext/vitaecontext" target="_blank" rel="noreferrer">View source on GitHub</a>
       </div>
     </div>
   </div>

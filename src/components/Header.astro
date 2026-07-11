@@ -12,7 +12,7 @@ const githubItem = navItems.find((item) => item.placement === "external");
 
 <header class="site-header">
   <a class="brand" href="/" aria-label={`${site.name} home`}>
-    <img class="brand-mark" src="/brand/agentkit-seo-mark.svg" alt="" width="36" height="36" loading="eager" decoding="async" />
+    <img class="brand-mark" src="/brand/vitaecontext-logo.png" alt="" width="36" height="36" loading="eager" decoding="async" />
     <span>{site.name}</span>
   </a>
   <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-primary-nav>
@@ -80,10 +80,10 @@ const githubItem = navItems.find((item) => item.placement === "external");
     setMenu(false);
   };
 
-  const appWindow = window as typeof window & { __agentkitHeaderBound?: boolean };
+  const appWindow = window as typeof window & { __vitaecontextHeaderBound?: boolean };
 
-  if (!appWindow.__agentkitHeaderBound) {
-    appWindow.__agentkitHeaderBound = true;
+  if (!appWindow.__vitaecontextHeaderBound) {
+    appWindow.__vitaecontextHeaderBound = true;
 
     document.addEventListener("click", (event) => {
       const target = event.target instanceof Element ? event.target : null;
@@ -92,7 +92,7 @@ const githubItem = navItems.find((item) => item.placement === "external");
         const root = document.documentElement;
         const next = root.dataset.theme === "dark" ? "light" : "dark";
         root.dataset.theme = next;
-        localStorage.setItem("agentkit-theme", next);
+        localStorage.setItem("vitaecontext-theme", next);
         setThemeLabel(themeToggle);
         return;
       }

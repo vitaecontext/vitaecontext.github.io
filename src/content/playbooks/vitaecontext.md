@@ -1,26 +1,26 @@
 ---
 title: "Orchestration and routing"
 platform: "general"
-objective: "The root AgentKit SEO module: a runtime wiki and project self-description that routes a request to a single platform module and loads only the context that task needs."
+objective: "The root VitaeContext module: a runtime wiki and project self-description that routes a request to a single platform module and loads only the context that task needs."
 status: "draft"
 published: "2026-06-07"
 last_updated: "2026-06-07"
 tags: ["orchestration", "routing", "runtime-wiki", "progressive-disclosure", "knowledge-graph", "agent-skill", "entrypoint"]
 agent_priority: "high"
-id: "agentkit-seo"
+id: "vitaecontext"
 ---
 
-> The root `agentkit-seo` module is the entrypoint for the whole bundle. It is a runtime wiki and project self-description that helps an agent understand the system, navigate the knowledge graph, and route a request to the single platform module that fits, instead of loading every skill at once.
+> The root `vitaecontext` module is the entrypoint for the whole bundle. It is a runtime wiki and project self-description that helps an agent understand the system, navigate the knowledge graph, and route a request to the single platform module that fits, instead of loading every skill at once.
 
 ---
 
 ## 1. Overview
 
-AgentKit SEO ships seven installed runtime skills: one orchestration module and six platform modules (agent context optimization, GitHub, LinkedIn, CV/ATS, web portfolio, and X/Twitter). The orchestration module is the one an agent reads first.
+VitaeContext ships seven installed runtime skills: one orchestration module and six platform modules (agent context optimization, GitHub, LinkedIn, CV/ATS, web portfolio, and X/Twitter). The orchestration module is the one an agent reads first.
 
 It does two jobs:
 
-- **Self-description.** It explains what AgentKit SEO is, what each module covers, and where the boundaries between modules are, so an agent can answer "which module should I use?" without guessing.
+- **Self-description.** It explains what VitaeContext is, what each module covers, and where the boundaries between modules are, so an agent can answer "which module should I use?" without guessing.
 - **Routing.** It directs a broad request to a single module and the smallest set of references that module needs, rather than pulling the entire library into context.
 
 This keeps each session focused: one module, the references it needs, and the user's private agent-context-file as the factual base.
@@ -46,7 +46,7 @@ The orchestration module maps a request to one module. Most requests resolve to 
 
 | The request is about | Route to |
 |---|---|
-| Building or maintaining the private career source of truth | [agent-context-optimization](/playbooks/agent-context-optimization/) |
+| Building or maintaining the private career source of truth | [context-builder](/playbooks/context-builder/) |
 | A GitHub profile or repository | [github](/playbooks/github/) |
 | A LinkedIn profile | [linkedin](/playbooks/linkedin/) |
 | A CV or resume for ATS parsing | [cv-ats](/playbooks/cv-ats/) |

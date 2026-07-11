@@ -10,7 +10,7 @@ agent_priority: "high"
 id: "vitaegraph"
 ---
 
-> VitaeGraph is the deep-record layer for AgentKit SEO. It complements the compact personal career context file with private, local Markdown records and rebuildable indexes.
+> VitaeGraph is the deep-record layer for VitaeContext. It complements the compact personal career context file with private, local Markdown records and rebuildable indexes.
 
 ## Section: Overview
 
@@ -35,8 +35,8 @@ Do not use VitaeGraph as a replacement for the compact career context file. Use 
 The default private workspace convention is:
 
 ```text
-~/.agentkit-seo/<name-surname>-career-context.md
-~/.agentkit-seo/vitaegraph/
+~/.vitaecontext/<name-surname>-career-context.md
+~/.vitaecontext/vitaegraph/
 ```
 
 The context file and VitaeGraph folder are separate artifacts. They may link to each other, but each remains useful on its own.
@@ -56,19 +56,19 @@ The context file and VitaeGraph folder are separate artifacts. They may link to 
 Initialize a graph:
 
 ```bash
-npx agentkit-seo graph init --root ~/.agentkit-seo/vitaegraph
+npx vitaecontext graph init --root ~/.vitaecontext/vitaegraph
 ```
 
 Validate a graph:
 
 ```bash
-npx agentkit-seo graph validate --root ~/.agentkit-seo/vitaegraph
+npx vitaecontext graph validate --root ~/.vitaecontext/vitaegraph
 ```
 
 Generate deterministic indexes:
 
 ```bash
-npx agentkit-seo graph index --root ~/.agentkit-seo/vitaegraph
+npx vitaecontext graph index --root ~/.vitaecontext/vitaegraph
 ```
 
 ## Section: Privacy and limits

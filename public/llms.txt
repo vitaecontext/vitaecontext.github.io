@@ -1,37 +1,37 @@
-# AgentKit SEO
+# VitaeContext
 
 > Open-source agent skills and human-readable guides for reusable career context and evidence-aware professional work. Current package version: 1.9.1.
 
-AgentKit SEO helps a person maintain career facts, stated goals, evidence, and boundaries in reusable Markdown. Focused skills use that context for CVs, profiles, repositories, portfolios, messages, interviews, applications, and other professional tasks. VitaeGraph is the optional deeper layer for connected local Markdown records.
+VitaeContext helps a person maintain career facts, stated goals, evidence, and boundaries in reusable Markdown. Focused skills use that context for CVs, profiles, repositories, portfolios, messages, interviews, applications, and other professional tasks. VitaeGraph is the optional deeper layer for connected local Markdown records.
 
 ## Start here
 
-- [Project overview](https://agentkit-seo.github.io/): what AgentKit SEO solves and how the context-first workflow works.
-- [VitaeGraph](https://agentkit-seo.github.io/vitaegraph/): private Markdown career knowledge graphs, powered by AgentKit SEO.
-- [Career workflows](https://agentkit-seo.github.io/profile-optimization/): choose an installable skill, a human-readable guide, or the core context-first workflow.
-- [Example career context file](https://agentkit-seo.github.io/docs/context-file-example/): a complete fictional template covering its structure, evidence boundaries, benefits, and use with AI agents.
-- [How it works](https://agentkit-seo.github.io/docs/usage/): the context-first workflow and invocation example.
-- [Installation](https://agentkit-seo.github.io/docs/installation/): npm, GitHub, local, and provider-specific installation.
-- [Guides](https://agentkit-seo.github.io/playbooks/): human-readable methods for every supported module.
-- [System design](https://agentkit-seo.github.io/design/): evidence boundaries, progressive disclosure, LLM Wiki, and provider adapters.
-- [Source repository](https://github.com/agentkit-seo/agentkit-seo): package source, tests, maintenance policy, and release history.
+- [Project overview](https://vitaecontext.github.io/): what VitaeContext solves and how the context-first workflow works.
+- [VitaeGraph](https://vitaecontext.github.io/vitaegraph/): private Markdown career knowledge graphs, powered by VitaeContext.
+- [Career workflows](https://vitaecontext.github.io/profile-optimization/): choose an installable skill, a human-readable guide, or the core context-first workflow.
+- [Example career context file](https://vitaecontext.github.io/docs/context-file-example/): a complete fictional template covering its structure, evidence boundaries, benefits, and use with AI agents.
+- [How it works](https://vitaecontext.github.io/docs/usage/): the context-first workflow and invocation example.
+- [Installation](https://vitaecontext.github.io/docs/installation/): npm, GitHub, local, and provider-specific installation.
+- [Guides](https://vitaecontext.github.io/playbooks/): human-readable methods for every supported module.
+- [System design](https://vitaecontext.github.io/design/): evidence boundaries, progressive disclosure, LLM Wiki, and provider adapters.
+- [Source repository](https://github.com/vitaecontext/vitaecontext): package source, tests, maintenance policy, and release history.
 
 ## Core playbooks
 
-- [Personal career context](https://agentkit-seo.github.io/playbooks/agent-context-optimization/)
-- [VitaeGraph](https://agentkit-seo.github.io/playbooks/vitaegraph/)
-- [GitHub optimization](https://agentkit-seo.github.io/playbooks/github/)
-- [LinkedIn optimization](https://agentkit-seo.github.io/playbooks/linkedin/)
-- [CV and ATS optimization](https://agentkit-seo.github.io/playbooks/cv-ats/)
-- [Web portfolio SEO and AI readability](https://agentkit-seo.github.io/playbooks/web-portfolio/)
-- [X/Twitter positioning](https://agentkit-seo.github.io/playbooks/x-twitter/)
+- [Personal career context](https://vitaecontext.github.io/playbooks/context-builder/)
+- [VitaeGraph](https://vitaecontext.github.io/playbooks/vitaegraph/)
+- [GitHub optimization](https://vitaecontext.github.io/playbooks/github/)
+- [LinkedIn optimization](https://vitaecontext.github.io/playbooks/linkedin/)
+- [CV and ATS optimization](https://vitaecontext.github.io/playbooks/cv-ats/)
+- [Web portfolio SEO and AI readability](https://vitaecontext.github.io/playbooks/web-portfolio/)
+- [X/Twitter positioning](https://vitaecontext.github.io/playbooks/x-twitter/)
 
 ## Verified public facts
 
 - The package contains one routing module and seven focused modules, including VitaeGraph.
 - Supported targets are Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, and a portable shared bundle.
-- The default npm command is `npx agentkit-seo install --provider <provider>`.
-- VitaeGraph graph commands are `npx agentkit-seo graph init`, `npx agentkit-seo graph validate`, and `npx agentkit-seo graph index`.
+- The default npm command is `npx vitaecontext install --provider <provider>`.
+- VitaeGraph graph commands are `npx vitaecontext graph init`, `npx vitaecontext graph validate`, and `npx vitaecontext graph index`.
 - The personal career context file is private user material; the public playbooks and skills do not contain a user's career facts.
 - VitaeGraph records are private local user material and should not be committed.
 - Audit scorecards are internal prioritization heuristics, not platform rankings or outcome guarantees.

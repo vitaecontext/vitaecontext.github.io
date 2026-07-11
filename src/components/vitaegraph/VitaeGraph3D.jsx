@@ -139,9 +139,9 @@ export default function VitaeGraph3D({ variant = "hero" }) {
       const isNeighbor = neighborIds.has(node.id);
       const isHovered = hovered?.id === node.id;
       if (isSelected) return "#ffffff";
-      if (selectedNode && !isNeighbor) return "#243244";
-      if (isHovered) return "#ecfeff";
-      return colors[node.type] ?? "#94a3b8";
+      if (selectedNode && !isNeighbor) return "#18201c";
+      if (isHovered) return "#e7f0eb";
+      return colors[node.type] ?? "#5c6861";
     },
     [hovered, neighborIds, selectedNode],
   );
@@ -166,7 +166,7 @@ export default function VitaeGraph3D({ variant = "hero" }) {
     (node) => {
       if (!shouldShowLabel(node, selectedNode, hovered, variant)) return null;
       const emphasized = node.id === "vitaegraph" || selectedNode?.id === node.id || hovered?.id === node.id;
-      return createNodeLabelSprite(node.label, colors[node.type] ?? "#7ee787", emphasized);
+      return createNodeLabelSprite(node.label, colors[node.type] ?? "#91b9a3", emphasized);
     },
     [hovered, selectedNode, variant],
   );

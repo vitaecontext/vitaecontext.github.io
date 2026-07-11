@@ -21,7 +21,7 @@ const sectionHeadings = headings
   .map((heading) => ({ ...heading, text: heading.text.replace(/^Section:\s*/i, "") }));
 const meta = {
   title: entry.data.title ?? skill?.name ?? slug,
-  description: skill?.summary ?? "AgentKit SEO guide",
+  description: skill?.summary ?? "VitaeContext guide",
   path: `/playbooks/${slug}/`,
   type: "article" as const,
   image: skill?.ogImage ?? `/og/playbooks/${slug}.png`,
