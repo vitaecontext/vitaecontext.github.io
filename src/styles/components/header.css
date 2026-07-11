@@ -46,6 +46,18 @@
   flex: 0 0 auto;
 }
 
+.brand-mark--dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .brand-mark--light {
+  display: none;
+}
+
+:root[data-theme="dark"] .brand-mark--dark {
+  display: block;
+}
+
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -155,72 +167,127 @@
 
 .menu-toggle {
   display: none;
-  width: 2.55rem;
-  height: 2.35rem;
+  width: 2.5rem;
+  height: 2.5rem;
   flex: 0 0 auto;
   place-items: center;
-  gap: 0.24rem;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--white);
+  border: 1px solid color-mix(in srgb, var(--line) 82%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--panel-solid) 84%, transparent);
   color: var(--ink);
+  box-shadow: 0 1px 0 color-mix(in srgb, #fff 25%, transparent) inset;
   cursor: pointer;
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
 }
 
-.menu-toggle span {
+.menu-toggle:hover {
+  border-color: color-mix(in srgb, var(--blue) 48%, var(--line));
+  background: color-mix(in srgb, var(--blue) 8%, var(--panel-solid));
+}
+
+.menu-toggle-icon {
+  position: relative;
   display: block;
-  width: 1.05rem;
-  height: 2px;
+  width: 1rem;
+  height: .75rem;
+}
+
+.menu-toggle-icon span {
+  position: absolute;
+  left: 0;
+  display: block;
+  width: 1rem;
+  height: 1.5px;
   border-radius: 999px;
   background: currentColor;
-  transition: transform 0.16s ease, opacity 0.16s ease;
+  transform-origin: center;
+  transition: top .18s ease, transform .18s ease;
 }
 
-.site-header[data-menu-open="true"] .menu-toggle span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+.menu-toggle-icon span:first-child {
+  top: .12rem;
 }
 
-.site-header[data-menu-open="true"] .menu-toggle span:nth-child(2) {
-  opacity: 0;
+.menu-toggle-icon span:last-child {
+  top: .58rem;
 }
 
-.site-header[data-menu-open="true"] .menu-toggle span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
+.site-header[data-menu-open="true"] .menu-toggle {
+  border-color: color-mix(in srgb, var(--blue) 52%, var(--line));
+  background: color-mix(in srgb, var(--blue) 12%, var(--panel-solid));
+}
+
+.site-header[data-menu-open="true"] .menu-toggle-icon span:first-child,
+.site-header[data-menu-open="true"] .menu-toggle-icon span:last-child {
+  top: .36rem;
+}
+
+.site-header[data-menu-open="true"] .menu-toggle-icon span:first-child {
+  transform: rotate(45deg);
+}
+
+.site-header[data-menu-open="true"] .menu-toggle-icon span:last-child {
+  transform: rotate(-45deg);
 }
 
 .github-nav-btn,
 .vitaegraph-nav-btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  min-height: 2.35rem;
-  padding: 0.44rem 0.86rem;
-  border-radius: .72rem;
+  gap: 0.48rem;
+  min-height: 2.5rem;
+  padding: 0.48rem 0.92rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
   color: #fff !important;
-  font-weight: 700;
-  font-size: 0.93rem;
+  font-weight: 760;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
   white-space: nowrap;
-  box-shadow: 0 5px 14px rgba(10, 22, 43, .12);
-  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .16) inset, 0 6px 18px rgba(0, 0, 0, .13);
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.github-nav-btn::before,
+.vitaegraph-nav-btn::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(255, 255, 255, .12), transparent 42%);
+  content: "";
+  pointer-events: none;
 }
 
 .github-nav-btn {
-  background: #24292f;
+  border-color: #383e45;
+  background: linear-gradient(135deg, #2c3238, #1d2125);
 }
 
 .github-nav-btn:hover {
-  background: #1a1f24;
+  border-color: #525960;
+  background: linear-gradient(135deg, #353c43, #24292f);
   color: #fff !important;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .2) inset, 0 10px 24px rgba(0, 0, 0, .2);
 }
 
 .github-mark-icon,
 .vitaegraph-mark-icon {
   width: 1.05rem;
   height: 1.05rem;
-  color: #fff;
   fill: currentColor;
   flex-shrink: 0;
+}
+
+.github-mark-icon {
+  color: #fff;
+}
+
+.vitaegraph-mark-icon {
+  color: currentColor;
 }
 
 .site-header {
@@ -241,13 +308,23 @@
 
 .vitaegraph-nav-btn {
   margin-left: 0.35rem;
-  background: linear-gradient(135deg, var(--vitaegraph), color-mix(in srgb, var(--vitaegraph) 82%, #7ee787));
+  border-color: color-mix(in srgb, var(--vitaegraph) 72%, #fff);
+  background: linear-gradient(135deg, var(--vitaegraph-deep), var(--vitaegraph));
 }
 
 .vitaegraph-nav-btn:hover,
 .vitaegraph-nav-btn[aria-current="page"] {
-  background: var(--vitaegraph-deep) !important;
+  border-color: color-mix(in srgb, var(--vitaegraph) 62%, #fff);
+  background: linear-gradient(135deg, var(--vitaegraph), color-mix(in srgb, var(--vitaegraph) 72%, #7ee787)) !important;
   color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .22) inset, 0 10px 24px color-mix(in srgb, var(--vitaegraph) 25%, transparent);
+}
+
+:root[data-theme="dark"] .vitaegraph-nav-btn,
+:root[data-theme="dark"] .vitaegraph-nav-btn:hover,
+:root[data-theme="dark"] .vitaegraph-nav-btn[aria-current="page"] {
+  color: #0d2019 !important;
 }
 
 @media (max-width: 720px) {
@@ -268,7 +345,7 @@
   }
 
   .theme-toggle { width: 3.05rem; }
-  .menu-toggle { width: 2.4rem; }
+  .menu-toggle { width: 2.35rem; height: 2.35rem; }
 
   .header-actions .vitaegraph-nav-btn span,
   .header-actions .github-nav-btn span {
@@ -277,8 +354,9 @@
 
   .header-actions .vitaegraph-nav-btn,
   .header-actions .github-nav-btn {
-    width: 2.25rem;
-    min-width: 2.25rem;
+    width: 2.35rem;
+    min-width: 2.35rem;
+    min-height: 2.35rem;
     margin-left: 0;
     padding-inline: 0;
     justify-content: center;
@@ -330,8 +408,8 @@
 
   .github-nav-btn {
     justify-content: center;
-    border-color: #24292f;
-    background: #24292f !important;
+    border-color: #383e45;
+    background: linear-gradient(135deg, #2c3238, #1d2125) !important;
     color: #fff !important;
   }
 }

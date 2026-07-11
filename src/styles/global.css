@@ -32,11 +32,11 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
   --ink: #f7f5ef;
-  --muted: #91b9a3;
-  --paper: #0d2019;
-  --white: #18201c;
-  --soft: #123c2d;
-  --line: #1f684b;
+  --muted: #a9b0ac;
+  --paper: #111412;
+  --white: #1c201e;
+  --soft: #252a27;
+  --line: #39413d;
   --blue: #91b9a3;
   --blue-deep: #e7f0eb;
   --teal: #91b9a3;
@@ -47,11 +47,11 @@
   --vitaegraph: #91b9a3;
   --vitaegraph-deep: #e7f0eb;
   --vitaegraph-soft: #123c2d;
-  --panel: rgba(24, 32, 28, 0.86);
-  --panel-solid: #18201c;
+  --panel: rgba(28, 32, 30, 0.88);
+  --panel-solid: #1c201e;
   --code-bg: #0d2019;
   --code-text: #f7f5ef;
-  --hero-text: #91b9a3;
+  --hero-text: #a9b0ac;
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
   --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.22);
 }

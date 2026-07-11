@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import LandingHero from "@components/landing/LandingHero.astro";
+import ContextLayer from "@components/landing/ContextLayer.astro";
 import ContextStory from "@components/landing/ContextStory.astro";
 import SkillsWorkbench from "@components/landing/SkillsWorkbench.astro";
 import GroundingSection from "@components/landing/GroundingSection.astro";
@@ -12,7 +13,7 @@ import "@styles/pages/landing.css";
 const meta = {
   title: "One Career Context for Grounded AI Work",
   description:
-    "Keep career facts, goals, evidence, and boundaries in reusable Markdown, then use focused agent skills for CVs, profiles, portfolios, messages, interviews, and other professional work.",
+    "Create reusable, evidence-bounded career context before AI-assisted CVs, applications, profiles, and other professional work—then use it in any provider or system that accepts context.",
   path: "/",
 };
 ---
@@ -20,6 +21,7 @@ const meta = {
 <BaseLayout meta={meta} jsonLd={[websiteJsonLd(), organizationJsonLd(), softwareJsonLd(), breadcrumbJsonLd([{ name: "Home", path: "/" }])] }>
   <div class="landing-shell">
     <LandingHero />
+    <ContextLayer />
     <ContextStory />
     <SkillsWorkbench />
     <GroundingSection />

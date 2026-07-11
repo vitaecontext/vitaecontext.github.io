@@ -12,7 +12,8 @@ const githubItem = navItems.find((item) => item.placement === "external");
 
 <header class="site-header">
   <a class="brand" href="/" aria-label={`${site.name} home`}>
-    <img class="brand-mark" src="/brand/vitaecontext-logo.png" alt="" width="36" height="36" loading="eager" decoding="async" />
+    <img class="brand-mark brand-mark--light" src="/brand/vitaecontext-logo.png" alt="" width="36" height="36" loading="eager" decoding="async" />
+    <img class="brand-mark brand-mark--dark" src="/brand/vitaecontext-logo-white.png" alt="" width="36" height="36" loading="eager" decoding="async" />
     <span>{site.name}</span>
   </a>
   <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-primary-nav>
@@ -33,7 +34,7 @@ const githubItem = navItems.find((item) => item.placement === "external");
         class="vitaegraph-nav-btn"
         aria-current={currentPath === vitaeGraphItem.href || currentPath.startsWith(vitaeGraphItem.href) ? "page" : undefined}
       >
-        <PlatformIcon kind="graph" class="vitaegraph-mark-icon" />
+        <PlatformIcon kind="records" class="vitaegraph-mark-icon" />
         <span>VitaeGraph</span>
       </a>
     )}
@@ -51,9 +52,10 @@ const githubItem = navItems.find((item) => item.placement === "external");
       aria-controls="primary-navigation"
       data-menu-toggle
     >
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
+      <span class="menu-toggle-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+      </span>
     </button>
   </div>
 </header>

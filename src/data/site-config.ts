@@ -6,7 +6,7 @@ export const site = {
   npmUrl: "https://www.npmjs.com/package/vitaecontext",
   defaultImage: "/og/vitaecontext.png",
   description:
-    "VitaeContext gives AI agents a private, reusable source of truth about a person's career, then provides focused skills for turning that context into grounded professional work.",
+    "VitaeContext gives AI agents and career systems a private, reusable source of truth about a person's career, then provides focused skills for turning that context into grounded professional work.",
   disclaimer:
     "Platform names, trademarks, and logos belong to their respective owners. VitaeContext is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
   authors: [
