@@ -1,8 +1,8 @@
 # VitaeContext
 
-> Open-source agent skills and human-readable guides for reusable career context and evidence-aware professional work. Current package version: 1.9.1.
+> Open-source career-context infrastructure and focused agent skills for grounded professional work. Current package version: 2.0.0.
 
-VitaeContext helps a person maintain career facts, stated goals, evidence, and boundaries in reusable Markdown. Focused skills use that context for CVs, profiles, repositories, portfolios, messages, interviews, applications, and other professional tasks. VitaeGraph is the optional deeper layer for connected local Markdown records.
+VitaeContext helps a person maintain career facts, stated goals, experience, projects, and boundaries in reusable Markdown. It is the career-context layer before AI-assisted CVs, applications, profiles, and other career workflows. Focused skills and other systems that accept supplied context can use the same source for professional tasks. VitaeGraph is the optional deeper layer for connected local Markdown records.
 
 ## Start here
 

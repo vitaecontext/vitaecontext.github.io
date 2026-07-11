@@ -19,18 +19,25 @@
 
 :root[data-theme="dark"] .landing-shell {
   --lk-navy: #e7f0eb;
-  --lk-blue: #91b9a3;
+  --lk-blue: #a5c9b3;
   --lk-blue-bright: #e7f0eb;
-  --lk-blue-pale: #1d2923;
-  --lk-green: #91b9a3;
+  --lk-blue-pale: #26342c;
+  --lk-green: #a5c9b3;
   --lk-green-deep: #e7f0eb;
-  --lk-green-pale: #1d2923;
-  --lk-cream: #111412;
+  --lk-green-pale: #26342c;
+  --lk-cream: #151817;
   --lk-ink: #f7f5ef;
-  --lk-copy: #a9b0ac;
-  --lk-line: #39413d;
-  --lk-card: #1c201e;
+  --lk-copy: #c3c9c4;
+  --lk-line: #4a534d;
+  --lk-card: #202421;
   --lk-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="dark"] .landing-shell {
+  background:
+    radial-gradient(circle at 15% 8%, color-mix(in srgb, #1f684b 22%, transparent), transparent 38rem),
+    radial-gradient(circle at 92% 38%, color-mix(in srgb, #91b9a3 8%, transparent), transparent 34rem),
+    var(--lk-cream);
 }
 
 .lk-wrap {
@@ -173,6 +180,12 @@
   color: #fff;
 }
 
+:root[data-theme="dark"] .lk-button--primary {
+  border-color: #1f684b;
+  background: linear-gradient(135deg, #1f684b, #287a55);
+  color: #f7f5ef;
+}
+
 .lk-button--quiet {
   background: color-mix(in srgb, var(--lk-card) 72%, transparent);
 }
@@ -189,6 +202,13 @@
     radial-gradient(circle at 84% 20%, color-mix(in srgb, var(--lk-blue) 14%, transparent), transparent 25rem),
     radial-gradient(circle at 5% 95%, color-mix(in srgb, var(--lk-green) 10%, transparent), transparent 28rem),
     linear-gradient(180deg, color-mix(in srgb, var(--lk-card) 88%, var(--lk-blue-pale)), var(--lk-cream));
+}
+
+:root[data-theme="dark"] .lk-hero {
+  background:
+    radial-gradient(circle at 86% 14%, color-mix(in srgb, #91b9a3 13%, transparent), transparent 27rem),
+    radial-gradient(circle at 7% 96%, color-mix(in srgb, #1f684b 23%, transparent), transparent 30rem),
+    linear-gradient(135deg, #151817 12%, #1b241f 58%, #151817 100%);
 }
 
 .lk-hero::before {
@@ -306,7 +326,7 @@
   position: relative;
   display: grid;
   min-height: 31rem;
-  grid-template-columns: minmax(7rem, 0.78fr) minmax(2rem, 0.3fr) minmax(13rem, 1.42fr) minmax(2rem, 0.3fr) minmax(8rem, 0.85fr);
+  grid-template-columns: minmax(7rem, 0.72fr) minmax(2rem, 0.26fr) minmax(15rem, 1.55fr) minmax(2rem, 0.26fr) minmax(8rem, 0.8fr);
   align-items: center;
   padding: clamp(1.2rem, 3vw, 2.3rem);
   background:
@@ -444,6 +464,11 @@
   font-weight: 900;
 }
 
+:root[data-theme="dark"] .lk-context-file__tab span,
+:root[data-theme="dark"] .lk-file-badge,
+:root[data-theme="dark"] .lk-mini-file > span,
+:root[data-theme="dark"] .lk-result-card > i { background: #1f684b; color: #f7f5ef; }
+
 .lk-context-file__body {
   display: grid;
   gap: 0.8rem;
@@ -459,7 +484,7 @@
 
 .lk-context-file__body div {
   display: grid;
-  grid-template-columns: 4.7rem 1fr;
+  grid-template-columns: 5.8rem 1fr;
   gap: 0.25rem 0.5rem;
   align-items: center;
 }
@@ -969,6 +994,44 @@
   color: #dce8f7;
 }
 
+:root[data-theme="dark"] .lk-vitae {
+  background:
+    radial-gradient(circle at 12% 100%, color-mix(in srgb, #1f684b 18%, transparent), transparent 31rem),
+    radial-gradient(circle at 84% 6%, color-mix(in srgb, #91b9a3 10%, transparent), transparent 27rem),
+    #151817;
+  color: #f7f5ef;
+}
+
+:root[data-theme="dark"] .lk-vitae::before { background-image: radial-gradient(color-mix(in srgb, #a5c9b3 18%, transparent) 0.7px, transparent 0.7px); }
+:root[data-theme="dark"] .lk-vitae__brand { color: #a5c9b3; }
+:root[data-theme="dark"] .lk-vitae__brand small,
+:root[data-theme="dark"] .lk-vitae__copy > p,
+:root[data-theme="dark"] .lk-vitae__compare span { color: #c3c9c4; }
+:root[data-theme="dark"] .lk-vitae__compare div { border-color: #4a534d; background: #202421; }
+:root[data-theme="dark"] .lk-vitae__compare div:last-child { border-color: color-mix(in srgb, #a5c9b3 56%, #4a534d); }
+:root[data-theme="dark"] .lk-button--vitae { border-color: #1f684b; background: #1f684b; color: #f7f5ef; }
+:root[data-theme="dark"] .lk-button--vitae:hover { border-color: #a5c9b3; background: #a5c9b3; color: #0d2019; }
+:root[data-theme="dark"] .lk-vitae-map { border-color: color-mix(in srgb, #a5c9b3 36%, #4a534d); background: #1b211e; }
+:root[data-theme="dark"] .lk-vitae-map__header,
+:root[data-theme="dark"] .lk-vitae-map__footer { border-color: #3c4640; }
+:root[data-theme="dark"] .lk-vitae-map__header code,
+:root[data-theme="dark"] .lk-vitae-records small,
+:root[data-theme="dark"] .lk-vitae-tree small,
+:root[data-theme="dark"] .lk-vitae-map__footer { color: #aeb6b0; }
+:root[data-theme="dark"] .lk-vitae-overview { border-color: color-mix(in srgb, #a5c9b3 42%, #4a534d); background: #202a24; }
+:root[data-theme="dark"] .lk-vitae-overview__label,
+:root[data-theme="dark"] .lk-vitae-records > p,
+:root[data-theme="dark"] .lk-vitae-overview > p,
+:root[data-theme="dark"] .lk-vitae-overview__status,
+:root[data-theme="dark"] .lk-vitae-tree div { color: #c3c9c4; }
+:root[data-theme="dark"] .lk-vitae-records::before { background: color-mix(in srgb, #a5c9b3 42%, #4a534d); }
+:root[data-theme="dark"] .lk-vitae-tree div { border-color: color-mix(in srgb, #a5c9b3 42%, #4a534d); }
+:root[data-theme="dark"] .lk-vitae-records article { border-color: #4a534d; background: #202421; }
+:root[data-theme="dark"] .lk-vitae-records article > span { background: #2a3b31; color: #d8e6dc; }
+:root[data-theme="dark"] .lk-vitae-map__lines { stroke: color-mix(in srgb, #a5c9b3 48%, #4a534d); }
+:root[data-theme="dark"] .lk-vitae-map__lines .related { stroke: color-mix(in srgb, #91b9a3 45%, #4a534d); }
+:root[data-theme="dark"] .lk-vitae-nodes .node { border-color: color-mix(in srgb, #a5c9b3 36%, #4a534d); background: #26342c; color: #f7f5ef; }
+
 .lk-vitae::before {
   position: absolute;
   inset: 0;
@@ -1131,7 +1194,7 @@
 
 @media (max-width: 1080px) {
   .lk-hero__grid { grid-template-columns: minmax(0, 0.78fr) minmax(30rem, 1.22fr); gap: 2.5rem; }
-  .lk-workspace__canvas { grid-template-columns: minmax(6rem, 0.8fr) 1rem minmax(12rem, 1.3fr) 1rem minmax(7rem, 0.9fr); padding-inline: 1.2rem; }
+  .lk-workspace__canvas { grid-template-columns: minmax(6rem, 0.7fr) 1rem minmax(13.5rem, 1.45fr) 1rem minmax(7rem, 0.8fr); padding-inline: 1.2rem; }
   .lk-vitae__grid { grid-template-columns: minmax(0, 0.8fr) minmax(27rem, 1.2fr); gap: 3rem; }
 }
 

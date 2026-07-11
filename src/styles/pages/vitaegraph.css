@@ -17,15 +17,15 @@
 
 :root[data-theme="dark"] .vg-page {
   --vg-ink: #f7f5ef;
-  --vg-copy: #91b9a3;
-  --vg-green: #91b9a3;
+  --vg-copy: #c3c9c4;
+  --vg-green: #a5c9b3;
   --vg-green-dark: #e7f0eb;
-  --vg-green-pale: #123c2d;
+  --vg-green-pale: #26342c;
   --vg-blue: #91b9a3;
-  --vg-blue-pale: #123c2d;
-  --vg-paper: #0d2019;
-  --vg-card: #18201c;
-  --vg-line: #1f684b;
+  --vg-blue-pale: #26342c;
+  --vg-paper: #151817;
+  --vg-card: #202421;
+  --vg-line: #4a534d;
   --vg-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
 }
 
@@ -834,6 +834,7 @@
 .vg-relationships__copy dt .is-solid { background: var(--vg-green); }
 .vg-relationships__copy dt .is-dashed { background: repeating-linear-gradient(to right, var(--vg-blue) 0 4px, transparent 4px 7px); }
 .vg-relationships__copy dd { margin: 0; color: var(--vg-copy); font-size: 0.74rem; }
+.vg-relationships__mobile-note { display: none; }
 
 .vg-relationship-map {
   position: relative;
@@ -1174,16 +1175,9 @@
   .vg-record-anatomy > div { border-right: 0; border-bottom: 1px solid var(--vg-line); }
   .vg-record-anatomy > div:last-child { border-bottom: 0; }
   .vg-relationship-map { min-height: auto; padding: 1rem; }
-  .vg-relationship-map > svg { display: none; }
-  .vg-map-column { position: static; margin-top: 1rem; transform: none; }
-  .vg-map-column:first-of-type { margin-top: 0; }
-  .vg-map-column article { min-width: 0; }
-  .vg-map-column--domains,
-  .vg-map-column--details { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .vg-map-column > small { grid-column: 1 / -1; }
-  .vg-map-column article { min-height: 6rem; grid-template-columns: 1fr; justify-items: start; }
-  .vg-map-column article p { display: none; }
-  .vg-map-note { position: static; margin-top: 1rem; }
+  .vg-relationships__copy dl,
+  .vg-relationship-map { display: none; }
+  .vg-relationships__mobile-note { display: block; margin: 0; color: var(--vg-copy); font-size: .9rem; line-height: 1.6; }
   .vg-retrieval-path { grid-template-columns: 1fr; }
   .vg-retrieval-path::before { top: 1.5rem; bottom: 1.5rem; left: 2.08rem; width: 1px; height: auto; }
   .vg-retrieval-path li { grid-template-columns: 2.2rem 1fr; gap: 0.2rem 0.8rem; }
