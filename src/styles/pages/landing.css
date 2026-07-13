@@ -190,6 +190,31 @@
   background: color-mix(in srgb, var(--lk-card) 72%, transparent);
 }
 
+.lk-button--agent {
+  cursor: pointer;
+  background: color-mix(in srgb, var(--lk-blue-pale) 70%, var(--lk-card));
+  color: var(--lk-blue);
+}
+
+.lk-button--agent:hover {
+  border-color: var(--lk-blue);
+  background: var(--lk-blue-pale);
+}
+
+.lk-copy-status {
+  min-height: 1.25rem;
+  margin: -0.75rem 0 0;
+  color: var(--lk-blue);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.lk-hero .lk-actions .lk-button {
+  min-height: 3.05rem;
+  padding-inline: 0.9rem;
+  font-size: 0.85rem;
+}
+
 /* Hero */
 .lk-hero {
   position: relative;

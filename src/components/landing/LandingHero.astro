@@ -18,8 +18,13 @@ import PlatformIcon from "@components/PlatformIcon.astro";
           Install VitaeContext
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" /></svg>
         </a>
+        <button class="lk-button lk-button--agent" type="button" data-agent-setup-copy aria-describedby="agent-setup-copy-status">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="6.5" y="6.5" width="9" height="10" rx="1.5" /><path d="M4.5 13.5h-1a1.5 1.5 0 0 1-1.5-1.5v-8A1.5 1.5 0 0 1 3.5 2.5h7A1.5 1.5 0 0 1 12 4v1" /></svg>
+          <span data-agent-setup-copy-label>Copy setup prompt</span>
+        </button>
         <a class="lk-button lk-button--quiet" href="/docs/context-file-example/">See context example</a>
       </div>
+      <p id="agent-setup-copy-status" class="lk-copy-status" role="status" aria-live="polite"></p>
       <ul class="lk-hero__facts" aria-label="Project qualities">
         <li><span aria-hidden="true">✓</span> Local Markdown files</li>
         <li><span aria-hidden="true">✓</span> Reusable context</li>
@@ -79,3 +84,43 @@ import PlatformIcon from "@components/PlatformIcon.astro";
     </div>
   </div>
 </section>
+
+<script>
+  const setupPrompt = `Set up VitaeContext for this agent environment.
+
+- Read https://vitaecontext.github.io/docs/installation/ and https://vitaecontext.github.io/providers/ first. Identify the matching provider and its invocation format.
+- Run \`npx vitaecontext install --provider <matching-provider>\`. Do not use \`--force\` or change install locations unless I approve it.
+- Verify the installation with \`npx vitaecontext doctor\`, then tell me which skills are available and how to invoke them here.
+- Ask me for a private name and file path, then create a Career Context template with \`npx vitaecontext template context --output <private-path>\`.
+- Read https://vitaecontext.github.io/docs/usage/ and propose three practical next steps. Start with building the context from career material I choose to share, then suggest one focused skill for my immediate goal. Do not upload or share my files without asking.`;
+
+  const copyButton = document.querySelector<HTMLButtonElement>("[data-agent-setup-copy]");
+  const copyLabel = document.querySelector<HTMLElement>("[data-agent-setup-copy-label]");
+  const copyStatus = document.getElementById("agent-setup-copy-status");
+
+  const showCopyResult = (label: string, message: string) => {
+    if (copyLabel) copyLabel.textContent = label;
+    if (copyStatus) copyStatus.textContent = message;
+    window.setTimeout(() => {
+      if (copyLabel) copyLabel.textContent = "Copy setup prompt";
+    }, 2200);
+  };
+
+  copyButton?.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(setupPrompt);
+      showCopyResult("Prompt copied", "Setup prompt copied. Paste it into your agent.");
+    } catch {
+      const textArea = document.createElement("textarea");
+      textArea.value = setupPrompt;
+      textArea.setAttribute("readonly", "");
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.select();
+      const copied = (document as unknown as { execCommand: (command: string) => boolean }).execCommand("copy");
+      textArea.remove();
+      showCopyResult(copied ? "Prompt copied" : "Copy failed", copied ? "Setup prompt copied. Paste it into your agent." : "Copy failed. Please try again.");
+    }
+  });
+</script>
