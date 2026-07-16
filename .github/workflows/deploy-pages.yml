@@ -42,6 +42,9 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Audit generated SEO output
+        run: npm run seo:audit
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
