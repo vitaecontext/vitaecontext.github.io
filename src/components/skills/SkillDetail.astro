@@ -22,6 +22,14 @@ const { skill, invocationName } = Astro.props;
     </ol>
   </section>
 
+  <section class="skill-summary">
+    <SectionIntro eyebrow="Inputs and boundary" title="What to provide" />
+    <ul class="plain-check-list">
+      {skill.inputs.map((item) => <li>{item}</li>)}
+    </ul>
+    <div class="note"><strong>Limit:</strong><p>{skill.boundary} Generated work still requires review.</p></div>
+  </section>
+
   <aside class:list={["skill-command", { "skill-command--vitae": skill.slug === "vitaegraph" }]}>
     <span class="skill-command__icon" aria-hidden="true"><PlatformIcon kind={skill.icon} /></span>
     <div><small>Skill name</small><code>{invocationName}</code></div>

@@ -3,13 +3,13 @@ title: "Context Builder"
 platform: "general"
 objective: "Navigation index for the context-builder folder, including the specification, workflow, maintenance guide, template, and example file."
 status: "draft"
-last_updated: "2026-06-07"
+last_updated: "2026-07-16"
 tags: ["context-file", "agent-context", "personal-branding", "AI-career-assistant", "LLM-context-file", "career-context-for-developers", "agent-memory", "goals-and-targeting", "index", "navigation"]
 agent_priority: "medium"
 id: "context-builder"
 ---
 
-> This folder defines the standard for building and maintaining a personal agent context file: the private source of truth that keeps career-focused AI work grounded in verified facts.
+> This guide defines the standard for building and maintaining Career Context: the user-owned source that keeps career-focused AI work grounded in supplied facts and explicit evidence boundaries.
 
 ---
 
@@ -23,17 +23,23 @@ The intended use is simple: keep one canonical context file up to date, load it 
 
 The file holds two kinds of content that must never blur together: **verified facts** (what is true and provable) and **stated goals and targeting** (where the person wants to go). The goals and targeting block lets downstream skills aim output without inventing experience to support it. See the goals and targeting rules in the [context file spec](#section-context-file-spec) below.
 
+## How does Career Context reduce unsupported claims?
+
+Career Context gives an agent supplied facts, stated goals, evidence links, and claims to avoid before it drafts. The method tells the agent to flag missing support instead of strengthening a claim beyond the available material.
+
+This reduces unsupported-claim risk; it does not independently fact-check the material or guarantee that a model cannot make an error. Review every generated output before using it.
+
 ```text
 Before:
 "Here is my CV. Also my GitHub is different now. Actually ignore that old project."
 
 After:
-"Use my agent-context-file as the source of truth, then audit my LinkedIn profile."
+"Use my Career Context as the source, then audit my LinkedIn profile."
 ```
 
 ## 2. Use this module when
 
-- A user does not yet have an agent-context-file.
+- A user does not yet have Career Context.
 - Existing career material is scattered across CVs, LinkedIn, GitHub, notes, and portfolio pages.
 - An agent needs one verified source of truth before rewriting public career material.
 - A context file already exists but has become stale, too long, or inconsistent.
@@ -53,7 +59,7 @@ After:
 - [agent-workflow.md](./agent-workflow.md): The operational guide for loading the file into agent sessions and combining it with other modules.
 - [file-maintenance.md](./file-maintenance.md): The maintenance lifecycle for updates, token growth, verified facts, and version history.
 - [templates/context-file-template.md](./templates/context-file-template.md): A guided template for building a new personal context file.
-- [examples/renato-mignone-context-file.md](./examples/renato-mignone-context-file.md): A full worked example showing how the spec looks in practice.
+- [Fictional Career Context example](/docs/context-file-example/): A public worked example showing how the structure looks without exposing a person's private file.
 
 ## 5. Usage for agents
 
@@ -83,13 +89,13 @@ metadata:
 
 
 
-> Practical instructions for using a personal agent context file in an agent session, covering invocation patterns, Skill submodule routing, prompt templates, and output quality criteria for the four most common career tasks.
+> Practical instructions for using Career Context in an agent session, covering invocation patterns, skill routing, prompt templates, and output quality criteria for common career tasks.
 
 ---
 
 ## 1. Overview
 
-This file is for users who have already built a personal agent context file following the rules in [context-file-spec.md](./context-file-spec.md). It explains how to load the file into an agent session, how to write effective task prompts, and how to combine the context file with platform-specific Skill submodules. The outcome of following this workflow is accurate, platform-ready career outputs that require minimal editing.
+This section is for users who have already built Career Context following the rules in the specification below. It explains how to load the file into an agent session, write an effective task prompt, and combine the file with a focused skill. The method is designed to preserve supplied facts and evidence boundaries; generated work still requires review.
 
 ## 2. Invoking the context file
 
@@ -265,9 +271,9 @@ A good interview preparation output:
 
 <!--
 metadata:
-  title: "Agent context file specification"
+  title: "Career Context file specification"
   platform: "general"
-  objective: "Defines the required structure, section order, formatting conventions, and agent-optimization rules for a personal agent context file."
+  objective: "Defines the required structure, section order, formatting conventions, and agent-optimization rules for Career Context."
   status: "draft"
   last_updated: "2026-04-24"
   tags: ["context-file", "specification", "agent-optimization", "formatting"]
@@ -276,13 +282,13 @@ metadata:
 
 
 
-> Defines the required structure, section order, and formatting rules that every personal agent context file must follow to remain usable by both a human maintainer and an AI agent.
+> Defines the structure, section order, and formatting rules that Career Context follows to remain usable by both a human maintainer and an AI agent.
 
 ---
 
 ## 1. Overview
 
-The agent context file is a single Markdown document containing a person's full professional record. It is the source of truth from which any career output can be generated: CVs, cover letters, LinkedIn sections, portfolio copy, and interview preparation material. Two readers use it simultaneously - a human who maintains it and an agent that extracts facts from it. Every rule in this spec serves both readers. Following this spec produces a file that any agent can load, navigate by section tag, and use immediately without additional instructions.
+Career Context is a single Markdown document containing a person's supplied professional record. It is an input for career outputs such as CVs, cover letters, LinkedIn sections, portfolio copy, and interview preparation material. Two readers use it: a human who maintains it and an agent that retrieves relevant facts from it. The structure serves both readers while remaining inspectable and editable.
 
 The file can live wherever the user wants. Prefer an explicit user-chosen path. A useful portable convention is `~/.vitaecontext/<name-surname>-seo-context.md`; a local workspace draft is also valid while the file is being created. Agents must confirm the destination before creating or overwriting the file. Because valid context files can become large, agents should prefer file writes or targeted diffs over full in-chat drafts; if file writing is unavailable, return a compact outline first and split the full Markdown draft by section only when requested.
 
@@ -707,7 +713,7 @@ Before considering a context file complete, verify all of the following items.
 metadata:
   title: "Context file maintenance"
   platform: "general"
-  objective: "Explains when and how to update the personal agent context file, how to manage token growth, and how to keep the VERIFIED FACTS comment and version history accurate."
+  objective: "Explains when and how to update Career Context, manage token growth, and keep evidence anchors and version history accurate."
   status: "draft"
   last_updated: "2026-04-24"
   tags: ["context-file", "maintenance", "versioning", "token-efficiency"]
@@ -716,13 +722,13 @@ metadata:
 
 
 
-> Rules and workflows for keeping a personal agent context file accurate, current, and token-efficient as the user's career evolves over time.
+> Rules and workflows for keeping Career Context accurate, current, and token-efficient as the user's career evolves over time.
 
 ---
 
 ## 1. Overview
 
-This file covers the maintenance lifecycle of a personal agent context file. A context file that is outdated, disorganized, or bloated with redundant detail produces worse outputs than a well-maintained one, because agents spend tokens on irrelevant content and may surface stale facts. Following the rules in this file keeps the context file reliable as the primary source of truth for all generated career outputs. The primary audience is a human who has already built a valid context file and wants to maintain it correctly over time.
+This section covers the maintenance lifecycle of Career Context. A file that is outdated, disorganized, or bloated with redundant detail can surface stale facts and waste context. The primary audience is a person who has already built the file and wants to maintain it over time.
 
 ## 2. When to update
 
@@ -747,7 +753,7 @@ Integrating new content into an existing context file by hand is error-prone, es
 Use the prompt template below for every integration task.
 
 ```text
-I have new content to add to my agent context file. The context file is loaded
+I have new content to add to my Career Context. The context file is loaded
 in this session. The rules that govern its structure are in context-file-spec.md,
 also loaded in this session.
 
@@ -834,9 +840,9 @@ If a Git repository is not practical, a versioned cloud document with named vers
 
 <!--
 metadata:
-  title: "Why build a personal agent context file"
+  title: "Why build Career Context"
   platform: "general"
-  objective: "Explains the problem that a personal agent context file solves and why it outperforms the alternatives a user would otherwise rely on."
+  objective: "Explains the problem that Career Context solves and how it differs from common alternatives."
   status: "draft"
   last_updated: "2026-04-24"
   tags: ["context-file", "motivation", "workflow", "productivity"]
@@ -845,13 +851,13 @@ metadata:
 
 
 
-> Every time you ask an agent to write a cover letter or update your LinkedIn profile, it starts from zero - with no knowledge of who you are, what you have done, or how you want to be positioned. A personal agent context file ends that problem permanently.
+> A new agent conversation may start without the career facts, evidence boundaries, or direction needed for the task. Career Context gives it a maintained, inspectable starting point.
 
 ---
 
 ## 1. Overview
 
-This file explains the practical problem that a personal agent context file solves. It also covers what the file changes about the daily workflow of using an agent for career tasks, and why it outperforms the workarounds most people currently use. It is written for a human who has not yet built a context file and is deciding whether to do so. Agents loading this folder do not need to read this file to perform their tasks.
+This section explains the practical problem that Career Context solves. It covers how the file changes the daily workflow of using an agent for career tasks and compares it with common workarounds. It is written for someone deciding whether to build the file.
 
 ## 2. The problem: every session starts from scratch
 
@@ -859,7 +865,7 @@ Each time you open a new agent session and ask for a career-related output, the 
 
 You paste raw text into the chat. A CV export, a LinkedIn profile dump, a copy of old cover letters. The agent works with whatever you give it. The problem is that raw text is unstructured. There is no clear separation between a course you took in 2019 and your current thesis work. There are no explicit signals about which project was most technically demanding, which role was most recent, or what your target positioning is. The agent does its best, but it is guessing at structure and priority.
 
-You rely on the agent's memory. Some providers offer a memory feature, but it is unreliable across sessions, resets periodically, and cannot be inspected or corrected in a systematic way. You do not know what the agent actually remembers, whether it is accurate, or whether it will produce consistent outputs tomorrow.
+You rely on a provider's memory feature. Storage, retrieval, inspection, correction, portability, and reset behavior vary by provider. A user-owned file remains directly inspectable and can be supplied to another system, while a provider feature remains governed by that provider.
 
 You write a long prompt from scratch. You describe yourself every time: your background, your skills, the role you are applying for, the tone you want. This is the most reliable approach, but it is also the most wasteful. The same facts get rewritten in every session, with small variations that introduce inconsistency over time.
 
@@ -867,7 +873,7 @@ All three approaches produce the same outcome: generic, loosely grounded outputs
 
 ## 3. What the context file changes
 
-A personal agent context file is a single Markdown document you maintain in your own file system. It contains your complete professional record: education, experience, projects, skills, certifications, and languages, structured according to a consistent schema defined in [context-file-spec.md](./context-file-spec.md).
+Career Context is a Markdown document you maintain in your own file system. It can contain education, experience, projects, skills, certifications, languages, goals, evidence links, boundaries, and claims to avoid in a consistent structure.
 
 When the file exists and is up to date, the workflow for any career task collapses to three steps.
 
@@ -909,13 +915,13 @@ These are not special prompts that require new skills to write. They are the nat
 
 ## 5. Why this outperforms the alternatives
 
-The table below compares the personal agent context file against the three workarounds described in section 2.
+The table below compares Career Context with the three workarounds described in section 2.
 
 The approach being compared and why each falls short is summarized here.
 
 **Copy-pasted raw text** is unstructured. Semester boundaries are invisible to the agent. Project importance is undefined. Positioning is implicit rather than declared. Every session produces slightly different outputs because the input is slightly different each time.
 
-**Agent memory** is opaque and unreliable. You cannot inspect what the agent has retained. You cannot correct a fact that was remembered incorrectly. You cannot audit whether the output is grounded in what you actually told it. Memory also resets without notice, which means it cannot serve as a stable source of truth.
+**Provider memory** is provider-specific. Its inspection, correction, persistence, retrieval, and portability behavior depends on the product. Career Context is a separate user-owned file whose contents can be inspected and corrected directly; it does not make the provider's memory behavior more predictable.
 
 **Per-session prompts** are accurate when written carefully, but they are a maintenance burden. You are re-doing the same work repeatedly. There is no canonical version of your career record. Different sessions produce outputs that are inconsistent with each other because the prompts differ slightly each time.
 
@@ -931,4 +937,4 @@ That is the case for building it.
 
 ---
 
-*Next step: Learn the required architecture in the [Agent context file specification](./context-file-spec.md).*
+*Next step: Review the Career Context file specification in this guide.*

@@ -6,9 +6,9 @@ import { sampleContext } from "@data/sampleContext";
 import "@styles/pages/context-example.css";
 
 const meta = {
-  title: "Personal Career Context File Example and Template",
+  title: "Career Context File Example and Template",
   description:
-    "Explore a readable personal career context file template covering education, experience, projects, skills, certifications, goals, evidence, and AI agent instructions.",
+    "Explore a fictional Career Context Markdown template covering education, experience, projects, skills, goals, evidence links, boundaries, and agent instructions.",
   path: "/docs/context-file-example/",
   type: "article" as const,
 };
@@ -71,7 +71,7 @@ const contextSections = [
       <h2>Keep career context in one maintained file.</h2>
     </div>
     <p>
-      A personal career context file is an editable local Markdown record for your education, experience,
+      Career Context is an editable, user-owned Markdown record for your education, experience,
       projects, research, skills, certifications, achievements, goals, links, and evidence. Agents read it before
       working on a CV, LinkedIn profile, GitHub profile, portfolio, application, or interview task.
     </p>
@@ -127,7 +127,7 @@ const contextSections = [
         <li><strong>Muted comments</strong> mark private validation anchors and template notes.</li>
       </ul>
       <p class="context-privacy-note">
-        Privacy boundary: the template is public and fictional. Your completed context file should remain private and should never be copied into this website.
+        Privacy boundary: the template is public and fictional. Your completed Career Context should remain in a location you control and should never be copied into this website. An external provider's data rules apply after you share it there.
       </p>
     </div>
     <div class="context-code-window">
@@ -150,7 +150,7 @@ const contextSections = [
       <p class="eyebrow">Use it in a normal prompt</p>
       <h2>The file supplies context. Your prompt supplies the task.</h2>
     </div>
-    <pre class="code-block"><code>Use the attached personal career context file.
+    <pre class="code-block"><code>Use the attached Career Context file.
 Use the vitaecontext-github skill to review my GitHub profile.
 Tell me what to change first and do not add claims that are not in the file.</code></pre>
     <p>
@@ -159,8 +159,10 @@ Tell me what to change first and do not add claims that are not in the file.</co
       interview preparation, or another career task.
     </p>
     <div class="actions">
+      <a class="button primary" href="/docs/cli/">Create a template with the CLI</a>
       <a class="button primary" href="/docs/usage/">Continue to the usage guide</a>
       <a class="button secondary" href="/playbooks/context-builder/">Build your own context file</a>
     </div>
+    <pre class="code-block"><code>npx vitaecontext template context --output ~/.vitaecontext/name-surname-career-context.md</code></pre>
   </section>
 </BaseLayout>

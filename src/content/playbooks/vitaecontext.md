@@ -4,7 +4,7 @@ platform: "general"
 objective: "The root VitaeContext module: a runtime wiki and project self-description that routes a request to a single platform module and loads only the context that task needs."
 status: "draft"
 published: "2026-06-07"
-last_updated: "2026-06-07"
+last_updated: "2026-07-16"
 tags: ["orchestration", "routing", "runtime-wiki", "progressive-disclosure", "knowledge-graph", "agent-skill", "entrypoint"]
 agent_priority: "high"
 id: "vitaecontext"
@@ -16,14 +16,14 @@ id: "vitaecontext"
 
 ## 1. Overview
 
-VitaeContext ships seven installed runtime skills: one orchestration module and six platform modules (agent context optimization, GitHub, LinkedIn, CV/ATS, web portfolio, and X/Twitter). The orchestration module is the one an agent reads first.
+VitaeContext ships eight installed runtime skills: the root router, Career Context builder, VitaeGraph, and five focused modules for GitHub, LinkedIn, CV/ATS, web portfolios, and X/Twitter. The root router is the entrypoint when the right focused module is not yet obvious.
 
 It does two jobs:
 
 - **Self-description.** It explains what VitaeContext is, what each module covers, and where the boundaries between modules are, so an agent can answer "which module should I use?" without guessing.
 - **Routing.** It directs a broad request to a single module and the smallest set of references that module needs, rather than pulling the entire library into context.
 
-This keeps each session focused: one module, the references it needs, and the user's private agent-context-file as the factual base.
+This keeps each session focused: one module, the references it needs, and the user's Career Context as the factual base.
 
 ## 2. Use this module when
 
@@ -36,7 +36,7 @@ This keeps each session focused: one module, the references it needs, and the us
 1. Read the root self-description to understand the system and its module boundaries.
 2. Identify the single surface the request is really about (a profile, a repository, a CV, a site, a posting strategy, or the context file itself).
 3. Route to that module and load only the references the current task needs.
-4. Keep the private agent-context-file as the source of truth the chosen module reads before writing.
+4. Keep Career Context as the user-owned source the chosen module reads before writing.
 
 ---
 
@@ -47,6 +47,7 @@ The orchestration module maps a request to one module. Most requests resolve to 
 | The request is about | Route to |
 |---|---|
 | Building or maintaining the private career source of truth | [context-builder](/playbooks/context-builder/) |
+| Building or maintaining detailed connected career records | [VitaeGraph](/playbooks/vitaegraph/) |
 | A GitHub profile or repository | [github](/playbooks/github/) |
 | A LinkedIn profile | [linkedin](/playbooks/linkedin/) |
 | A CV or resume for ATS parsing | [cv-ats](/playbooks/cv-ats/) |
@@ -75,4 +76,4 @@ This is token discipline: the agent spends its context budget on the surface bei
 
 The modules connect as a navigable Markdown knowledge graph with one entrypoint and explicit edges. The root self-description is that entrypoint. From there, each module links to its own references and its own wiki entries (canonical definitions, platform constraints with confidence labels, known failure modes, and audit rules).
 
-The private agent-context-file sits beside the graph: platform modules read it before writing, so every public surface is generated from the same verified facts and stated goals. See the [Design](/design/) page for how the LLM Wiki, evidence labels, and one-source-many-adapters distribution fit together.
+Career Context sits beside the graph: platform modules read it before writing, so every public surface starts from the same supplied facts and stated goals. See the [Design](/design/) page for how the LLM Wiki, evidence labels, and one-source-many-adapters distribution fit together.

@@ -2,8 +2,8 @@
 import SectionIntro from "@components/shared/SectionIntro.astro";
 import type { Skill } from "@data/skills";
 type Heading = { slug: string; text: string };
-type Props = { skill?: Skill; headings: Heading[]; updated?: string };
-const { skill, headings, updated } = Astro.props;
+type Props = { skill?: Skill; headings: Heading[]; published?: string; updated?: string };
+const { skill, headings, published, updated } = Astro.props;
 ---
 
 <div class="guide-layout page-wrap">
@@ -13,7 +13,7 @@ const { skill, headings, updated } = Astro.props;
       <div><h3>Use it when</h3><ul>{skill.useWhen.map((item) => <li>{item}</li>)}</ul></div>
       <div><h3>Typical outputs</h3><ul>{skill.outputs.map((item) => <li>{item}</li>)}</ul></div>
       <a class="button primary" href={`/skills/${skill.slug}/`}>Use as agent skill</a>
-      {updated && <p class="guide-updated">Source snapshot: <time datetime={updated}>{updated}</time></p>}
+      {(published || updated) && <p class="guide-updated">{published && <>Published: <time datetime={published}>{published}</time>. </>}{updated && <>Source snapshot: <time datetime={updated}>{updated}</time>.</>}</p>}
     </aside>
   )}
   <div class="guide-reference">

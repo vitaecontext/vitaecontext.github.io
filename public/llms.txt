@@ -2,7 +2,7 @@
 
 > Open-source career-context infrastructure and focused agent skills for grounded professional work. Current package version: 2.0.0.
 
-VitaeContext helps a person maintain career facts, stated goals, experience, projects, and boundaries in reusable Markdown. It is the career-context layer before AI-assisted CVs, applications, profiles, and other career workflows. Focused skills and other systems that accept supplied context can use the same source for professional tasks. VitaeGraph is the optional deeper layer for connected local Markdown records.
+VitaeContext helps a person maintain Career Context—supplied career facts, stated goals, experience, projects, evidence links, and boundaries—in reusable Markdown. It is the career-context layer before AI-assisted CVs, applications, profiles, and other career workflows. Focused skills and other systems that accept supplied context can use the same source for professional tasks. VitaeGraph is the optional deeper layer for connected local Markdown records.
 
 ## Start here
 
@@ -32,7 +32,8 @@ VitaeContext helps a person maintain career facts, stated goals, experience, pro
 - Supported targets are Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, and a portable shared bundle.
 - The default npm command is `npx vitaecontext install --provider <provider>`.
 - VitaeGraph graph commands are `npx vitaecontext graph init`, `npx vitaecontext graph validate`, and `npx vitaecontext graph index`.
-- The personal career context file is private user material; the public playbooks and skills do not contain a user's career facts.
+- Career Context is user-controlled material; the public playbooks and skills do not contain a user's career facts. External provider rules apply after a user shares content with one.
+- VitaeContext structures supplied facts and evidence boundaries; it does not independently verify every career claim.
 - VitaeGraph records are private local user material and should not be committed.
 - Audit scorecards are internal prioritization heuristics, not platform rankings or outcome guarantees.
 - SEO, AEO, GEO, `llms.txt`, snippets, citations, and indexing are treated as eligibility and readability work, not guaranteed visibility.

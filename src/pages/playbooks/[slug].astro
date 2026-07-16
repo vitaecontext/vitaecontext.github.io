@@ -25,7 +25,7 @@ const meta = {
   path: `/playbooks/${slug}/`,
   type: "article" as const,
   image: skill?.ogImage ?? `/og/playbooks/${slug}.png`,
-  datePublished: entry.data.published ?? entry.data.last_updated,
+  datePublished: entry.data.published,
   dateModified: entry.data.last_updated,
   keywords: entry.data.tags,
 };
@@ -33,5 +33,5 @@ const meta = {
 
 <BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path, { image: meta.image, datePublished: meta.datePublished, dateModified: meta.dateModified, keywords: meta.keywords }), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Guides", path: "/playbooks/" }, { name: meta.title, path: meta.path }])]}>
   <PageHero eyebrow="Guide" title={meta.title} text={meta.description} actions={skill ? [{ label: "Use as agent skill", href: `/skills/${slug}/`, tone: "primary" }, { label: "All guides", href: "/playbooks/" }] : [{ label: "All guides", href: "/playbooks/" }]} compact />
-  <GuideOverview skill={skill} headings={sectionHeadings} updated={meta.dateModified}><Content /></GuideOverview>
+  <GuideOverview skill={skill} headings={sectionHeadings} published={meta.datePublished} updated={meta.dateModified}><Content /></GuideOverview>
 </BaseLayout>

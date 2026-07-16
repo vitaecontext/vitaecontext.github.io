@@ -10,7 +10,9 @@ export type Skill = {
   href: string;
   summary: string;
   audience: string;
+  inputs: string[];
   outputs: string[];
+  boundary: string;
   useWhen: string[];
   method: string[];
 };
@@ -23,21 +25,23 @@ export const skills: Skill[] = [
     metaTitle: "Build Your AI Career Context File",
     metaDescription:
       "Create a reusable Markdown file for career facts, stated goals, evidence, constraints, and claims to avoid.",
-    shortName: "Agent Context",
+    shortName: "Career Context",
     icon: "context",
     href: "/skills/context-builder/",
     summary:
-      "Build a private Markdown source of truth for verified career facts, links, projects, positioning, and stated goals and targeting.",
+      "Build a user-owned Markdown source of supplied career facts, links, projects, positioning, and stated goals and targeting.",
     audience: "Agents that need grounded context before editing public profiles.",
+    inputs: ["Trusted CVs and profile text", "Project notes and proof links", "Goals, constraints, and claims to avoid"],
     outputs: ["Context file spec", "Goals and targeting", "Maintenance workflow"],
+    boundary: "The skill organizes supplied material; it does not independently verify a career claim or publish the file.",
     useWhen: [
       "Career material is scattered across CVs, LinkedIn, GitHub, notes, and portfolio pages.",
-      "An agent needs verified facts and stated goals before rewriting public career copy.",
+      "An agent needs supplied facts and stated goals before rewriting public career copy.",
       "A context file exists but has become stale, inconsistent, or too long.",
     ],
     method: [
       "Collect identity, roles, projects, links, achievements, constraints, and tone preferences.",
-      "Capture goals and targeting (ideal role, current focus, target locations, interests) as stated intent kept separate from verified facts.",
+      "Capture goals and targeting (ideal role, current focus, target locations, interests) as stated intent kept separate from supplied career facts.",
       "Normalize the material into a private Markdown file, then use it as the factual base before CV, LinkedIn, GitHub, portfolio, or X work.",
     ],
   },
@@ -54,7 +58,9 @@ export const skills: Skill[] = [
     summary:
       "Turn CVs into parser-friendly, recruiter-readable documents with cleaner structure, keywords, and proof bullets.",
     audience: "Job seekers tailoring CVs without breaking ATS readability.",
+    inputs: ["Career Context", "Current résumé or CV", "Target role or job description"],
     outputs: ["ATS-safe structure", "Keyword alignment", "Bullet rewrites"],
+    boundary: "The skill cannot guarantee parsing by every ATS, a score, recruiter attention, or an interview outcome.",
     useWhen: [
       "A resume or CV needs tailoring for a target job description.",
       "The layout may be too visual, dense, table-heavy, or difficult for parsers to extract.",
@@ -79,7 +85,9 @@ export const skills: Skill[] = [
     summary:
       "Build, deepen, validate, and index a private hierarchical career knowledge graph from supplied career material.",
     audience: "Agents that need deeper selected records beyond a compact career context file.",
+    inputs: ["Supplied career material", "Existing VitaeGraph records", "An exact private graph root when customized"],
     outputs: ["Markdown graph records", "Validation diagnostics", "Rebuildable graph indexes"],
+    boundary: "Validation checks structure, IDs, and links; it does not authenticate the truth of real-world claims.",
     useWhen: [
       "A single compact context file is too flat for detailed education, thesis, course, project, or publication records.",
       "An agent needs to create or maintain hierarchical Markdown records before using selected context in downstream tasks.",
@@ -104,7 +112,9 @@ export const skills: Skill[] = [
     summary:
       "Improve LinkedIn headline, About, Experience, Featured, and Skills sections with evidence-backed positioning.",
     audience: "Professionals who need recruiter search and AI-readable profile clarity.",
+    inputs: ["Career Context", "Current LinkedIn sections", "Target role and supported proof"],
     outputs: ["Profile audit", "Headline and About rewrites", "Featured strategy"],
+    boundary: "The skill does not guarantee search position, distribution, recruiter attention, or platform outcomes.",
     useWhen: [
       "A LinkedIn profile sounds generic or does not clearly express the relevant role and skills.",
       "Headline, About, Experience, Featured, or Skills sections need clearer proof.",
@@ -129,7 +139,9 @@ export const skills: Skill[] = [
     summary:
       "Make profiles and repositories easier to discover, inspect, and trust across GitHub search, Copilot, and humans.",
     audience: "Developers turning code into searchable proof of work.",
+    inputs: ["Career Context", "GitHub profile or public URL", "Repositories selected for review"],
     outputs: ["Profile README fixes", "Repo metadata", "Agent instructions"],
+    boundary: "Public fetching is bounded and can be incomplete; the skill does not guarantee GitHub or search visibility.",
     useWhen: [
       "A GitHub profile shows activity but not a clear developer position or proof of work.",
       "Pinned repositories, topics, descriptions, or READMEs do not surface the strongest projects.",
@@ -154,7 +166,9 @@ export const skills: Skill[] = [
     summary:
       "Audit portfolio crawlability, metadata, structured data, JavaScript rendering, performance, and AI-readable signals.",
     audience: "Builders who need their own site to be discoverable and useful.",
+    inputs: ["Career Context", "Portfolio source or public URL", "Permission before any code changes"],
     outputs: ["SEO/AEO audit", "Structured data plan", "Indexability checks"],
+    boundary: "The skill improves technical eligibility and clarity; it does not guarantee indexing, rankings, traffic, or citations.",
     useWhen: [
       "A personal website looks polished but does not appear in search results.",
       "Pages have weak titles, descriptions, canonical URLs, structured data, or sitemap coverage.",
@@ -179,7 +193,9 @@ export const skills: Skill[] = [
     summary:
       "Shape profiles, pinned posts, and content loops around clear positioning and documented platform behavior.",
     audience: "Technical operators who want a sharper public posting system.",
+    inputs: ["Career Context", "Current X profile and posts", "Topic, audience, and constraints"],
     outputs: ["Bio and profile audit", "Pinned post strategy", "Posting loop"],
+    boundary: "Live platform behavior changes; recommendations are not guarantees of reach, ranking, or engagement.",
     useWhen: [
       "An X or Twitter profile needs clearer positioning, bio structure, or pinned-post strategy.",
       "Posts need stronger hooks, formatting, native value, and topic consistency.",
@@ -204,7 +220,9 @@ export const skills: Skill[] = [
     summary:
       "The root runtime wiki and entrypoint that routes a request to one platform module and loads only the references that task needs.",
     audience: "Agents deciding which module to load before starting career work.",
+    inputs: ["The current request", "Available Career Context", "The provider's installed skill surface"],
     outputs: ["Module routing", "Knowledge-graph map", "Scoped context loading"],
+    boundary: "The root skill routes work; it does not replace focused modules or make provider activation identical.",
     useWhen: [
       "A request is broad and the right platform module is not yet obvious.",
       "An agent needs the project self-description and knowledge-graph entrypoint before loading a module.",

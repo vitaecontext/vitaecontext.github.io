@@ -13,7 +13,7 @@ export function getStaticPaths() {
 const { skill } = Astro.props;
 const invocationName = skill.invocationName ?? `vitaecontext-${skill.slug}`;
 const meta = {
-  title: `${skill.metaTitle ?? skill.name} Agent Skill`,
+  title: skill.slug === "vitaecontext" ? "VitaeContext Routing Agent Skill" : `${skill.metaTitle ?? skill.name} Agent Skill`,
   description: skill.metaDescription ?? skill.summary,
   path: `/skills/${skill.slug}/`,
   type: "article" as const,

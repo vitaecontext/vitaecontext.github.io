@@ -4,13 +4,13 @@ platform: "general"
 objective: "Explain when to use VitaeGraph and how to maintain private Markdown career graph records."
 status: "draft"
 published: "2026-07-07"
-last_updated: "2026-07-07"
+last_updated: "2026-07-16"
 tags: ["vitaegraph", "knowledge-graph", "markdown", "career-context", "agent-skills"]
 agent_priority: "high"
 id: "vitaegraph"
 ---
 
-> VitaeGraph is the deep-record layer for VitaeContext. It complements the compact personal career context file with private, local Markdown records and rebuildable indexes.
+> VitaeGraph is the deep-record layer for VitaeContext. It complements compact Career Context with user-controlled local Markdown records and rebuildable indexes.
 
 ## Section: Overview
 

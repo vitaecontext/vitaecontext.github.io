@@ -5,7 +5,7 @@ import { skills } from "@data/skills";
 ---
 
 <section class="feature-section page-wrap" aria-labelledby="skill-catalog-title">
-  <SectionIntro eyebrow="Eight runtime modules" title="Choose one skill for the current task." text="The root skill routes work. Other modules handle context, VitaeGraph, CVs, LinkedIn, GitHub, portfolios, and X." />
+  <SectionIntro eyebrow="Eight runtime modules" title="Choose one skill for the current task." text="An agent skill is a package of runtime instructions, references, and maintained knowledge. The root skill routes work; focused modules handle Career Context, VitaeGraph, CVs, LinkedIn, GitHub, portfolios, and X." />
   <div class="catalog-grid">
     {skills.map((skill) => (
       <a class:list={["catalog-card", { "catalog-card--vitae": skill.slug === "vitaegraph" }]} href={skill.href}>
@@ -19,4 +19,5 @@ import { skills } from "@data/skills";
       </a>
     ))}
   </div>
+  <p class="service-note">The canonical skill source is shared, but installation and activation vary by provider. A <a class="text-link" href="/playbooks/">guide explains the method for a human reader</a> and requires no installation.</p>
 </section>

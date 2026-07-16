@@ -1313,3 +1313,5 @@
   .lk-source-of-truth footer { align-items: flex-start; flex-direction: column; }
   .lk-surface-rail small { white-space: normal; }
 }
+.lk-hero__boundary { max-width: 68ch; color: var(--muted); font-size: .92rem; }
+.lk-skills__note a { color: var(--blue-deep); font-weight: 800; text-decoration: underline; text-underline-offset: .18em; }

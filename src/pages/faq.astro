@@ -7,7 +7,7 @@ import "@styles/pages/faq.css";
 const meta = {
   title: "VitaeContext FAQ",
   description:
-    "Answers about VitaeContext: what it is, supported providers, install, VitaeGraph, the agent-context-file, and what it deliberately does not promise.",
+    "Answers about VitaeContext, Career Context, supported providers, installation, VitaeGraph, privacy, evidence, and project limitations.",
   path: "/faq/",
   type: "website" as const,
   image: "/og/faq.png",
@@ -19,7 +19,7 @@ const faqs = [
   {
     question: "What is VitaeContext?",
     answer:
-      "VitaeContext is an open-source package of agent skills for career work. It helps a person maintain reusable career context in Markdown, then use focused methods for CVs, profiles, repositories, portfolios, messages, interviews, applications, and other professional tasks.",
+      "VitaeContext is open-source career-context infrastructure for AI agents and career systems. It helps a person maintain reusable Career Context in Markdown, then provides focused skills for grounded CVs, profiles, repositories, portfolios, messages, interviews, applications, and other professional tasks.",
   },
   {
     question: "Does it guarantee better rankings, recruiter attention, or ATS scores?",
@@ -29,7 +29,7 @@ const faqs = [
   {
     question: "Which agents and providers does it support?",
     answer:
-      "Six install targets: Claude Code, Codex, Gemini CLI, Antigravity, OpenCode, and a shared portable skill bundle. In Claude Code the skills are also available through the plugin marketplace. The same single source generates each provider layout, so the methodology does not drift between tools.",
+      "Six install targets: Claude Code, Codex, Gemini CLI, Antigravity, OpenCode, and a shared portable skill bundle. In Claude Code the skills are also available through the plugin marketplace. One source generates each provider layout, but installation, activation, and exact runtime behavior vary by provider.",
   },
   {
     question: "How do I install it?",
@@ -37,14 +37,14 @@ const faqs = [
       "Run npx vitaecontext install --provider <provider> with one of the supported provider values. In Claude Code you can instead add the plugin marketplace with /plugin marketplace add vitaecontext/vitaecontext and then /plugin install vitaecontext@vitaecontext. See the installation guide and CLI reference for every command and flag.",
   },
   {
-    question: "What is the agent-context-file?",
+    question: "What is Career Context?",
     answer:
-      "It is a private Markdown source of truth for one person: verified identity facts, roles, projects, links, and metrics, plus a separate goals and targeting block (ideal role, current focus, target locations) recorded as stated intent. Platform skills read it before writing so every public surface stays grounded in the same facts.",
+      "Career Context is a user-owned, maintained Markdown record for one person's supplied career facts, roles, projects, evidence links, constraints, claims to avoid, and goals recorded as stated intent. Skills read it before writing so task outputs start from the same inspectable source.",
   },
   {
     question: "What is VitaeGraph?",
     answer:
-      "VitaeGraph is a private Markdown career knowledge graph for deeper records such as education, thesis work, courses, projects, experience, certifications, awards, and publications. It complements the compact career context file instead of replacing it.",
+      "VitaeGraph is VitaeContext's optional deeper layer for local Markdown records such as education, thesis work, courses, projects, experience, certifications, awards, and publications. It complements compact Career Context instead of replacing it; its validation checks structure rather than authenticating claims.",
   },
   {
     question: "What is the LLM Wiki?",

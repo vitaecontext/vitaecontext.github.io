@@ -17,8 +17,23 @@ const steps = [
   </section>
 
   <section class="doc-split">
-    <article><h2>What context supplies</h2><ul class="plain-check-list"><li>Verified roles, projects, education, and credentials.</li><li>Stated goals, interests, and preferred direction.</li><li>Proof links, constraints, and claims to avoid.</li><li>A reusable file that can be inspected and corrected.</li></ul></article>
+    <article><h2>What Career Context supplies</h2><ul class="plain-check-list"><li>User-supplied roles, projects, education, and credentials.</li><li>Stated goals, interests, and preferred direction.</li><li>Proof links, constraints, and claims to avoid.</li><li>A reusable file that can be inspected and corrected.</li></ul></article>
     <article><h2>What a skill supplies</h2><ul class="plain-check-list"><li>A task-specific workflow.</li><li>Platform constraints and source-aware guidance.</li><li>Expected inputs and useful output formats.</li><li>A self-review for evidence, scope, and fabrication.</li></ul></article>
+  </section>
+
+  <section>
+    <SectionIntro eyebrow="A maintained input" title="How is Career Context different?" text="Career Context is the broad, inspectable source supplied before a task. It is not another public profile or a provider-specific memory feature." />
+    <div class="definition-list">
+      <div><dt><strong>Career Context</strong></dt><dd>A user-owned Markdown record of supplied facts, goals, evidence links, constraints, and claims to avoid. It can move between systems that accept supplied context.</dd></div>
+      <div><dt><strong>Résumé or CV</strong></dt><dd>A selective output for a particular role and audience. It uses only the relevant part of the broader Career Context.</dd></div>
+      <div><dt><strong>LinkedIn or portfolio</strong></dt><dd>A public professional surface. It can adapt the same supported material without copying every detail or using identical wording.</dd></div>
+      <div><dt><strong>Provider memory</strong></dt><dd>An external product feature whose storage, retrieval, portability, and privacy behavior depends on that provider.</dd></div>
+    </div>
+  </section>
+
+  <section class="doc-split" aria-label="Privacy and evidence boundaries">
+    <article><h2>Is Career Context private?</h2><p>VitaeContext is a local CLI and readable Markdown skill package with no project backend collecting Career Context. You choose where the file lives and what to supply to an agent. After you share content with an external provider, that provider's data rules apply.</p><p><a class="text-link" href="https://github.com/vitaecontext/vitaecontext/blob/main/PRIVACY.md">Read the project privacy policy</a></p></article>
+    <article><h2>Does VitaeContext verify claims?</h2><p>No. It organizes user-supplied facts, stated goals, proof references, and claims to avoid. Its skills tell agents to preserve those boundaries and flag missing evidence, but generated work can still contain errors and requires human review.</p><p><a class="text-link" href="/design/">See the evidence model</a></p></article>
   </section>
 
   <section class="doc-example">

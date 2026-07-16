@@ -6,12 +6,20 @@ export type PageMeta = {
   title: string;
   description: string;
   path: string;
+  robots?: string;
+  canonical?: boolean;
   type?: "website" | "article";
   image?: string;
   datePublished?: string;
   dateModified?: string;
   keywords?: string[];
 };
+
+export const entityIds = {
+  website: `${site.url}/#website`,
+  organization: `${site.url}/#organization`,
+  software: `${site.url}/#software`,
+} as const;
 
 type ArticleJsonLdOptions = {
   schemaType?: "Article" | "BlogPosting" | "TechArticle";
@@ -37,6 +45,7 @@ export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>) {
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${canonical(items.at(-1)?.path ?? "/")}#breadcrumb`,
     itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -50,14 +59,13 @@ export function websiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": entityIds.website,
     name: site.name,
-    url: site.url,
+    url: canonical("/"),
     description: site.description,
     publisher: {
       "@type": "Organization",
-      name: site.name,
-      url: site.url,
-      logo: assetUrl("/icons/icon-512.png"),
+      "@id": entityIds.organization,
     },
   };
 }
@@ -66,8 +74,9 @@ export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": entityIds.organization,
     name: site.name,
-    url: site.url,
+    url: canonical("/"),
     logo: assetUrl("/icons/icon-512.png"),
     sameAs: [site.repoUrl],
   };
@@ -77,19 +86,19 @@ export function softwareJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": entityIds.software,
     name: site.name,
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Cross-platform",
     softwareVersion: site.packageVersion,
     description: site.description,
-    url: site.url,
+    url: canonical("/"),
     downloadUrl: site.npmUrl,
     codeRepository: site.repoUrl,
     isAccessibleForFree: true,
     author: {
       "@type": "Organization",
-      name: site.name,
-      url: site.url,
+      "@id": entityIds.organization,
     },
     offers: {
       "@type": "Offer",
@@ -104,24 +113,30 @@ export function softwareSourceCodeJsonLd(title: string, description: string, pat
   return {
     "@context": "https://schema.org",
     "@type": "SoftwareSourceCode",
+    "@id": `${canonical(path)}#software-source-code`,
     name: invocationName,
     headline: title,
     description,
     url: canonical(path),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${canonical(path)}#webpage`,
+      isPartOf: {
+        "@type": "WebSite",
+        "@id": entityIds.website,
+      },
+    },
     codeRepository: site.repoUrl,
     programmingLanguage: "Markdown",
     runtimePlatform: ["Codex", "Claude Code", "Gemini CLI", "Antigravity", "OpenCode"],
     license: "https://opensource.org/license/mit",
     isPartOf: {
       "@type": "SoftwareApplication",
-      name: site.name,
-      url: site.url,
-      softwareVersion: site.packageVersion,
+      "@id": entityIds.software,
     },
     author: {
       "@type": "Organization",
-      name: site.name,
-      url: site.url,
+      "@id": entityIds.organization,
     },
   };
 }
@@ -130,31 +145,35 @@ export function webPageJsonLd(title: string, description: string, path: string, 
   return {
     "@context": "https://schema.org",
     "@type": pageType,
+    "@id": `${canonical(path)}#webpage`,
     name: title,
     description,
     url: canonical(path),
     inLanguage: "en",
     isPartOf: {
       "@type": "WebSite",
-      name: site.name,
-      url: site.url,
+      "@id": entityIds.website,
     },
     publisher: {
       "@type": "Organization",
-      name: site.name,
-      url: site.url,
-      logo: {
-        "@type": "ImageObject",
-        url: assetUrl("/icons/icon-512.png"),
-      },
+      "@id": entityIds.organization,
+    },
+    about: {
+      "@type": "SoftwareApplication",
+      "@id": entityIds.software,
     },
   };
 }
 
-export function faqJsonLd(items: Array<{ question: string; answer: string }>) {
+export function faqJsonLd(items: Array<{ question: string; answer: string }>, path = "/faq/") {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "@id": `${canonical(path)}#faq`,
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": entityIds.website,
+    },
     mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -172,12 +191,13 @@ export function articleJsonLd(title: string, description: string, path: string, 
   return {
     "@context": "https://schema.org",
     "@type": options.schemaType ?? "TechArticle",
+    "@id": `${canonical(path)}#article`,
     headline: title,
     description,
     url: canonical(path),
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": canonical(path),
+      "@id": `${canonical(path)}#webpage`,
     },
     image: [image],
     ...(options.datePublished && { datePublished: options.datePublished }),
@@ -186,17 +206,19 @@ export function articleJsonLd(title: string, description: string, path: string, 
     inLanguage: "en",
     author: {
       "@type": "Organization",
-      name: site.name,
-      url: site.url,
+      "@id": entityIds.organization,
     },
     publisher: {
       "@type": "Organization",
-      name: site.name,
-      url: site.url,
-      logo: {
-        "@type": "ImageObject",
-        url: assetUrl("/icons/icon-512.png"),
-      },
+      "@id": entityIds.organization,
+    },
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": entityIds.website,
+    },
+    about: {
+      "@type": "SoftwareApplication",
+      "@id": entityIds.software,
     },
   };
 }
