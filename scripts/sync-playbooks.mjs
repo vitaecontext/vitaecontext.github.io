@@ -1,110 +1,120 @@
-import fs from 'fs/promises';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import crypto from "node:crypto";
+import fs from "node:fs/promises";
+import path from "node:path";
+import process from "node:process";
+import { fileURLToPath } from "node:url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const scriptRoot = path.dirname(fileURLToPath(import.meta.url));
+const siteRoot = path.resolve(scriptRoot, "..");
+const productRoot = path.resolve(
+  process.env.VITAECONTEXT_SOURCE_DIR ?? path.join(siteRoot, "..", "vitaecontext")
+);
+const sourceRoot = path.join(productRoot, "hub");
+const destinationRoot = path.join(siteRoot, "src", "content", "playbooks");
+const contractPath = path.join(siteRoot, "src", "data", "product-contract.json");
+const llmsPath = path.join(siteRoot, "public", "llms.txt");
+const checkOnly = process.argv.includes("--check");
 
-// Define source and destination paths
-const SOURCE_DIR = path.resolve(__dirname, '../../vitaecontext/hub');
-const DEST_DIR = path.resolve(__dirname, '../src/content/playbooks');
-
-// The specific playbooks to copy
-const PLAYBOOKS = [
-  'context-builder',
-  'cv-ats',
-  'github',
-  'linkedin',
-  'web-portfolio',
-  'x-twitter'
+const playbooks = [
+  "context-builder",
+  "cv-ats",
+  "github",
+  "linkedin",
+  "web-portfolio",
+  "x-twitter"
 ];
 
-async function syncPlaybooks() {
-  console.log(`Starting playbook sync from: ${SOURCE_DIR}`);
-  console.log(`Target destination: ${DEST_DIR}`);
-
-  try {
-    // Ensure the destination directory exists
-    await fs.mkdir(DEST_DIR, { recursive: true });
-
-    for (const playbook of PLAYBOOKS) {
-      const srcDir = path.join(SOURCE_DIR, playbook);
-      
-      // Read all files in the source playbook directory
-      let files = [];
-      try {
-        files = await fs.readdir(srcDir);
-      } catch (err) {
-        if (err.code === 'ENOENT') {
-          console.warn(`[WARNING] Source directory not found: ${srcDir}`);
-          continue;
-        }
-        throw err;
-      }
-
-      // Filter to only .md files
-      const mdFiles = files.filter(f => f.endsWith('.md'));
-
-      if (mdFiles.length === 0) {
-        console.warn(`[WARNING] No markdown files found in: ${srcDir}`);
-        continue;
-      }
-
-      console.log(`\nSyncing [${playbook}] - ${mdFiles.length} files`);
-      
-      // We will combine the markdown files into a single master playbook for the content collection
-      let combinedContent = '';
-      let frontmatter = '';
-
-      // The README.md is always the entry point and contains the frontmatter
-      const readmePath = path.join(srcDir, 'README.md');
-      try {
-        const readmeContent = await fs.readFile(readmePath, 'utf-8');
-        
-        // Strip out H1 headings to prevent duplication with the Astro Hero component
-        const strippedReadme = readmeContent.replace(/^#\s+.*$/gm, '');
-
-        // Extract frontmatter block (<!-- metadata: ... -->)
-        const frontmatterMatch = strippedReadme.match(/<!--\s*metadata:\n([\s\S]*?)-->/);
-        if (frontmatterMatch) {
-            // Remove the 2-space indentation from the yaml block
-            const cleanYaml = frontmatterMatch[1].replace(/\n  /g, '\n').trim();
-            frontmatter = `---\n${cleanYaml}\nid: "${playbook}"\n---\n\n`;
-            combinedContent += strippedReadme.replace(frontmatterMatch[0], '').trim() + '\n\n';
-        } else {
-            frontmatter = `---\ntitle: "${playbook.replace('-', ' ')}"\nplatform: "${playbook}"\nid: "${playbook}"\n---\n\n`;
-            combinedContent += strippedReadme.trim() + '\n\n';
-        }
-
-      } catch (err) {
-        console.warn(`[WARNING] No README.md found in ${srcDir}`);
-      }
-
-      // Append the other markdown files in alphabetical order (excluding README.md)
-      for (const file of mdFiles.sort()) {
-        if (file.toLowerCase() === 'readme.md') continue;
-        
-        const filePath = path.join(srcDir, file);
-        const content = await fs.readFile(filePath, 'utf-8');
-        
-        // Clean up the markdown a bit (remove local markdown links since they are now on one page)
-        // Strip out H1 headings as they break the document outline
-        let cleanedContent = content.replace(/^#\s+.*$/gm, '').trim();
-        
-        combinedContent += `\n\n---\n\n## Section: ${file.replace('.md', '').replace(/-/g, ' ')}\n\n${cleanedContent}`;
-      }
-
-      // Write the combined file to the Astro content collection
-      const destFile = path.join(DEST_DIR, `${playbook}.md`);
-      await fs.writeFile(destFile, frontmatter + combinedContent);
-      console.log(`  -> Wrote combined playbook to ${destFile}`);
-    }
-    
-    console.log('\nPlaybook sync completed successfully.');
-  } catch (error) {
-    console.error('Error syncing playbooks:', error);
-    process.exit(1);
-  }
+function digest(content) {
+  return crypto.createHash("sha256").update(content).digest("hex");
 }
 
-syncPlaybooks();
+function normalizeRepositoryLinks(content) {
+  return content.replace(
+    /\]\((?:\.\.\/)+(\.skills\/[^)]+)\)/g,
+    "](https://github.com/vitaecontext/vitaecontext/blob/main/$1)"
+  );
+}
+
+async function readJson(filePath) {
+  return JSON.parse(await fs.readFile(filePath, "utf8"));
+}
+
+async function buildPlaybook(playbook) {
+  const sourceDirectory = path.join(sourceRoot, playbook);
+  const entries = await fs.readdir(sourceDirectory, { withFileTypes: true });
+  const markdownFiles = entries
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
+    .map((entry) => entry.name)
+    .sort();
+  if (!markdownFiles.includes("README.md")) {
+    throw new Error(`Missing README.md in product playbook: ${playbook}`);
+  }
+
+  const readme = await fs.readFile(path.join(sourceDirectory, "README.md"), "utf8");
+  const strippedReadme = normalizeRepositoryLinks(readme.replace(/^#\s+.*$/gm, ""));
+  const metadata = strippedReadme.match(/<!--\s*metadata:\n([\s\S]*?)-->/);
+  const frontmatter = metadata
+    ? `---\n${metadata[1].replace(/\n  /g, "\n").trim()}\nid: "${playbook}"\n---\n\n`
+    : `---\ntitle: "${playbook.replaceAll("-", " ")}"\nplatform: "${playbook}"\nid: "${playbook}"\n---\n\n`;
+  const parts = [metadata ? strippedReadme.replace(metadata[0], "").trim() : strippedReadme.trim()];
+
+  for (const file of markdownFiles) {
+    if (file === "README.md") continue;
+    const content = normalizeRepositoryLinks((await fs.readFile(path.join(sourceDirectory, file), "utf8"))
+      .replace(/^#\s+.*$/gm, "")
+      .trim());
+    parts.push(`---\n\n## Section: ${file.slice(0, -3).replaceAll("-", " ")}\n\n${content}`);
+  }
+  return `${frontmatter}${parts.join("\n\n")}\n`;
+}
+
+async function compareOrWrite(filePath, content, mismatches) {
+  if (checkOnly) {
+    const current = await fs.readFile(filePath, "utf8").catch(() => null);
+    if (current !== content) mismatches.push(path.relative(siteRoot, filePath));
+    return;
+  }
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
+  await fs.writeFile(filePath, content, "utf8");
+}
+
+async function run() {
+  const packageMetadata = await readJson(path.join(productRoot, "package.json"));
+  const exportConfig = await readJson(path.join(productRoot, ".skills", "export", "export-config.json"));
+  const mismatches = [];
+  const hashes = {};
+
+  for (const playbook of playbooks) {
+    const content = await buildPlaybook(playbook);
+    hashes[playbook] = digest(content);
+    await compareOrWrite(path.join(destinationRoot, `${playbook}.md`), content, mismatches);
+  }
+
+  const contract = {
+    schemaVersion: 1,
+    packageName: packageMetadata.name,
+    packageVersion: packageMetadata.version,
+    skills: exportConfig.skills.map((skill) => skill.name),
+    providers: Object.keys(exportConfig.providers).sort(),
+    playbooks: hashes
+  };
+  await compareOrWrite(contractPath, `${JSON.stringify(contract, null, 2)}\n`, mismatches);
+
+  const llms = await fs.readFile(llmsPath, "utf8");
+  const expectedLlms = llms.replace(
+    /Current package version: [0-9A-Za-z.+-]+\./,
+    `Current package version: ${packageMetadata.version}.`
+  );
+  await compareOrWrite(llmsPath, expectedLlms, mismatches);
+
+  if (mismatches.length > 0) {
+    for (const file of mismatches) console.error(`stale: ${file}`);
+    throw new Error(`Product synchronization check found ${mismatches.length} stale file(s). Run npm run sync:product.`);
+  }
+  console.log(`${checkOnly ? "ok: checked" : "synced"} ${playbooks.length} product playbook(s) for VitaeContext ${packageMetadata.version}`);
+}
+
+run().catch((error) => {
+  console.error(`error: ${error.message}`);
+  process.exit(1);
+});

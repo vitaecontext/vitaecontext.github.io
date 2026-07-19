@@ -3,13 +3,13 @@ export const providers = [
     id: "codex",
     name: "Codex",
     summary:
-      "Installs named skill folders into the Codex skills directory. Each skill becomes selectable by name within Codex environments that support skill loading.",
-    status: "Direct install",
+      "Installs named skill folders into Codex skill directories. A cloned repository also exposes the same eight skills through a native Codex plugin marketplace.",
+    status: "Direct install + native plugin",
     globalTarget: "~/.agents/skills/ + CODEX_HOME/skills or ~/.codex/skills/",
     installCmd: "npx vitaecontext install --provider codex",
     npxCmd: "npx vitaecontext install --provider codex",
     invocation: "$vitaecontext-github\n$vitaecontext-vitaegraph",
-    invocationNote: "Exact activation depends on Codex environment and installed skill support.",
+    invocationNote: "Direct skills and the native plugin share one generated runtime source; exact activation depends on the Codex surface.",
   },
   {
     id: "claude-code",

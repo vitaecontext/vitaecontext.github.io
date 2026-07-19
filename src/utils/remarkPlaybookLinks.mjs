@@ -2,8 +2,9 @@ const markdownFilePattern = /(?:^|\/)([^/#?]+)\.md(?:#([^?]+))?(?:\?.*)?$/i;
 
 const explicitTargets = new Map([
   ["readme", "#main-content"],
-  ["context-file-template", "#section-context-file-spec"],
-  ["renato-mignone-context-file", "#section-context-file-spec"],
+  ["context-file-template", "/docs/context-file-example/"],
+  ["career-context-starter", "/docs/context-file-example/"],
+  ["alex-morgan-fictional-career-context", "/docs/context-file-example/"],
 ]);
 
 function slugify(value) {
@@ -25,6 +26,12 @@ function rewriteMarkdownHref(href) {
     href.startsWith("#")
   ) {
     return href;
+  }
+
+  const skillPathIndex = href.indexOf(".skills/");
+  if (skillPathIndex !== -1) {
+    const repositoryPath = href.slice(skillPathIndex);
+    return `https://github.com/vitaecontext/vitaecontext/blob/main/${repositoryPath}`;
   }
 
   const match = href.match(markdownFilePattern);

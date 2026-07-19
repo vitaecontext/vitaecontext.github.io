@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "astro dev --root . --host 127.0.0.1",
     "og:generate": "node scripts/generate-og-images.mjs",
+    "sync:product": "node scripts/sync-playbooks.mjs",
+    "sync:check": "node scripts/sync-playbooks.mjs --check",
     "build": "astro check --root . && astro build --root . --outDir ./dist",
     "seo:audit": "node scripts/seo-audit.mjs",
     "preview": "astro preview --root . --host 127.0.0.1"

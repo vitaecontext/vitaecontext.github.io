@@ -1,5 +1,5 @@
 ---
-import { marketplace } from "@data/navigation";
+import { codexMarketplace, marketplace } from "@data/navigation";
 import { providers } from "@data/providers";
 ---
 
@@ -24,6 +24,14 @@ import { providers } from "@data/providers";
     <p>Claude Code also supports a plugin marketplace installation:</p>
     <pre class="code-block"><code>{marketplace.addCommand}
 {marketplace.installCommand}</code></pre>
+  </section>
+
+  <section>
+    <h2>Codex plugin marketplace</h2>
+    <p>A cloned product repository includes a native Codex plugin backed by the same canonical skills:</p>
+    <pre class="code-block"><code>{codexMarketplace.addCommand}
+{codexMarketplace.installCommand}</code></pre>
+    <p>Direct npm skill installation remains supported and does not require the plugin marketplace.</p>
   </section>
 
   <section>

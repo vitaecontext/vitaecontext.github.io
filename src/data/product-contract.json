@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "packageName": "vitaecontext",
+  "packageVersion": "2.1.0",
+  "skills": [
+    "vitaecontext",
+    "vitaecontext-build",
+    "vitaecontext-cv",
+    "vitaecontext-github",
+    "vitaecontext-linkedin",
+    "vitaecontext-vitaegraph",
+    "vitaecontext-portfolio",
+    "vitaecontext-x"
+  ],
+  "providers": [
+    "antigravity",
+    "claude-code",
+    "codex",
+    "gemini-cli",
+    "opencode",
+    "shared"
+  ],
+  "playbooks": {
+    "context-builder": "04aa9b3ddcc148e200f2ccf9bab2a2e934e3afbf747b4f9f6240823f56a77977",
+    "cv-ats": "2e99ef7dc6fbfe1fb3ea4e0eb1c3e0fc2659bb594c3417898f3f4d339be07dea",
+    "github": "102b5d6f166e584688d02813db98258173ab2f80c13da2ea3fbf0029c5a0eb3b",
+    "linkedin": "9c594d9efbb2861bfb82bfaee40f8f8f14f692b494cc982d5b6bb06b48c14d6a",
+    "web-portfolio": "286ecd6d0dcb5968d540e888ccffd7bb5f3177f091d46f58657b52d39490cded",
+    "x-twitter": "6317e0a8f620fc0fa145426d786358f1f4e728da41f1a8c349b94d3bf75cf55a"
+  }
+}

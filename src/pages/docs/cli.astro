@@ -6,9 +6,9 @@ import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
 import { site } from "@data/site-config";
 import "@styles/pages/docs.css";
 
-const meta = { title: "CLI Reference", description: "Reference for VitaeContext version, update, doctor, list, template, graph, install, uninstall, and export commands.", path: "/docs/cli/", type: "article" as const, image: "/og/cli.png" };
+const meta = { title: "CLI Reference", description: "Reference for VitaeContext version, update, doctor, Career Context, VitaeGraph, install, uninstall, and export commands.", path: "/docs/cli/", type: "article" as const, image: "/og/cli.png" };
 ---
 <BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Docs", path: "/docs/" }, { name: "CLI", path: meta.path }])]}>
-  <PageHero eyebrow={`Documentation · CLI · ${site.packageVersion}`} title="CLI reference" text="Commands for installing, inspecting, updating, exporting, and removing the package, plus local VitaeGraph commands." compact />
+  <PageHero eyebrow={`Documentation · CLI · ${site.packageVersion}`} title="CLI reference" text="Commands for installing and removing skills, validating and selecting Career Context, and maintaining local VitaeGraph records." compact />
   <CliReference />
 </BaseLayout>

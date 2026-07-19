@@ -15,7 +15,7 @@ Verified: 2026-07-16
 | Canonical website | `https://vitaecontext.github.io/` | Astro config, shared site data, repository metadata. |
 | Canonical repository | `https://github.com/vitaecontext/vitaecontext` | Product/site data and live repository. |
 | npm package | `vitaecontext` | Product package metadata and npm link. |
-| Current package version | `2.0.0` | `../vitaecontext/package.json`, website shared data, changelog, `llms.txt`. |
+| Current package version | `2.1.0` | Product contract generated from `../vitaecontext/package.json`, website shared data, changelog, `llms.txt`. |
 | CLI executable | `vitaecontext` | Product package `bin`/CLI and documentation. |
 | Compatibility package/alias | `agentkit-seo` | Deprecated compatibility entry that forwards to VitaeContext; not a current co-brand. |
 | License | MIT | Product `LICENSE`, package metadata, skill frontmatter. |
@@ -88,7 +88,7 @@ Canonical public answer: `/vitaegraph/`.
 
 ## Agent-skill entity relationships
 
-VitaeContext 2.0.0 ships eight installed runtime skills:
+VitaeContext 2.1.0 ships eight installed runtime skills:
 
 | Invocation name | Relationship / role | Canonical website page |
 | --- | --- | --- |
@@ -175,4 +175,4 @@ Implementation rules:
 
 ## Known uncertainty
 
-The product current-status document dated 2026-07-11 still says 1.9.2, while the authoritative package and current website say 2.0.0. This is a stale maintainer-status snapshot in the product repository, which is out of scope for edits here. Public website facts follow the current package and changelog. The product owner should update the status file separately.
+The website deployment checks generated playbooks, package version, skill names, provider names, and content hashes against a fresh product-repository checkout. Product status and website shared data are aligned for 2.1.0.
