@@ -1,15 +1,16 @@
 ---
 title: "Context Builder"
 platform: "general"
-objective: "Navigation index for the context-builder folder, including the specification, workflow, maintenance guide, template, and example file."
+objective: "Navigation index for the context-builder folder, including the specification, workflow, maintenance guide, and template."
 status: "draft"
-last_updated: "2026-07-16"
-tags: ["context-file", "agent-context", "personal-branding", "AI-career-assistant", "LLM-context-file", "career-context-for-developers", "agent-memory", "goals-and-targeting", "index", "navigation"]
+last_updated: "2026-05-11"
+tags: ["context-file", "index", "navigation"]
 agent_priority: "medium"
 id: "context-builder"
 ---
 
-> This guide defines the standard for building and maintaining Career Context: the user-owned source that keeps career-focused AI work grounded in supplied facts and explicit evidence boundaries.
+> This folder defines the standard for building and maintaining a Career Context file: the private source of truth that keeps career-focused AI work grounded in verified facts.
+> Public web page: [Context Builder playbook](https://vitaecontext.github.io/playbooks/context-builder/).
 
 ---
 
@@ -17,60 +18,57 @@ id: "context-builder"
 
 The fastest way to get generic career output is to give an agent scattered context. A CV in one message, a LinkedIn profile in another, a GitHub URL later, and a few corrections after the first bad draft.
 
-This module fixes that by turning professional history into one structured Markdown file. The file describes a person's academic and professional record in a format that both humans and AI agents can navigate reliably.
+This module fixes that by turning professional history and future direction into one structured Markdown file. The file describes a person's academic and professional record, target roles, growth direction, evidence boundaries, and positioning constraints in a format that both humans and AI agents can navigate reliably.
 
 The intended use is simple: keep one canonical context file up to date, load it into an agent session, and combine it with the platform-specific modules in this repository when generating CVs, LinkedIn text, portfolio copy, or interview prep.
-
-The file holds two kinds of content that must never blur together: **verified facts** (what is true and provable) and **stated goals and targeting** (where the person wants to go). The goals and targeting block lets downstream skills aim output without inventing experience to support it. See the goals and targeting rules in the [context file spec](#section-context-file-spec) below.
-
-## How does Career Context reduce unsupported claims?
-
-Career Context gives an agent supplied facts, stated goals, evidence links, and claims to avoid before it drafts. The method tells the agent to flag missing support instead of strengthening a claim beyond the available material.
-
-This reduces unsupported-claim risk; it does not independently fact-check the material or guarantee that a model cannot make an error. Review every generated output before using it.
 
 ```text
 Before:
 "Here is my CV. Also my GitHub is different now. Actually ignore that old project."
 
 After:
-"Use my Career Context as the source, then audit my LinkedIn profile."
+"Use my Career Context file as the source of truth, then audit my LinkedIn profile."
 ```
 
 ## 2. Use this module when
 
-- A user does not yet have Career Context.
+- A user does not yet have a Career Context file.
 - Existing career material is scattered across CVs, LinkedIn, GitHub, notes, and portfolio pages.
 - An agent needs one verified source of truth before rewriting public career material.
+- A user wants to move toward a new role, domain, seniority level, or research direction without overclaiming.
 - A context file already exists but has become stale, too long, or inconsistent.
 
 ## 3. Fast path
 
 1. Read [why-context-files.md](./why-context-files.md) to understand the purpose.
 2. Use [templates/context-file-template.md](./templates/context-file-template.md) to create the first draft.
-3. Check the draft against [context-file-spec.md](./context-file-spec.md).
-4. Use [agent-workflow.md](./agent-workflow.md) when loading the file into an agent session.
-5. Return to [file-maintenance.md](./file-maintenance.md) whenever new facts need to be added.
+3. Review [the fictional Alex Morgan example](./examples/alex-morgan-fictional-career-context.md) to see a complete filled file without publishing a real person's Career Context.
+4. Check the draft against [context-file-spec.md](./context-file-spec.md).
+5. Use [agent-workflow.md](./agent-workflow.md) when loading the file into an agent session.
+6. Return to [file-maintenance.md](./file-maintenance.md) whenever new facts need to be added.
 
 ## 4. Directory contents
 
 - [context-file-spec.md](./context-file-spec.md): The authoritative specification for structure, section order, semantic tags, and validation.
 - [why-context-files.md](./why-context-files.md): The motivation document explaining why a context file outperforms copy-pasted raw text or agent memory.
 - [agent-workflow.md](./agent-workflow.md): The operational guide for loading the file into agent sessions and combining it with other modules.
-- [file-maintenance.md](./file-maintenance.md): The maintenance lifecycle for updates, token growth, verified facts, and version history.
-- [templates/context-file-template.md](./templates/context-file-template.md): A guided template for building a new personal context file.
-- [Fictional Career Context example](/docs/context-file-example/): A public worked example showing how the structure looks without exposing a person's private file.
+- [file-maintenance.md](./file-maintenance.md): The maintenance lifecycle for updates, token growth, goals, verified facts, and version history.
+- [templates/context-file-template.md](./templates/context-file-template.md): A guided template for building a new Career Context file.
+- [templates/career-context-starter.md](./templates/career-context-starter.md): The minimal starter written by `vitaecontext context init`.
+- [examples/alex-morgan-fictional-career-context.md](./examples/alex-morgan-fictional-career-context.md): A complete fictional example. No person, organization, credential, result, or identifier in it should be treated as real.
 
 ## 5. Usage for agents
 
-When an AI agent is asked to work with a personal context file:
+When an AI agent is asked to work with a Career Context file:
 
 1. Load [context-file-spec.md](./context-file-spec.md) before editing or validating the file.
 2. Load [agent-workflow.md](./agent-workflow.md) when the task is about prompting or module routing.
 3. Load [file-maintenance.md](./file-maintenance.md) when new content must be integrated into an existing file.
-4. Treat the personal context file itself as the factual source of truth, not the surrounding explanatory docs.
+4. Treat the Career Context file itself as the factual source of truth, not the surrounding explanatory docs.
 
+---
 
+Runtime skill: [.skills/agent-skill/vitaecontext-build/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-build/SKILL.md). Source notes: [sources.md](./sources.md).
 
 ---
 
@@ -89,13 +87,13 @@ metadata:
 
 
 
-> Practical instructions for using Career Context in an agent session, covering invocation patterns, skill routing, prompt templates, and output quality criteria for common career tasks.
+> Practical instructions for using a Career Context file in an agent session, covering invocation patterns, Skill submodule routing, prompt templates, and output quality criteria for the four most common career tasks.
 
 ---
 
 ## 1. Overview
 
-This section is for users who have already built Career Context following the rules in the specification below. It explains how to load the file into an agent session, write an effective task prompt, and combine the file with a focused skill. The method is designed to preserve supplied facts and evidence boundaries; generated work still requires review.
+This file is for users who have already built a Career Context file following the rules in [context-file-spec.md](./context-file-spec.md). It explains how to load the file into an agent session, how to write effective task prompts, and how to combine the context file with platform-specific Skill submodules. The outcome of following this workflow is accurate, platform-ready career outputs that require minimal editing.
 
 ## 2. Invoking the context file
 
@@ -103,19 +101,19 @@ This section is for users who have already built Career Context following the ru
 
 Every session that uses the context file follows the same three-step pattern.
 
-**Step 1 - Load the context file.** Provide the file to the agent as context before stating your task. In most coding agents, this means opening the file in the same working directory and referencing it explicitly in your prompt, or passing it using the agent's file attachment mechanism. In chat-based agents, paste the full file content directly into the session.
+**Step 1 — Load the context file.** Provide the file to the agent as context before stating your task. In most coding agents, this means opening the file in the same working directory and referencing it explicitly in your prompt, or passing it using the agent's file attachment mechanism. In chat-based agents, paste the full file content directly into the session.
 
-**Step 2 - State the task with constraints.** Name the output type, the target platform or role, and any hard constraints (word count, format, target audience). The more specific the constraints, the less the agent needs to guess.
+**Step 2 — State the task with constraints.** Name the output type, the target platform or role, and any hard constraints (word count, format, target audience). The more specific the constraints, the less the agent needs to guess.
 
-**Step 3 - Evaluate and iterate.** Use the quality criteria in section 5 of this file to assess the output. If a section is weak, ask the agent to revise it by naming the specific fact or section in the context file that should be drawn on more heavily.
+**Step 3 — Evaluate and iterate.** Use the quality criteria in section 5 of this file to assess the output. If a section is weak, ask the agent to revise it by naming the specific fact or section in the context file that should be drawn on more heavily.
 
 ### 2.2 File discovery convention
 
 The safest way to use a context file is to pass the path explicitly in the prompt. This avoids accidental use of an old or unrelated profile.
 
-**Rule:** Prefer an explicit path when invoking the skill, for example `Use the context file at ~/career/name-surname-seo-context.md`.
+**Rule:** Prefer an explicit path when invoking the skill, for example `Use the context file at ~/career/name-surname-career-context.md`.
 
-**Recommendation:** If the user wants a portable default location, suggest `~/.vitaecontext/<name-surname>-seo-context.md`. The generic fallback `~/.vitaecontext/context.md` is acceptable only when the user prefers a neutral filename. Agents may check a default path only after the user asks to use it or confirms that the path is correct.
+**Recommendation:** If the user wants a portable default location, suggest `~/.vitaecontext/<name-surname>-career-context.md`. The generic fallback `~/.vitaecontext/context.md` is acceptable only when the user prefers a neutral filename. Agents may check a default path only after the user asks to use it or confirms that the path is correct.
 
 **Rule:** Do not search the user's entire filesystem for a context file. If no explicit path or confirmed default exists, ask the user for the file path.
 
@@ -160,7 +158,7 @@ rewrite my LinkedIn [About | Headline | Experience entry for ROLE NAME].
 
 Constraints:
 - Target audience: [e.g., security research groups and senior engineering recruiters]
-- Positioning: use the target_roles and top_skills from the QUICK REFERENCE block
+- Positioning: use the target_roles, growth_direction, evidence_boundaries, positioning_constraints, claims_to_avoid, and top_skills from the QUICK REFERENCE block and Goals and targeting section
 - Length: follow the platform limits defined in the linkedin submodule
 - Do not use the first person in the headline
 - Include at least one quantified result
@@ -273,7 +271,7 @@ A good interview preparation output:
 metadata:
   title: "Career Context file specification"
   platform: "general"
-  objective: "Defines the required structure, section order, formatting conventions, and agent-optimization rules for Career Context."
+  objective: "Defines the required structure, section order, formatting conventions, and agent-optimization rules for a Career Context file."
   status: "draft"
   last_updated: "2026-04-24"
   tags: ["context-file", "specification", "agent-optimization", "formatting"]
@@ -282,34 +280,35 @@ metadata:
 
 
 
-> Defines the structure, section order, and formatting rules that Career Context follows to remain usable by both a human maintainer and an AI agent.
+> Defines the required structure, section order, and formatting rules that every Career Context file must follow to remain usable by both a human maintainer and an AI agent.
 
 ---
 
 ## 1. Overview
 
-Career Context is a single Markdown document containing a person's supplied professional record. It is an input for career outputs such as CVs, cover letters, LinkedIn sections, portfolio copy, and interview preparation material. Two readers use it: a human who maintains it and an agent that retrieves relevant facts from it. The structure serves both readers while remaining inspectable and editable.
+The Career Context file is a single Markdown document containing a person's full professional record and stated career direction. It is the source of truth from which any career output can be generated: CVs, cover letters, LinkedIn sections, portfolio copy, and interview preparation material. Two readers use it simultaneously — a human who maintains it and an agent that extracts verified facts, goals, and positioning constraints from it. Every rule in this spec serves both readers. Following this spec produces a file that any agent can load, navigate by section tag, and use immediately without additional instructions.
 
-The file can live wherever the user wants. Prefer an explicit user-chosen path. A useful portable convention is `~/.vitaecontext/<name-surname>-seo-context.md`; a local workspace draft is also valid while the file is being created. Agents must confirm the destination before creating or overwriting the file. Because valid context files can become large, agents should prefer file writes or targeted diffs over full in-chat drafts; if file writing is unavailable, return a compact outline first and split the full Markdown draft by section only when requested.
+The file can live wherever the user wants. Prefer an explicit user-chosen path. A useful portable convention is `~/.vitaecontext/<name-surname>-career-context.md`; a local workspace draft is also valid while the file is being created. Agents must confirm the destination before creating or overwriting the file. Because valid context files can become large, agents should prefer file writes or targeted diffs over full in-chat drafts; if file writing is unavailable, return a compact outline first and split the full Markdown draft by section only when requested.
 
 ## 2. File structure
 
-The context file contains ten sections in a fixed order. The table below defines the requirement status of each section.
+The context file contains eleven sections in a fixed order. The table below defines the requirement status of each section.
 
 | # | Section | Status |
 |---|---|---|
 | 1 | Title | Required |
 | 2 | QUICK REFERENCE block | Required |
-| 3 | Scope declaration | Required |
-| 4 | Education | Required |
-| 5 | Professional experience | Conditional |
-| 6 | Research and publications | Conditional |
-| 7 | Skills index | Required |
-| 8 | Certifications and achievements | Conditional |
-| 9 | Languages | Required |
-| 10 | Extracurricular and leadership | Optional |
+| 3 | Goals and targeting | Recommended |
+| 4 | Scope declaration | Required |
+| 5 | Education | Required |
+| 6 | Professional experience | Conditional |
+| 7 | Research and publications | Conditional |
+| 8 | Skills index | Required |
+| 9 | Certifications and achievements | Conditional |
+| 10 | Languages | Required |
+| 11 | Extracurricular and leadership | Optional |
 
-**Required:** present in every valid context file. **Conditional:** present if the described content exists. **Optional:** may be omitted.
+**Required:** present in every valid context file. **Recommended:** include unless the user declines; it sharpens downstream targeting. **Conditional:** present if the described content exists. **Optional:** may be omitted.
 
 ### 2.1 Title
 
@@ -323,7 +322,7 @@ The descriptor reflects the person's positioning, not their current job title. I
 
 ### 2.2 QUICK REFERENCE block
 
-The **QUICK REFERENCE block** is the most critical section. Place it immediately after the title, before any prose. An agent completing most tasks - cover letters, CV summaries, bios - reads this block first and descends into the body only when it needs specific detail.
+The **QUICK REFERENCE block** is the most critical section. Place it immediately after the title, before any prose. An agent completing most tasks — cover letters, CV summaries, bios — reads this block first and descends into the body only when it needs specific detail.
 
 **Rule:** Write the block as a YAML fenced code block under an H2 heading labeled `QUICK REFERENCE`.
 
@@ -332,6 +331,18 @@ name: Firstname Lastname
 current_location: City, Country
 target_roles: [Role A, Role B]
 open_to_relocation: true/false
+target_locations: [City, Country, Remote-Region]   # or [No restriction]
+work_mode: remote/hybrid/onsite
+positioning_summary: Current verified identity plus the direction the person is building toward
+ideal_role: The role the person ultimately wants
+current_focus: What the person is working on and improving now
+want_to_work_on_next: Problems, domains, or responsibilities the person is aiming for
+growth_direction: Future domain, seniority, or role family the person wants to move toward
+emerging_interests: [topic1, topic2, topic3]
+evidence_boundaries: Which direction claims are verified, emerging, or target development areas
+positioning_constraints: How to frame transitions without overstating experience
+claims_to_avoid: [claim that is not yet supported, claim that would distort the profile]
+interests: [interest1, interest2, interest3]
 
 education:
   - "[DEGREE] Degree Name | Institution | Grade | Month Year"
@@ -346,7 +357,7 @@ top_skills: [skill1, skill2, skill3]
 tools: [tool1, tool2, tool3]
 
 competitions:
-  - "Result - Competition Name (Year)"
+  - "Result — Competition Name (Year)"
 
 certifications:
   - "Cert Name | Issuer | Date | ID (if applicable)"
@@ -367,29 +378,32 @@ portfolio: https://yoursite.com
 
 The `gpa_summary` field lists all graded courses on a single comma-separated line. This lets an agent retrieve the full academic record without leaving the block.
 
-### 2.2.1 Goals and targeting (stated intent)
+### 2.3 Goals and targeting
 
-The **Goals and targeting** block records where the person wants to go, as distinct from what they have already done. Place it directly under the QUICK REFERENCE block.
+Place the **Goals and targeting** section immediately after the QUICK REFERENCE block. It records where the person wants to go, so downstream skills can aim role, tone, location, keyword choices, and proof selection.
 
-**Rule:** Everything in this block is **stated intent, not verified fact**. An agent may use it to choose emphasis, tone, and which experience to surface, but it must never present a goal as an accomplishment. A target role is not a held role; an interest is not a demonstrated skill.
+**Rule:** This section holds stated intent and preferences, not verified facts. Keep it separate from the verified record and never convert an aspiration into claimed experience. Do not list it inside the `<!-- VERIFIED FACTS -->` comment.
 
-Capture the following fields. Omit any that do not apply.
+```markdown
+## Goals and targeting
 
-```yaml
-goals_and_targeting:
-  ideal_role: "The role the person is aiming for next"
-  current_focus: "What they are working on or learning right now"
-  next_work: "What they want to work on next"
-  target_locations: [City, Country]   # or: No restriction
-  interests: [topic, topic]
-  constraints: [e.g. remote only, visa sponsorship required]
+**Ideal role:** The role the person ultimately wants.
+**Current focus:** What the person is working on and improving now.
+**Want to work on next:** Problems, domains, or responsibilities they are aiming for.
+**Growth direction:** The future domain, role family, seniority, or positioning shift they are building toward.
+**Target locations:** Cities, countries, remote or hybrid preference, relocation stance, or No restriction.
+**Interests:** Professional and personal interests that shape direction.
+**Evidence boundaries:** Which parts of the direction are already verified, which are emerging, and which are target development areas.
+**Positioning constraints:** Rules for framing the transition without overstating experience.
+**Claims to avoid:** Claims that should not appear in public copy unless new evidence is supplied.
+**Constraints:** Visa, availability, role types to avoid, or No restriction.
 ```
 
-**Rule:** Use `No restriction` for `target_locations` when the person is open to any location, rather than omitting the field, so downstream skills do not have to guess.
+**Rule:** Write `No restriction` where the person has no constraint rather than omitting the line, so an agent does not guess.
 
-**Rule:** Keep goals and targeting separate from the Education, Experience, and Skills sections. Those sections stay strictly factual. When a downstream skill writes public copy, it grounds every claim in the factual sections and uses goals and targeting only to decide what to emphasize.
+**Rule:** Use verified evidence as the foundation, future direction as the positioning target, and constraints as guardrails. For example, if a person has applied cryptography evidence and wants to move toward agentic AI security, public copy can say "building toward agentic AI security from applied security foundations" but must not claim mature agentic AI security expertise without supporting work.
 
-### 2.3 Scope declaration
+### 2.4 Scope declaration
 
 The **scope declaration** is a single paragraph written in third person. It states what the file is, what it is not, and what it is for. Write it so an agent can read it as instructions rather than self-description.
 
@@ -407,7 +421,7 @@ cert score=NNN, cert id=XXXXXXX, competition result=Nth place, score=XXXXXXX -->
 
 The HTML comment is invisible in rendered Markdown but visible to any agent reading raw text.
 
-### 2.4 Education
+### 2.5 Education
 
 Write each degree as an H2 heading using the `[DEGREE]` tag.
 
@@ -436,7 +450,7 @@ If a course has a project, nest it under the course as an H5 entry with the `[PR
 
 ```markdown
 ##### [PROJECT] Project name | Repo: https://github.com/...
-**TL;DR:** One sentence - what was built, core technologies, key result.
+**TL;DR:** One sentence — what was built, core technologies, key result.
 ```
 
 **Rule:** Every `[PROJECT]` entry must include a `**TL;DR:**` line immediately after its heading. Keep it under 30 words.
@@ -459,10 +473,10 @@ Write the thesis as an H3 entry under its parent degree, using the `[THESIS]` ta
 **Full title:** Official title, in the original language if different.
 **Supervisors:** Name, Name
 **Research area:** Area A, Area B
-**TL;DR:** One sentence - contribution and outcome.
+**TL;DR:** One sentence — contribution and outcome.
 ```
 
-### 2.5 Professional experience
+### 2.6 Professional experience
 
 Write each role as an H3 entry using the `[ROLE]` tag.
 
@@ -479,7 +493,7 @@ If the role is the industry context for a thesis, add a cross-reference on the l
 *This role is the industry context for the [THESIS] documented under [degree section].*
 ```
 
-### 2.6 Research and publications
+### 2.7 Research and publications
 
 Include this section only if the person has formal research outputs: published papers, preprints, DOI-linked reports, or papers under review.
 
@@ -490,12 +504,12 @@ Write each paper as an H3 entry using the `[PAPER]` or `[PREPRINT]` tag.
 **Full title:** Full paper title.
 **Authors:** Author A, **Firstname Lastname**, Author B
 **DOI:** https://doi.org/...
-**TL;DR:** One sentence - contribution and main finding.
+**TL;DR:** One sentence — contribution and main finding.
 ```
 
 For work not yet published, use `[PREPRINT]` and add the status after the year: `| Under review` or `| In preparation`.
 
-### 2.7 Skills index
+### 2.8 Skills index
 
 **Rule:** Write the Skills index as a flat categorical enumeration. Do not use prose or bullet lists.
 
@@ -515,7 +529,7 @@ Write each category as a bold label followed by a comma-separated list on the sa
 
 Add or remove categories to match the person's field. **Rule:** Every skill listed must appear in at least one other section of the file. Do not add skills without supporting evidence in the body.
 
-### 2.8 Certifications and achievements
+### 2.9 Certifications and achievements
 
 Write each entry as an H3 using the appropriate tag. The three entry types and their formats are shown below.
 
@@ -524,13 +538,13 @@ Write each entry as an H3 using the appropriate tag. The three entry types and t
 Score: overall score and per-component breakdown if applicable.
 
 ### [COMPETITION] Competition name | Year | Result: Nth place / Score: X
-**TL;DR:** One sentence - the challenge and what was built or demonstrated.
+**TL;DR:** One sentence — the challenge and what was built or demonstrated.
 
 ### [AWARD] Award name | Issuing body | Date
 One sentence describing what was recognized and in what context.
 ```
 
-### 2.9 Languages
+### 2.10 Languages
 
 **Rule:** Write the Languages section as a table. Do not use prose.
 
@@ -538,13 +552,13 @@ The table below shows the required columns and an example row for each case.
 
 | Language | Level | Certificate | Notes |
 |---|---|---|---|
-| Italian | Native | - | - |
-| English | B2 / C1 speaking | Cambridge FCE, Score 172, ID C7109952 | - |
-| French | Basic | - | - |
+| Italian | Native | — | — |
+| English | B2 / C1 speaking | Cambridge FCE, Score 172, ID C7109952 | — |
+| French | Basic | — | — |
 
 Use CEFR levels as the standard. Include standardized test scores and IDs in the Certificate column.
 
-### 2.10 Extracurricular and leadership
+### 2.11 Extracurricular and leadership
 
 Write each entry as an H3 using the `[ORG]` tag.
 
@@ -562,7 +576,7 @@ These rules apply across the entire file regardless of section.
 
 ### 3.1 Semantic section tags
 
-Every H3 and deeper heading representing a professional artifact must begin with a semantic tag in square brackets. The table below lists the full tag vocabulary.
+Every heading representing a professional artifact must begin with a semantic tag in square brackets, including degree entries that use H2 headings. The table below lists the full tag vocabulary.
 
 | Tag | Used for |
 |---|---|
@@ -689,6 +703,7 @@ Before considering a context file complete, verify all of the following items.
 
 - [ ] The file opens with an H1 title in the specified format.
 - [ ] The QUICK REFERENCE YAML block is complete and appears before the scope declaration.
+- [ ] The Goals and targeting section is present (or intentionally declined), holds stated intent only, and is kept out of the `<!-- VERIFIED FACTS -->` comment.
 - [ ] The scope declaration includes the `<!-- VERIFIED FACTS: ... -->` comment.
 - [ ] Every verified fact in the file appears inside the `<!-- VERIFIED FACTS: ... -->` comment.
 - [ ] Every H3 and deeper heading representing a professional artifact has a semantic tag.
@@ -713,22 +728,22 @@ Before considering a context file complete, verify all of the following items.
 metadata:
   title: "Context file maintenance"
   platform: "general"
-  objective: "Explains when and how to update Career Context, manage token growth, and keep evidence anchors and version history accurate."
+  objective: "Explains when and how to update the Career Context file, how to manage token growth, and how to keep goals, VERIFIED FACTS, and version history accurate."
   status: "draft"
-  last_updated: "2026-04-24"
+  last_updated: "2026-06-21"
   tags: ["context-file", "maintenance", "versioning", "token-efficiency"]
   agent_priority: "low"
 -->
 
 
 
-> Rules and workflows for keeping Career Context accurate, current, and token-efficient as the user's career evolves over time.
+> Rules and workflows for keeping a Career Context file accurate, current, and token-efficient as the user's career evolves over time.
 
 ---
 
 ## 1. Overview
 
-This section covers the maintenance lifecycle of Career Context. A file that is outdated, disorganized, or bloated with redundant detail can surface stale facts and waste context. The primary audience is a person who has already built the file and wants to maintain it over time.
+This file covers the maintenance lifecycle of a Career Context file. A context file that is outdated, disorganized, or bloated with redundant detail produces worse outputs than a well-maintained one, because agents spend tokens on irrelevant content, stale facts, or stale direction. Following the rules in this file keeps the context file reliable as the primary source of truth for all generated career outputs. The primary audience is a human who has already built a valid context file and wants to maintain it correctly over time.
 
 ## 2. When to update
 
@@ -744,7 +759,20 @@ The trigger for every update is a completed, confirmable fact. These are the eve
 - A paper is accepted, published, or posted as a preprint.
 - A language certificate is received with an official score.
 
-Do not add a course before the grade is official. Do not add a project before it has a concrete deliverable. Do not add a role before the start date has passed. A context file that contains unverified facts is worse than one that is slightly out of date - the VERIFIED FACTS comment in the scope declaration exists precisely to enforce this rule.
+Do not add a course before the grade is official. Do not add a project before it has a concrete deliverable. Do not add a role before the start date has passed. A context file that contains unverified facts is worse than one that is slightly out of date — the VERIFIED FACTS comment in the scope declaration exists precisely to enforce this rule.
+
+**Rule:** Update `Goals and targeting` when the person's direction changes, but keep those edits outside the verified record.
+
+Direction changes can happen before a new credential exists. These updates belong in `Goals and targeting`, not in education, experience, projects, or `VERIFIED FACTS`:
+
+- The target role list changes.
+- A new growth direction becomes important.
+- Emerging interests become more or less central.
+- Target locations, relocation stance, or work mode changes.
+- Evidence boundaries need clearer wording.
+- Positioning constraints or claims to avoid change.
+
+The rule is different from verified history because direction is stated intent. Record the intent plainly, then state which parts are already supported by evidence and which parts are still emerging.
 
 ## 3. How to integrate new content using an agent
 
@@ -753,7 +781,7 @@ Integrating new content into an existing context file by hand is error-prone, es
 Use the prompt template below for every integration task.
 
 ```text
-I have new content to add to my Career Context. The context file is loaded
+I have new content to add to my Career Context file. The context file is loaded
 in this session. The rules that govern its structure are in context-file-spec.md,
 also loaded in this session.
 
@@ -775,6 +803,9 @@ Instructions:
 5. Identify any new skills demonstrated in the new material that should be
    added to the Skills index. For each one, confirm that it is supported by
    evidence in the new entry before adding it.
+6. If the material changes my target roles, growth direction, evidence
+   boundaries, positioning constraints, or claims to avoid, update only the
+   Goals and targeting section and keep those statements out of VERIFIED FACTS.
 
 Do not modify any existing content in the context file. Only add.
 ```
@@ -792,6 +823,8 @@ As the context file grows over multiple years, it may reach a size where loading
 **Rule:** The QUICK REFERENCE block must always reflect current positioning, not historical completeness. If a role ended three years ago and is no longer relevant to your target roles, remove it from the `professional:` field in the QUICK REFERENCE block. The full entry stays in the body.
 
 **Rule:** The `top_skills` field in the QUICK REFERENCE block lists the 8–15 skills most central to your current positioning. Remove skills that have become background knowledge and are no longer differentiating. The skill still stays in the Skills index body; it just drops out of the quick-access list.
+
+**Rule:** Keep direction fields compact. `positioning_summary`, `growth_direction`, `evidence_boundaries`, `positioning_constraints`, and `claims_to_avoid` should guide an agent quickly, not duplicate project entries or long career strategy notes.
 
 The net effect of these rules is that the QUICK REFERENCE block always reads as a current snapshot of your positioning, while the file body preserves the full historical record for deep queries.
 
@@ -820,19 +853,66 @@ A private Git repository is the most robust option. Each update becomes a commit
 ```text
 Add grade for Network and Cloud Security (30L/30)
 Add eBPF verifier bypass research project
-Add Huawei internship - post-quantum cryptography thesis
+Add Huawei internship — post-quantum cryptography thesis
 Add IEEE-HKN 1st place result, update QUICK REFERENCE
 ```
 
 This practice produces three concrete benefits. First, you can recover any earlier version of the file if an update introduces an error. Second, the commit log gives you a dated record of every career development, which is useful for performance reviews, annual self-assessments, and visa or scholarship applications that require a chronological work history. Third, if you ever want to roll back the QUICK REFERENCE block to a previous positioning (for a specific application that targets an older skill set), you can retrieve it precisely.
 
-If a Git repository is not practical, a versioned cloud document with named versions (e.g., "Version after Huawei start - February 2026") serves the same purpose. The critical property is that past states of the file are recoverable.
+If a Git repository is not practical, a versioned cloud document with named versions (e.g., "Version after Huawei start — February 2026") serves the same purpose. The critical property is that past states of the file are recoverable.
 
 **Rule:** Never overwrite the file in place without a version checkpoint. A context file with no history is a fragile artifact.
 
 ---
 
-*Return to the [Agent context optimization index](./README.md).*
+*Return to the [Context Builder index](./README.md).*
+
+---
+
+## Section: sources
+
+<!--
+metadata:
+  title: "Context Builder sources"
+  platform: "general"
+  objective: "Centralized official and spec sources for Career Context files, persistent instructions, imports, and skill-style context loading."
+  status: "review"
+  last_updated: "2026-05-27"
+  tags: ["aco", "sources", "agents", "context"]
+  agent_priority: "low"
+-->
+
+
+
+> This file lists official agent-tool documentation and published specs that support the Career Context file methodology. Project-specific section names and storage defaults are VitaeContext methodology unless an external source is listed.
+
+---
+
+## 1. Overview
+
+The `context-builder` module adapts the same durable-context pattern used by coding agents for `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, custom instructions, and skills. Official provider docs support the general pattern; VitaeContext owns the career-specific schema.
+
+## 2. Source table
+
+| Source | URL | Type | Covers | Confidence |
+|---|---|---|---|---|
+| OpenAI Developers: Custom instructions with AGENTS.md | https://developers.openai.com/codex/guides/agents-md | official-docs | Codex `AGENTS.md` discovery, global and project scopes, override files, merge order, size limits, validation workflow | stable |
+| Claude Code Docs: Memory | https://docs.anthropic.com/en/docs/claude-code/memory | official-docs | `CLAUDE.md` scope, startup loading, imports, local/private memory, path-scoped context, AGENTS.md interoperability | stable |
+| Gemini CLI Docs: Provide Context with GEMINI.md Files | https://google-gemini.github.io/gemini-cli/docs/cli/gemini-md.html | official-docs | `GEMINI.md` hierarchy, global and project context, imports, `/memory` commands, configurable context filenames | stable |
+| GitHub Docs: About customizing GitHub Copilot responses | https://docs.github.com/en/copilot/concepts/prompting/response-customization | official-docs | Repository custom instructions, scope, concise instruction guidance, repeated context inclusion | stable |
+| GitHub Docs: Copilot customization cheat sheet | https://docs.github.com/en/copilot/reference/customization-cheat-sheet | official-docs | Custom instructions, prompt files, custom agents, and agent skills as separate context mechanisms | likely |
+| AGENTS.md specification | https://agents.md/ | spec | Vendor-neutral `AGENTS.md` convention and repository instruction-file pattern | likely |
+| CommonMark specification | https://spec.commonmark.org/ | spec | Markdown syntax baseline for portable plain-text context files | stable |
+
+## 3. Claims without external platform sources
+
+VitaeContext-specific names such as `Career Context file`, `QUICK REFERENCE`, `VERIFIED FACTS`, semantic tags, and the recommended `~/.vitaecontext/<name-surname>-career-context.md` path are project methodology. Treat them as repo-grounded, not external platform behavior.
+
+No clean official external source was found for career-specific context-file schemas, cross-platform resume/profile factual ledgers, or guaranteed agent adherence to Career Context files. Treat adherence claims as `likely` or `inferred`.
+
+---
+
+See also: [Context Builder](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-build/wiki/knowledge.md).
 
 ---
 
@@ -840,48 +920,48 @@ If a Git repository is not practical, a versioned cloud document with named vers
 
 <!--
 metadata:
-  title: "Why build Career Context"
+  title: "Why build a Career Context file"
   platform: "general"
-  objective: "Explains the problem that Career Context solves and how it differs from common alternatives."
+  objective: "Explains the problem that a Career Context file solves and why it outperforms the alternatives a user would otherwise rely on."
   status: "draft"
-  last_updated: "2026-04-24"
+  last_updated: "2026-06-21"
   tags: ["context-file", "motivation", "workflow", "productivity"]
   agent_priority: "low"
 -->
 
 
 
-> A new agent conversation may start without the career facts, evidence boundaries, or direction needed for the task. Career Context gives it a maintained, inspectable starting point.
+> Every time you ask an agent to write a cover letter or update your LinkedIn profile, it starts from zero — with no knowledge of who you are, what you have done, or how you want to be positioned. A Career Context file ends that problem permanently.
 
 ---
 
 ## 1. Overview
 
-This section explains the practical problem that Career Context solves. It covers how the file changes the daily workflow of using an agent for career tasks and compares it with common workarounds. It is written for someone deciding whether to build the file.
+This file explains the practical problem that a Career Context file solves. It also covers what the file changes about the daily workflow of using an agent for career tasks, and why it outperforms the workarounds most people currently use. It is written for a human who has not yet built a context file and is deciding whether to do so. Agents loading this folder do not need to read this file to perform their tasks.
 
 ## 2. The problem: every session starts from scratch
 
-Each time you open a new agent session and ask for a career-related output, the agent has no memory of previous conversations. It does not know your name, your degree, your work history, your strongest skills, or the role you are targeting. You have to supply that information every time. In practice, this means one of three things happens.
+Each time you open a new agent session and ask for a career-related output, the agent has no memory of previous conversations. It does not know your name, your degree, your work history, your strongest skills, the role you are targeting, or the direction you want to move toward next. You have to supply that information every time. In practice, this means one of three things happens.
 
 You paste raw text into the chat. A CV export, a LinkedIn profile dump, a copy of old cover letters. The agent works with whatever you give it. The problem is that raw text is unstructured. There is no clear separation between a course you took in 2019 and your current thesis work. There are no explicit signals about which project was most technically demanding, which role was most recent, or what your target positioning is. The agent does its best, but it is guessing at structure and priority.
 
-You rely on a provider's memory feature. Storage, retrieval, inspection, correction, portability, and reset behavior vary by provider. A user-owned file remains directly inspectable and can be supplied to another system, while a provider feature remains governed by that provider.
+You rely on the agent's memory. Some providers offer a memory feature, but it is unreliable across sessions, resets periodically, and cannot be inspected or corrected in a systematic way. You do not know what the agent actually remembers, whether it is accurate, or whether it will produce consistent outputs tomorrow.
 
-You write a long prompt from scratch. You describe yourself every time: your background, your skills, the role you are applying for, the tone you want. This is the most reliable approach, but it is also the most wasteful. The same facts get rewritten in every session, with small variations that introduce inconsistency over time.
+You write a long prompt from scratch. You describe yourself every time: your background, your skills, the role you are applying for, the tone you want, and the transition you are trying to make. This is the most reliable approach, but it is also the most wasteful. The same facts and direction notes get rewritten in every session, with small variations that introduce inconsistency over time.
 
 All three approaches produce the same outcome: generic, loosely grounded outputs that require heavy editing before they are usable.
 
 ## 3. What the context file changes
 
-Career Context is a Markdown document you maintain in your own file system. It can contain education, experience, projects, skills, certifications, languages, goals, evidence links, boundaries, and claims to avoid in a consistent structure.
+A Career Context file is a single Markdown document you maintain in your own file system. It contains your complete professional record: education, experience, projects, skills, certifications, and languages, structured according to a consistent schema defined in [context-file-spec.md](./context-file-spec.md). It also records career direction, target roles, evidence boundaries, positioning constraints, and claims to avoid as stated intent, separate from verified facts.
 
 When the file exists and is up to date, the workflow for any career task collapses to three steps.
 
-Load the context file into the agent's context window. State the task. Receive an accurate, specific output.
+Load the context file into the agent's context window. State the task. Receive output grounded in the maintained source material.
 
-That is the entire process. The agent does not need to ask what degree you hold, what grade you received, which technology you used, or what the result of a project was. Every fact is already in the file, in a structure the agent can navigate without confusion.
+That is the core process. When the file is complete, the agent should not need to ask what degree you hold, what grade you received, which technology you used, or what the result of a project was. Every maintained fact is already in the file, in a structure the agent can navigate.
 
-The outputs this enables are qualitatively different. A cover letter generated from a context file names the specific project most relevant to the job description. It cites the actual grade or competition result that demonstrates the claim, and positions you precisely rather than generically. A LinkedIn About section rewrite reflects your actual current positioning, not a paraphrased version of whatever text you pasted in. A CV variant for a specific role selects and emphasises the right subset of your experience, because the full record is available for the agent to choose from.
+The outputs this enables are qualitatively different. A cover letter generated from a context file names the specific project most relevant to the job description. It cites the actual grade or competition result that demonstrates the claim, and positions you precisely rather than generically. A LinkedIn About section rewrite reflects your actual current positioning and future direction, not a paraphrased version of whatever text you pasted in. A CV variant for a specific role selects and emphasises the right subset of your experience, because the full record and the intended direction are available for the agent to choose from.
 
 ## 4. What you can do with the file
 
@@ -915,26 +995,26 @@ These are not special prompts that require new skills to write. They are the nat
 
 ## 5. Why this outperforms the alternatives
 
-The table below compares Career Context with the three workarounds described in section 2.
+The table below compares the Career Context file against the three workarounds described in section 2.
 
 The approach being compared and why each falls short is summarized here.
 
 **Copy-pasted raw text** is unstructured. Semester boundaries are invisible to the agent. Project importance is undefined. Positioning is implicit rather than declared. Every session produces slightly different outputs because the input is slightly different each time.
 
-**Provider memory** is provider-specific. Its inspection, correction, persistence, retrieval, and portability behavior depends on the product. Career Context is a separate user-owned file whose contents can be inspected and corrected directly; it does not make the provider's memory behavior more predictable.
+**Agent memory** is opaque and unreliable. You cannot inspect what the agent has retained. You cannot correct a fact that was remembered incorrectly. You cannot audit whether the output is grounded in what you actually told it. Memory also resets without notice, which means it cannot serve as a stable source of truth.
 
 **Per-session prompts** are accurate when written carefully, but they are a maintenance burden. You are re-doing the same work repeatedly. There is no canonical version of your career record. Different sessions produce outputs that are inconsistent with each other because the prompts differ slightly each time.
 
-The context file solves each of these problems. It is structured, so the agent can locate any fact by navigating the section tags. It is canonical, so every output is grounded in the same source of truth. It is version-controlled, so you can see exactly what changed between the version you used for one application and the version you are using now.
+The context file solves each of these problems. It is structured, so the agent can locate any fact by navigating the section tags. It is canonical, so every output is grounded in the same source of truth. It separates evidence from direction, so an agent can support a career transition without turning aspirations into claimed expertise. It is version-controlled, so you can see exactly what changed between the version you used for one application and the version you are using now.
 
 ## 6. The file is a living document, not a one-time artifact
 
 The context file is not something you build once and archive. It is a document you feed whenever your career changes. A new grade is confirmed: add it to the relevant course entry and update the QUICK REFERENCE block. A project is completed: add the TL;DR, the technologies, the outcome. A new role starts: add the role entry with the TL;DR and the initial scope.
 
-Each update is small. The average update takes less time than explaining the new fact from scratch in an agent session. Over time, the file becomes a complete, accurate, and always-current record of your professional history - one that any agent can use immediately, without prompting, without clarification, without guessing.
+Each update is small. The average update takes less time than explaining the new fact or direction change from scratch in an agent session. Over time, the file becomes a complete, accurate, and current record of your professional history and target positioning. An agent can use it as the first source of truth, then ask only for missing inputs, task constraints, or evidence that the file does not contain.
 
 That is the case for building it.
 
 ---
 
-*Next step: Review the Career Context file specification in this guide.*
+*Next step: Learn the required architecture in the [Career Context file specification](./context-file-spec.md).*

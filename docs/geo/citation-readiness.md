@@ -18,7 +18,7 @@ The former GitHub Pages hostname is not currently an active competing site: a di
 | Tagline is “Keep your career context. Reuse it across AI.” | Product brand contract | `/` H1 | Strong | Keep stable. |
 | Project gives agents reusable career context and focused skills | Product README/skills | `/` | Strong | Add one concise canonical definition. |
 | Project is open source under MIT | Product package/license | Repository; homepage mentions MIT near CTA | Strong | Add visible license/source fact to design or project summary if needed. |
-| Current package is `vitaecontext` 2.0.0 | Product package/changelog | `llms.txt`, CLI hero, changelog, schema | Strong | Ensure release updates are synchronized. |
+| Current package is `vitaecontext` 2.1.0 | Generated product contract and product changelog | `llms.txt`, CLI hero, changelog, schema | Strong | Deployment fails when product synchronization is stale. |
 | Creators/maintainers are Renato Mignone and Elia Innocenti | Product README/site config | `/contact/` | Strong | Keep profiles and roles aligned. |
 | Eight runtime skills ship | Product current status/export config | `/skills/`, `llms.txt` | Strong | Keep exact names and counts synchronized. |
 | Supported targets are Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, shared | Product provider config | `/providers/`, FAQ | Strong | Keep activation caveats; verify Antigravity live behavior before stronger claims. |
@@ -108,7 +108,7 @@ The following should not become public claims until evidence exists:
 | Stale owner-controlled listings may exist | External sources can reinforce old identity | Inventory exact-name/domain/command mentions and update high-authority listings | Project owners |
 | Stable structured-data IDs absent | Entity connections rely on repeated values | Add one consistent entity graph after visible content alignment | Website implementation |
 | Legacy artifact terms in long guides | Extracted passages may name the wrong concept/path | Terminology/source review | Website implementation |
-| Current-status file says 1.9.2 while package is 2.0.0 | Internal maintainer evidence conflicts | Update product status document in product repository | Product maintainer |
+| Product and website release facts drift | Generated contract or playbook hashes differ | Deployment `sync:check` fails before build | Product and website maintainers |
 
 ## Monitoring protocol
 

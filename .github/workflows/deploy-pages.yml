@@ -25,6 +25,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Checkout VitaeContext product source
+        uses: actions/checkout@v4
+        with:
+          repository: vitaecontext/vitaecontext
+          ref: main
+          path: .product-source
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -38,6 +45,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Verify product content synchronization
+        run: npm run sync:check
+        env:
+          VITAECONTEXT_SOURCE_DIR: ${{ github.workspace }}/.product-source
 
       - name: Build site
         run: npm run build

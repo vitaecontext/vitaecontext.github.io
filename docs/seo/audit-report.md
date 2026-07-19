@@ -136,7 +136,7 @@ This appendix preserves the full generated metadata values where the purpose tab
 - Breadcrumbs and conservative page types are used consistently.
 - The sitemap contains canonical public HTML routes only and uses content dates only for playbooks.
 - `robots.txt` allows general crawlers and OAI-SearchBot and references the canonical sitemap.
-- The source repository, npm package, website, and current 2.0.0 identity agree.
+- The source repository, prepared npm package, website, and current 2.1.0 identity agree through the generated product contract.
 - The current public site uses VitaeContext as the primary brand. The only visible former-name reference is the factual 2.0.0 changelog entry.
 - The fictional career-context example is clearly marked and is not user data.
 

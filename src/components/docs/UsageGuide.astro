@@ -44,6 +44,11 @@ Audit my GitHub profile and list the changes I should make first.
 Do not add claims that are not supported by the file.</code></pre>
   </section>
 
+  <section class="doc-split" aria-label="Career Context command workflow">
+    <article><h2>Validate before reuse</h2><p>Run <code>npx vitaecontext context validate &lt;file&gt;</code> after replacing the starter placeholders. Add <code>--json</code> when an editor or agent needs structured diagnostics.</p><p>Validation checks the document contract and internal consistency. It does not authenticate whether a career claim is true.</p></article>
+    <article><h2>Send only the relevant subset</h2><p>Run <code>npx vitaecontext context summary &lt;file&gt; --for github</code> to create a bounded packet for one task. Supported selectors are CV, GitHub, LinkedIn, portfolio, X, and general.</p><p>The source file remains canonical and is not modified.</p></article>
+  </section>
+
   <section class="feature-section">
     <SectionIntro title="Continue from here" />
     <div class="card-grid card-grid--three">

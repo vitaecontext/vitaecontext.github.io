@@ -1,7 +1,6 @@
 ---
 import PlatformIcon from "@components/PlatformIcon.astro";
-import VitaeGraph3D from "@components/vitaegraph/VitaeGraph3D.jsx";
-import VitaeGraphStaticPreview from "@components/vitaegraph/VitaeGraphStaticPreview.astro";
+import LazyVitaeGraph3D from "@components/vitaegraph/LazyVitaeGraph3D.jsx";
 import { site } from "@data/site-config";
 ---
 
@@ -24,7 +23,7 @@ import { site } from "@data/site-config";
         tasks that need specific records and connections.
       </p>
       <p class="vg-new-hero__relationship"><strong>It is not a résumé or an independent proof system.</strong> Validation checks record structure, IDs, and links; it does not authenticate whether a real-world claim is true.</p>
-      <p class="vg-new-hero__reviewed">Published <time datetime="2026-07-07">7 July 2026</time>. Specification reviewed <time datetime="2026-07-16">16 July 2026</time>.</p>
+      <p class="vg-new-hero__reviewed">Published <time datetime="2026-07-07">7 July 2026</time>. Specification reviewed <time datetime="2026-07-19">19 July 2026</time>.</p>
       <div class="vg-actions">
         <a class="vg-button vg-button--primary" href="#get-started">Set up VitaeGraph</a>
         <a class="vg-button" href="#records">See the record model</a>
@@ -39,11 +38,9 @@ import { site } from "@data/site-config";
       </ul>
     </div>
 
-    <div class="vg-graph-workspace" aria-label="Interactive sample 3D representation of a VitaeGraph career knowledge base">
+    <div class="vg-graph-workspace" aria-label="Optional interactive 3D sample of a VitaeGraph career knowledge base">
       <p class="vg-graph-workspace__label"><span></span> Sample career knowledge graph · drag to explore</p>
-      <VitaeGraph3D client:only="react" variant="hero">
-        <VitaeGraphStaticPreview slot="fallback" />
-      </VitaeGraph3D>
+      <LazyVitaeGraph3D client:only="react" variant="hero" />
       <noscript>
         <p class="vg3d-noscript">
           JavaScript is required for interactive sample. VitaeGraph itself remains plain Markdown and rebuildable local JSON.

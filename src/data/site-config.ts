@@ -1,8 +1,10 @@
+import productContract from "./product-contract.json";
+
 export const site = {
   name: "VitaeContext",
   url: "https://vitaecontext.github.io",
   repoUrl: "https://github.com/vitaecontext/vitaecontext",
-  packageVersion: "2.0.0",
+  packageVersion: productContract.packageVersion,
   npmUrl: "https://www.npmjs.com/package/vitaecontext",
   defaultImage: "/og/vitaecontext.png",
   description:

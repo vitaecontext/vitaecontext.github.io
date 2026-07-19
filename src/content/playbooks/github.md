@@ -3,13 +3,14 @@ title: "GitHub optimization"
 platform: "github"
 objective: "Master index and routing logic for optimizing a GitHub profile and repositories for internal search and Copilot."
 status: "draft"
-last_updated: "2026-05-19"
-tags: ["github", "github-seo", "developer-portfolio", "github-profile-optimization", "README-optimization", "Copilot-visibility", "personal-branding", "job-search", "AI-agent-github", "index", "seo"]
+last_updated: "2026-06-24"
+tags: ["github", "index", "seo", "blackbird"]
 agent_priority: "high"
 id: "github"
 ---
 
 > This directory helps turn a GitHub profile from a code dump into a searchable proof-of-work system for humans, GitHub search, Copilot, and other AI agents.
+> Public web page: [GitHub optimization playbook](https://vitaecontext.github.io/playbooks/github/).
 
 ---
 
@@ -63,17 +64,21 @@ The optimization logic is divided into the following documents, ordered from fou
 
 When an AI agent is tasked with optimizing a user's GitHub presence:
 
-1. Review this index to determine which specific sub-module is relevant to the task.
-2. If optimizing the overarching profile (`username/username`), load `profile-architecture.md` and `profile-readme.md`.
-3. If optimizing a specific project repository, load `repository-seo.md` and `linguist-and-stats.md`.
-4. If writing AI instructions for a codebase, load `copilot-and-agents.md`.
-5. Always enforce the formatting constraints defined in the sub-modules over generic creative writing.
+1. Before auditing, retrieve public profile fields, pinned or popular repositories, recent source repositories, and bounded README excerpts without authentication:
+   `node <skill_dir>/scripts/github-fetcher.mjs <username> [output_dir] [max_repos]`
+   The default depth is 3 repositories. Inspect `output/github_<username>_report.md` for agent context and the adjacent JSON file for structured evidence.
+   Treat extraction warnings as unavailable evidence because public GitHub HTML can change without notice.
+2. Review this index to determine which specific sub-module is relevant to the task.
+3. If optimizing the overarching profile (`username/username`), load `profile-architecture.md` and `profile-readme.md`.
+4. If optimizing a specific project repository, load `repository-seo.md` and `linguist-and-stats.md`.
+5. If writing AI instructions for a codebase, load `copilot-and-agents.md`.
+6. Always enforce the formatting constraints defined in the sub-modules over generic creative writing.
 
 ---
 
+Runtime skill: [.skills/agent-skill/vitaecontext-github/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-github/SKILL.md). Source notes: [sources.md](./sources.md).
+
 *Next step: Understand the search engine in [GitHub code search and Blackbird](./algorithm-blackbird.md).*
-
-
 
 ---
 
@@ -85,7 +90,7 @@ metadata:
   platform: "github"
   objective: "Practical guide to GitHub code search mechanics and the documented restrictions that affect repository discoverability."
   status: "draft"
-  last_updated: "2026-04-29"
+  last_updated: "2026-06-21"
   tags: ["github", "algorithm", "blackbird", "search"]
   agent_priority: "medium"
 -->
@@ -111,7 +116,8 @@ GitHub's global code search is powered by Blackbird. Unlike standard web search 
 - Only files smaller than `384 KB` are searchable.
 - Only the first `500 KB` of each file is searchable.
 - Only repositories with fewer than `500,000` files are searchable.
-- Archived repositories are not searchable.
+
+**Recommendation:** Treat archived repositories as weaker portfolio anchors. Current GitHub Code Search syntax supports the `is:archived` qualifier, so archived repositories can still be queried. They are read-only, harder to maintain, and easier to filter out, so keep showcase repositories unarchived when they are meant to represent active work.
 
 ## 3. Search behavior and visibility
 
@@ -333,7 +339,7 @@ metadata:
   platform: "github"
   objective: "Rules for foundational profile settings, including the bio, pinned repositories, and the contribution graph."
   status: "draft"
-  last_updated: "2026-05-19"
+  last_updated: "2026-04-28"
   tags: ["github", "profile", "bio", "contributions"]
   agent_priority: "medium"
 -->
@@ -357,32 +363,6 @@ Before writing a custom profile README, configure the native architecture of the
 **Recommendation:** Treat the 160-character bio like a short profile summary. GitHub restricts the bio to 160 characters. Do not waste this space on quotes or vague statements. A safe formula is: `[Role] | [Core Tech Stack] | [Location/Remote]`.
 
 **Rule:** Link out to your portfolio or LinkedIn. Ensure the "Website" field in your profile settings is populated. Do not put the URL in your 160-character bio, as it consumes valuable keyword space and is not clickable. Use the dedicated URL field.
-
-### 2.1 What is the GitHub bio character limit?
-
-GitHub's official profile settings documentation states that the public bio field is limited to `160` characters. That constraint matters because it forces the profile to behave more like a short descriptor than a full summary.
-
-Use the bio for role, stack, and one differentiator. Move everything else into the profile README, pinned repositories, and the dedicated Website field. If a phrase does not help a recruiter or searcher classify the profile quickly, it is probably wasting scarce space.
-
-### 2.2 Does a GitHub profile generate backlinks for SEO?
-
-A public GitHub profile can create crawlable public links, but the practical value is narrower than many backlink discussions suggest.
-
-- The profile page itself is public.
-- A public `username/username` profile README can appear at the top of the profile.
-- Public repositories, pinned repositories, and the Website field can all point users toward external pages.
-
-That means GitHub can contribute legitimate public references to your site, portfolio, or project pages. What GitHub does **not** document is a special ranking boost just because a link appears on a GitHub profile. Treat GitHub links as credible discovery paths and proof-of-work citations, not as a shortcut for raw link equity.
-
-The strongest SEO value comes when the linked destination is worth indexing on its own: a portfolio case study, a product page, a package, or a well-structured repository. Weak destinations waste the visibility that GitHub can provide.
-
-### 2.3 How GitHub profile optimization affects search visibility
-
-GitHub profile optimization affects visibility through clearer public text and better repository selection, not through a hidden profile-ranking hack.
-
-On GitHub itself, a stronger bio, profile README, repository names, descriptions, and topics make it easier for people to understand what you build and which repositories to inspect first. GitHub also documents that the profile README is shown on the profile page when the matching repository is public and contains a `README.md`, which gives you a large block of searchable public text at the top of the profile.
-
-In external search engines, public profile pages and public repositories can be crawled, summarized, and linked. Better profile copy improves the words visible on those pages, while better pinned repositories improve the odds that a visitor clicks into the right proof-of-work asset. This does not guarantee higher rankings for every query. It does improve classification, snippet quality, and click-through potential when your profile is already eligible to appear.
 
 ## 3. Strategic repository pinning
 
@@ -559,29 +539,48 @@ This is my final project for the web dev bootcamp.
 metadata:
   title: "GitHub optimization sources"
   platform: "github"
-  objective: "Centralized citations and research validating the mechanics of GitHub search and Copilot indexing."
-  status: "draft"
-  last_updated: "2026-04-24"
-  tags: ["github", "sources", "research", "blackbird"]
+  objective: "Centralized official sources for GitHub profile, repository, search, Linguist, and agent-readiness claims."
+  status: "review"
+  last_updated: "2026-05-27"
+  tags: ["github", "sources", "linguist", "copilot"]
   agent_priority: "low"
 -->
 
 
 
-> This file contains the research, citations, and system documentation that validate the rules and constraints defined in the github module.
+> This file lists official or maintainer-published GitHub sources that support GitHub module claims. Stars, forks, activity timing, and profile-discovery tactics must not be framed as deterministic ranking levers unless GitHub documents them.
 
 ---
 
 ## 1. Overview
 
-The rules defined in the `github` module are based primarily on GitHub's official documentation. Community or blog sources are used only where GitHub publishes guidance informally rather than as product documentation.
+The `github` module is grounded primarily in GitHub Docs, GitHub-owned source repositories, and GitHub Blog posts. External repository-audit articles and community experiments are excluded from this source table.
 
-## 2. Sources
+## 2. Source table
 
-- [Indexing repositories for GitHub Copilot (GitHub Docs)](https://docs.github.com/en/copilot/concepts/context/repository-indexing) - Official description of repository indexing, initial indexing time, and automatic updates.
-- [Adding repository custom instructions for GitHub Copilot (GitHub Docs)](https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions) - Official documentation for `.github/copilot-instructions.md`, path-specific instructions, and `AGENTS.md` precedence.
-- [Searching code (GitHub Docs source)](https://github.com/github/docs/blob/main/content/search-github/searching-on-github/searching-code.md) - Primary source for legacy code-search restrictions such as default-branch indexing, fork rules, searchable file size, and archived-repository exclusions.
-- [Navigating code on GitHub (GitHub Docs)](https://docs.github.com/en/repositories/working-with-files/using-files/navigating-code-on-github) - Official documentation for code navigation and symbol search behavior.
-- [Archiving repositories (GitHub Docs)](https://docs.github.com/repositories/archiving-a-github-repository/archiving-repositories) - Official behavior of archived repositories and their read-only state.
-- [Setting repository visibility (GitHub Docs)](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility) - Official behavior for public and private visibility.
-- [How to write a great agents.md: Lessons from over 2,500 repositories (GitHub Blog)](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/) - Useful secondary guidance for the structure and practical use of `AGENTS.md`.
+| Source | URL | Type | Covers | Confidence |
+|---|---|---|---|---|
+| GitHub Docs: About READMEs | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes | official-docs | Repository README surfacing, profile README behavior, README truncation, relative links | stable |
+| GitHub Docs: Pinning items to your profile | https://docs.github.com/en/account-and-profile/how-tos/profile-customization/pinning-items-to-your-profile | official-docs | Profile pins, pin ordering, and the six-item pin limit | stable |
+| GitHub Docs: Classifying your repository with topics | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics | official-docs | Repository topics, topic search, suggested topics, topic naming, and the 20-topic limit | stable |
+| GitHub Docs: Searching for repositories | https://github.com/github/docs/blob/main/content/search-github/searching-on-github/searching-for-repositories.md | official-docs | Repository search qualifiers for topic, language, license, stars, forks, and other metadata | stable |
+| GitHub Docs: Customizing your repository's social media preview | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview | official-docs | Repository social-preview image support and upload flow | stable |
+| GitHub Docs: About repository languages | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-repository-languages | official-docs | Linguist-backed language statistics and default-branch language-stat updates | stable |
+| GitHub Docs source: Searching code | https://github.com/github/docs/blob/main/content/search-github/searching-on-github/searching-code.md | official-docs | Legacy code-search restrictions, default-branch indexing, fork indexing, file-size constraints | likely |
+| GitHub Docs: Understanding GitHub Code Search syntax | https://docs.github.com/en/search-github/github-code-search/understanding-github-code-search-syntax | official-docs | Current code-search query syntax and qualifiers | stable |
+| GitHub Docs: Archiving repositories | https://docs.github.com/en/repositories/archiving-a-github-repository/archiving-repositories | official-docs | Archived repository behavior and read-only state | stable |
+| GitHub Docs: Setting repository visibility | https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility | official-docs | Public and private repository visibility behavior | stable |
+| GitHub Docs: About customizing GitHub Copilot responses | https://docs.github.com/en/copilot/concepts/prompting/response-customization | official-docs | Copilot custom instructions, repository context, instruction length and scope cautions | stable |
+| GitHub Docs: Adding repository custom instructions for GitHub Copilot | https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot | official-docs | `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md`, `AGENTS.md` behavior | stable |
+| GitHub Docs: Copilot customization cheat sheet | https://docs.github.com/en/copilot/reference/customization-cheat-sheet | official-docs | Custom instructions, prompt files, custom agents, and agent skills locations | likely |
+| GitHub Blog: How to write a great AGENTS.md | https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/ | official-blog | Practical AGENTS.md structure and lessons from observed repositories | likely |
+
+## 3. Removed or downgraded sources
+
+No third-party GitHub optimization source is retained here. The previous GitHub Blog source is retained as `official-blog` and `likely` because it is official guidance, but not a product contract for ranking or search behavior.
+
+No clean official source was found for exact profile ranking, Explore distribution, star/fork weighting, or contribution-graph ranking effects. Treat those claims as `disputed` unless inspected source material proves a narrower point.
+
+---
+
+See also: [GitHub optimization](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-github/wiki/knowledge.md).

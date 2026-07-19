@@ -3,13 +3,14 @@ title: "CV and ATS optimization"
 platform: "cv-ats"
 objective: "Master index and routing logic for formatting and optimizing CVs for Applicant Tracking Systems."
 status: "draft"
-last_updated: "2026-04-29"
-tags: ["cv", "ats", "resume", "resume-optimization", "ATS-safe-format", "resume-keywords", "job-search", "recruiter-readable", "AI-resume-optimization", "index"]
+last_updated: "2026-06-21"
+tags: ["cv", "ats", "resume", "index"]
 agent_priority: "high"
 id: "cv-ats"
 ---
 
 > This directory helps turn a CV into a document that parsers can extract, recruiters can scan, and agents can safely tailor without breaking the layout.
+> Public web page: [CV and ATS optimization playbook](https://vitaecontext.github.io/playbooks/cv-ats/).
 
 ---
 
@@ -53,10 +54,10 @@ The optimization logic is divided into the following documents, ordered from the
 - **[Core sections](./core-sections.md):** The mandatory CV sections you must include, their exact naming conventions, and the correct chronological ordering.
 - **[Formatting rules](./formatting-rules.md):** Hard constraints on the single-page layout, typography, file types, and eliminating wasted space.
 - **[Common pitfalls](./common-pitfalls.md):** The elements that immediately break ATS parsers (graphics, tables), how to run the mandatory "copy-paste-friendly" test, and avoiding the LinkedIn "Trust Gap".
-- **[Keyword strategy](./keyword-strategy.md):** The methodology for extracting hard and soft skills, handling gap analysis and skill translation, and injecting keywords for Reasoning-Based Matching.
+- **[Keyword strategy](./keyword-strategy.md):** The methodology for extracting hard and soft skills, handling gap analysis and skill translation, and integrating keywords for parser and recruiter clarity.
 - **[Achievement metrics](./achievement-metrics.md):** The syntactic formula (Action Verb + Task + Result) and STAR/STAR+R/XYZ methods for writing high-impact bullet points, including the Resume Quantifier strategy.
 - **[Agent workflow](./agent-workflow.md):** Why plain-text LaTeX (.tex) is the preferred format for automated CV tailoring by AI agents.
-- **[Sources](./sources.md):** Citations and research on legacy and LLM-based ATS algorithms and parsing logic.
+- **[Sources](./sources.md):** Official ATS, recruiting-platform, and parser documentation plus downgrade notes for unsupported claims.
 
 ## 5. Usage for agents
 
@@ -70,7 +71,7 @@ When an AI agent is tasked with optimizing a user's CV:
 
 ---
 
-
+Runtime skill: [.skills/agent-skill/vitaecontext-cv/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-cv/SKILL.md). Source notes: [sources.md](./sources.md).
 
 ---
 
@@ -80,26 +81,26 @@ When an AI agent is tasked with optimizing a user's CV:
 metadata:
   title: "CV achievement metrics"
   platform: "cv-ats"
-  objective: "Defines the syntactic formula for writing high-impact, easily parsed experience bullet points."
+  objective: "Defines a structured formula for writing high-impact, readable experience bullet points."
   status: "draft"
-  last_updated: "2026-04-28"
+  last_updated: "2026-06-21"
   tags: ["cv", "ats", "metrics", "achievements"]
   agent_priority: "medium"
 -->
 
 
 
-> This file defines the mandatory formula for structuring work experience bullet points so they highlight quantifiable impact for both parsers and human reviewers.
+> This file defines a structured formula for work experience bullet points so they highlight quantifiable impact for both parsers and human reviewers.
 
 ---
 
 ## 1. Overview
 
-Recruiters and many screening workflows prioritize candidates who demonstrate impact rather than just listing responsibilities. The structure of a bullet point must clearly connect an action to a business result. This document enforces a specific syntactic formula so bullet points are rich in relevant keywords, easily parsed, and persuasive to humans.
+Recruiters and many screening workflows prioritize candidates who demonstrate impact rather than just listing responsibilities. Strong bullet points connect an action to a business result. This document recommends a clear syntactic formula so bullet points are rich in relevant keywords, easier to scan, and persuasive to humans.
 
 ## 2. The bullet point formula
 
-**Rule:** Structure every bullet point using an established framework like STAR, STAR+R, or XYZ. Adopt a rigorous formula to make impact visible. The baseline is Action Verb + Task + Result. Highly recommended variations include:
+**Recommendation:** Structure bullet points with an established framework like STAR, STAR+R, or XYZ when the experience supports it. Adopt a rigorous formula to make impact visible. The baseline is Action Verb + Task + Result. Highly recommended variations include:
 - **STAR:** Situation (context), Task (challenge), Action (what you did), Result (quantifiable outcome).
 - **STAR+R:** Adds *Reflection* to STAR (what was learned or how it shaped future architectural decisions). This is useful for seniority signals and interview preparation, especially when a reviewer wants evidence of reasoning.
 - **XYZ:** Accomplished [X] as measured by [Y], by doing [Z].
@@ -144,16 +145,16 @@ Bad example:
 metadata:
   title: "Agent workflow for CV optimization"
   platform: "cv-ats"
-  objective: "Explains why LaTeX (.tex) is the superior format for AI agents automating CV tailoring."
+  objective: "Explains why LaTeX (.tex) can be a strong source format for AI agents automating CV tailoring."
   status: "draft"
-  last_updated: "2026-04-29"
+  last_updated: "2026-06-21"
   tags: ["cv", "ats", "latex", "agents", "automation"]
   agent_priority: "high"
 -->
 
 
 
-> This file details a robust technical workflow for AI agents managing CVs, advocating for LaTeX (`.tex`) as a version-controlled source format with precise visual control.
+> This file details a robust technical workflow for AI agents managing CVs, using LaTeX (`.tex`) as a version-controlled source format with precise visual control when the user is comfortable compiling PDFs.
 
 ---
 
@@ -163,15 +164,15 @@ While word processors like Microsoft Word are standard for humans, they introduc
 
 ## 2. The LaTeX advantage
 
-**Rule:** Use `.tex` as the source of truth for programmatic CV generation. LaTeX files are pure plain text. This allows AI agents to directly inject keywords, rewrite bullet points, and reorder sections without ever breaking the visual layout.
+**Recommendation:** Use `.tex` as the source of truth for programmatic CV generation when the user already works comfortably with LaTeX. LaTeX files are plain text, which helps AI agents inject keywords, rewrite bullet points, and reorder sections with less risk than binary or layout-heavy formats. Layout still needs a compile and extraction check after edits.
 
-**Recommendation:** Compile `.tex` directly to PDF for the final ATS submission. A PDF generated from LaTeX gives strong control over layout, margins, and typography. Unlike Word-to-PDF exports that can scramble the underlying text layer with floating text boxes, `pdflatex` or `xelatex` usually produces a cleaner text layer. The exported PDF still needs to pass a plain-text extraction check before submission.
+**Recommendation:** Compile `.tex` directly to PDF for the final ATS submission when the employer accepts PDF. A PDF generated from LaTeX gives strong control over layout, margins, and typography, but the exported PDF still needs to pass a plain-text extraction check before submission.
 
 ## 3. Agent workflow constraints
 
 **Rule:** Maintain strict separation of content and styling macros. When an agent edits a `.tex` file, it must only modify the content strings within predefined macros (e.g., `\cventry{Role}{Date}`). Do not alter the document preamble (`\usepackage`, `\geometry`) unless explicitly directed to change the global design.
 
-**Recommendation:** Use the provided templates as the baseline. The files in `cv-ats/examples/` are personal worked examples, not normative templates. Use them only to understand how real application artifacts can look in practice; apply the canonical rules from this workflow, the formatting rules, and the templates when generating or editing user-facing CVs.
+**Recommendation:** Use the provided templates as the baseline. Keep personal CV examples outside the public repository unless they are fully anonymized. Apply the canonical rules from this workflow, the formatting rules, and the templates when generating or editing user-facing CVs.
 
 ## 4. Examples
 
@@ -314,7 +315,7 @@ Bad example:
 <!-- WRONG -->
 ## Professional Journey
 
-**Tech Corp** - Software Engineer (Summer '21 to Now)
+**Tech Corp** — Software Engineer (Summer '21 to Now)
 - Bullet point one.
 - Bullet point two.
 ```
@@ -434,7 +435,7 @@ metadata:
   platform: "cv-ats"
   objective: "Methodology for extracting and integrating job description keywords effectively into a CV."
   status: "draft"
-  last_updated: "2026-04-28"
+  last_updated: "2026-06-21"
   tags: ["cv", "ats", "keywords", "seo"]
   agent_priority: "high"
 -->
@@ -461,7 +462,7 @@ ATS platforms and recruiter workflows often use keyword matches, structured fiel
 
 ## 3. Keyword integration rules
 
-**Recommendation:** Contextualize keywords for semantic matching. Modern recruiting tools increasingly use semantic search or AI-assisted screening, but the exact models are usually not public. Integrate target keywords directly into Work Experience bullet points to show how the skill was used and why it mattered. Do not create a massive block of comma-separated keywords at the bottom of the CV.
+**Recommendation:** Contextualize keywords for parser and recruiter clarity. Some recruiting workflows may use matching tools or AI-assisted screening, but exact models are usually vendor-specific and not public. Integrate target keywords directly into Work Experience bullet points to show how the skill was used and why it mattered. Do not create a massive block of comma-separated keywords at the bottom of the CV.
 
 **Rule:** Avoid keyword stuffing. Do not hide keywords using white text or artificially repeat a keyword more than naturally required. Parsers may still extract hidden text, and human reviewers can reject the application if the tactic is discovered.
 
@@ -501,38 +502,39 @@ Skills: SEO, Search Engine Optimization, SEO strategy, search engine marketing, 
 metadata:
   title: "ATS optimization sources"
   platform: "cv-ats"
-  objective: "Centralized credibility links and research on ATS algorithms and parsing logic."
-  status: "draft"
-  last_updated: "2026-04-24"
-  tags: ["cv", "ats", "sources", "research"]
+  objective: "Centralized official sources for ATS parsing, resume upload behavior, and conservative CV formatting claims."
+  status: "review"
+  last_updated: "2026-05-27"
+  tags: ["cv", "ats", "sources", "parsing"]
   agent_priority: "low"
 -->
 
 
 
-> This file contains the research, citations, and system documentation that validate the rules and constraints defined in the cv-ats module.
+> This file lists official or maintainer-published sources that can support CV and ATS claims. Candidate-facing resume advice that lacks an official ATS or parser source must stay `likely`, `inferred`, or `disputed` in runtime wiki entries.
 
 ---
 
 ## 1. Overview
 
-The rules defined in the `cv-ats` module are based on a mix of university career-center guidance and documentation from resume parsing vendors or ATS platforms. This file favors inspectable sources over generic marketing pages.
+The `cv-ats` module uses official ATS, recruiting-platform, and parser documentation where possible. University career-center pages, resume-tool blogs, agency posts, and community experiments are useful background, but they do not support `stable` platform-behavior claims.
 
-## 2. Core principles
+## 2. Source table
 
-The core principles of ATS optimization stem from the technical limitations of parsing software:
-- Parsers extract text from uploaded files and map that text into structured candidate fields.
-- Decorative layout elements increase the risk of missing or reordered extraction.
-- Plain-text verification is an inexpensive way to catch extraction failures before applying.
+| Source | URL | Type | Covers | Confidence |
+|---|---|---|---|---|
+| Greenhouse: Unsuccessful resume parse | https://support.greenhouse.io/hc/en-us/articles/200989175-Unsuccessful-resume-parse | help-center | Resume parse failure causes, file-size limits, image-only uploads, graphics, tables, headers, footers, text boxes, columns, unclear sections, incomplete titles | stable |
+| Greenhouse: Manually add a candidate or prospect | https://support.greenhouse.io/hc/en-us/articles/115002195063-Manually-add-a-candidate-or-prospect | help-center | Resume upload parsing, required manual verification after parsing, embedded-image and layout risks | stable |
+| Greenhouse: Resume parsing with non-English languages | https://support.greenhouse.io/hc/en-us/articles/205019689-Resume-parsing-with-non-English-languages | help-center | Language support boundaries for one ATS parser surface | likely |
+| SmartRecruiters Developers: Parse a resume | https://developers.smartrecruiters.com/reference/candidatesresumeparse | official-docs | Resume parse endpoint behavior and incomplete-resume parse result | stable |
+| Oracle Taleo: Plain Text Resume Parsing for Mobile Devices | https://docs.oracle.com/en/cloud/saas/taleo-enterprise/24c/otcug/c-plaintextresumeparsingmobile.html | official-docs | Plain-text resume paste parsing into candidate records and attached text files | stable |
 
-## 3. Sources
+## 3. Removed or downgraded sources
 
-- [Make your resume ATS-friendly (MIT CAPD)](https://capd.mit.edu/resources/make-your-resume-ats-friendly/) - Strong university source for avoiding tables, text boxes, graphics, and for using a plain-text test.
-- [How to write an ATS friendly resume (Microsoft Create)](https://create.microsoft.com/en-us/learn/articles/how-to-write-ats-friendly-resume) - Supports single-column layouts, common fonts, and avoiding graphics or decorative formatting.
-- [Resumes (Yale Office of Career Strategy)](https://ocs.yale.edu/channels/resumes/) - Provides ATS-formatted resume templates and institutional guidance on resume review workflows.
-- [What is Resume Parsing and Why You Should be Using it (SmartRecruiters)](https://www.smartrecruiters.com/resources/glossary/resume-parsing/) - Explains resume parsing and gives concrete candidate-side formatting recommendations such as avoiding headers, footers, tables, and scanned PDFs.
-- [Parse a resume (SmartRecruiters Developers)](https://developers.smartrecruiters.com/reference/candidatesresumeparse) - Official developer documentation showing that an unparseable resume can fail parsing, for example when the upload is an image.
-- [Unsuccessful resume parse (Greenhouse Support)](https://support.greenhouse.io/hc/en-us/articles/200989175-Unsuccessful-resume-parse) - Official support article confirming that formatting issues and oversized files can cause partial or failed parsing.
-- [Plain Text Resume Parsing for Mobile Devices (Oracle Taleo)](https://docs.oracle.com/en/cloud/saas/taleo-enterprise/22d/otcug/c-plaintextresumeparsingmobile.html) - Official documentation showing that pasted plain text is parsed directly into candidate records.
+The previous source list included MIT CAPD, Microsoft Create, Yale Office of Career Strategy, and generic candidate advice. Those are not official ATS or parser sources. Keep their guidance as editorial background only, not as support for `stable` parser behavior.
+
+No clean official source was found for universal claims about exact ATS scores, hidden knockout filters, universal parser ranking, or a single best submission format across all employers. Treat those claims as `inferred` or `disputed`.
 
 ---
+
+See also: [CV and ATS optimization](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-cv/wiki/knowledge.md).

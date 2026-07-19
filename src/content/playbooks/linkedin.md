@@ -3,13 +3,14 @@ title: "LinkedIn profile optimization"
 platform: "linkedin"
 objective: "Master index for optimizing LinkedIn profiles around current ranking signals, search discovery, and AI-readable profile structure."
 status: "draft"
-last_updated: "2026-04-29"
-tags: ["linkedin", "linkedin-profile-optimization", "linkedin-headline", "linkedin-about-section", "recruiter-search", "personal-branding", "job-search", "AI-linkedin-rewrite", "developer-personal-brand", "search", "ai"]
+last_updated: "2026-06-21"
+tags: ["linkedin", "360Brew", "search", "ai"]
 agent_priority: "high"
 id: "linkedin"
 ---
 
 > This directory helps turn a LinkedIn profile from a generic professional summary into a searchable, evidence-backed profile that recruiters and AI tools can understand.
+> Public web page: [LinkedIn optimization playbook](https://vitaecontext.github.io/playbooks/linkedin/).
 
 ---
 
@@ -62,9 +63,16 @@ The optimization logic is divided into the following documents, ordered from fou
 - **[Experience and skills](./experience-and-skills.md):** How to keep profile facts aligned with the CV, surface proof links, and use current LinkedIn skills features well.
 - **[Featured section](./featured-section.md):** Structuring the Featured carousel with "Proof of Work" (video demos, architecture diagrams, GitHub repositories).
 - **[Engagement strategy](./engagement-strategy.md):** Evidence-based posting and commenting practices that align with documented relevance and quality signals.
-- **[Sources](./sources.md):** Official help pages, the 360Brew paper, and limited external sources used in this module.
+- **[Sources](./sources.md):** Official LinkedIn help pages plus downgrade notes for 360Brew research and external commentary.
 
-## 5. Usage for agents
+## 5. Reference profiles
+
+The following LinkedIn profiles are actively maintained using the strategies defined in this module and serve as real-world examples of dual-audience optimization:
+
+- **Renato Mignone**: [linkedin.com/in/renato-mignone](https://www.linkedin.com/in/renato-mignone/)
+- **Elia Innocenti**: [linkedin.com/in/eliainnocenti](https://www.linkedin.com/in/eliainnocenti/)
+
+## 6. Usage for agents
 
 When an AI agent is tasked with optimizing a user's LinkedIn profile:
 
@@ -75,7 +83,7 @@ When an AI agent is tasked with optimizing a user's LinkedIn profile:
 
 ---
 
-
+Runtime skill: [.skills/agent-skill/vitaecontext-linkedin/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-linkedin/SKILL.md). Source notes: [sources.md](./sources.md).
 
 ---
 
@@ -211,7 +219,7 @@ metadata:
   platform: "linkedin"
   objective: "Explains what is officially documented about LinkedIn ranking, what the public 360Brew debate adds, and which conclusions remain inferred."
   status: "draft"
-  last_updated: "2026-04-28"
+  last_updated: "2026-06-21"
   tags: ["linkedin", "360Brew", "ranking", "search"]
   agent_priority: "medium"
 -->
@@ -224,15 +232,15 @@ metadata:
 
 ## 1. Overview
 
-LinkedIn has publicly documented how Feed and search relevance work, and LinkedIn researchers previously published a 360Brew paper. These are not the same level of evidence.
+LinkedIn has publicly documented how Feed and search relevance work. 360Brew research and public commentary are useful background, but they are not official product documentation for current LinkedIn ranking behavior.
 
-As of April 28, 2026, the grounded position is:
+As of June 21, 2026, the grounded position is:
 
 - LinkedIn officially says Feed ranking uses signals from profile identity, content, network, and recent activity.
 - LinkedIn officially says people search results depend on relevance to the searcher, profile completeness, skills, connections, and standard job titles.
-- LinkedIn researchers publicly described 360Brew as a pre-production foundation model for ranking and recommendation tasks.
+- 360Brew material and public commentary may explain research direction, but they are not retained as stable source support in this module.
 - Several marketing and creator articles claim 360Brew is deployed, but those claims are not official LinkedIn product documentation.
-- Secondary reporting and LinkedIn posts quote LinkedIn VP Tim Jurka saying 360Brew was tested with a small group of members and shut down.
+- Secondary reporting and social posts about LinkedIn statements are useful dispute context, not stable product evidence.
 - This module therefore treats 360Brew as research and public debate, not as a production rulebook.
 
 ## 2. What LinkedIn officially documents
@@ -249,11 +257,11 @@ As of April 28, 2026, the grounded position is:
 
 ## 3. What the 360Brew debate changes
 
-**Rule:** Treat 360Brew as evidence of research direction, not proof of rollout. The 360Brew paper is useful because it shows LinkedIn explored large textual models for ranking and recommendation across many tasks. It does not prove that 360Brew is the live Feed algorithm. Strong claims about full deployment should be treated as secondary commentary unless LinkedIn publishes official product or engineering documentation confirming them.
+**Rule:** Treat 360Brew as dispute context, not proof of rollout. The public discussion around 360Brew may show research direction and market interpretation, but it does not prove that 360Brew is the live Feed algorithm. Strong claims about full deployment should be treated as secondary commentary unless LinkedIn publishes official product or engineering documentation confirming them.
 
 **Inference:** semantic consistency remains a durable bet. LinkedIn's official guidance already combines profile identity, content, activity, and relevance. Independent commentary around 360Brew points in the same practical direction: clear role positioning, consistent topic focus, and explicit evidence of skills are safer than vague content. It is not reasonable to infer a specific live "semantic coherence score" unless LinkedIn publishes that behavior.
 
-**Inference:** recent behavior likely remains important. LinkedIn's official help pages already emphasize recent engagement and recent content. The 360Brew paper reinforces the idea that recent behavior can be useful ranking context, but it does not prove specific folklore rules such as fixed weighting windows or exact feed caps.
+**Inference:** recent behavior likely remains important. LinkedIn's official help pages already emphasize recent engagement and recent content. Public 360Brew commentary points in a compatible direction, but it does not prove specific folklore rules such as fixed weighting windows or exact feed caps.
 
 **Rule:** Separate observed platform changes from model naming. Reach patterns, content-format performance, and recommendation behavior can change even if the community name for the change is wrong. Agents should optimize for official relevance signals and clearly labeled observations, not for a branded algorithm narrative.
 
@@ -534,38 +542,44 @@ Before writing prose or detailing experience, the profile's underlying structure
 metadata:
   title: "LinkedIn optimization sources"
   platform: "linkedin"
-  objective: "Centralized citations for the LinkedIn module, separating official platform guidance from public research and limited external examples."
-  status: "draft"
-  last_updated: "2026-04-28"
-  tags: ["linkedin", "sources", "research", "360Brew"]
+  objective: "Centralized official LinkedIn sources for profile structure, search, Feed, verification, skills, and activity claims."
+  status: "review"
+  last_updated: "2026-05-27"
+  tags: ["linkedin", "sources", "search", "skills"]
   agent_priority: "low"
 -->
 
 
 
-> This file contains the citations used by the `linkedin` module. Official LinkedIn help pages are the baseline; 360Brew research and third-party examples are secondary sources.
+> This file lists official LinkedIn sources that can support LinkedIn module claims. Third-party algorithm commentary and creator-growth posts are excluded from `stable` source support.
 
 ---
 
 ## 1. Overview
 
-The rules defined in the `linkedin` module are based primarily on LinkedIn help-center documentation about Feed relevance, people search, profile verification, and skills. 360Brew sources are used to understand the public research debate, not to assert undocumented production behavior.
+The `linkedin` module uses LinkedIn Help and LinkedIn-published material as the baseline. Public research and vendor commentary about named ranking systems can inform disputed notes, but it must not be presented as settled production behavior.
 
-## 2. Sources
+## 2. Source table
 
-- [How the Feed ranks content (LinkedIn Help)](https://www.linkedin.com/help/linkedin/answer/a9554004) - Official description of how Feed ranking uses signals from context, profile, network, and activity.
-- [LinkedIn relevance - Optimizing the member experience (LinkedIn Help)](https://www.linkedin.com/help/linkedin/answer/a1339724) - Official breakdown of Identity, Content, and Activity signals used to personalize Feed and recommendations.
-- [Order of your profile in people search results (LinkedIn Help)](https://www.linkedin.com/help/linkedin/answer/a521944) - Official guidance on profile completeness, standard job titles, skills, and connections for people-search discoverability.
-- [Verifications on your LinkedIn profile (LinkedIn Help)](https://www.linkedin.com/help/linkedin/answer/a1359065/verifications-on-your-linkedin-profile?lang=en) - Official verification overview, including LinkedIn's statement that verified members see more profile views on average.
-- [Identity verification via CLEAR (LinkedIn Help)](https://www.linkedin.com/help/linkedin/answer/a1485597) - Official eligibility and region support for CLEAR-based verification.
-- [Identity verification via Persona (LinkedIn Help)](https://www.linkedin.com/help/linkedin/answer/a6513799) - Official eligibility and device requirements for Persona-based verification.
-- [Add and remove skills on your profile (LinkedIn Help)](https://www.linkedin.com/help/linkedin/answer/a549047?lang=en) - Official guidance on adding up to 100 skills and linking them to experience entries.
-- [Display Order of Skills (LinkedIn Help)](https://www.linkedin.com/help/linkedin/answer/a568137/display-order-of-skills?lang=en) - Official guidance on reordering skills.
-- [Skill endorsements (LinkedIn Help)](https://www.linkedin.com/help/linkedin/answer/a565106) - Official description of endorsements as a social-proof signal.
-- [Skill Assessments - no longer available (LinkedIn Help)](https://www.linkedin.com/help/linkedin/answer/a1690529) - Confirms that LinkedIn Skill Assessments were discontinued.
-- [360Brew: A Decoder-only Foundation Model for Personalized Ranking and Recommendation (arXiv)](https://arxiv.org/abs/2501.16450) - Research source describing 360Brew as a pre-production model for ranking and recommendation tasks.
-- [The truth behind '360Brew': what we actually know (and what we don't) (Phil Szomszor)](https://www.linkedin.com/pulse/truth-behind-360brew-what-we-actually-know-dont-phil-szomszor-7yzre) - Secondary source summarizing the public evidence and reporting that LinkedIn did not roll out 360Brew as the live Feed algorithm.
-- [How the LinkedIn Algorithm Works in 2026 (PostEverywhere)](https://posteverywhere.ai/blog/how-the-linkedin-algorithm-works) - Vendor blog claiming 360Brew deployment and summarizing creator-facing tactics. Use only as an example of the contested public narrative, not as official LinkedIn documentation.
-- [OpenOutreach (GitHub)](https://github.com/eracle/OpenOutreach) - Example of an open-source recruitment workflow that helps illustrate how external AI tooling may consume profile data. This is an example source, not evidence of LinkedIn internals.
+| Source | URL | Type | Covers | Confidence |
+|---|---|---|---|---|
+| LinkedIn Help: How the Feed ranks content | https://www.linkedin.com/help/linkedin/answer/a9554004 | help-center | Feed ranking uses many signals, including post context and profile, network, and activity signals; demographic fields are not Feed visibility signals | stable |
+| LinkedIn Help: LinkedIn relevance | https://www.linkedin.com/help/linkedin/answer/a1339724 | help-center | Identity, Content, and Activity signal groups for relevance and recommendations | likely |
+| LinkedIn Help: Order of your profile in people search results | https://www.linkedin.com/help/linkedin/answer/a521944 | help-center | Search-order non-guarantees, relevance to searcher, profile completeness, skills, connections, standard job titles | stable |
+| LinkedIn Help: Add and remove skills on your profile | https://www.linkedin.com/help/linkedin/answer/a549047 | help-center | Skills section behavior, adding skills, skill association with profile sections, 100-skill limit | stable |
+| LinkedIn Help: Display order of skills | https://www.linkedin.com/help/linkedin/answer/a568137/display-order-of-skills | help-center | Skill ordering and display management | stable |
+| LinkedIn Help: Skill endorsements | https://www.linkedin.com/help/linkedin/answer/a565106 | help-center | Endorsement behavior, 100-skill limit, endorsement role in profile strength and opportunity discovery | stable |
+| LinkedIn Help: Skill Assessments no longer available | https://www.linkedin.com/help/linkedin/answer/a1690529 | help-center | Discontinuation of LinkedIn Skill Assessments | stable |
+| LinkedIn Help: Verifications on your LinkedIn profile | https://www.linkedin.com/help/linkedin/answer/a1359065/verifications-on-your-linkedin-profile | help-center | Verification types, badge behavior, availability limits, LinkedIn's own profile-view and engagement averages | likely |
+| LinkedIn Help: Identity verification via CLEAR | https://www.linkedin.com/help/linkedin/answer/a1485597 | help-center | CLEAR eligibility and geography constraints | likely |
+| LinkedIn Help: Identity verification via Persona | https://www.linkedin.com/help/linkedin/answer/a6513799 | help-center | Persona eligibility and device requirements | likely |
+
+## 3. Removed or downgraded sources
+
+The previous source list included arXiv 360Brew research, LinkedIn creator commentary, vendor posts, and an open-source outreach example. Those are not official LinkedIn product documentation. Retain 360Brew only as a disputed research context in prose when needed, not as support for live LinkedIn ranking claims.
+
+No clean official source was found for exact field limits across every profile section, fixed Feed weights, posting-time formulas, semantic scores, full 360Brew rollout, applicant outcomes, or recruiter-search ranking guarantees. Treat those claims as `likely`, `inferred`, or `disputed` depending on inspected evidence.
 
 ---
+
+See also: [LinkedIn profile optimization](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-linkedin/wiki/knowledge.md).

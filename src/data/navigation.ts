@@ -49,3 +49,8 @@ export const marketplace = {
   addCommand: "/plugin marketplace add vitaecontext/vitaecontext",
   installCommand: "/plugin install vitaecontext@vitaecontext",
 };
+
+export const codexMarketplace = {
+  addCommand: "codex plugin marketplace add .agents/plugins",
+  installCommand: "codex plugin add vitaecontext@vitaecontext",
+};
