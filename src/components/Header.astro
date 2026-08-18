@@ -8,6 +8,19 @@ const currentPath = Astro.url.pathname;
 const regularNavItems = navItems.filter((item) => item.placement === "primary");
 const vitaeGraphItem = navItems.find((item) => item.placement === "product");
 const githubItem = navItems.find((item) => item.placement === "external");
+
+const isItemActive = (href: string) => {
+  if (href === "/docs/mcp/") {
+    return currentPath === "/docs/mcp/" || currentPath.startsWith("/docs/mcp/");
+  }
+  if (href === "/docs/") {
+    return currentPath.startsWith("/docs/") && !currentPath.startsWith("/docs/mcp/");
+  }
+  if (href === "/") {
+    return currentPath === "/";
+  }
+  return currentPath === href || (href !== "/" && currentPath.startsWith(href));
+};
 ---
 
 <header class="site-header">
@@ -18,7 +31,7 @@ const githubItem = navItems.find((item) => item.placement === "external");
   <nav class="nav" id="primary-navigation" aria-label="Primary navigation" data-primary-nav>
     {regularNavItems.map((item) => {
       const isExternal = item.href.startsWith("http");
-      const isCurrent = !isExternal && (currentPath === item.href || currentPath.startsWith(item.href));
+      const isCurrent = !isExternal && isItemActive(item.href);
       return <a href={item.href} aria-current={isCurrent ? "page" : undefined} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noreferrer" : undefined}>{item.label}</a>;
     })}
   </nav>
