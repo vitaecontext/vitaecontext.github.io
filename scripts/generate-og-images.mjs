@@ -118,6 +118,16 @@ const pages = [
     chip: "Product module",
   },
   {
+    slug: "mcp",
+    label: "MCP",
+    title: "Model Context Protocol Server",
+    subtitle: "Stateless stdio bridge for cross-workspace career context and VitaeGraph.",
+    accent: "#1F684B",
+    accentDark: "#123C2D",
+    pattern: "MCP",
+    chip: "MCP Server",
+  },
+  {
     slug: "faq",
     label: "FAQ",
     title: "VitaeContext FAQ",

@@ -1,0 +1,72 @@
+---
+import PlatformIcon from "@components/PlatformIcon.astro";
+---
+
+<section class="lk-section lk-mcp" aria-labelledby="mcp-section-title">
+  <div class="lk-wrap lk-mcp__grid">
+    <div class="lk-mcp__copy">
+      <div class="lk-mcp__brand">
+        <PlatformIcon kind="mcp" />
+        <span>Model Context Protocol</span>
+        <small>Stateless Server</small>
+      </div>
+      <h2 id="mcp-section-title">Query private career facts across any repository.</h2>
+      <p>
+        VitaeContext includes a stateless MCP server that connects your private Career Context and VitaeGraph directly to AI coding tools. Agents across all project workspaces can query verified career facts on demand without copying files into git repositories.
+      </p>
+      <div class="lk-mcp__features">
+        <div>
+          <strong>Zero file pollution</strong>
+          <span>Career files stay in <code>~/.vitaecontext/</code>. Never committed to project repositories.</span>
+        </div>
+        <div>
+          <strong>Stdio JSON-RPC 2.0</strong>
+          <span>Zero external dependencies. Instant startup via <code>npx -y vitaecontext-mcp</code>.</span>
+        </div>
+      </div>
+      <div class="lk-actions">
+        <a class="lk-button lk-button--primary" href="/docs/mcp/">Read MCP Guide <span aria-hidden="true">→</span></a>
+        <a class="lk-button lk-button--quiet" href="/providers/">11 Supported Providers</a>
+      </div>
+    </div>
+
+    <div class="lk-mcp-visual" aria-label="VitaeContext Model Context Protocol bridge">
+      <div class="lk-mcp-visual__terminal">
+        <div class="lk-mcp-visual__bar">
+          <i></i><i></i><i></i><span>stdio · json-rpc 2.0 · stateless</span>
+        </div>
+        <div class="lk-mcp-visual__content">
+          <div class="lk-mcp-visual__cmd">
+            <span>$</span> <code>npx -y vitaecontext-mcp</code>
+          </div>
+          <div class="lk-mcp-visual__status">
+            <span class="lk-pulse" aria-hidden="true"></span>
+            <span>Server ready · listening on stdio</span>
+          </div>
+          <div class="lk-mcp-visual__items">
+            <div class="lk-mcp-chip">
+              <small>TOOL</small>
+              <strong>get_career_context</strong>
+              <code>{`{ "for": "github" }`}</code>
+            </div>
+            <div class="lk-mcp-chip">
+              <small>TOOL</small>
+              <strong>search_vitaegraph</strong>
+              <code>{`{ "type": "project" }`}</code>
+            </div>
+            <div class="lk-mcp-chip">
+              <small>RESOURCE</small>
+              <strong>career-context://current</strong>
+              <code>~/.vitaecontext/</code>
+            </div>
+            <div class="lk-mcp-chip">
+              <small>PROMPT</small>
+              <strong>cv_tailoring</strong>
+              <code>targetRole</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

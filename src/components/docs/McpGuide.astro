@@ -1,0 +1,167 @@
+---
+import PlatformIcon from "@components/PlatformIcon.astro";
+import InfoCard from "@components/shared/InfoCard.astro";
+import SectionIntro from "@components/shared/SectionIntro.astro";
+
+const clientConfigs = [
+  {
+    id: "claude-desktop",
+    name: "Claude Desktop",
+    target: "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or ~/.config/Claude/claude_desktop_config.json (Linux)",
+    code: `{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext-mcp"]\n    }\n  }\n}`,
+  },
+  {
+    id: "claude-code",
+    name: "Claude Code",
+    target: "Terminal command",
+    code: `claude mcp add vitaecontext -- npx -y vitaecontext-mcp`,
+  },
+  {
+    id: "cursor",
+    name: "Cursor IDE",
+    target: "Settings -> Features -> MCP Servers -> Add new MCP server",
+    code: `Name: vitaecontext\nType: command\nCommand: npx -y vitaecontext-mcp`,
+  },
+  {
+    id: "windsurf",
+    name: "Windsurf (Cascade)",
+    target: "~/.codeium/windsurf/mcp_config.json",
+    code: `{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext-mcp"]\n    }\n  }\n}`,
+  },
+  {
+    id: "roo-code",
+    name: "Roo Code / Cline",
+    target: "cline_mcp_settings.json or roo_code_mcp_settings.json",
+    code: `{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext-mcp"]\n    }\n  }\n}`,
+  },
+  {
+    id: "antigravity",
+    name: "Antigravity CLI",
+    target: "~/.gemini/antigravity-cli/mcp_config.json",
+    code: `{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext-mcp"]\n    }\n  }\n}`,
+  },
+  {
+    id: "ibm-bob",
+    name: "IBM Bob / watsonx",
+    target: ".ibm/mcp_config.json",
+    code: `{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext-mcp"]\n    }\n  }\n}`,
+  },
+  {
+    id: "grok",
+    name: "xAI Grok",
+    target: ".grok/mcp_config.json",
+    code: `{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext-mcp"]\n    }\n  }\n}`,
+  },
+];
+---
+
+<div class="doc-body page-wrap">
+  <section class="doc-lead">
+    <SectionIntro
+      eyebrow="Cross-workspace bridge"
+      title="Stateless Model Context Protocol server."
+      text="Connect your private Career Context and VitaeGraph directly to AI coding assistants across any project workspace without copying career files or pasting private notes into chats."
+    />
+    <div class="mcp-quick-run">
+      <small>Standalone stdio execution</small>
+      <pre class="code-block"><code>npx -y vitaecontext-mcp</code></pre>
+      <p>Or via the package CLI: <code>npx vitaecontext mcp</code></p>
+    </div>
+  </section>
+
+  <section class="doc-split" aria-label="Why MCP for Career Context">
+    <article>
+      <h2>Why MCP for career facts</h2>
+      <ul class="plain-check-list">
+        <li><strong>Zero Workspace Pollution:</strong> No personal Markdown or career files need to be committed to software repositories.</li>
+        <li><strong>Instant Cross-Project Grounding:</strong> Any tool supporting Model Context Protocol can query your career records on demand.</li>
+        <li><strong>Always Current:</strong> Edits to <code>~/.vitaecontext/career-context.md</code> or <code>~/.vitaecontext/vitaegraph/</code> immediately reflect across all chats.</li>
+        <li><strong>Evidence-Bounded:</strong> Exposes structured tools that extract only verified facts for the requested surface.</li>
+      </ul>
+    </article>
+    <article>
+      <h2>Architecture & Protocol</h2>
+      <div class="definition-list">
+        <div><dt>Architecture</dt><dd>Stateless stdio server (zero external dependencies)</dd></div>
+        <div><dt>Transport</dt><dd><code>stdio</code> JSON-RPC 2.0 with newline framing</dd></div>
+        <div><dt>Specification</dt><dd>Model Context Protocol (Open Standard)</dd></div>
+        <div><dt>Package Engine</dt><dd><code>vitaecontext</code> v2.2.0 (pure ESM)</dd></div>
+        <div><dt>Discovery Paths</dt><dd><code>~/.vitaecontext/*-career-context.md</code>, <code>~/.vitaecontext/vitaegraph/</code></dd></div>
+      </div>
+    </article>
+  </section>
+
+  <section aria-labelledby="why-mcp-section-title">
+    <SectionIntro
+      eyebrow="Core Motivation"
+      title="Why career context needs a stateless protocol bridge"
+      text="How an MCP server solves the friction of maintaining accurate, private career facts across developer workflows."
+    />
+    <div class="doc-split">
+      <article>
+        <h3>The Multi-Repository Dilemma</h3>
+        <p>
+          Developers routinely work across dozens of git repositories, including open-source packages, client apps, internal microservices, and personal tools. When building or publishing projects, AI coding assistants often need your career context to draft repository READMEs, write author bios, create portfolio entries, or formulate technical accomplishments.
+        </p>
+        <p>
+          Without an MCP bridge, developers face two bad choices: copy a private <code>career-context.md</code> into every project tree (risking accidental public commits of private data) or manually paste unverified career notes into every chat session.
+        </p>
+      </article>
+      <article>
+        <h3>Private, Single Source of Truth</h3>
+        <p>
+          VitaeContext MCP eliminates this friction by running locally over standard input/output (stdio). It directly connects AI agents to your central <code>~/.vitaecontext/</code> home directory on demand.
+        </p>
+        <p>
+          When you update a role description or record a new achievement in VitaeGraph, every AI assistant in every repository immediately accesses the verified, up-to-date facts on its next query, with zero file copies and zero configuration sprawl.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="client-setup-title">
+    <SectionIntro eyebrow="Client setup" title="Configure your AI assistant" text="Register the VitaeContext MCP server once in your preferred tool config to enable cross-workspace context." />
+
+    <div class="client-grid">
+      {clientConfigs.map((client) => (
+        <article class="client-card">
+          <header>
+            <PlatformIcon kind={client.id} />
+            <div>
+              <h3>{client.name}</h3>
+              <small>{client.target}</small>
+            </div>
+          </header>
+          <pre class="code-block"><code>{client.code}</code></pre>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section aria-labelledby="testing-mcp-title">
+    <SectionIntro eyebrow="Testing" title="How to test the MCP server" text="Verify JSON-RPC communication locally using the inspector or direct stdio piping." />
+    
+    <div class="doc-split">
+      <article>
+        <h3>Official MCP Inspector</h3>
+        <p>Test tools, resources, and prompts interactively with a web dashboard:</p>
+        <pre class="code-block"><code>npx @modelcontextprotocol/inspector npx -y vitaecontext-mcp</code></pre>
+        <p>Open the displayed URL, connect via <code>STDIO</code>, and test tools such as <code>get_career_context</code>.</p>
+      </article>
+      <article>
+        <h3>Command-line stdio piping</h3>
+        <p>Send standard JSON-RPC 2.0 payloads directly via stdin:</p>
+        <pre class="code-block"><code>{`printf '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}\\n' | npx -y vitaecontext-mcp`}</code></pre>
+      </article>
+    </div>
+  </section>
+
+  <section class="feature-section">
+    <SectionIntro title="Next steps" />
+    <div class="card-grid card-grid--three">
+      <InfoCard title="All supported providers" text="See skills, global paths, and invocation formats." href="/providers/" label="View providers" />
+      <InfoCard title="CLI Reference" text="Inspect all vitaecontext commands and flags." href="/docs/cli/" label="CLI reference" />
+      <InfoCard title="VitaeGraph" text="Explore hierarchical Markdown knowledge graph records." href="/vitaegraph/" label="VitaeGraph" />
+    </div>
+  </section>
+</div>

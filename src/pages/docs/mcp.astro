@@ -1,0 +1,37 @@
+---
+import McpGuide from "@components/docs/McpGuide.astro";
+import PageHero from "@components/shared/PageHero.astro";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import { site } from "@data/site-config";
+import "@styles/pages/docs.css";
+
+const meta = {
+  title: "Model Context Protocol (MCP) Server",
+  description:
+    "Stateless Model Context Protocol (MCP) server for VitaeContext. Connect private Career Context and VitaeGraph to AI coding assistants across any repository with zero workspace pollution.",
+  path: "/docs/mcp/",
+  type: "article" as const,
+  image: "/og/mcp.png",
+};
+---
+
+<BaseLayout
+  meta={meta}
+  jsonLd={[
+    articleJsonLd(meta.title, meta.description, meta.path),
+    breadcrumbJsonLd([
+      { name: "Home", path: "/" },
+      { name: "Docs", path: "/docs/" },
+      { name: "MCP Server", path: meta.path },
+    ]),
+  ]}
+>
+  <PageHero
+    eyebrow={`Documentation · MCP · Protocol 2024-11-05 · v${site.packageVersion}`}
+    title="Model Context Protocol server"
+    text="Bridge private Career Context and VitaeGraph to AI coding tools across any project workspace over stateless stdio JSON-RPC 2.0."
+    compact
+  />
+  <McpGuide />
+</BaseLayout>
