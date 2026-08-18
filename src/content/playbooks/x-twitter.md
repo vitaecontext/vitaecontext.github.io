@@ -65,7 +65,7 @@ Agents must route to the specific file needed for the task at hand. Do not load 
 
 ---
 
-Runtime skill: [.skills/agent-skill/vitaecontext-x/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-x/SKILL.md). Source notes: [sources.md](./sources.md).
+Runtime skill: [skills/vitaecontext-x/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/skills/vitaecontext-x/SKILL.md). Source notes: [sources.md](./sources.md).
 
 ---
 
@@ -534,4 +534,4 @@ No clean official source was found for exact live ranking weights, universal ext
 
 ---
 
-See also: [X (Twitter) optimization](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-x/wiki/knowledge.md).
+See also: [X (Twitter) optimization](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/skills/vitaecontext-x/wiki/knowledge.md).

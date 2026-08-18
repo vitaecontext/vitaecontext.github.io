@@ -29,12 +29,17 @@ const faqs = [
   {
     question: "Which agents and providers does it support?",
     answer:
-      "Six install targets: Claude Code, Codex, Gemini CLI, Antigravity, OpenCode, and a shared portable skill bundle. In Claude Code the skills are also available through the plugin marketplace. One source generates each provider layout, but installation, activation, and exact runtime behavior vary by provider.",
+      "11 install targets: Codex, Claude Code, Cursor, Windsurf (Cascade), Roo Code / Cline, Gemini CLI, Antigravity, OpenCode, IBM Bob (watsonx), xAI Grok, and a portable shared bundle. In Claude Code the skills are also available through the plugin marketplace, and tools supporting Model Context Protocol can connect via stdio.",
+  },
+  {
+    question: "What is the Model Context Protocol (MCP) server?",
+    answer:
+      "VitaeContext includes a native, zero-dependency MCP server conforming to protocol version 2024-11-05. It allows developer agents in Cursor, Windsurf, Claude Desktop, Claude Code, Roo Code, Antigravity, IBM Bob, and Grok to query private Career Context and VitaeGraph across any repository workspace with zero file copying.",
   },
   {
     question: "How do I install it?",
     answer:
-      "Run npx vitaecontext install --provider <provider> with one of the supported provider values. In Claude Code you can instead add the plugin marketplace with /plugin marketplace add vitaecontext/vitaecontext and then /plugin install vitaecontext@vitaecontext. See the installation guide and CLI reference for every command and flag.",
+      "Run npx vitaecontext install --provider <provider> with one of the supported provider values, or run the stateless MCP server with npx -y vitaecontext-mcp. In Claude Code you can also add the plugin marketplace with /plugin marketplace add vitaecontext/vitaecontext and /plugin install vitaecontext@vitaecontext. See the installation guide and CLI reference for every command and flag.",
   },
   {
     question: "What is Career Context?",

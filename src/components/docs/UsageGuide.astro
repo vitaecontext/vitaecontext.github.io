@@ -44,17 +44,17 @@ Audit my GitHub profile and list the changes I should make first.
 Do not add claims that are not supported by the file.</code></pre>
   </section>
 
-  <section class="doc-split" aria-label="Career Context command workflow">
-    <article><h2>Validate before reuse</h2><p>Run <code>npx vitaecontext context validate &lt;file&gt;</code> after replacing the starter placeholders. Add <code>--json</code> when an editor or agent needs structured diagnostics.</p><p>Validation checks the document contract and internal consistency. It does not authenticate whether a career claim is true.</p></article>
-    <article><h2>Send only the relevant subset</h2><p>Run <code>npx vitaecontext context summary &lt;file&gt; --for github</code> to create a bounded packet for one task. Supported selectors are CV, GitHub, LinkedIn, portfolio, X, and general.</p><p>The source file remains canonical and is not modified.</p></article>
+  <section class="doc-split" aria-label="Cross-workspace workflow">
+    <article><h2>Option A: Command task packet</h2><p>Run <code>npx vitaecontext context summary &lt;file&gt; --for github</code> to create a bounded Markdown packet for one platform. Good for manual AI chat sessions or direct copy-paste.</p></article>
+    <article><h2>Option B: Cross-workspace MCP</h2><p>Configure the stateless MCP server (<code>npx -y vitaecontext-mcp</code>). Your AI coding assistants across all project repositories can query your private context and VitaeGraph dynamically without copying files.</p><p><a class="text-link" href="/docs/mcp/">Read the MCP server guide</a></p></article>
   </section>
 
   <section class="feature-section">
     <SectionIntro title="Continue from here" />
     <div class="card-grid card-grid--three">
-      <InfoCard title="See the context structure" text="Inspect a complete fictional context file." href="/docs/context-file-example/" label="Open example" />
+      <InfoCard title="Model Context Protocol" text="Connect AI coding tools across repositories via MCP." href="/docs/mcp/" label="MCP Guide" />
       <InfoCard title="Install the skills" text="Choose a supported provider and destination." href="/docs/installation/" label="Install" />
-      <InfoCard title="Read a method" text="Use the human-readable guides without installing." href="/playbooks/" label="Browse guides" />
+      <InfoCard title="See context structure" text="Inspect a complete fictional context file." href="/docs/context-file-example/" label="Open example" />
     </div>
   </section>
 </div>

@@ -10,8 +10,8 @@ import PlatformIcon from "@components/PlatformIcon.astro";
       <h1 id="landing-title">Keep your career context.<br /><em>Reuse it across AI.</em></h1>
       <p class="lk-hero__lede">
         VitaeContext is open-source career-context infrastructure for AI agents and career systems. It helps a person
-        maintain reusable Career Context in Markdown, then provides focused agent skills for grounded CVs, profiles,
-        applications, and other professional work.
+        maintain reusable Career Context in Markdown, then provides focused agent skills and a Model Context Protocol (MCP)
+        server for grounded CVs, profiles, applications, and professional work across any workspace.
       </p>
       <p class="lk-hero__boundary">
         The file stays under your control until you supply it to an external provider. VitaeContext structures
@@ -95,7 +95,7 @@ import PlatformIcon from "@components/PlatformIcon.astro";
 - Read https://vitaecontext.github.io/docs/installation/ and https://vitaecontext.github.io/providers/ first. Identify the matching provider and its invocation format.
 - Run \`npx vitaecontext install --provider <matching-provider>\`. Do not use \`--force\` or change install locations unless I approve it.
 - Verify the installation with \`npx vitaecontext doctor\`, then tell me which skills are available and how to invoke them here.
-- Ask me for a private name and file path, then create a Career Context template with \`npx vitaecontext template context --output <private-path>\`.
+- Ask me for a private file path, initialize it with \`npx vitaecontext context init --output <private-path>\`, and explain that validation will fail until its placeholders are replaced.
 - Read https://vitaecontext.github.io/docs/usage/ and propose three practical next steps. Start with building the context from career material I choose to share, then suggest one focused skill for my immediate goal. Do not upload or share my files without asking.`;
 
   const copyButton = document.querySelector<HTMLButtonElement>("[data-agent-setup-copy]");

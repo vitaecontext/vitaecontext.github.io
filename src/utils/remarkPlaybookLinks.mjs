@@ -28,10 +28,12 @@ function rewriteMarkdownHref(href) {
     return href;
   }
 
-  const skillPathIndex = href.indexOf(".skills/");
-  if (skillPathIndex !== -1) {
-    const repositoryPath = href.slice(skillPathIndex);
-    return `https://github.com/vitaecontext/vitaecontext/blob/main/${repositoryPath}`;
+  for (const prefix of [".skills/", "skills/", "src/", "providers/", "mcp/", "vitaegraph/"]) {
+    const pathIndex = href.indexOf(prefix);
+    if (pathIndex !== -1) {
+      const repositoryPath = href.slice(pathIndex);
+      return `https://github.com/vitaecontext/vitaecontext/blob/main/${repositoryPath}`;
+    }
   }
 
   const match = href.match(markdownFilePattern);

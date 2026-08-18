@@ -3,6 +3,7 @@ import { marketplace } from "@data/navigation";
 
 const commands = [
   ["version", "npx vitaecontext version", "Print the running package version."],
+  ["mcp", "npx -y vitaecontext-mcp\n# or: npx vitaecontext mcp", "Start the stateless Model Context Protocol stdio server conforming to version 2024-11-05."],
   ["update", "npx vitaecontext update [--provider <provider>] [--json] [--timeout <ms>]", "Check npm for a newer version. This runs only when requested."],
   ["doctor", "npx vitaecontext doctor", "Validate package structure, skill metadata, wiki files, provider manifests, and packaged paths."],
   ["list providers", "npx vitaecontext list providers", "List supported install targets."],
