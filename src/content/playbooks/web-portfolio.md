@@ -72,7 +72,7 @@ When an AI agent is tasked with optimizing a user's personal website:
 
 ---
 
-Runtime skill: [.skills/agent-skill/vitaecontext-portfolio/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-portfolio/SKILL.md). Source notes: [sources.md](./sources.md).
+Runtime skill: [skills/vitaecontext-portfolio/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/skills/vitaecontext-portfolio/SKILL.md). Source notes: [sources.md](./sources.md).
 
 *Next step: Start with [Indexability and submission](./indexability-and-submission.md).*
 
@@ -806,7 +806,7 @@ No clean official source was found for guaranteed AI citation, guaranteed LLM in
 
 ---
 
-See also: [Web portfolio SEO and indexing](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-portfolio/wiki/knowledge.md).
+See also: [Web portfolio SEO and indexing](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/skills/vitaecontext-portfolio/wiki/knowledge.md).
 
 ---
 

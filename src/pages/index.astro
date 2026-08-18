@@ -4,6 +4,7 @@ import LandingHero from "@components/landing/LandingHero.astro";
 import ContextLayer from "@components/landing/ContextLayer.astro";
 import ContextStory from "@components/landing/ContextStory.astro";
 import SkillsWorkbench from "@components/landing/SkillsWorkbench.astro";
+import McpSection from "@components/landing/McpSection.astro";
 import GroundingSection from "@components/landing/GroundingSection.astro";
 import VitaeGraphBridge from "@components/landing/VitaeGraphBridge.astro";
 import StartSection from "@components/landing/StartSection.astro";
@@ -13,7 +14,7 @@ import "@styles/pages/landing.css";
 const meta = {
   title: "One Career Context for Grounded AI Work",
   description:
-    "Create reusable, evidence-bounded career context before AI-assisted CVs, applications, profiles, and other professional work—then use it in any provider or system that accepts context.",
+    "Create reusable, evidence-bounded career context before AI-assisted CVs, applications, profiles, and other professional work, then use it in any provider or system that accepts context.",
   path: "/",
 };
 ---
@@ -24,6 +25,7 @@ const meta = {
     <ContextLayer />
     <ContextStory />
     <SkillsWorkbench />
+    <McpSection />
     <GroundingSection />
     <VitaeGraphBridge />
     <StartSection />

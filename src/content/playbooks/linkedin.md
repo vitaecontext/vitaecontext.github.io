@@ -83,7 +83,7 @@ When an AI agent is tasked with optimizing a user's LinkedIn profile:
 
 ---
 
-Runtime skill: [.skills/agent-skill/vitaecontext-linkedin/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-linkedin/SKILL.md). Source notes: [sources.md](./sources.md).
+Runtime skill: [skills/vitaecontext-linkedin/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/skills/vitaecontext-linkedin/SKILL.md). Source notes: [sources.md](./sources.md).
 
 ---
 
@@ -582,4 +582,4 @@ No clean official source was found for exact field limits across every profile s
 
 ---
 
-See also: [LinkedIn profile optimization](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-linkedin/wiki/knowledge.md).
+See also: [LinkedIn profile optimization](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/skills/vitaecontext-linkedin/wiki/knowledge.md).

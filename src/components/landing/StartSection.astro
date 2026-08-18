@@ -1,8 +1,8 @@
 ---
 const steps = [
-  { number: "01", title: "Install for your agent", code: "npx vitaecontext install --provider codex", text: "Choose Codex, Claude Code, Gemini CLI, Antigravity, OpenCode, or a shared bundle.", href: "/docs/installation/", label: "All providers" },
-  { number: "02", title: "Create the context template", code: "npx vitaecontext template context --output ~/.vitaecontext/name-surname-career-context.md", text: "Choose a private location, then ask the context skill to organize trusted career material.", href: "/docs/context-file-example/", label: "View example" },
-  { number: "03", title: "Name one skill and task", code: "$vitaecontext-github\nAudit my profile using my career context file.", text: "Reference the context, invoke the focused skill, and ask for the work directly.", href: "/docs/usage/", label: "Usage guide" },
+  { number: "01", title: "Install or connect MCP", code: "npx vitaecontext install --provider codex\n# or stdio MCP: npx -y vitaecontext-mcp", text: "Supports 11 agent targets including Cursor, Windsurf, Claude Code, Codex, Roo Code, and Grok.", href: "/docs/installation/", label: "All providers" },
+  { number: "02", title: "Initialize private context", code: "npx vitaecontext context init --output ~/.vitaecontext/name-surname-career-context.md", text: "Initialize your private Markdown file, then let the context builder organize trusted material.", href: "/docs/context-file-example/", label: "View example" },
+  { number: "03", title: "Run grounded tasks", code: "$vitaecontext-github\nAudit my profile using my career context file.", text: "Reference the context, invoke the focused skill or MCP tool, and ask for grounded output.", href: "/docs/usage/", label: "Usage guide" },
 ];
 ---
 

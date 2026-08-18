@@ -21,6 +21,23 @@ const meta = {
     </div>
   </section>
   <section class="page-section prose">
+    <h2>Package 2.2.0 - 2026-08-17</h2>
+    <p>Added a stateless Model Context Protocol (MCP) server, expanded provider support to 11 agent environments, and migrated to standard Open Agent Skills and modular core engine architecture.</p>
+    <h3>Added</h3>
+    <ul>
+      <li><strong>Stateless Model Context Protocol (MCP) Server:</strong> Built native JSON-RPC 2.0 stdio server (<code>bin/vitaecontext-mcp.mjs</code> and <code>npx -y vitaecontext-mcp</code>) conforming to protocol version <code>2024-11-05</code> with zero external dependencies.</li>
+      <li><strong>MCP Resources, Tools & Prompts:</strong> Added cross-workspace resources (<code>career-context://current</code>, <code>vitaegraph://index</code>, <code>vitaegraph://record/{'{'}id{'}'}</code>, <code>vitaecontext://wiki/{'{'}module{'}'}</code>), callable tools (<code>get_career_context</code>, <code>search_vitaegraph</code>, <code>validate_career_context</code>), and grounded task prompts (<code>cv_tailoring</code>, <code>linkedin_audit</code>, <code>github_showcase</code>, <code>career_context_intake</code>).</li>
+      <li><strong>5 New AI Coding Agent Adapters:</strong> Added Cursor, Windsurf (Cascade), Roo Code / Cline, IBM Bob (watsonx), and xAI Grok, bringing total supported environments to 11.</li>
+      <li><strong>Client Setup Configurations:</strong> Provided turnkey MCP configuration snippets for Claude Desktop, Claude Code, Cursor, Windsurf, Roo Code, Antigravity, IBM Bob, and Grok.</li>
+    </ul>
+    <h3>Changed</h3>
+    <ul>
+      <li><strong>Standard Open Agent Skills Root Architecture:</strong> Migrated canonical methodology skills from <code>.skills/agent-skill/</code> directly to standard root <code>skills/</code> following the <a href="https://agentskills.io">agentskills.io</a> open specification.</li>
+      <li><strong>Standardized Binaries & Modular Core Engine:</strong> Standardized top-level <code>bin/</code> CLI executables (<code>bin/vitaecontext.mjs</code>, <code>bin/vitaecontext-mcp.mjs</code>) and modular pure ESM in <code>src/</code>.</li>
+      <li><strong>Removed Legacy <code>.skills/</code> Hierarchy:</strong> Replaced the old nested directory tree in favor of standard root directories.</li>
+      <li><strong>Live Stdio Integration Testing:</strong> Added subprocess JSON-RPC 2.0 stdio stream integration tests into the test suite.</li>
+    </ul>
+
     <h2>Package 2.1.0 - 2026-07-19</h2>
     <p>Added a complete local lifecycle for the central Career Context artifact and hardened the package and website release paths.</p>
     <h3>Added</h3>

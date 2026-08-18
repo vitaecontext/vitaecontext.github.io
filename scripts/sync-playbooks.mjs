@@ -29,10 +29,19 @@ function digest(content) {
 }
 
 function normalizeRepositoryLinks(content) {
-  return content.replace(
-    /\]\((?:\.\.\/)+(\.skills\/[^)]+)\)/g,
-    "](https://github.com/vitaecontext/vitaecontext/blob/main/$1)"
-  );
+  return content
+    .replace(
+      /\]\((?:\.\.\/)+(\.skills\/[^)]+)\)/g,
+      "](https://github.com/vitaecontext/vitaecontext/blob/main/$1)"
+    )
+    .replace(
+      /\]\((?:\.\.\/)+(skills\/[^)]+)\)/g,
+      "](https://github.com/vitaecontext/vitaecontext/blob/main/$1)"
+    )
+    .replace(
+      /\]\((?:\.\.\/)+(src\/[^)]+)\)/g,
+      "](https://github.com/vitaecontext/vitaecontext/blob/main/$1)"
+    );
 }
 
 async function readJson(filePath) {
@@ -80,7 +89,7 @@ async function compareOrWrite(filePath, content, mismatches) {
 
 async function run() {
   const packageMetadata = await readJson(path.join(productRoot, "package.json"));
-  const exportConfig = await readJson(path.join(productRoot, ".skills", "export", "export-config.json"));
+  const exportConfig = await readJson(path.join(productRoot, "src", "export-config.json"));
   const mismatches = [];
   const hashes = {};
 

@@ -71,7 +71,7 @@ When an AI agent is tasked with optimizing a user's CV:
 
 ---
 
-Runtime skill: [.skills/agent-skill/vitaecontext-cv/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-cv/SKILL.md). Source notes: [sources.md](./sources.md).
+Runtime skill: [skills/vitaecontext-cv/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/skills/vitaecontext-cv/SKILL.md). Source notes: [sources.md](./sources.md).
 
 ---
 
@@ -537,4 +537,4 @@ No clean official source was found for universal claims about exact ATS scores, 
 
 ---
 
-See also: [CV and ATS optimization](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-cv/wiki/knowledge.md).
+See also: [CV and ATS optimization](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/skills/vitaecontext-cv/wiki/knowledge.md).

@@ -68,7 +68,7 @@ When an AI agent is asked to work with a Career Context file:
 
 ---
 
-Runtime skill: [.skills/agent-skill/vitaecontext-build/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-build/SKILL.md). Source notes: [sources.md](./sources.md).
+Runtime skill: [skills/vitaecontext-build/SKILL.md](https://github.com/vitaecontext/vitaecontext/blob/main/skills/vitaecontext-build/SKILL.md). Source notes: [sources.md](./sources.md).
 
 ---
 
@@ -912,7 +912,7 @@ No clean official external source was found for career-specific context-file sch
 
 ---
 
-See also: [Context Builder](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/.skills/agent-skill/vitaecontext-build/wiki/knowledge.md).
+See also: [Context Builder](./README.md) and [runtime knowledge](https://github.com/vitaecontext/vitaecontext/blob/main/skills/vitaecontext-build/wiki/knowledge.md).
 
 ---
 
