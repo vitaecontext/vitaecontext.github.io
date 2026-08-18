@@ -7,21 +7,26 @@ import { providers } from "@data/providers";
 const icons: Record<string, string> = {
   codex: "openai",
   "claude-code": "anthropic",
+  cursor: "cursor",
+  windsurf: "windsurf",
+  "roo-code": "roo",
   "gemini-cli": "gemini",
   antigravity: "gemini",
   opencode: "opencode",
+  "ibm-bob": "ibm",
+  grok: "grok",
   shared: "package",
 };
 ---
 
 <div class="provider-catalog page-wrap">
   <section class="provider-lead">
-    <div><p class="eyebrow">npm install</p><h2>Choose the environment where your agent runs.</h2><p>The CLI writes each provider's expected folder and command layout from the same runtime skill source.</p></div>
+    <div><p class="eyebrow">npm install</p><h2>Choose the environment where your agent runs.</h2><p>The CLI writes each provider's expected folder and command layout from the same runtime skill source, or connects via stateless MCP.</p></div>
     <pre class="code-block"><code>npx vitaecontext install --provider &lt;provider&gt;</code></pre>
   </section>
 
   <section class="feature-section" aria-labelledby="provider-list-title">
-    <SectionIntro eyebrow="Install targets" title="Supported providers" text="Use the exact provider value shown on each card." />
+    <SectionIntro eyebrow="Install targets" title="Supported providers" text="11 supported agent environments. Use the exact provider value shown on each card, or connect via MCP." />
     <div class="provider-grid">
       {providers.map((provider) => (
         <article class="provider-card">
@@ -30,6 +35,9 @@ const icons: Record<string, string> = {
           <div><small>Install</small><pre class="code-block"><code>{provider.installCmd}</code></pre></div>
           <div><small>Example</small><pre class="code-block code-block--muted"><code>{provider.invocation}</code></pre></div>
           <p class="provider-note">{provider.invocationNote}</p>
+          {provider.mcpConfig && (
+            <div class="provider-mcp"><small>MCP Config ({provider.mcpConfig.file})</small><pre class="code-block code-block--muted"><code>{provider.mcpConfig.snippet}</code></pre></div>
+          )}
           <footer><small>Default path</small><code>{provider.globalTarget}</code></footer>
         </article>
       ))}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "packageName": "vitaecontext",
-  "packageVersion": "2.1.0",
+  "packageVersion": "2.2.0",
   "skills": [
     "vitaecontext",
     "vitaecontext-build",
@@ -16,16 +16,21 @@
     "antigravity",
     "claude-code",
     "codex",
+    "cursor",
     "gemini-cli",
+    "grok",
+    "ibm-bob",
     "opencode",
-    "shared"
+    "roo-code",
+    "shared",
+    "windsurf"
   ],
   "playbooks": {
-    "context-builder": "04aa9b3ddcc148e200f2ccf9bab2a2e934e3afbf747b4f9f6240823f56a77977",
-    "cv-ats": "2e99ef7dc6fbfe1fb3ea4e0eb1c3e0fc2659bb594c3417898f3f4d339be07dea",
-    "github": "102b5d6f166e584688d02813db98258173ab2f80c13da2ea3fbf0029c5a0eb3b",
-    "linkedin": "9c594d9efbb2861bfb82bfaee40f8f8f14f692b494cc982d5b6bb06b48c14d6a",
-    "web-portfolio": "286ecd6d0dcb5968d540e888ccffd7bb5f3177f091d46f58657b52d39490cded",
-    "x-twitter": "6317e0a8f620fc0fa145426d786358f1f4e728da41f1a8c349b94d3bf75cf55a"
+    "context-builder": "6ea59e7f71fff13d003d8224cb2c488672accdd73945b4e27fb0ad78b5ec8150",
+    "cv-ats": "79e01fc1bbbc521f94048e7bf88f0050f2d42f351aef58b5baf4279b85ff77a3",
+    "github": "2b6cd39daa84fe02e3e90717292b1a016edb7973ecad0db3cbd84480c2704328",
+    "linkedin": "994d06f8b06407ee5d61082591ec675c4590de61b2579aa05c67b27ffa770528",
+    "web-portfolio": "5965036837995ccf4ca71d847f1a38f4507e0b9a73bed0ad3bb37eafcec14e0e",
+    "x-twitter": "fff70c9c36826587072ca803e20b56b8096270d93aa1e8381c8ca5b81077e5cf"
   }
 }
