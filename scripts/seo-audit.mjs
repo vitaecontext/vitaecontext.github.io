@@ -6,7 +6,7 @@ const dist = new URL("dist/", root);
 const origin = "https://vitaecontext.github.io";
 const expectedRoutes = [
   "/", "/vitaegraph/", "/profile-optimization/", "/playbooks/", "/skills/", "/providers/", "/design/",
-  "/docs/", "/docs/installation/", "/docs/usage/", "/docs/context-file-example/", "/docs/cli/", "/faq/",
+  "/docs/", "/docs/installation/", "/docs/mcp/", "/docs/usage/", "/docs/context-file-example/", "/docs/cli/", "/faq/",
   "/changelog/", "/contact/", "/skills/context-builder/", "/skills/cv-ats/", "/skills/github/",
   "/skills/linkedin/", "/skills/vitaecontext/", "/skills/vitaegraph/", "/skills/web-portfolio/",
   "/skills/x-twitter/", "/playbooks/context-builder/", "/playbooks/cv-ats/", "/playbooks/github/",
