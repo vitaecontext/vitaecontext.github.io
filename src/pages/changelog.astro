@@ -21,11 +21,23 @@ const meta = {
     </div>
   </section>
   <section class="page-section prose">
+    <h2>Package 2.2.2 - 2026-08-30</h2>
+    <p>Corrected the MCP launch command to use the published <code>vitaecontext</code> package and hardened local data access, resource resolution, search, protocol errors, and packed-package installation tests.</p>
+    <ul>
+      <li><code>npx -y vitaecontext mcp</code> is now the canonical zero-install command; <code>vitaecontext-mcp</code> is an executable installed by that package, not a separate npm package.</li>
+      <li>A missing private Career Context no longer falls back to the bundled fictional example, and ambiguous default files require explicit selection.</li>
+      <li>VitaeGraph record resources now resolve canonical nested paths safely, while graph search uses the generated lexical index and normalized record types.</li>
+      <li>Live tests now install the packed npm artifact and start both shipped MCP entry points over stdio.</li>
+    </ul>
+
+    <h2>Package 2.2.1 - 2026-08-22</h2>
+    <p>Redesigned Career Context creation around a personalization interview, positioning synthesis, narrative hierarchy, explicit claim states, and evidence-bounded summaries.</p>
+
     <h2>Package 2.2.0 - 2026-08-17</h2>
     <p>Added a stateless Model Context Protocol (MCP) server, expanded provider support to 11 agent environments, and migrated to standard Open Agent Skills and modular core engine architecture.</p>
     <h3>Added</h3>
     <ul>
-      <li><strong>Stateless Model Context Protocol (MCP) Server:</strong> Built native JSON-RPC 2.0 stdio server (<code>bin/vitaecontext-mcp.mjs</code> and <code>npx -y vitaecontext-mcp</code>) conforming to protocol version <code>2024-11-05</code> with zero external dependencies.</li>
+      <li><strong>Stateless Model Context Protocol (MCP) Server:</strong> Built native JSON-RPC 2.0 stdio server (<code>bin/vitaecontext-mcp.mjs</code> and <code>npx -y vitaecontext mcp</code>) conforming to protocol version <code>2024-11-05</code> with zero external dependencies.</li>
       <li><strong>MCP Resources, Tools & Prompts:</strong> Added cross-workspace resources (<code>career-context://current</code>, <code>vitaegraph://index</code>, <code>vitaegraph://record/{'{'}id{'}'}</code>, <code>vitaecontext://wiki/{'{'}module{'}'}</code>), callable tools (<code>get_career_context</code>, <code>search_vitaegraph</code>, <code>validate_career_context</code>), and grounded task prompts (<code>cv_tailoring</code>, <code>linkedin_audit</code>, <code>github_showcase</code>, <code>career_context_intake</code>).</li>
       <li><strong>5 New AI Coding Agent Adapters:</strong> Added Cursor, Windsurf (Cascade), Roo Code / Cline, IBM Bob (watsonx), and xAI Grok, bringing total supported environments to 11.</li>
       <li><strong>Client Setup Configurations:</strong> Provided turnkey MCP configuration snippets for Claude Desktop, Claude Code, Cursor, Windsurf, Roo Code, Antigravity, IBM Bob, and Grok.</li>

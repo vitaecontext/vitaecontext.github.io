@@ -40,7 +40,7 @@ export const providers: ProviderInfo[] = [
     invocationNote: "Ask for the installed skill explicitly by its full namespaced name.",
     mcpConfig: {
       file: "CLI command",
-      snippet: "claude mcp add vitaecontext -- npx -y vitaecontext-mcp",
+      snippet: "claude mcp add vitaecontext -- npx -y vitaecontext mcp",
     },
   },
   {
@@ -56,7 +56,7 @@ export const providers: ProviderInfo[] = [
     invocationNote: "Supports both workspace rules in .cursor/skills/ and global MCP server registration.",
     mcpConfig: {
       file: "Settings -> Features -> MCP Servers",
-      snippet: 'Name: vitaecontext | Type: command | Command: npx -y vitaecontext-mcp',
+      snippet: 'Name: vitaecontext | Type: command | Command: npx -y vitaecontext mcp',
     },
   },
   {
@@ -72,7 +72,7 @@ export const providers: ProviderInfo[] = [
     invocationNote: "Supports Cascade skills in .windsurf/skills/ and stdio MCP server in mcp_config.json.",
     mcpConfig: {
       file: "~/.codeium/windsurf/mcp_config.json",
-      snippet: '{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext-mcp"]\n    }\n  }\n}',
+      snippet: '{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext", "mcp"]\n    }\n  }\n}',
     },
   },
   {
@@ -88,7 +88,7 @@ export const providers: ProviderInfo[] = [
     invocationNote: "Supports project-level .roo/skills/ or personal global skills and MCP settings.",
     mcpConfig: {
       file: "cline_mcp_settings.json",
-      snippet: '{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext-mcp"]\n    }\n  }\n}',
+      snippet: '{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext", "mcp"]\n    }\n  }\n}',
     },
   },
   {
@@ -116,7 +116,7 @@ export const providers: ProviderInfo[] = [
     invocationNote: "Reference the installed plugin skill by name, or configure the MCP server in mcp_config.json.",
     mcpConfig: {
       file: "~/.gemini/antigravity-cli/mcp_config.json",
-      snippet: '{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext-mcp"]\n    }\n  }\n}',
+      snippet: '{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext", "mcp"]\n    }\n  }\n}',
     },
   },
   {
@@ -144,7 +144,7 @@ export const providers: ProviderInfo[] = [
     invocationNote: "Configurable locally in .ibm/skills/ or globally with watsonx MCP server.",
     mcpConfig: {
       file: ".ibm/mcp_config.json",
-      snippet: '{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext-mcp"]\n    }\n  }\n}',
+      snippet: '{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext", "mcp"]\n    }\n  }\n}',
     },
   },
   {
@@ -160,7 +160,7 @@ export const providers: ProviderInfo[] = [
     invocationNote: "Supports project-level .grok/skills/ or developer MCP configurations.",
     mcpConfig: {
       file: ".grok/mcp_config.json",
-      snippet: '{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext-mcp"]\n    }\n  }\n}',
+      snippet: '{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext", "mcp"]\n    }\n  }\n}',
     },
   },
   {
