@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "packageName": "vitaecontext",
-  "packageVersion": "2.2.0",
+  "packageVersion": "2.2.2",
   "skills": [
     "vitaecontext",
     "vitaecontext-build",
@@ -26,7 +26,7 @@
     "windsurf"
   ],
   "playbooks": {
-    "context-builder": "6ea59e7f71fff13d003d8224cb2c488672accdd73945b4e27fb0ad78b5ec8150",
+    "context-builder": "c84c956664664c426be1c2a771561a7c948a750995d123b7054079ef1055c642",
     "cv-ats": "79e01fc1bbbc521f94048e7bf88f0050f2d42f351aef58b5baf4279b85ff77a3",
     "github": "2b6cd39daa84fe02e3e90717292b1a016edb7973ecad0db3cbd84480c2704328",
     "linkedin": "994d06f8b06407ee5d61082591ec675c4590de61b2579aa05c67b27ffa770528",
