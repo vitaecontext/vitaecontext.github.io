@@ -19,12 +19,12 @@ export const providers: ProviderInfo[] = [
     id: "codex",
     name: "Codex",
     summary:
-      "Installs named skill folders into Codex skill directories. A cloned repository also exposes the same eight skills through a native Codex plugin marketplace.",
+      "Installs the three VitaeContext skill folders into Codex skill directories. A cloned repository also exposes the same runtime through a native Codex plugin marketplace.",
     status: "Direct install + native plugin",
     globalTarget: "~/.agents/skills/ + CODEX_HOME/skills or ~/.codex/skills/",
     installCmd: "npx vitaecontext install --provider codex",
     npxCmd: "npx vitaecontext install --provider codex",
-    invocation: "$vitaecontext-github\n$vitaecontext-vitaegraph",
+    invocation: "$vitaecontext-build\n$vitaecontext-vitaegraph",
     invocationNote: "Direct skills and the native plugin share one generated runtime source; exact activation depends on the Codex surface.",
   },
   {
@@ -52,7 +52,7 @@ export const providers: ProviderInfo[] = [
     globalTarget: "~/.cursor/skills/ or .cursor/skills/",
     installCmd: "npx vitaecontext install --provider cursor",
     npxCmd: "npx vitaecontext install --provider cursor",
-    invocation: "Use the installed vitaecontext-github skill or query via MCP.",
+    invocation: "Use vitaecontext-build to create my Career Context, or query the current context through MCP.",
     invocationNote: "Supports both workspace rules in .cursor/skills/ and global MCP server registration.",
     mcpConfig: {
       file: "Settings -> Features -> MCP Servers",
@@ -68,7 +68,7 @@ export const providers: ProviderInfo[] = [
     globalTarget: "~/.codeium/windsurf/skills/ or .windsurf/skills/",
     installCmd: "npx vitaecontext install --provider windsurf",
     npxCmd: "npx vitaecontext install --provider windsurf",
-    invocation: "Use vitaecontext-cv to tailor my resume for this project.",
+    invocation: "Use vitaecontext-build to update my Career Context from the material I provide.",
     invocationNote: "Supports Cascade skills in .windsurf/skills/ and stdio MCP server in mcp_config.json.",
     mcpConfig: {
       file: "~/.codeium/windsurf/mcp_config.json",
@@ -84,7 +84,7 @@ export const providers: ProviderInfo[] = [
     globalTarget: "~/.config/roo-code/skills/ or .roo/skills/",
     installCmd: "npx vitaecontext install --provider roo-code",
     npxCmd: "npx vitaecontext install --provider roo-code",
-    invocation: "Use vitaecontext-portfolio to audit my site crawlability.",
+    invocation: "Use vitaecontext-vitaegraph to retrieve the records related to this project.",
     invocationNote: "Supports project-level .roo/skills/ or personal global skills and MCP settings.",
     mcpConfig: {
       file: "cline_mcp_settings.json",
@@ -100,8 +100,8 @@ export const providers: ProviderInfo[] = [
     globalTarget: "~/.gemini/extensions/vitaecontext/",
     installCmd: "npx vitaecontext install --provider gemini-cli",
     npxCmd: "npx vitaecontext install --provider gemini-cli",
-    invocation: "/vitaecontext:github\n/vitaecontext:vitaegraph\n/vitaecontext:cv",
-    invocationNote: "Commands are namespaced under /vitaecontext: for each skill surface.",
+    invocation: "/vitaecontext:context\n/vitaecontext:vitaegraph",
+    invocationNote: "Commands are namespaced under /vitaecontext: for the compact context and graph surfaces.",
   },
   {
     id: "antigravity",
@@ -128,7 +128,7 @@ export const providers: ProviderInfo[] = [
     globalTarget: "~/.config/opencode/skills/",
     installCmd: "npx vitaecontext install --provider opencode",
     npxCmd: "npx vitaecontext install --provider opencode",
-    invocation: "/vitaecontext-github\n/vitaecontext-vitaegraph\n/vitaecontext-context",
+    invocation: "/vitaecontext-context\n/vitaecontext-vitaegraph",
     invocationNote: "Flat command wrappers use a hyphenated prefix for direct slash invocation.",
   },
   {
@@ -156,7 +156,7 @@ export const providers: ProviderInfo[] = [
     globalTarget: "~/.grok/skills/ or .grok/skills/",
     installCmd: "npx vitaecontext install --provider grok",
     npxCmd: "npx vitaecontext install --provider grok",
-    invocation: "Use vitaecontext-x to audit my profile positioning and posts.",
+    invocation: "Use vitaecontext-build to reconcile these notes with my Career Context.",
     invocationNote: "Supports project-level .grok/skills/ or developer MCP configurations.",
     mcpConfig: {
       file: ".grok/mcp_config.json",

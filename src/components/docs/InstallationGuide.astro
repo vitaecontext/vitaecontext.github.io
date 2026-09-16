@@ -4,6 +4,8 @@ import { providers } from "@data/providers";
 ---
 
 <div class="doc-body page-wrap prose">
+  <aside class="note"><strong>Upgrading from 2.2 or earlier?</strong><p>Version 2.3 removes the retired CV, GitHub, LinkedIn, portfolio, and X skill modules. Run <code>npx vitaecontext@latest uninstall --provider &lt;provider&gt;</code> before reinstalling so old module folders recorded by the existing install manifest are removed.</p></aside>
+
   <section>
     <h2>Install from npm</h2>
     <p>Use the provider matching your agent environment:</p>
@@ -21,7 +23,7 @@ import { providers } from "@data/providers";
 
   <section>
     <h2>Model Context Protocol (MCP) Server</h2>
-    <p>Instead of installing skill files into project directories, connect your AI coding assistant over Model Context Protocol with zero workspace pollution:</p>
+    <p>Connect a compatible agent to selected local Career Context and VitaeGraph files over the stateless Model Context Protocol server:</p>
     <pre class="code-block"><code>npx -y vitaecontext mcp</code></pre>
     <p><a href="/docs/mcp/">See the full MCP setup guide for Claude Desktop, Cursor, Windsurf, Roo Code, and more.</a></p>
   </section>
@@ -59,5 +61,5 @@ npx . install --provider codex</code></pre>
     </dl>
   </section>
 
-  <aside class="note"><strong>Career files are separate.</strong><p>Installing skills does not collect or upload career material. Provider data rules apply when a user later supplies files to that provider.</p></aside>
+  <aside class="note"><strong>Career files are separate.</strong><p>Installing the package does not collect or upload career material. Provider data rules apply when a person later supplies files to that provider.</p></aside>
 </div>

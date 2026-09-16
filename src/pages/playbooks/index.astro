@@ -6,14 +6,14 @@ import { breadcrumbJsonLd, webPageJsonLd } from "@data/metadata";
 import "@styles/pages/catalog.css";
 
 const meta = {
-  title: "Guides",
-  description: "Human-readable VitaeContext guides for reusable career context, VitaeGraph, CV and ATS, LinkedIn, GitHub, portfolios, and X.",
+  title: "Career Context Guide",
+  description: "The human-readable method for building and maintaining reusable, evidence-bounded Career Context.",
   path: "/playbooks/",
   type: "website" as const,
 };
 ---
 
 <BaseLayout meta={meta} jsonLd={[webPageJsonLd(meta.title, meta.description, meta.path, "CollectionPage"), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Guides", path: "/playbooks/" }])]}>
-  <PageHero eyebrow="Guides" title="The methods behind the skills." text="Read practical guidance for organizing career context and working on one professional surface at a time." actions={[{ label: "Browse agent skills", href: "/skills/", tone: "primary" }]} />
+  <PageHero eyebrow="Guide" title="Build the context layer." text="Read the maintained method for turning selected career material into a compact source of truth for downstream AI work." actions={[{ label: "Read Context Builder", href: "/playbooks/context-builder/", tone: "primary" }, { label: "See how it works", href: "/docs/usage/" }]} />
   <GuideCatalog />
 </BaseLayout>

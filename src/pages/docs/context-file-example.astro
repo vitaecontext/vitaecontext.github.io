@@ -72,8 +72,8 @@ const contextSections = [
     </div>
     <p>
       Career Context is an editable, user-owned Markdown record for your education, experience,
-      projects, research, skills, certifications, achievements, goals, links, and evidence. Agents read it before
-      working on a CV, LinkedIn profile, GitHub profile, portfolio, application, or interview task.
+      projects, research, skills, certifications, achievements, goals, links, and evidence. Agents and downstream
+      career systems read the relevant parts before starting a task.
     </p>
   </section>
 
@@ -150,13 +150,13 @@ const contextSections = [
       <p class="eyebrow">Use it in a normal prompt</p>
       <h2>The file supplies context. Your prompt supplies the task.</h2>
     </div>
-    <pre class="code-block"><code>Use the attached Career Context file.
-Use the vitaecontext-github skill to review my GitHub profile.
-Tell me what to change first and do not add claims that are not in the file.</code></pre>
+    <pre class="code-block"><code>Use the attached Career Context file as the source of truth.
+Review my GitHub profile with the tools and rules available in this workflow.
+Tell me what to change first and do not add unsupported claims.</code></pre>
     <p>
-      The context file does not publish or optimize anything by itself. It supplies the factual layer; the selected
-      platform skill supplies the rules for a CV, LinkedIn profile, GitHub profile, portfolio, application answer,
-      interview preparation, or another career task.
+      The context file does not publish or optimize anything by itself. It supplies the factual layer; the downstream
+      agent or system supplies the rules for a CV, profile, portfolio, application answer, interview preparation, or
+      another career task.
     </p>
     <div class="actions">
       <a class="button primary" href="/docs/cli/">Create a template with the CLI</a>

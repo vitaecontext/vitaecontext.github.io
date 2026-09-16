@@ -5,8 +5,8 @@ import SectionIntro from "@components/shared/SectionIntro.astro";
 const steps = [
   { title: "Gather trusted material", text: "Start with CVs, profile text, project notes, links, exports, and other material you can inspect." },
   { title: "Create career context", text: "Use the context skill to organize facts, stated goals, evidence, constraints, and claims to avoid in Markdown." },
-  { title: "Choose one method", text: "Load the skill for the current CV, profile, repository, portfolio, message, interview, or other task." },
-  { title: "Review the result", text: "Check that claims stay supported, goals remain separate from experience, and missing evidence is visible." },
+  { title: "Retrieve only what is needed", text: "Use a bounded summary, the file itself, or MCP to provide selected context to another agent or system." },
+  { title: "Run the downstream task", text: "Let the destination tool apply its own method while keeping claims grounded in the supplied context." },
 ];
 ---
 
@@ -18,7 +18,7 @@ const steps = [
 
   <section class="doc-split">
     <article><h2>What Career Context supplies</h2><ul class="plain-check-list"><li>User-supplied roles, projects, education, and credentials.</li><li>Stated goals, interests, and preferred direction.</li><li>Proof links, constraints, and claims to avoid.</li><li>A reusable file that can be inspected and corrected.</li></ul></article>
-    <article><h2>What a skill supplies</h2><ul class="plain-check-list"><li>A task-specific workflow.</li><li>Platform constraints and source-aware guidance.</li><li>Expected inputs and useful output formats.</li><li>A self-review for evidence, scope, and fabrication.</li></ul></article>
+    <article><h2>What the downstream system supplies</h2><ul class="plain-check-list"><li>The task-specific workflow.</li><li>Platform or document constraints.</li><li>The final output format and delivery surface.</li><li>Review steps specific to that task.</li></ul></article>
   </section>
 
   <section>
@@ -37,15 +37,17 @@ const steps = [
   </section>
 
   <section class="doc-example">
-    <div><p class="eyebrow">Normal prompt</p><h2>Give the context and name the task.</h2><p>Exact invocation differs by provider. Explicitly name the installed skill when possible.</p></div>
-    <pre class="code-block"><code>Use vitaecontext-github.
-Read my career context file at ~/.vitaecontext/name-surname-career-context.md.
-Audit my GitHub profile and list the changes I should make first.
-Do not add claims that are not supported by the file.</code></pre>
+    <div><p class="eyebrow">Downstream prompt</p><h2>Give the context and name the task.</h2><p>The destination agent supplies the task method. VitaeContext supplies the factual starting point.</p></div>
+    <pre class="code-block"><code>Use my Career Context file at
+~/.vitaecontext/name-surname-career-context.md
+as the source of truth for this application.
+
+Tailor the draft to the role, but do not add claims
+that are unsupported or marked as needing evidence.</code></pre>
   </section>
 
   <section class="doc-split" aria-label="Cross-workspace workflow">
-    <article><h2>Option A: Command task packet</h2><p>Run <code>npx vitaecontext context summary &lt;file&gt; --for github</code> to create a bounded Markdown packet for one platform. Good for manual AI chat sessions or direct copy-paste.</p></article>
+    <article><h2>Option A: Bounded summary</h2><p>Run <code>npx vitaecontext context summary &lt;file&gt; --for &lt;task&gt;</code> to create a compact Markdown packet for the current workflow. This works well for manual chats and direct handoffs.</p></article>
     <article><h2>Option B: Cross-workspace MCP</h2><p>Configure the stateless MCP server (<code>npx -y vitaecontext mcp</code>). Your AI coding assistants across all project repositories can query your private context and VitaeGraph dynamically without copying files.</p><p><a class="text-link" href="/docs/mcp/">Read the MCP server guide</a></p></article>
   </section>
 
@@ -53,7 +55,7 @@ Do not add claims that are not supported by the file.</code></pre>
     <SectionIntro title="Continue from here" />
     <div class="card-grid card-grid--three">
       <InfoCard title="Model Context Protocol" text="Connect AI coding tools across repositories via MCP." href="/docs/mcp/" label="MCP Guide" />
-      <InfoCard title="Install the skills" text="Choose a supported provider and destination." href="/docs/installation/" label="Install" />
+      <InfoCard title="Install the context layer" text="Choose a supported agent environment and destination." href="/docs/installation/" label="Install" />
       <InfoCard title="See context structure" text="Inspect a complete fictional context file." href="/docs/context-file-example/" label="Open example" />
     </div>
   </section>

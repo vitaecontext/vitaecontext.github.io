@@ -5,6 +5,8 @@ import type { Skill } from "@data/skills";
 
 type Props = { skill: Skill; invocationName: string };
 const { skill, invocationName } = Astro.props;
+const guideHref = skill.slug === "context-builder" ? "/playbooks/context-builder/" : skill.slug === "vitaegraph" ? "/vitaegraph/" : "/docs/usage/";
+const guideLabel = skill.slug === "vitaegraph" ? "Explore VitaeGraph" : skill.slug === "context-builder" ? "Read guide" : "See the workflow";
 ---
 
 <div class="skill-detail page-wrap">
@@ -35,6 +37,6 @@ const { skill, invocationName } = Astro.props;
     <div><small>Skill name</small><code>{invocationName}</code></div>
     <div><small>Typical outputs</small><p>{skill.outputs.join(" · ")}</p></div>
     <a class="button primary" href="/docs/installation/">Install skills</a>
-    <a class="button secondary" href={`/playbooks/${skill.slug}/`}>Read guide</a>
+    <a class="button secondary" href={guideHref}>{guideLabel}</a>
   </aside>
 </div>

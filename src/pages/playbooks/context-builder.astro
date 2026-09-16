@@ -1,0 +1,75 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import PageHero from "@components/shared/PageHero.astro";
+import SectionIntro from "@components/shared/SectionIntro.astro";
+import InfoCard from "@components/shared/InfoCard.astro";
+import { articleJsonLd, breadcrumbJsonLd } from "@data/metadata";
+import "@styles/pages/docs.css";
+
+const meta = {
+  title: "Context Builder Guide",
+  description: "Build and maintain private, reusable Career Context from selected career material without turning goals or unsupported claims into facts.",
+  path: "/playbooks/context-builder/",
+  type: "article" as const,
+};
+
+const steps = [
+  ["Choose the material", "Start with documents, profile text, project notes, public links, and goals you are comfortable supplying."],
+  ["Resolve direction", "Record current focus, target roles, priorities, tone, constraints, and claims the agent must avoid."],
+  ["Separate claim states", "Keep supplied facts, evidence, inference, inaccessible material, and needs-evidence claims visibly distinct."],
+  ["Build the compact file", "Create stable Markdown sections that support fast retrieval without loading every career detail."],
+  ["Review before use", "Validate the structure, read the result, and correct omissions or overstatements before handing context downstream."],
+  ["Maintain it", "Update the file when roles, projects, goals, or proof change. Use VitaeGraph only when richer records are useful."],
+];
+---
+
+<BaseLayout meta={meta} jsonLd={[articleJsonLd(meta.title, meta.description, meta.path), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Guide", path: "/playbooks/" }, { name: "Context Builder", path: meta.path }])] }>
+  <PageHero eyebrow="Context Builder" title="Turn career material into reusable context." text="The Context Builder organizes supplied material into a private Markdown source of truth. It preserves evidence boundaries and prepares a clean handoff for downstream agents and career systems." actions={[{ label: "Install VitaeContext", href: "/docs/installation/", tone: "primary" }, { label: "View a fictional example", href: "/docs/context-file-example/" }]} />
+
+  <div class="doc-body page-wrap">
+    <section>
+      <SectionIntro eyebrow="Method" title="Build it in six deliberate passes." text="The goal is not to copy every document into one large file. The goal is a compact, inspectable interface to the career context that repeated tasks actually need." />
+      <ol class="numbered-list">
+        {steps.map(([title, text], index) => <li><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{title}</h3><p>{text}</p></div></li>)}
+      </ol>
+    </section>
+
+    <section class="doc-split">
+      <article>
+        <h2>What belongs in Career Context</h2>
+        <ul class="plain-check-list">
+          <li>Identity, current direction, and target roles.</li>
+          <li>Selected experience, projects, education, and skills.</li>
+          <li>Proof links and the source of important claims.</li>
+          <li>Constraints, preferred tone, and claims to avoid.</li>
+        </ul>
+      </article>
+      <article>
+        <h2>What stays outside</h2>
+        <ul class="plain-check-list">
+          <li>Private material that is not needed for agent work.</li>
+          <li>Guesses rewritten as professional facts.</li>
+          <li>Platform-specific formatting rules and workflow logic.</li>
+          <li>Detailed records better kept in optional VitaeGraph nodes.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="doc-example">
+      <div><p class="eyebrow">Invoke the builder</p><h2>Give the agent a destination and selected sources.</h2><p>Keep the file outside public repositories and review the proposed context before treating it as the source of truth.</p></div>
+      <pre class="code-block"><code>Use vitaecontext-build to create my Career Context file.
+Save it at ~/.vitaecontext/name-surname-career-context.md.
+I will choose the CV, profile text, project notes, and links to inspect.
+Keep unsupported claims visible instead of polishing them into facts.</code></pre>
+    </section>
+
+    <section>
+      <SectionIntro title="Continue from here" />
+      <div class="card-grid card-grid--three">
+        <InfoCard title="See the complete shape" text="Inspect a fictional Career Context file and its evidence boundaries." href="/docs/context-file-example/" label="Open example" />
+        <InfoCard title="Choose an access path" text="Use direct Markdown, a bounded summary, or stateless MCP." href="/docs/usage/" label="How it works" />
+        <InfoCard title="Add optional depth" text="Use VitaeGraph for linked projects, roles, education, and publications." href="/vitaegraph/" label="Explore VitaeGraph" />
+      </div>
+    </section>
+  </div>
+</BaseLayout>

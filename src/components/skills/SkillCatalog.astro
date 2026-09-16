@@ -5,7 +5,7 @@ import { skills } from "@data/skills";
 ---
 
 <section class="feature-section page-wrap" aria-labelledby="skill-catalog-title">
-  <SectionIntro eyebrow="Eight runtime modules" title="Choose one skill for the current task." text="An agent skill is a package of runtime instructions, references, and maintained knowledge. The root skill routes work; focused modules handle Career Context, VitaeGraph, CVs, LinkedIn, GitHub, portfolios, and X." />
+  <SectionIntro eyebrow="Three small runtime skills" title="Build and retrieve context, then hand it off." text="The package contains a router, the Context Builder, and VitaeGraph. Platform-specific adaptation belongs to the downstream tool that consumes the context." />
   <div class="catalog-grid">
     {skills.map((skill) => (
       <a class:list={["catalog-card", { "catalog-card--vitae": skill.slug === "vitaegraph" }]} href={skill.href}>
@@ -19,5 +19,5 @@ import { skills } from "@data/skills";
       </a>
     ))}
   </div>
-  <p class="service-note">The canonical skill source is shared, but installation and activation vary by provider. A <a class="text-link" href="/playbooks/">guide explains the method for a human reader</a> and requires no installation.</p>
+  <p class="service-note">Installation and activation vary by provider, but the Career Context artifact remains portable Markdown. <a class="text-link" href="/docs/usage/">See the context-first workflow</a>.</p>
 </section>

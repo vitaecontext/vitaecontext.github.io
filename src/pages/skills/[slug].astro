@@ -12,6 +12,8 @@ export function getStaticPaths() {
 
 const { skill } = Astro.props;
 const invocationName = skill.invocationName ?? `vitaecontext-${skill.slug}`;
+const guideHref = skill.slug === "context-builder" ? "/playbooks/context-builder/" : skill.slug === "vitaegraph" ? "/vitaegraph/" : "/docs/usage/";
+const guideLabel = skill.slug === "vitaegraph" ? "Explore VitaeGraph" : skill.slug === "context-builder" ? "Read the guide" : "See the workflow";
 const meta = {
   title: skill.slug === "vitaecontext" ? "VitaeContext Routing Agent Skill" : `${skill.metaTitle ?? skill.name} Agent Skill`,
   description: skill.metaDescription ?? skill.summary,
@@ -22,6 +24,6 @@ const meta = {
 ---
 
 <BaseLayout meta={meta} jsonLd={[softwareSourceCodeJsonLd(meta.title, meta.description, meta.path, invocationName), breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Skills", path: "/skills/" }, { name: skill.name, path: meta.path }])]}>
-  <PageHero eyebrow="Agent skill" title={invocationName} text={skill.summary} actions={[{ label: "Install", href: "/docs/installation/", tone: "primary" }, { label: "Read the guide", href: `/playbooks/${skill.slug}/` }]} compact />
+  <PageHero eyebrow="Agent skill" title={invocationName} text={skill.summary} actions={[{ label: "Install", href: "/docs/installation/", tone: "primary" }, { label: guideLabel, href: guideHref }]} compact />
   <SkillDetail skill={skill} invocationName={invocationName} />
 </BaseLayout>

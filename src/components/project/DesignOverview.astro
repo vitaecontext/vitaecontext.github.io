@@ -3,10 +3,10 @@ import SectionIntro from "@components/shared/SectionIntro.astro";
 import { site } from "@data/site-config";
 
 const layers = [
-  { title: "Career context", text: "A maintained Markdown file stores reusable facts, goals, evidence, constraints, and claims to avoid." },
-  { title: "Open Agent Skills", text: "Standard portable SKILL.md modules following the agentskills.io open specification for focused tasks." },
-  { title: "VitaeGraph records", text: "Deeper hierarchical Markdown career knowledge graph with deterministic local rebuildable indexes." },
-  { title: "Stateless MCP Server", text: "Zero-dependency JSON-RPC 2.0 stdio server connecting developer workspaces directly to private context." },
+  { title: "Supplied material", text: "CVs, profiles, projects, links, notes, goals, and constraints selected by the person." },
+  { title: "Career Context", text: "A maintained Markdown file stores reusable facts, intent, evidence boundaries, and claims to avoid." },
+  { title: "Controlled access", text: "A bounded summary, direct file, or stateless MCP server exposes only the context needed for the task." },
+  { title: "Downstream systems", text: "Career agents and tools apply their own methods to produce CVs, applications, profiles, and other work." },
 ];
 
 const labels = [
@@ -21,7 +21,7 @@ const labels = [
 
 <div class="design-overview page-wrap">
   <section>
-    <SectionIntro eyebrow="Product model" title="Facts and methods stay separate." text="Career context describes the person. Skills describe how an agent should approach one type of work." />
+    <SectionIntro eyebrow="Product model" title="Context and execution stay separate." text="VitaeContext maintains the grounded input. Downstream systems own the task method and final output." />
     <div class="design-flow">
       {layers.map((layer, index) => <article><span>{String(index + 1).padStart(2, "0")}</span><h2>{layer.title}</h2><p>{layer.text}</p></article>)}
     </div>
@@ -38,12 +38,12 @@ const labels = [
   </section>
 
   <section class="design-split">
-    <div><p class="eyebrow">Progressive loading</p><h2>Load one module, then only needed detail.</h2><p>The root skill routes a request. The selected module decides which wiki entries or references are relevant. This keeps unrelated platform material out of the current agent context.</p></div>
+    <div><p class="eyebrow">Progressive disclosure</p><h2>Retrieve the smallest useful context.</h2><p>Most tasks need the compact Career Context file or a bounded summary. VitaeGraph adds selected deep records only when a task needs more detail.</p></div>
     <pre class="code-block"><code>request
-  └── root skill
-      └── one focused skill
-          ├── required workflow
-          └── relevant wiki or reference</code></pre>
+  └── Career Context
+      ├── bounded task summary
+      └── selected VitaeGraph records
+          └── downstream workflow</code></pre>
   </section>
 
   <section>
@@ -53,6 +53,6 @@ const labels = [
 
   <section class="design-note">
     <h2>What the system does not guarantee</h2>
-    <p>VitaeContext does not guarantee rankings, recruiter attention, citations, visibility, or career outcomes. Audit scorecards order work internally; they are not platform scores. Generated advice still requires review.</p>
+    <p>VitaeContext does not authenticate every real-world claim or guarantee rankings, recruiter attention, visibility, or career outcomes. Generated work still requires human review.</p>
   </section>
 </div>

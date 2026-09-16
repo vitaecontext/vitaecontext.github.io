@@ -19,12 +19,12 @@ const faqs = [
   {
     question: "What is VitaeContext?",
     answer:
-      "VitaeContext is open-source career-context infrastructure for AI agents and career systems. It helps a person maintain reusable Career Context in Markdown, then provides focused skills for grounded CVs, profiles, repositories, portfolios, messages, interviews, applications, and other professional tasks.",
+      "VitaeContext is open-source career-context infrastructure for AI agents and career systems. It helps a person build and maintain private, reusable Career Context in Markdown, then makes selected context available to downstream tools.",
   },
   {
-    question: "Does it guarantee better rankings, recruiter attention, or ATS scores?",
+    question: "Does VitaeContext write CVs or optimize profiles?",
     answer:
-      "No. VitaeContext does not guarantee rankings, recruiter attention, ATS scores, rich results, snippets, indexing speed, AI citations, or platform distribution. Its skills tell agents to preserve supported claims, show uncertainty, and order useful fixes. Results still require review and depend on the supplied material and external platforms.",
+      "Not by itself. VitaeContext supplies the grounded context layer before those tasks. A downstream agent, CV builder, application workflow, or profile tool uses the Career Context and applies its own task-specific method.",
   },
   {
     question: "Which agents and providers does it support?",
@@ -34,7 +34,7 @@ const faqs = [
   {
     question: "What is the Model Context Protocol (MCP) server?",
     answer:
-      "VitaeContext includes a native, zero-dependency MCP server conforming to protocol version 2024-11-05. It allows developer agents in Cursor, Windsurf, Claude Desktop, Claude Code, Roo Code, Antigravity, IBM Bob, and Grok to query private Career Context and VitaeGraph across any repository workspace with zero file copying.",
+      "VitaeContext includes a native, zero-dependency MCP server conforming to protocol version 2024-11-05. Compatible agents can query selected local Career Context and VitaeGraph records without copying those files into every project workspace.",
   },
   {
     question: "How do I install it?",
@@ -44,7 +44,7 @@ const faqs = [
   {
     question: "What is Career Context?",
     answer:
-      "Career Context is a user-owned, maintained Markdown record for one person's supplied career facts, roles, projects, evidence links, constraints, claims to avoid, and goals recorded as stated intent. Skills read it before writing so task outputs start from the same inspectable source.",
+      "Career Context is a user-owned, maintained Markdown record for one person's supplied career facts, roles, projects, evidence links, constraints, claims to avoid, and goals recorded as stated intent. Downstream agents can read the relevant parts so work starts from the same inspectable source.",
   },
   {
     question: "What is VitaeGraph?",
@@ -52,22 +52,12 @@ const faqs = [
       "VitaeGraph is VitaeContext's optional deeper layer for local Markdown records such as education, thesis work, courses, projects, experience, certifications, awards, and publications. It complements compact Career Context instead of replacing it; its validation checks structure rather than authenticating claims.",
   },
   {
-    question: "What is the LLM Wiki?",
+    question: "Which runtime skills are included?",
     answer:
-      "A knowledge layer that follows Andrej Karpathy's LLM Wiki idea: a maintainer agent compiles platform knowledge from sources and keeps it current, and runtime agents read it instead of re-deriving platform facts on every query. It ships as versioned Markdown entries with confidence labels, so advice is grounded rather than guessed.",
+      "Three: the root vitaecontext router, vitaecontext-build for compact Career Context, and vitaecontext-vitaegraph for optional deeper records. Version 2.3 removed the former CV, LinkedIn, GitHub, portfolio, and X adaptation modules.",
   },
   {
-    question: "What is the audit scorecard?",
-    answer:
-      "A weighted 0-100 triage with bands and a fix-first order, included in the GitHub, LinkedIn, CV/ATS, and web-portfolio skills. It is an internal prioritization heuristic to decide what to fix first, not a platform ranking and not a guaranteed score.",
-  },
-  {
-    question: "What is the difference between a playbook and a skill?",
-    answer:
-      "A guide explains the method for a human reader and needs no installation. A skill packages runtime instructions, references, and maintained knowledge so a supported agent can apply that method. The two surfaces cover the same module but serve different readers.",
-  },
-  {
-    question: "Is VitaeContext affiliated with LinkedIn, GitHub, X, or the AI providers?",
+    question: "Is VitaeContext affiliated with career platforms or AI providers?",
     answer:
       "No. Platform names, trademarks, and logos belong to their respective owners. VitaeContext is independent and is not affiliated with, sponsored by, or endorsed by those platforms.",
   },
@@ -75,6 +65,11 @@ const faqs = [
     question: "Does it collect my data?",
     answer:
       "VitaeContext is a set of Markdown skill files and a local CLI with no backend, so the project itself collects nothing. Your context file is a private local file you control. How any individual agent or provider handles the content you give it is governed by that provider, not by VitaeContext.",
+  },
+  {
+    question: "Does it verify every career claim?",
+    answer:
+      "No. VitaeContext keeps supplied facts, evidence links, stated intent, and unresolved claims visibly separate. Validation checks the artifact's structure and internal consistency, not the truth of every real-world claim.",
   },
 ];
 ---
