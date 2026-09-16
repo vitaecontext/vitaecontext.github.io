@@ -1,33 +1,248 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import LandingHero from "@components/landing/LandingHero.astro";
-import ContextLayer from "@components/landing/ContextLayer.astro";
-import ContextStory from "@components/landing/ContextStory.astro";
-import SkillsWorkbench from "@components/landing/SkillsWorkbench.astro";
-import McpSection from "@components/landing/McpSection.astro";
-import GroundingSection from "@components/landing/GroundingSection.astro";
-import VitaeGraphBridge from "@components/landing/VitaeGraphBridge.astro";
-import StartSection from "@components/landing/StartSection.astro";
 import { breadcrumbJsonLd, organizationJsonLd, softwareJsonLd, websiteJsonLd } from "@data/metadata";
 import "@styles/pages/landing.css";
 
 const meta = {
-  title: "One Career Context for Grounded AI Work",
+  title: "The Career Context Layer for AI Agents",
   description:
-    "Create reusable, evidence-bounded career context before AI-assisted CVs, applications, profiles, and other professional work, then use it in any provider or system that accepts context.",
+    "Turn scattered career material into private, reusable Career Context that gives AI agents and downstream career systems a grounded source of truth.",
   path: "/",
 };
 ---
 
 <BaseLayout meta={meta} jsonLd={[websiteJsonLd(), organizationJsonLd(), softwareJsonLd(), breadcrumbJsonLd([{ name: "Home", path: "/" }])] }>
-  <div class="landing-shell">
-    <LandingHero />
-    <ContextLayer />
-    <ContextStory />
-    <SkillsWorkbench />
-    <McpSection />
-    <GroundingSection />
-    <VitaeGraphBridge />
-    <StartSection />
+  <div class="home">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="home-wrap hero__grid">
+        <div class="hero__copy">
+          <p class="home-kicker"><span></span> The career context layer for AI agents</p>
+          <h1 id="hero-title">Your career, in context. <em>Ready for any agent.</em></h1>
+          <p class="hero__lede">
+            VitaeContext turns scattered career material into a private, portable source of truth. Agents get the
+            facts, evidence, goals, and boundaries they need before they power a career workflow.
+          </p>
+          <div class="home-actions" aria-label="Get started">
+            <a class="home-button home-button--primary" href="/docs/installation/">Build your Career Context <span aria-hidden="true">↗</span></a>
+            <a class="home-button" href="#context-layer">See how the layer works</a>
+          </div>
+          <ul class="hero__facts" aria-label="Project qualities">
+            <li><span></span> Private Markdown</li>
+            <li><span></span> Evidence-bounded</li>
+            <li><span></span> Provider-agnostic</li>
+          </ul>
+        </div>
+
+        <div class="layer-map" aria-label="Career material becomes reusable context for downstream AI systems">
+          <p class="layer-map__eyebrow">ONE SOURCE OF TRUTH</p>
+          <div class="layer-map__inputs" aria-label="Career material inputs">
+            <span>CV</span><span>Projects</span><span>Profiles</span><span>Notes</span>
+          </div>
+          <div class="layer-map__arrow" aria-hidden="true"><span>→</span></div>
+          <article class="context-file">
+            <div class="context-file__bar"><span>career-context.md</span><i>PRIVATE</i></div>
+            <div class="context-file__body">
+              <p><b>01</b><strong># Career Context</strong></p>
+              <p><b>02</b><span>## Direction</span></p>
+              <p><b>03</b><span>## Evidence-backed facts</span></p>
+              <p><b>04</b><span>## Selected experience</span></p>
+              <p><b>05</b><span>## Claims to avoid</span></p>
+            </div>
+            <div class="context-file__status"><span></span> Maintained once · retrieved as needed</div>
+          </article>
+          <div class="layer-map__arrow" aria-hidden="true"><span>→</span></div>
+          <div class="layer-map__outputs" aria-label="Downstream AI systems">
+            <article><small>WORKFLOW</small><strong>CV builder</strong></article>
+            <article><small>AGENT</small><strong>Application assistant</strong></article>
+            <article><small>SYSTEM</small><strong>Career tooling</strong></article>
+          </div>
+          <p class="layer-map__note">VitaeContext supplies context. Downstream systems do the task.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section thesis" aria-labelledby="thesis-title">
+      <div class="home-wrap thesis__grid">
+        <p class="home-kicker"><span></span> The missing layer</p>
+        <div>
+          <h2 id="thesis-title">AI cannot ground work in context it does not have.</h2>
+          <p>
+            Every new chat starts cold. Career facts are scattered across files, profiles, repositories, and memory.
+            Goals change. Evidence gets detached from claims. The same explanation gets rebuilt for every tool.
+          </p>
+        </div>
+        <p class="thesis__answer">
+          VitaeContext creates the stable layer between a person’s career history and the systems that act on it.
+          Build it once, maintain it over time, and retrieve only what the current task needs.
+        </p>
+      </div>
+    </section>
+
+    <section id="context-layer" class="home-section system" aria-labelledby="system-title">
+      <div class="home-wrap">
+        <div class="section-head">
+          <div><p class="home-kicker"><span></span> A clean boundary</p><h2 id="system-title">Context in. Grounded work out.</h2></div>
+          <p>VitaeContext owns the context layer, not the workflow above it. That keeps the source of truth reusable across tools, agents, and providers.</p>
+        </div>
+        <ol class="system-flow">
+          <li>
+            <span class="system-flow__number">01</span>
+            <small>SUPPLIED MATERIAL</small>
+            <h3>Gather</h3>
+            <p>CVs, project notes, public links, profile exports, goals, and constraints.</p>
+          </li>
+          <li class="system-flow__core">
+            <span class="system-flow__number">02</span>
+            <small>VITAECONTEXT</small>
+            <h3>Structure</h3>
+            <p>Build a compact Career Context file with explicit evidence and claim boundaries.</p>
+          </li>
+          <li>
+            <span class="system-flow__number">03</span>
+            <small>CONTROLLED ACCESS</small>
+            <h3>Retrieve</h3>
+            <p>Give an agent a bounded summary, or expose selected context through the stateless MCP server.</p>
+          </li>
+          <li>
+            <span class="system-flow__number">04</span>
+            <small>DOWNSTREAM</small>
+            <h3>Use</h3>
+            <p>Let another agent or system perform the career task from a grounded starting point.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="home-section anatomy" aria-labelledby="anatomy-title">
+      <div class="home-wrap anatomy__grid">
+        <div class="anatomy__copy">
+          <p class="home-kicker"><span></span> Inspectable by design</p>
+          <h2 id="anatomy-title">One readable file. Clear factual boundaries.</h2>
+          <p>
+            Career Context is Markdown, not a hidden profile. People and agents can inspect the same artifact, keep
+            it current, and distinguish supplied facts from goals, preferences, and unsupported claims.
+          </p>
+          <ul class="feature-list">
+            <li><strong>Facts</strong><span>Roles, projects, education, skills, and dates from supplied material.</span></li>
+            <li><strong>Evidence</strong><span>Links and provenance that show where important claims came from.</span></li>
+            <li><strong>Direction</strong><span>Current goals and positioning, recorded as intent rather than history.</span></li>
+            <li><strong>Boundaries</strong><span>Claims to avoid, gaps to resolve, and details that still need evidence.</span></li>
+          </ul>
+        </div>
+        <article class="file-preview" aria-label="Example Career Context file">
+          <div class="file-preview__top"><span>career-context.md</span><small>MARKDOWN · LOCAL</small></div>
+          <pre><code><span class="code-comment"># Career Context</span>
+
+<span class="code-key">## Quick reference</span>
+current_focus: developer tooling
+target_roles: [platform engineer]
+
+<span class="code-key">## Evidence-backed facts</span>
+- Built an open-source CLI…
+  evidence: github.com/…
+
+<span class="code-key">## Claims to avoid</span>
+- Do not imply production scale
+- Do not infer team leadership</code></pre>
+          <div class="file-preview__foot"><span><i></i> Human-readable</span><span><i></i> Agent-ready</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section depth" aria-labelledby="depth-title">
+      <div class="home-wrap">
+        <div class="section-head">
+          <div><p class="home-kicker"><span></span> The right depth</p><h2 id="depth-title">Start compact. Go deeper only when needed.</h2></div>
+          <p>A fast handoff and a detailed record serve different jobs. VitaeContext keeps them connected without forcing every task to load an entire career history.</p>
+        </div>
+        <div class="depth-grid">
+          <article class="depth-card depth-card--primary">
+            <p class="depth-card__index">01 / CORE</p>
+            <h3>Career Context</h3>
+            <p class="depth-card__lead">The compact, repeated source of truth for everyday agent work.</p>
+            <ul><li>Identity and direction</li><li>Selected facts and proof</li><li>Constraints and claims to avoid</li><li>Fast bounded retrieval</li></ul>
+            <a href="/docs/context-file-example/">See the file shape <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="depth-card depth-card--graph">
+            <p class="depth-card__index">02 / OPTIONAL DEPTH</p>
+            <h3>VitaeGraph</h3>
+            <p class="depth-card__lead">Structured Markdown records for richer projects, roles, education, and relationships.</p>
+            <ul><li>Focused career records</li><li>Explicit links and hierarchy</li><li>Validated IDs and references</li><li>Rebuildable local indexes</li></ul>
+            <a href="/vitaegraph/">Explore VitaeGraph <span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section access" aria-labelledby="access-title">
+      <div class="home-wrap access__grid">
+        <div>
+          <p class="home-kicker home-kicker--light"><span></span> Portable access</p>
+          <h2 id="access-title">Use the context without locking it to one system.</h2>
+          <p>Your Career Context stays useful even when tools change. Share a task-sized summary or let compatible agents query selected local context through MCP.</p>
+          <a class="home-button home-button--light" href="/docs/mcp/">Read the MCP guide <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="access__methods">
+          <article><span>01</span><div><h3>Bounded summary</h3><p>Export only the part of the context needed for the current task.</p></div></article>
+          <article><span>02</span><div><h3>Stateless MCP</h3><p>Expose selected local files to compatible agents without copying them into every workspace.</p></div></article>
+          <article><span>03</span><div><h3>Direct file</h3><p>Use ordinary Markdown wherever a workflow can accept explicit context.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section downstream" aria-labelledby="downstream-title">
+      <div class="home-wrap">
+        <div class="section-head section-head--center">
+          <div><p class="home-kicker"><span></span> Deliberately upstream</p><h2 id="downstream-title">One layer. Many possible workflows.</h2></div>
+          <p>VitaeContext does not try to be every career tool. It gives those tools a cleaner, more consistent starting point.</p>
+        </div>
+        <div class="downstream-grid" aria-label="Example downstream uses">
+          <span>CV generation</span><span>Application tailoring</span><span>Profile writing</span><span>Interview preparation</span><span>Portfolio systems</span><span>Career agents</span>
+        </div>
+        <p class="downstream__boundary">These are downstream examples, not bundled platform modules.</p>
+      </div>
+    </section>
+
+    <section class="home-section quickstart" aria-labelledby="quickstart-title">
+      <div class="home-wrap quickstart__grid">
+        <div class="quickstart__copy">
+          <p class="home-kicker"><span></span> Get started</p>
+          <h2 id="quickstart-title">Build the layer before the workflow.</h2>
+          <p>Install VitaeContext, initialize a private file, then use the Context Builder with career material you choose to share.</p>
+          <div class="home-actions"><a class="home-button home-button--primary" href="/docs/installation/">Open the installation guide <span aria-hidden="true">↗</span></a><a class="home-button" href="https://github.com/vitaecontext/vitaecontext" target="_blank" rel="noreferrer">View source</a></div>
+        </div>
+        <div class="terminal" aria-label="VitaeContext quick start commands">
+          <div class="terminal__bar"><span></span><span></span><span></span><small>terminal</small></div>
+          <pre><code><i># install for your agent environment</i>
+npx vitaecontext install --provider codex
+
+<i># create a private Career Context file</i>
+npx vitaecontext context init \
+  --output ~/.vitaecontext/career-context.md
+
+<i># check the structure</i>
+npx vitaecontext context validate \
+  ~/.vitaecontext/career-context.md</code></pre>
+          <button type="button" data-copy-quickstart>Copy commands</button>
+          <p data-copy-status role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
   </div>
 </BaseLayout>
+
+<script>
+  const commandText = `npx vitaecontext install --provider codex
+npx vitaecontext context init --output ~/.vitaecontext/career-context.md
+npx vitaecontext context validate ~/.vitaecontext/career-context.md`;
+  const button = document.querySelector<HTMLButtonElement>("[data-copy-quickstart]");
+  const status = document.querySelector<HTMLElement>("[data-copy-status]");
+  button?.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(commandText);
+      if (status) status.textContent = "Copied.";
+    } catch {
+      if (status) status.textContent = "Copy failed. Select the commands manually.";
+    }
+  });
+</script>

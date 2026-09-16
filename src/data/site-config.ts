@@ -6,7 +6,7 @@ export const site = {
   repoUrl: "https://github.com/vitaecontext/vitaecontext",
   packageVersion: productContract.packageVersion,
   npmUrl: "https://www.npmjs.com/package/vitaecontext",
-  defaultImage: "/og/vitaecontext.png",
+  defaultImage: "/og.png",
   description:
     "VitaeContext gives AI agents and career systems a private, reusable source of truth about a person's career, then provides focused skills for turning that context into grounded professional work.",
   disclaimer:
