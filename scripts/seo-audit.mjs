@@ -5,13 +5,9 @@ const root = new URL("../", import.meta.url);
 const dist = new URL("dist/", root);
 const origin = "https://vitaecontext.github.io";
 const expectedRoutes = [
-  "/", "/vitaegraph/", "/profile-optimization/", "/playbooks/", "/skills/", "/providers/", "/design/",
+  "/", "/vitaegraph/", "/playbooks/", "/playbooks/context-builder/", "/skills/", "/providers/", "/design/",
   "/docs/", "/docs/installation/", "/docs/mcp/", "/docs/usage/", "/docs/context-file-example/", "/docs/cli/", "/faq/",
-  "/changelog/", "/contact/", "/skills/context-builder/", "/skills/cv-ats/", "/skills/github/",
-  "/skills/linkedin/", "/skills/vitaecontext/", "/skills/vitaegraph/", "/skills/web-portfolio/",
-  "/skills/x-twitter/", "/playbooks/context-builder/", "/playbooks/cv-ats/", "/playbooks/github/",
-  "/playbooks/linkedin/", "/playbooks/vitaecontext/", "/playbooks/vitaegraph/", "/playbooks/web-portfolio/",
-  "/playbooks/x-twitter/",
+  "/changelog/", "/contact/", "/skills/context-builder/", "/skills/vitaecontext/", "/skills/vitaegraph/",
 ];
 const errors = [];
 const records = [];

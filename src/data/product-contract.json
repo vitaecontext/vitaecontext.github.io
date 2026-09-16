@@ -1,16 +1,11 @@
 {
   "schemaVersion": 1,
   "packageName": "vitaecontext",
-  "packageVersion": "2.2.2",
+  "packageVersion": "2.3.0",
   "skills": [
     "vitaecontext",
     "vitaecontext-build",
-    "vitaecontext-cv",
-    "vitaecontext-github",
-    "vitaecontext-linkedin",
-    "vitaecontext-vitaegraph",
-    "vitaecontext-portfolio",
-    "vitaecontext-x"
+    "vitaecontext-vitaegraph"
   ],
   "providers": [
     "antigravity",
@@ -25,12 +20,5 @@
     "shared",
     "windsurf"
   ],
-  "playbooks": {
-    "context-builder": "c84c956664664c426be1c2a771561a7c948a750995d123b7054079ef1055c642",
-    "cv-ats": "79e01fc1bbbc521f94048e7bf88f0050f2d42f351aef58b5baf4279b85ff77a3",
-    "github": "2b6cd39daa84fe02e3e90717292b1a016edb7973ecad0db3cbd84480c2704328",
-    "linkedin": "994d06f8b06407ee5d61082591ec675c4590de61b2579aa05c67b27ffa770528",
-    "web-portfolio": "5965036837995ccf4ca71d847f1a38f4507e0b9a73bed0ad3bb37eafcec14e0e",
-    "x-twitter": "fff70c9c36826587072ca803e20b56b8096270d93aa1e8381c8ca5b81077e5cf"
-  }
+  "playbooks": {}
 }

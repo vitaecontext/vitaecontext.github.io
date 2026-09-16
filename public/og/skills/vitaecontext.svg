@@ -14,13 +14,13 @@
   </g>
 
   <g transform="translate(82 198)">
-    <rect x="0" y="0" width="251" height="42" rx="21" fill="#F7F5EF" stroke="#1F684B" stroke-width="2"/>
+    <rect x="0" y="0" width="264" height="42" rx="21" fill="#F7F5EF" stroke="#1F684B" stroke-width="2"/>
     <circle cx="28" cy="21" r="8" fill="#1F684B"/>
-    <text x="50" y="27" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#123C2D">Orchestration</text>
+    <text x="50" y="27" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#123C2D">Context Router</text>
   </g>
 
-  <text x="82" y="309" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="850" fill="#18201C"><tspan x="82" dy="0">Orchestration and Routing</tspan><tspan x="82" dy="68">Agent Skill</tspan></text>
-  <text x="86" y="505" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="650" fill="#5C6861"><tspan x="86" dy="0">Route a request to one module and load only the context</tspan><tspan x="86" dy="35">that task needs.</tspan></text>
+  <text x="82" y="309" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="850" fill="#18201C"><tspan x="82" dy="0">The Career Context Layer</tspan><tspan x="82" dy="68">Agent Skill</tspan></text>
+  <text x="86" y="505" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="650" fill="#5C6861"><tspan x="86" dy="0">Route a request to compact Career Context or selected</tspan><tspan x="86" dy="35">deeper VitaeGraph records.</tspan></text>
 
   <g transform="translate(790 398)">
     <rect x="0" y="0" width="325" height="76" rx="14" fill="#F7F5EF" stroke="#CED8D2" stroke-width="2"/>

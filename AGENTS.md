@@ -31,7 +31,7 @@ Read the product repository before changing product claims:
 - `../vitaecontext/README.md`
 - `../vitaecontext/DESIGN.md`
 - `../vitaecontext/.assets/docs/architecture-map.md`
-- relevant files under `../vitaecontext/.skills/`, `../vitaecontext/vitaegraph/`, and `../vitaecontext/hub/`
+- relevant files under `../vitaecontext/skills/`, `../vitaecontext/vitaegraph/`, and `../vitaecontext/hub/`
 
 The product repository is authoritative for runtime behavior, commands, supported providers, skill names, VitaeGraph semantics, and install paths. Do not edit it from this repository. Website content is a human-readable mirror and must not invent behavior.
 
@@ -40,7 +40,7 @@ The product repository is authoritative for runtime behavior, commands, supporte
 - Framework: Astro 7 with `@astrojs/react`.
 - Output: static files for GitHub Pages.
 - React/Three: only for the interactive VitaeGraph 3D sample.
-- Content: Astro collection under `src/content/playbooks/`.
+- Content: concise product pages under `src/pages/`; the retired platform playbook collection is no longer populated.
 - Site URL: `https://vitaecontext.github.io`.
 - Build output: `dist/`; never edit it directly.
 
@@ -62,11 +62,11 @@ Run `npm run og:generate` only when OG copy, colors, layout, or image generation
 - `src/pages/index.astro`: homepage composition only.
 - `src/pages/vitaegraph.astro`: VitaeGraph composition only.
 - `src/pages/docs/`: documentation hub, workflow, installation, CLI, and context example.
-- `src/pages/skills/`: installable skill catalog and dynamic skill detail route.
-- `src/pages/playbooks/`: human-readable guide catalog and dynamic guide detail route.
+- `src/pages/skills/`: compact reference for the three runtime context skills and their detail routes.
+- `src/pages/playbooks/`: concise human-readable Context Builder guide.
 - `src/pages/providers.astro`: provider installation reference.
 - `src/pages/design.astro`: project architecture explanation.
-- `src/pages/profile-optimization.astro`: retained broad career-workflow route; keep it simple and non-duplicative.
+- `src/pages/profile-optimization.astro`: retained compatibility route explaining that career workflows are downstream of VitaeContext.
 - `src/pages/faq.astro`, `src/pages/changelog.astro`, `src/pages/contact.astro`, `src/pages/404.astro`: project information routes.
 - `src/pages/sitemap.xml.ts`: generated sitemap from public routes, skills, and playbook collection entries.
 
@@ -74,11 +74,11 @@ Run `npm run og:generate` only when OG copy, colors, layout, or image generation
 
 Feature folders keep agent context narrow:
 
-- `src/components/landing/`: homepage narrative and visuals.
+- `src/pages/index.astro`: homepage narrative and context-layer visual system.
 - `src/components/vitaegraph/`: green sub-brand, graph workspace, records, relationships, retrieval, and start sections.
 - `src/components/docs/`: documentation-specific sections.
 - `src/components/skills/`: installable skill catalog and detail content.
-- `src/components/guides/`: human-readable guide catalog and reference shell.
+- `src/components/guides/`: human-readable guide catalog.
 - `src/components/providers/`: provider cards and installation surfaces.
 - `src/components/project/`: design/project architecture sections.
 - `src/components/shared/`: reusable `PageHero`, `SectionIntro`, and `InfoCard` primitives.
@@ -91,7 +91,7 @@ Page files should compose components. Put feature markup in its feature folder i
 
 - `src/data/site-config.ts`: site identity, URLs, authors, package version, disclaimer, and default image.
 - `src/data/navigation.ts`: primary navigation, footer groups, public routes, and Claude Code marketplace commands.
-- `src/data/skills.ts`: installable skill catalog and skill-specific summaries, methods, outputs, and use cases.
+- `src/data/skills.ts`: the root router, Context Builder, and VitaeGraph runtime references.
 - `src/data/providers.ts`: provider IDs, install commands, paths, invocation examples, and provider notes.
 - `src/data/metadata.ts`: canonical URL helpers and JSON-LD builders.
 - `src/data/sampleContext.ts`: fictional public context example only.
@@ -117,18 +117,15 @@ Do not append historical redesign CSS to `global.css`. If a feature needs new st
 
 Primary navigation is intentionally small:
 
-- Skills: installable runtime modules.
-- Guides: human-readable methods with no install required.
-- Docs: workflow, installation, CLI, and project references.
-- VitaeGraph: related green product module.
+- How it works: the context-first workflow and system boundary.
+- Get started: installation and first context setup.
+- Docs: workflow, MCP, CLI, provider, and project references.
+- VitaeGraph: optional deeper structured-record layer.
 - GitHub: source repository.
 
-Providers remain a documentation route, not a primary navigation item. Preserve existing routes and canonical paths unless an explicit migration is requested.
+Providers, skills, and the Context Builder guide remain documentation routes, not primary navigation items. Preserve existing routes where they help old links resolve, but do not restore the retired platform-module catalog.
 
-Skills and Guides are different surfaces:
-
-- A skill packages runtime instructions, references, and maintained knowledge for a supported agent.
-- A guide explains the method for a human reader.
+VitaeContext contains only three runtime skills: `vitaecontext`, `vitaecontext-build`, and `vitaecontext-vitaegraph`. CV, LinkedIn, GitHub, portfolio, and X adaptation belong to downstream tools and must not be presented as current VitaeContext modules.
 
 Do not expose keyword/search-intent lists as visible page copy.
 
@@ -174,7 +171,7 @@ Before finishing:
 
 1. Run `npm run build`.
 2. Run `git diff --check`.
-3. Check changed desktop and mobile routes, especially homepage, Docs, Skills, Guides, Providers, and VitaeGraph.
+3. Check changed desktop and mobile routes, especially homepage, How it works, Docs, Providers, and VitaeGraph.
 4. Confirm no horizontal overflow and readable H1 sizing.
 5. Confirm internal links resolve in `dist/` when routes or navigation change.
 6. Confirm product repository remains untouched.

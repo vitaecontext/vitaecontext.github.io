@@ -1,45 +1,31 @@
 # VitaeContext
 
-> Open-source career-context infrastructure and focused agent skills for grounded professional work. Current package version: 2.2.2.
+> The career context layer for AI agents. Current package version: 2.3.0.
 
-VitaeContext helps a person maintain Career Context—supplied career facts, stated goals, experience, projects, evidence links, and boundaries—in reusable Markdown. It is the career-context layer before AI-assisted CVs, applications, profiles, and other career workflows. Focused skills and other systems that accept supplied context can use the same source for professional tasks. VitaeGraph is the optional deeper layer for connected local Markdown records.
+VitaeContext turns selected career material into private, reusable Career Context: a Markdown source of truth for supplied facts, evidence, stated goals, constraints, and claims to avoid. Agents and downstream career systems can use that context without making VitaeContext the CV builder, application tool, profile writer, or workflow engine itself. VitaeGraph is the optional deeper structured-record layer.
 
 ## Start here
 
-- [Project overview](https://vitaecontext.github.io/): what VitaeContext solves and how the context-first workflow works.
-- [VitaeGraph](https://vitaecontext.github.io/vitaegraph/): private Markdown career knowledge graphs, powered by VitaeContext.
-- [Career workflows](https://vitaecontext.github.io/profile-optimization/): choose an installable skill, a human-readable guide, or the core context-first workflow.
-- [Example career context file](https://vitaecontext.github.io/docs/context-file-example/): a complete fictional template covering its structure, evidence boundaries, benefits, and use with AI agents.
-- [How it works](https://vitaecontext.github.io/docs/usage/): the context-first workflow and invocation example.
-- [Installation](https://vitaecontext.github.io/docs/installation/): npm, GitHub, local, and provider-specific installation.
-- [Model Context Protocol (MCP)](https://vitaecontext.github.io/docs/mcp/): stateless stdio MCP server for cross-workspace grounding.
-- [Guides](https://vitaecontext.github.io/playbooks/): human-readable methods for every supported module.
-- [System design](https://vitaecontext.github.io/design/): evidence boundaries, progressive disclosure, LLM Wiki, and provider adapters.
-- [Source repository](https://github.com/vitaecontext/vitaecontext): package source, tests, maintenance policy, and release history.
-
-## Core playbooks
-
-- [Personal career context](https://vitaecontext.github.io/playbooks/context-builder/)
-- [VitaeGraph](https://vitaecontext.github.io/playbooks/vitaegraph/)
-- [GitHub optimization](https://vitaecontext.github.io/playbooks/github/)
-- [LinkedIn optimization](https://vitaecontext.github.io/playbooks/linkedin/)
-- [CV and ATS optimization](https://vitaecontext.github.io/playbooks/cv-ats/)
-- [Web portfolio SEO and AI readability](https://vitaecontext.github.io/playbooks/web-portfolio/)
-- [X/Twitter positioning](https://vitaecontext.github.io/playbooks/x-twitter/)
+- [Project overview](https://vitaecontext.github.io/): the problem, system boundary, and context-first workflow.
+- [How it works](https://vitaecontext.github.io/docs/usage/): gather, structure, retrieve, and hand off context.
+- [Installation](https://vitaecontext.github.io/docs/installation/): install the package into a supported agent environment.
+- [Career Context example](https://vitaecontext.github.io/docs/context-file-example/): a fictional, inspectable file example.
+- [Context Builder guide](https://vitaecontext.github.io/playbooks/context-builder/): the maintained human-readable method.
+- [Model Context Protocol](https://vitaecontext.github.io/docs/mcp/): stateless access to selected local context.
+- [VitaeGraph](https://vitaecontext.github.io/vitaegraph/): deeper linked Markdown career records.
+- [System architecture](https://vitaecontext.github.io/design/): boundaries, retrieval, providers, and portability.
+- [Source repository](https://github.com/vitaecontext/vitaecontext): package source, tests, and releases.
 
 ## Verified public facts
 
-- The package contains one routing module and seven focused modules, including VitaeGraph.
-- 11 supported provider targets: Codex, Claude Code, Cursor, Windsurf, Roo Code, Gemini CLI, Antigravity, OpenCode, IBM Bob, xAI Grok, and a portable shared bundle.
-- The default npm install command is `npx vitaecontext install --provider <provider>`, or MCP execution with `npx -y vitaecontext mcp`.
-- Career Context lifecycle commands are `npx vitaecontext context init`, `context validate`, and `context summary`; validation checks structure and internal consistency, not external truth.
-- Model Context Protocol server runs over stdio JSON-RPC 2.0 conforming to version `2024-11-05` with zero runtime dependencies.
-- VitaeGraph graph commands are `npx vitaecontext graph init`, `npx vitaecontext graph validate`, and `npx vitaecontext graph index`.
-- A cloned repository includes a native Codex plugin marketplace under `.agents/plugins/`; direct Codex skill installation remains available.
-- Career Context is user-controlled material; the public playbooks and skills do not contain a user's career facts. External provider rules apply after a user shares content with one.
-- VitaeContext structures supplied facts and evidence boundaries; it does not independently verify every career claim.
-- VitaeGraph records are private local user material and should not be committed.
-- Audit scorecards are internal prioritization heuristics, not platform rankings or outcome guarantees.
-- SEO, AEO, GEO, `llms.txt`, snippets, citations, and indexing are treated as eligibility and readability work, not guaranteed visibility.
+- The package contains three runtime skills: `vitaecontext`, `vitaecontext-build`, and `vitaecontext-vitaegraph`.
+- Platform-specific CV, LinkedIn, GitHub, portfolio, and X modules were removed in version 2.3.0. Those tasks belong to downstream tools that consume Career Context.
+- The default install command is `npx vitaecontext install --provider <provider>`.
+- Career Context lifecycle commands include `context init`, `context validate`, and `context summary`.
+- The stateless MCP server runs with `npx -y vitaecontext mcp`.
+- VitaeGraph commands include `graph init`, `graph validate`, and `graph index`.
+- Career Context and VitaeGraph are user-controlled local material until a person supplies them to an external provider.
+- Validation checks structure and internal consistency. It does not independently verify real-world claims.
+- The product is provider- and system-agnostic. Supported provider adapters affect installation, not the meaning of the Career Context artifact.
 
-Do not infer customer counts, rankings, endorsements, or unpublished distribution status.
+Do not infer customer counts, rankings, endorsements, verified identity, or guaranteed career outcomes.

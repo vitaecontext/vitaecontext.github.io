@@ -21,6 +21,16 @@ const meta = {
     </div>
   </section>
   <section class="page-section prose">
+    <h2>Package 2.3.0 - 2026-09-11</h2>
+    <p>Narrowed VitaeContext to the career context layer: the root router, Context Builder, VitaeGraph, and the stateless MCP access path.</p>
+    <h3>Changed</h3>
+    <ul>
+      <li>Removed the former CV, GitHub, LinkedIn, portfolio, and X adaptation modules. Downstream tools now own platform-specific task methods.</li>
+      <li>Kept public GitHub material import inside Context Builder so repositories can still contribute evidence to Career Context and VitaeGraph.</li>
+      <li>Simplified the public website around the context-layer architecture, controlled retrieval, and downstream system boundary.</li>
+    </ul>
+    <p>Existing installs may retain retired module folders. Uninstall the recorded provider bundle, then reinstall the latest package to remove them.</p>
+
     <h2>Package 2.2.2 - 2026-08-30</h2>
     <p>Corrected the MCP launch command to use the published <code>vitaecontext</code> package and hardened local data access, resource resolution, search, protocol errors, and packed-package installation tests.</p>
     <ul>

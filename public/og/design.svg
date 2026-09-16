@@ -19,8 +19,8 @@
     <text x="50" y="27" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="800" fill="#123C2D">Design</text>
   </g>
 
-  <text x="82" y="309" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="850" fill="#18201C"><tspan x="82" dy="0">Applied Agentic-AI Concepts</tspan></text>
-  <text x="86" y="505" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="650" fill="#5C6861"><tspan x="86" dy="0">Career context file, LLM Wiki, evidence labels, and an</tspan><tspan x="86" dy="35">internal audit scorecard.</tspan></text>
+  <text x="82" y="309" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="850" fill="#18201C"><tspan x="82" dy="0">Context Layer Architecture</tspan></text>
+  <text x="86" y="505" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="650" fill="#5C6861"><tspan x="86" dy="0">Supplied material, portable context, controlled access,</tspan><tspan x="86" dy="35">and downstream career systems.</tspan></text>
 
   <g transform="translate(790 398)">
     <rect x="0" y="0" width="325" height="76" rx="14" fill="#F7F5EF" stroke="#CED8D2" stroke-width="2"/>

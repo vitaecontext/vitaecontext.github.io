@@ -13,9 +13,9 @@ function renderPng(svg) {
 const topics = [
   {
     slug: "context-builder",
-    label: "Agent Context",
-    title: "AI Career Context File Optimization",
-    subtitle: "One verified source of truth for agents, profiles, CVs, and portfolio copy.",
+    label: "Career Context",
+    title: "Build Reusable Career Context",
+    subtitle: "A private, evidence-bounded source of truth for agents and downstream career systems.",
     accent: "#1F684B",
     accentDark: "#123C2D",
     pattern: "CTX",
@@ -30,55 +30,10 @@ const topics = [
     pattern: "VG",
   },
   {
-    slug: "cv-ats",
-    label: "CV/ATS",
-    title: "ATS Resume and CV Optimization",
-    subtitle: "Parser-safe structure, recruiter scanning, keywords, and proof bullets.",
-    accent: "#1F684B",
-    accentDark: "#123C2D",
-    pattern: "CV",
-  },
-  {
-    slug: "github",
-    label: "GitHub",
-    title: "GitHub Profile and Repository SEO",
-    subtitle: "READMEs, topics, pinned repositories, and AI-readable project proof.",
-    accent: "#1F684B",
-    accentDark: "#123C2D",
-    pattern: "GH",
-  },
-  {
-    slug: "linkedin",
-    label: "LinkedIn",
-    title: "LinkedIn Profile Optimization",
-    subtitle: "Headline, About, Featured proof, skills, and recruiter search clarity.",
-    accent: "#1F684B",
-    accentDark: "#123C2D",
-    pattern: "IN",
-  },
-  {
-    slug: "web-portfolio",
-    label: "Web Portfolio",
-    title: "Portfolio SEO and Personal Website Optimization",
-    subtitle: "Crawlability, metadata, structured data, snippets, and AI search visibility.",
-    accent: "#1F684B",
-    accentDark: "#123C2D",
-    pattern: "WWW",
-  },
-  {
-    slug: "x-twitter",
-    label: "X / Twitter",
-    title: "X and Twitter Profile Optimization",
-    subtitle: "Bio clarity, pinned-post strategy, technical positioning, and posting loops.",
-    accent: "#1F684B",
-    accentDark: "#123C2D",
-    pattern: "X",
-  },
-  {
     slug: "vitaecontext",
-    label: "Orchestration",
-    title: "Orchestration and Routing",
-    subtitle: "Route a request to one module and load only the context that task needs.",
+    label: "Context Router",
+    title: "The Career Context Layer",
+    subtitle: "Route a request to compact Career Context or selected deeper VitaeGraph records.",
     accent: "#1F684B",
     accentDark: "#123C2D",
     pattern: "VC",
@@ -90,8 +45,8 @@ const pages = [
   {
     slug: "design",
     label: "Design",
-    title: "Applied Agentic-AI Concepts",
-    subtitle: "Career context file, LLM Wiki, evidence labels, and an internal audit scorecard.",
+    title: "Context Layer Architecture",
+    subtitle: "Supplied material, portable context, controlled access, and downstream career systems.",
     accent: "#1F684B",
     accentDark: "#123C2D",
     pattern: "DSN",
@@ -245,8 +200,8 @@ function writeImage(topic, variant) {
 
 const generated = [];
 for (const topic of topics) {
-  generated.push(writeImage(topic, "playbook"));
   generated.push(writeImage(topic, "skill"));
+  if (topic.slug === "context-builder") generated.push(writeImage(topic, "playbook"));
 }
 for (const page of pages) {
   generated.push(writeImage(page, "page"));

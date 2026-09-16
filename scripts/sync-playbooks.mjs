@@ -15,14 +15,7 @@ const contractPath = path.join(siteRoot, "src", "data", "product-contract.json")
 const llmsPath = path.join(siteRoot, "public", "llms.txt");
 const checkOnly = process.argv.includes("--check");
 
-const playbooks = [
-  "context-builder",
-  "cv-ats",
-  "github",
-  "linkedin",
-  "web-portfolio",
-  "x-twitter"
-];
+const playbooks = [];
 
 function digest(content) {
   return crypto.createHash("sha256").update(content).digest("hex");
