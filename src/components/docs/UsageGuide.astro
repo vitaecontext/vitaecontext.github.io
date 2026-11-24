@@ -48,7 +48,7 @@ that are unsupported or marked as needing evidence.</code></pre>
 
   <section class="doc-split" aria-label="Cross-workspace workflow">
     <article><h2>Option A: Bounded summary</h2><p>Run <code>npx vitaecontext context summary &lt;file&gt; --for &lt;task&gt;</code> to create a compact Markdown packet for the current workflow. This works well for manual chats and direct handoffs.</p></article>
-    <article><h2>Option B: Cross-workspace MCP</h2><p>Configure the stateless MCP server (<code>npx -y vitaecontext mcp</code>). Your AI coding assistants across all project repositories can query your private context and VitaeGraph dynamically without copying files.</p><p><a class="text-link" href="/docs/mcp/">Read the MCP server guide</a></p></article>
+    <article><h2>Option B: Cross-workspace MCP</h2><p>Configure the stateless MCP server (<code>npx -y vitaecontext mcp</code>). A compatible agent can list Career Context headings and request a bounded section for the task, or query VitaeGraph without copying files. This reduces unnecessary data selection, but is not an access-control boundary; broad reads are still available.</p><p><a class="text-link" href="/docs/mcp/">Read the MCP server guide</a></p></article>
   </section>
 
   <section class="feature-section">

@@ -6,6 +6,12 @@ import { site } from "@data/site-config";
 
 const clientConfigs = [
   {
+    id: "pi",
+    name: "Pi (compatible releases)",
+    target: "Optional MCP setup; separate from the source-only skill installer",
+    code: `pi mcp add vitaecontext -- npx -y vitaecontext mcp\npi mcp list`,
+  },
+  {
     id: "claude-desktop",
     name: "Claude Desktop",
     target: "~/Library/Application Support/Claude/claude_desktop_config.json (macOS) or ~/.config/Claude/claude_desktop_config.json (Linux)",
@@ -76,7 +82,7 @@ const clientConfigs = [
       <ul class="plain-check-list">
         <li><strong>Zero Workspace Pollution:</strong> No personal Markdown or career files need to be committed to software repositories.</li>
         <li><strong>Instant Cross-Project Grounding:</strong> Any tool supporting Model Context Protocol can query your career records on demand.</li>
-        <li><strong>Always Current:</strong> Edits to <code>~/.vitaecontext/career-context.md</code> or <code>~/.vitaecontext/vitaegraph/</code> immediately reflect across all chats.</li>
+        <li><strong>Read current sources:</strong> New reads use the selected local context. Rebuild VitaeGraph indexes after Markdown changes for indexed search. Previously returned chat content does not update automatically.</li>
         <li><strong>Evidence-Bounded:</strong> Preserves supplied facts and evidence limits without claiming independent verification.</li>
       </ul>
     </article>
@@ -130,9 +136,21 @@ const clientConfigs = [
     <p>Environment alternatives: <code>VITAECONTEXT_CAREER_CONTEXT</code> and <code>VITAEGRAPH_ROOT</code>. If no private context exists, the server reports that state; it does not substitute the bundled fictional example.</p>
   </section>
 
+  <section aria-labelledby="scoped-retrieval-title">
+    <SectionIntro eyebrow="Scoped retrieval · 2.4.0" title="Select the context needed for a task" text="List headings first, then read one section and its nested subsections within an explicit size limit." />
+    <div class="definition-list">
+      <div><dt><code>list_career_context_sections</code></dt><dd>Lists H2–H6 headings and source lines without section bodies.</dd></div>
+      <div><dt><code>get_context_for_task</code></dt><dd>Reads an exact heading, using an optional source line when titles repeat. The default limit is 6,000 characters, with a maximum of 12,000. Oversized selections return an error rather than truncated evidence.</dd></div>
+      <div><dt><code>search_vitaegraph</code></dt><dd>Returns up to 20 matches by default and at most 50. Responses include <code>matchCount</code>, <code>returnedCount</code>, and <code>truncated</code>.</dd></div>
+    </div>
+    <p>Selection and size limits reduce unnecessary context, but do not enforce permissions or classify sensitive content. Broad context tools and resources remain available. Connected clients process returned data according to their own policies.</p>
+    <p><a href="https://github.com/vitaecontext/vitaecontext/blob/main/mcp/README.md#tools">Read the full MCP tool contract.</a></p>
+  </section>
+
   <section aria-labelledby="client-setup-title">
     <SectionIntro eyebrow="Client setup" title="Configure your AI assistant" text="Register the VitaeContext MCP server once in your preferred tool config to enable cross-workspace context." />
 
+    <p>For Pi, consult the <a href="https://docs.pi.dev/latest/mcp">MCP documentation</a> for your installed release. Skill installation does not register the server, and live Pi compatibility must be checked in the client before supplying private context.</p>
     <div class="client-grid">
       {clientConfigs.map((client) => (
         <article class="client-card">
