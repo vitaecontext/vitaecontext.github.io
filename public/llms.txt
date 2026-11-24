@@ -22,7 +22,8 @@ VitaeContext turns selected career material into private, reusable Career Contex
 - Platform-specific CV, LinkedIn, GitHub, portfolio, and X modules were removed in version 2.3.0. Those tasks belong to downstream tools that consume Career Context.
 - The default install command is `npx vitaecontext install --provider <provider>`.
 - Career Context lifecycle commands include `context init`, `context validate`, and `context summary`.
-- The stateless MCP server runs with `npx -y vitaecontext mcp`.
+- The stateless MCP server runs with `npx -y vitaecontext mcp`. In 2.4.0, `list_career_context_sections` and `get_context_for_task` support bounded heading reads; broad context reads remain available. Selection is not access control.
+- Pi Agent Skills support is available in the product source (npm release pending): from a current checkout, run `node bin/vitaecontext.mjs install --provider pi`. Use `/skill:vitaecontext-build` to invoke the Context Builder.
 - VitaeGraph commands include `graph init`, `graph validate`, and `graph index`.
 - Career Context and VitaeGraph are user-controlled local material until a person supplies them to an external provider.
 - Validation checks structure and internal consistency. It does not independently verify real-world claims.
