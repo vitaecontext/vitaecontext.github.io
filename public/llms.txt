@@ -1,6 +1,6 @@
 # VitaeContext
 
-> The career context layer for AI agents. Current package version: 2.3.0.
+> The career context layer for AI agents. Current package version: 2.4.0.
 
 VitaeContext turns selected career material into private, reusable Career Context: a Markdown source of truth for supplied facts, evidence, stated goals, constraints, and claims to avoid. Agents and downstream career systems can use that context without making VitaeContext the CV builder, application tool, profile writer, or workflow engine itself. VitaeGraph is the optional deeper structured-record layer.
 
