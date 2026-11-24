@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "packageName": "vitaecontext",
-  "packageVersion": "2.3.0",
+  "packageVersion": "2.4.0",
   "skills": [
     "vitaecontext",
     "vitaecontext-build",
@@ -16,6 +16,7 @@
     "grok",
     "ibm-bob",
     "opencode",
+    "pi",
     "roo-code",
     "shared",
     "windsurf"

@@ -10,15 +10,15 @@ import { providers } from "@data/providers";
     <h2>Install from npm</h2>
     <p>Use the provider matching your agent environment:</p>
     <pre class="code-block"><code>npx vitaecontext install --provider codex</code></pre>
-    <p>Replace <code>codex</code> with another supported value listed below.</p>
+    <p>Replace <code>codex</code> with another published provider value listed below. Source-only adapters require a local checkout.</p>
   </section>
 
   <section>
     <h2>Supported provider values</h2>
     <div class="simple-table" role="table" aria-label="Supported provider values">
-      {providers.map((provider) => <div role="row"><strong role="cell">{provider.id}</strong><span role="cell">{provider.name}</span><code role="cell">{provider.globalTarget}</code></div>)}
+      {providers.map((provider) => <div role="row"><strong role="cell">{provider.id}</strong><span role="cell">{provider.name}{provider.sourceOnly ? " (source only)" : ""}</span><code role="cell">{provider.globalTarget}</code></div>)}
     </div>
-    <p><a href="/providers/">See provider-specific commands and invocation examples.</a></p>
+    <p><a href="/providers/">See provider-specific commands and invocation examples.</a> For Pi, use the local checkout instructions below until npm support is released.</p>
   </section>
 
   <section>
@@ -49,6 +49,9 @@ import { providers } from "@data/providers";
     <pre class="code-block"><code>git clone https://github.com/vitaecontext/vitaecontext.git
 cd vitaecontext
 npx . install --provider codex</code></pre>
+    <p>To try the unreleased Pi adapter from the same checkout:</p>
+    <pre class="code-block"><code>node bin/vitaecontext.mjs install --provider pi</code></pre>
+    <p>The default destination is <code>~/.pi/agent/skills/</code>; set <code>PI_CODING_AGENT_DIR</code> for a custom Pi directory or pass <code>--project-root .</code> for <code>.pi/skills/</code>. Skill installation does not configure MCP.</p>
   </section>
 
   <section>

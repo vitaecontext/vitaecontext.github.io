@@ -21,6 +21,17 @@ const meta = {
     </div>
   </section>
   <section class="page-section prose">
+    <h2>Unreleased product source</h2>
+    <p>Added Pi Agent Skills installation with user, project, and custom destinations. Thanks to <a href="https://github.com/yyxa">@yyxa</a> for the contribution, integrated through <a href="https://github.com/vitaecontext/vitaecontext/pull/15">PR #15</a>. Available from a local checkout; npm release pending.</p>
+
+    <h2>Package 2.4.0 - 2026-11-03</h2>
+    <p>Added exact-heading Career Context retrieval through <code>list_career_context_sections</code> and <code>get_context_for_task</code>, including source-line metadata and size limits.</p>
+    <ul>
+      <li>VitaeGraph search now returns up to 20 matches by default and at most 50, with total and returned counts and a truncation indicator.</li>
+      <li>Legacy platform-specific prompts remain downstream handoff templates, not separate bundled optimization skills.</li>
+      <li>Bounded reads reduce unnecessary selection but do not enforce confidentiality. The existing MCP protocol and broad context resources remain available.</li>
+    </ul>
+
     <h2>Package 2.3.0 - 2026-09-11</h2>
     <p>Narrowed VitaeContext to the career context layer: the root router, Context Builder, VitaeGraph, and the stateless MCP access path.</p>
     <h3>Changed</h3>

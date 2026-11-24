@@ -16,32 +16,16 @@ npm run dev
 
 The site is statically rendered and uses Astro pages for all important routes. Metadata and structured data live in shared helpers under `src/data/metadata.ts`.
 
-`sync:product` reads the sibling product repository by default, regenerates the six mirrored playbooks and `src/data/product-contract.json`, and aligns the public package version. Set `VITAECONTEXT_SOURCE_DIR` to use another product checkout. Deployment runs `sync:check` against a fresh checkout of `vitaecontext/vitaecontext` and fails on drift.
+`sync:product` reads the sibling product repository by default, regenerates `src/data/product-contract.json`, and aligns the package version in `public/llms.txt`. The retired platform playbook collection is no longer populated. The provider catalog is maintained separately from the generated contract; mark source-only adapters until they are published on npm. Set `VITAECONTEXT_SOURCE_DIR` to use another product checkout. Deployment runs `sync:check` against a fresh checkout of `vitaecontext/vitaecontext` and fails on drift.
 
 ## Routes
 
 - `/`
 - `/vitaegraph/`
-- `/profile-optimization/`
-- `/playbooks/`
-- `/playbooks/cv-ats/`
-- `/playbooks/linkedin/`
-- `/playbooks/github/`
-- `/playbooks/web-portfolio/`
-- `/playbooks/x-twitter/`
-- `/playbooks/context-builder/`
-- `/playbooks/vitaegraph/`
-- `/skills/`
-- `/skills/vitaegraph/`
-- `/skills/cv-ats/`
-- `/skills/linkedin/`
-- `/skills/github/`
-- `/skills/web-portfolio/`
-- `/skills/x-twitter/`
-- `/skills/context-builder/`
+- `/design/`
+- `/profile-optimization/` (compatibility route)
+- `/playbooks/` and `/playbooks/context-builder/`
+- `/skills/`, `/skills/vitaecontext/`, `/skills/context-builder/`, `/skills/vitaegraph/`
 - `/providers/`
-- `/docs/`
-- `/docs/installation/`
-- `/docs/usage/`
-- `/changelog/`
-- `/contact/`
+- `/docs/`, `/docs/installation/`, `/docs/usage/`, `/docs/cli/`, `/docs/mcp/`, `/docs/context-file-example/`
+- `/faq/`, `/changelog/`, `/contact/`
