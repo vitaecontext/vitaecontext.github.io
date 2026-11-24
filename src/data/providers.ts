@@ -8,6 +8,7 @@ export type ProviderInfo = {
   npxCmd: string;
   invocation: string;
   invocationNote: string;
+  sourceOnly?: boolean;
   mcpConfig?: {
     file: string;
     snippet: string;
@@ -161,6 +162,22 @@ export const providers: ProviderInfo[] = [
     mcpConfig: {
       file: ".grok/mcp_config.json",
       snippet: '{\n  "mcpServers": {\n    "vitaecontext": {\n      "command": "npx",\n      "args": ["-y", "vitaecontext", "mcp"]\n    }\n  }\n}',
+    },
+  },
+  {
+    id: "pi",
+    name: "Pi",
+    summary: "Installs the three canonical Agent Skills into Pi's user or project skill directory. The adapter is available in the product source; npm release support is pending.",
+    status: "Source available · npm release pending",
+    sourceOnly: true,
+    globalTarget: "~/.pi/agent/skills/ or PI_CODING_AGENT_DIR/skills/; .pi/skills/ with --project-root",
+    installCmd: "node bin/vitaecontext.mjs install --provider pi",
+    npxCmd: "node bin/vitaecontext.mjs install --provider pi",
+    invocation: "/skill:vitaecontext-build\n/skill:vitaecontext-vitaegraph",
+    invocationNote: "Run the install command from a current product checkout. Use /reload in an active Pi session. Optional MCP requires a compatible Pi release and separate configuration.",
+    mcpConfig: {
+      file: "Terminal command (compatible Pi releases)",
+      snippet: "pi mcp add vitaecontext -- npx -y vitaecontext mcp\npi mcp list",
     },
   },
   {

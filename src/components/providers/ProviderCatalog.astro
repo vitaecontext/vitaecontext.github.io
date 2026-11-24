@@ -15,6 +15,7 @@ const icons: Record<string, string> = {
   opencode: "opencode",
   "ibm-bob": "ibm",
   grok: "grok",
+  pi: "pi",
   shared: "package",
 };
 ---
@@ -26,13 +27,14 @@ const icons: Record<string, string> = {
   </section>
 
   <section class="feature-section" aria-labelledby="provider-list-title">
-    <SectionIntro eyebrow="Install targets" title="Supported providers" text="11 supported agent environments. Use the exact provider value shown on each card, or connect via MCP." />
+    <SectionIntro eyebrow="Install targets" title="Supported providers" text={`${providers.length} install targets in the product source, including the portable shared bundle. ${providers.filter((provider) => !provider.sourceOnly).length} are available through the published package; source-only adapters are marked below.`} />
     <div class="provider-grid">
       {providers.map((provider) => (
         <article class="provider-card">
           <header><span aria-hidden="true"><PlatformIcon kind={icons[provider.id] ?? "package"} /></span><div><small>{provider.status}</small><h2>{provider.name}</h2></div></header>
           <p>{provider.summary}</p>
-          <div><small>Install</small><pre class="code-block"><code>{provider.installCmd}</code></pre></div>
+          <div><small>{provider.sourceOnly ? "Install from a local checkout" : "Install"}</small><pre class="code-block"><code>{provider.installCmd}</code></pre></div>
+          {provider.sourceOnly && <p class="provider-note"><a href="https://github.com/vitaecontext/vitaecontext">Get the product source</a> before running the command.</p>}
           <div><small>Example</small><pre class="code-block code-block--muted"><code>{provider.invocation}</code></pre></div>
           <p class="provider-note">{provider.invocationNote}</p>
           {provider.mcpConfig && (
